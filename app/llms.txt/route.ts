@@ -1,0 +1,21 @@
+export async function GET() {
+  const llms = `# PANO Vacuum — Custom Vacuum Chambers & Precision Manufacturing
+> PANO Vacuum (Changshu, China) manufactures custom vacuum chambers, precision-machined components and vacuum-tight assemblies for semiconductor equipment OEMs, thin-film systems, precision optics and industrial vacuum applications.
+
+## Products
+- Custom Vacuum Chambers: /en/products/custom-vacuum-chambers/
+- Semiconductor Vacuum Chambers: /en/products/semiconductor-vacuum-chambers/
+- Aluminum / Stainless Steel Chambers: /en/products/aluminum-vacuum-chambers/ · /en/products/stainless-steel-vacuum-chambers/
+
+## Capabilities
+- Precision CNC Machining: /en/capabilities/precision-cnc-machining/
+- Vacuum-Tight Welding: /en/capabilities/vacuum-tight-welding/
+- Helium Leak Testing & Inspection: /en/capabilities/helium-leak-testing/
+
+## Contact
+- RFQ: /en/request-a-quote/
+`;
+  return new Response(llms.trim(), {
+    headers: { "Content-Type": "text/plain; charset=utf-8" },
+  });
+}
