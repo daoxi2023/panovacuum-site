@@ -1,15 +1,38 @@
 # PANO Vacuum — Custom Vacuum Chambers & Precision Manufacturing
-> PANO Vacuum (Changshu, China) manufactures custom vacuum chambers, precision-machined components and vacuum-tight assemblies for semiconductor equipment OEMs, thin-film systems, precision optics and industrial vacuum applications.
 
-## Products
-- Custom Vacuum Chambers: /en/products/custom-vacuum-chambers/
-- Semiconductor Vacuum Chambers: /en/products/semiconductor-vacuum-chambers/
-- Aluminum / Stainless Steel Chambers: /en/products/aluminum-vacuum-chambers/ · /en/products/stainless-steel-vacuum-chambers/
+> PANO Vacuum Machinery Technology (Changshu) Co., Ltd. manufactures custom vacuum chambers, precision-machined components and vacuum-tight assemblies for semiconductor equipment, vacuum coating/process tools and new-energy equipment makers. Drawing review → precision machining → welding & leak testing → inspection & delivery, all under one roof in Changshu, Jiangsu, China.
 
-## Capabilities
-- Precision CNC Machining: /en/capabilities/precision-cnc-machining/
-- Vacuum-Tight Welding: /en/capabilities/vacuum-tight-welding/
-- Helium Leak Testing & Inspection: /en/capabilities/helium-leak-testing/
+## Pages
+- Home (EN): /en/
+- Home (ZH 中文): /zh/
+- Request a Quote (EN): /en/request-a-quote/
+- 提交询价 (ZH): /zh/request-a-quote/
+
+## Capabilities (details on home page)
+- Precision CNC machining for vacuum-grade components
+- Vacuum-tight welding: TIG and automated processes
+- Surface finishing in a controlled clean welding environment
+- Helium leak testing to the 1×10⁻⁹ Pa·m³/s order (UL1000-class), per-chamber before shipment
+- 30 kW laser cutting · 400 t / 6.2 m press brake · H200 floor boring-mill (4 m-class) · 40+ welding stations · 50 t overhead crane
+
+## FAQ (10 questions, on home page)
+- Chamber size: multi-ton class, per drawing; 50 t crane supports full assembly
+- Materials: 304L / SUS316L stainless steel as standard, per drawing
+- Leak testing: helium mass-spectrometer, 1×10⁻⁹ Pa·m³/s order, verified per chamber
+- Lead time: per drawing complexity, committed milestone schedule in quotation
+- Certifications: in progress (SEMI-related standards, AWS welding systems); customer audits welcome
+- How to start: send drawing (PDF / DWG / STEP) → drawing review, DFM suggestions, quotation
+- Minimum order: single-piece custom work accepted
+- Warranty: contractual terms; every unit ships with inspection records
+- Overseas support: full English process, export packing & documentation
+- Payment: per contract (e.g., 30/70 or agreed LC)
+
+## Company
+- Organization: PANO Vacuum Machinery Technology (Changshu) Co., Ltd. (帕诺真空机械科技（常熟）有限公司)
+- Address: 常福街道朝阳路88号, 常熟市, 江苏省苏州市 215500, CN
+- Website: https://panovacuum.com (EN /en/ · ZH /zh/)
 
 ## Contact
-- RFQ: /en/request-a-quote/
+- RFQ: /en/request-a-quote/ · /zh/request-a-quote/
+- Email: zhouyou@panovacuum.com
+- Tel: +86 130 6372 2038 (China) · +1 307 533 3212 (US)
