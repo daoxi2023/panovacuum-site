@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { SeoLinks } from "../../../components/seo-links";
 import { articles } from "../../../../lib/articles";
 
 export function generateStaticParams() {
@@ -22,10 +23,13 @@ export default async function ArticlePage({ params }: { params: Promise<{ locale
     datePublished: article.date,
     author: { "@type": "Organization", name: "PANO Vacuum Machinery Technology (Changshu) Co., Ltd.", url: "https://panovacuum.com" },
     publisher: { "@type": "Organization", name: "PANO Vacuum", url: "https://panovacuum.com", logo: "https://panovacuum.com/logo.webp" },
+    image: "https://panovacuum.com/og-image.webp",
+    description: t.intro,
     inLanguage: zh ? "zh-CN" : "en",
   };
   return (
     <>
+      <SeoLinks path={`blog/${slug}`} locale={locale} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(ld) }} />
       <section className="page-head">
         <div className="container">

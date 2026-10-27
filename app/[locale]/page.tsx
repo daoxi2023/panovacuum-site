@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { articles } from "../../lib/articles";
+import { SeoLinks } from "../components/seo-links";
 
 const gates: Record<"en" | "zh", string[]> = {
   en: ["Drawing review & DFM", "Incoming material", "Blanking & bevel", "Precision machining", "Welding", "He leak testing", "Final inspection & delivery"],
@@ -169,6 +170,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
   };
   return (
     <>
+      <SeoLinks path="" locale={locale} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
 
       <section className="hero">

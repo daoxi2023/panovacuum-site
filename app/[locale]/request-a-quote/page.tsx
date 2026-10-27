@@ -1,3 +1,5 @@
+import { SeoLinks } from "../../components/seo-links";
+
 const content = {
   en: {
     eyebrow: "Request a Quote",
@@ -48,6 +50,7 @@ export default async function RequestQuote({ params }: { params: Promise<{ local
   const t = content[locale === "zh" ? "zh" : "en"];
   return (
     <>
+      <SeoLinks path="request-a-quote" locale={locale} />
       <section className="page-head">
         <div className="container">
           <p className="eyebrow">{t.eyebrow}</p>

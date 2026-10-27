@@ -5,7 +5,7 @@ export const dynamic = "force-static";
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [{ userAgent: "*", allow: "/" }],
-    sitemap: "https://www.panovacuum.com/sitemap.xml",
-    host: "https://www.panovacuum.com",
+    sitemap: "https://panovacuum.com/sitemap.xml",
+    host: "https://panovacuum.com",
   };
 }

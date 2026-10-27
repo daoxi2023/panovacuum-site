@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { articles } from "../../../lib/articles";
+import { SeoLinks } from "../../components/seo-links";
 
 export default async function Blog({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
@@ -9,6 +10,7 @@ export default async function Blog({ params }: { params: Promise<{ locale: strin
     : { title: "News & Articles", intro: "Technical articles and notes from the shop floor. Updated monthly — the questions equipment teams actually ask about vacuum chamber fabrication.", back: "Back to Home", read: "Read article", eyebrow: "NEWS · 新闻资讯" };
   return (
     <>
+      <SeoLinks path="blog" locale={locale} />
       <section className="page-head">
         <div className="container">
           <p className="eyebrow">{t.eyebrow}</p>
