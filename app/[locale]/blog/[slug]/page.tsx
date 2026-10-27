@@ -21,9 +21,10 @@ export default async function ArticlePage({ params }: { params: Promise<{ locale
     "@type": "Article",
     headline: t.title,
     datePublished: article.date,
-    author: { "@type": "Organization", name: "PANO Vacuum Machinery Technology (Changshu) Co., Ltd.", url: "https://panovacuum.com" },
+    author: { "@type": "Person", name: zh ? article.author.nameZh : article.author.nameEn, url: "https://panovacuum.com", email: article.author.email },
     publisher: { "@type": "Organization", name: "PANO Vacuum", url: "https://panovacuum.com", logo: "https://panovacuum.com/logo.webp" },
-    image: "https://panovacuum.com/og-image.webp",
+    image: `https://panovacuum.com${article.cover}`,
+    authorRole: zh ? article.author.roleZh : article.author.roleEn,
     description: t.intro,
     inLanguage: zh ? "zh-CN" : "en",
   };
@@ -36,11 +37,13 @@ export default async function ArticlePage({ params }: { params: Promise<{ locale
           <p className="eyebrow">{ui.tag}</p>
           <h1>{t.title}</h1>
           <p className="sub">{t.intro}</p>
-          <p className="news-date">{article.date} · {ui.by}</p>
+          <p className="news-date">{article.date} · {zh ? article.author.nameZh : article.author.nameEn}</p>
+          <p className="news-date" style={{ marginTop: 6 }}>{zh ? article.author.roleZh : article.author.roleEn} · <a href={`mailto:${article.author.email}`}>{article.author.email}</a></p>
         </div>
       </section>
       <section className="section">
         <div className="container article-body">
+          <img className="article-cover" src={article.cover} alt={t.title} loading="lazy" />
           {t.sections.map((s) => (
             <div key={s.h}>
               <h2>{s.h}</h2>

@@ -23,7 +23,7 @@ export default async function Blog({ params }: { params: Promise<{ locale: strin
           <div className="news-grid">
             {articles.map((a) => (
               <article className="news-card" key={a.slug}>
-                <div className="card-img" aria-hidden="true"><span>PANO</span></div>
+                <div className="card-img"><img src={a.cover} alt={zh ? a.zh.title : a.en.title} loading="lazy" /></div>
                 <div className="news-body">
                   <p className="news-date">{a.date}</p>
                   <h3><Link href={`/${locale}/blog/${a.slug}/`}>{zh ? a.zh.title : a.en.title}</Link></h3>

@@ -29,10 +29,10 @@ const content = {
     capsTitle: "Four processes, one factory",
     capsSub: "Every capability listed here comes from equipment on our shop floor — no rented showrooms.",
     caps: [
-      { t: "Precision CNC Machining", x: "Vacuum-grade parts; key dimensions recorded per part." },
-      { t: "Vacuum-Tight Welding", x: "TIG and automated across 40+ stations in a controlled clean welding environment." },
-      { t: "Surface Finishing & Cleaning", x: "Done in a controlled clean welding environment; inspection records available." },
-      { t: "Helium Leak Testing & Assembly", x: "UL1000-class, to the 1×10⁻⁹ Pa·m³/s order, verified per chamber; assembly and turnover supported." },
+      { t: "Precision CNC Machining", x: "Vacuum-grade parts; key dimensions recorded per part.", img: "/photos/cap-cmm.webp" },
+      { t: "Vacuum-Tight Welding", x: "TIG and automated across 40+ stations in a controlled clean welding environment.", img: "/photos/cap-chamber.webp" },
+      { t: "Surface Finishing & Cleaning", x: "Done in a controlled clean welding environment; inspection records available.", img: "/photos/cap-clean.webp" },
+      { t: "Helium Leak Testing & Assembly", x: "UL1000-class, to the 1×10⁻⁹ Pa·m³/s order, verified per chamber; assembly and turnover supported.", img: "/photos/cap-leak.webp" },
     ],
     qualityEyebrow: "Quality Control",
     qualityTitle: "7 inspection gates before a chamber ships",
@@ -45,6 +45,15 @@ const content = {
     ],
     aboutEyebrow: "About Us",
     aboutTitle: "A real factory, a single shop floor",
+    teamEyebrow: "Team & Expertise",
+    teamTitle: "In-house, hands-on, per drawing",
+    teamSub: "Process engineers, welders, QC and sales — the people behind each gate, reachable directly.",
+    team: [
+      { t: "Process Engineering", x: "Drawing review, DFM, tolerance and leak-path analysis before anything is cut." },
+      { t: "CNC & Machining", x: "Vacuum-grade parts on our own floor; key dimensions recorded per part." },
+      { t: "Welding", x: "TIG and automated across 40+ stations in a controlled clean welding environment." },
+      { t: "QC & Leak Testing", x: "7 inspection gates per chamber, records kept per unit and shipped with it." },
+    ],
     indEyebrow: "Who We Serve",
     indTitle: "Built for equipment makers",
     ind: [
@@ -59,6 +68,14 @@ const content = {
       { t: "Review & DFM", x: "Manufacturability, tolerances and leak-path risks agreed before any quote." },
       { t: "Quote with schedule", x: "A substantive reply within 48 hours, with a milestone schedule we commit to." },
       { t: "Build, test, deliver", x: "7 inspection gates, records per unit, inspection report shipped with the chamber." },
+    ],
+    caseEyebrow: "Case Examples",
+    caseTitle: "What a typical chamber job looks like",
+    caseSub: "Capability examples built from our equipment ledger — what we can make and how it is verified. Named customer case studies follow NDA-permitted disclosure.",
+    caseCta: "See capability examples",
+    cases: [
+      { t: "Multi-ton 304L chamber", x: "304L stainless, single-piece multi-ton class: 30 kW laser blanking, 400 t / 6.2 m press-brake forming, helium leak test to the 1×10⁻⁹ Pa·m³/s order, assembly and turnover under the 50 t crane; inspection records shipped with the unit.", tag: "Heavy chamber", img: "/photos/cap-chamber.webp" },
+      { t: "Vacuum-tight welding, verified per chamber", x: "TIG and automated welding across 40+ stations in a controlled clean welding environment, helium leak-tested per unit — not sampled.", tag: "Welding & leak test", img: "/photos/cap-leak.webp" },
     ],
     newsEyebrow: "News",
     newsTitle: "Notes from the shop floor",
@@ -101,10 +118,10 @@ const content = {
     capsTitle: "四个工序，一个厂",
     capsSub: "这页写的每一条能力，都来自车间里实际在用的设备。",
     caps: [
-      { t: "精密 CNC 加工", x: "真空级部件，关键尺寸逐件记录。" },
-      { t: "真空密封焊接", x: "TIG 与自动化工艺，40+ 工位，受控洁净焊接环境。" },
-      { t: "表面处理与清洗", x: "受控洁净焊接环境下完成，可提供检测记录。" },
-      { t: "氦质谱检漏与装配", x: "UL1000 级、1×10⁻⁹ Pa·m³/s 量级逐台验证；支持总装与翻转。" },
+      { t: "精密 CNC 加工", x: "真空级部件，关键尺寸逐件记录。", img: "/photos/cap-cmm.webp" },
+      { t: "真空密封焊接", x: "TIG 与自动化工艺，40+ 工位，受控洁净焊接环境。", img: "/photos/cap-chamber.webp" },
+      { t: "表面处理与清洗", x: "受控洁净焊接环境下完成，可提供检测记录。", img: "/photos/cap-clean.webp" },
+      { t: "氦质谱检漏与装配", x: "UL1000 级、1×10⁻⁹ Pa·m³/s 量级逐台验证；支持总装与翻转。", img: "/photos/cap-leak.webp" },
     ],
     qualityEyebrow: "质量检验",
     qualityTitle: "腔体出厂前，过 7 道检验",
@@ -117,6 +134,15 @@ const content = {
     ],
     aboutEyebrow: "关于我们",
     aboutTitle: "真实工厂，一个车间",
+    teamEyebrow: "团队与专业",
+    teamTitle: "厂里干活的人，直接可以对接",
+    teamSub: "工艺工程师、焊工技师、质检与销售——每道检验背后的具体角色，可直接联系。",
+    team: [
+      { t: "工艺工程", x: "图纸评审、DFM、公差与泄漏路径分析，下料前完成。" },
+      { t: "CNC 与精密加工", x: "真空级部件在本厂车间完成，关键尺寸逐件记录。" },
+      { t: "焊接", x: "TIG 与自动化工艺，40+ 工位，受控洁净焊接环境。" },
+      { t: "质检与检漏", x: "每台 7 道检验，逐台记录，检验报告随货交付。" },
+    ],
     indEyebrow: "应用领域",
     indTitle: "为设备厂商而生",
     ind: [
@@ -131,6 +157,14 @@ const content = {
       { t: "评审与 DFM", x: "可制造性、公差与泄漏路径风险，报价前先对齐。" },
       { t: "报价带节点", x: "48 小时内实质回复，交期节点锁进合同。" },
       { t: "制造·检验·交付", x: "7 道检验，逐台记录，检验报告随货。" },
+    ],
+    caseEyebrow: "案例与能力示例",
+    caseTitle: "一台典型腔体，在我们这里怎么走完",
+    caseSub: "基于设备台账整理的能力示例——能做什么、怎么验收。具名客户案例按保密约定脱敏后另行发布。",
+    caseCta: "查看能力示例",
+    cases: [
+      { t: "数吨级 304L 真空腔体", x: "304L 不锈钢、单件数吨级：3 万瓦激光下料、400 吨·6.2 米折弯成形、氦质谱检漏至 1×10⁻⁹ Pa·m³/s 量级、50 吨行车整体总装与翻转；检验报告随货交付。", tag: "重型腔体", img: "/photos/cap-chamber.webp" },
+      { t: "真空密封焊接，逐台验证", x: "40+ 工位 TIG 与自动化焊接，受控洁净焊接环境；氦质谱检漏逐台验证而非抽检。", tag: "焊接与检漏", img: "/photos/cap-leak.webp" },
     ],
     newsEyebrow: "新闻资讯",
     newsTitle: "车间里的真实笔记",
@@ -183,6 +217,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <Link href={`/${loc}/#capabilities`} className="cta secondary">{t.cta2}</Link>
           </p>
           <p className="trust">{t.trust}</p>
+          <div className="hero-media">
+            <img src="/photos/hero-chamber.webp" alt={loc === "zh" ? "定制真空腔体成品" : "Finished custom vacuum chamber"} loading="lazy" />
+          </div>
         </div>
       </section>
 
@@ -212,7 +249,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <div className="grid">
             {t.caps.map((c) => (
               <div className="card" key={c.t}>
-                <div className="card-img"><span>{loc === "zh" ? "实拍图 · 待素材" : "PHOTO · PENDING"}</span></div>
+                <div className="card-img"><img src={c.img} alt={c.t} loading="lazy" /></div>
                 <div className="card-body"><h3>{c.t}</h3><p>{c.x}</p></div>
               </div>
             ))}
@@ -254,6 +291,23 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </div>
       </section>
 
+      <section className="section alt" id="team">
+        <div className="container">
+          <div className="section-head">
+            <p className="eyebrow">{t.teamEyebrow}</p>
+            <h2>{t.teamTitle}</h2>
+            <p className="sub">{t.teamSub}</p>
+          </div>
+          <div className="grid">
+            {t.team.map((m) => (
+              <div className="card" key={m.t}>
+                <div className="card-body"><h3>{m.t}</h3><p>{m.x}</p></div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       <section className="section alt" id="industries">
         <div className="container">
           <div className="section-head">
@@ -288,6 +342,31 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </div>
       </section>
 
+      <section className="section" id="case-studies">
+        <div className="container">
+          <div className="section-head">
+            <p className="eyebrow">{t.caseEyebrow}</p>
+            <h2>{t.caseTitle}</h2>
+            <p className="sub">{t.caseSub}</p>
+          </div>
+          <div className="grid">
+            {t.cases.map((c) => (
+              <div className="card" key={c.t}>
+                <div className="card-img"><img src={c.img} alt={c.t} loading="lazy" /></div>
+                <div className="card-body">
+                  <p className="case-tag">{c.tag}</p>
+                  <h3>{c.t}</h3>
+                  <p>{c.x}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+          <p style={{ marginTop: 20 }}>
+            <Link href={`/${loc}/case-studies/`} className="text-link">{t.caseCta} →</Link>
+          </p>
+        </div>
+      </section>
+
       <section className="section alt" id="news">
         <div className="container">
           <div className="section-head">
@@ -297,7 +376,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <div className="news-grid">
             {news.map((a) => (
               <article className="news-card" key={a.slug}>
-                <div className="card-img" aria-hidden="true"><span>PANO</span></div>
+                <div className="card-img"><img src={a.cover} alt={loc === "zh" ? a.zh.title : a.en.title} loading="lazy" /></div>
                 <div className="news-body">
                   <p className="news-date">{a.date}</p>
                   <h3><Link href={`/${loc}/blog/${a.slug}/`}>{loc === "zh" ? a.zh.title : a.en.title}</Link></h3>

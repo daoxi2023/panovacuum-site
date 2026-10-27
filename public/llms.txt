@@ -9,6 +9,8 @@
 - 提交询价 (ZH): /zh/request-a-quote/
 - Blog index (EN): /en/blog/
 - 新闻资讯 (ZH): /zh/blog/
+- Case Examples (EN): /en/case-studies/
+- 案例与能力示例 (ZH): /zh/case-studies/
 
 ## Articles
 - 7 Inspection Gates: From Drawing to Vacuum Chamber Delivery: /en/blog/vacuum-chamber-7-inspection-gates/ (ZH: /zh/blog/vacuum-chamber-7-inspection-gates/)

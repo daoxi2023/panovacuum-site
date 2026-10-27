@@ -3,9 +3,19 @@
 
 export type ArticleSection = { h: string; body: string };
 
+export type ArticleAuthor = {
+  nameZh: string;
+  nameEn: string;
+  roleZh: string;
+  roleEn: string;
+  email: string;
+};
+
 export type Article = {
   slug: string;
   date: string;
+  author: ArticleAuthor;
+  cover: string;
   zh: { title: string; intro: string; sections: ArticleSection[]; closing: string };
   en: { title: string; intro: string; sections: ArticleSection[]; closing: string };
 };
@@ -14,6 +24,8 @@ export const articles: Article[] = [
   {
     slug: "vacuum-chamber-7-inspection-gates",
     date: "2026-10-27",
+    author: { nameZh: "帕诺工艺团队", nameEn: "PANO Process Team", roleZh: "工艺与质量", roleEn: "Process & Quality", email: "zhouyou@panovacuum.com" },
+    cover: "/photos/news-1.webp",
     zh: {
       title: "从图纸到交付：真空腔体的 7 道检验",
       intro: "真空腔体不是「焊完就交付」。从图纸到出厂，我们设 7 道检验闸口，每台带记录，客户可追溯。",
@@ -46,6 +58,8 @@ export const articles: Article[] = [
   {
     slug: "chamber-material-304l-or-316l",
     date: "2026-10-27",
+    author: { nameZh: "帕诺工艺团队", nameEn: "PANO Process Team", roleZh: "材料与工艺", roleEn: "Materials & Process", email: "zhouyou@panovacuum.com" },
+    cover: "/photos/news-2.webp",
     zh: {
       title: "真空腔体用 304L 还是 SUS316L？",
       intro: "结论：常规腔体用 304L 就够；工艺环境有腐蚀性气氛、或对耐蚀性有明确要求时，选 316L。拿不准就把使用环境写在询价里，我们按工况建议，不按习惯拍脑袋。",
@@ -70,6 +84,8 @@ export const articles: Article[] = [
   {
     slug: "how-to-request-a-quote-with-a-drawing",
     date: "2026-10-27",
+    author: { nameZh: "周游", nameEn: "Zhou You", roleZh: "商务与销售", roleEn: "Sales & BD", email: "zhouyou@panovacuum.com" },
+    cover: "/photos/news-3.webp",
     zh: {
       title: "怎么给真空腔体询价：一张图纸就够了",
       intro: "结论：发图纸（PDF / DWG / STEP）给我们，48 小时内得到实质回复——图纸评审、DFM 建议、报价、节点计划，一次性给全。",

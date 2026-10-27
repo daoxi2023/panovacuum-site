@@ -4,7 +4,7 @@ import { articles } from "../lib/articles";
 export const dynamic = "force-static";
 
 const base = "https://panovacuum.com";
-const pages = ["", "request-a-quote", "blog"] as const;
+const pages = ["", "request-a-quote", "blog", "case-studies"] as const;
 const articlePaths = articles.map((a) => `blog/${a.slug}`);
 
 export default function sitemap(): MetadataRoute.Sitemap {
