@@ -47,12 +47,10 @@ export default async function LocaleLayout({
   const { locale } = await params;
   const loc = locale === "zh" ? "zh" : "en";
   return (
-    <html lang={loc === "zh" ? "zh-CN" : "en"}>
-      <body>
-        <Header locale={loc} />
-        <main>{children}</main>
-        <Footer locale={loc} />
-      </body>
-    </html>
+    <>
+      <Header locale={loc} />
+      <main>{children}</main>
+      <Footer locale={loc} />
+    </>
   );
 }
