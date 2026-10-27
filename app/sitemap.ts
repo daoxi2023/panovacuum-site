@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 export const dynamic = "force-static";
 
-const base = "https://www.panovacuum.com";
+const base = "https://panovacuum.com";
 const paths = ["", "request-a-quote"] as const;
 
 export default function sitemap(): MetadataRoute.Sitemap {
