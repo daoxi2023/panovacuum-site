@@ -13,7 +13,7 @@ const icons = {
   shortcut: "/favicon.ico",
 };
 
-const ogImage = [{ url: "/og-image.webp", width: 1200, height: 630 }];
+const ogImage = [{ url: "https://panovacuum.com/og-image.webp", width: 1200, height: 630 }];
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
