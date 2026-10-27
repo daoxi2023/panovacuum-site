@@ -29,10 +29,10 @@ const content = {
     capsTitle: "Four processes, one factory",
     capsSub: "Every capability listed here comes from equipment on our shop floor — no rented showrooms.",
     caps: [
-      { t: "Precision CNC Machining", x: "Vacuum-grade parts; key dimensions recorded per part.", img: "/photos/cap-cmm.webp" },
-      { t: "Vacuum-Tight Welding", x: "TIG and automated across 40+ stations in a controlled clean welding environment.", img: "/photos/cap-chamber.webp" },
-      { t: "Surface Finishing & Cleaning", x: "Done in a controlled clean welding environment; inspection records available.", img: "/photos/cap-clean.webp" },
-      { t: "Helium Leak Testing & Assembly", x: "UL1000-class, to the 1×10⁻⁹ Pa·m³/s order, verified per chamber; assembly and turnover supported.", img: "/photos/cap-leak.webp" },
+      { t: "Precision CNC Machining", x: "Vacuum-grade parts; key dimensions recorded per part.", img: "/photos/cap-cmm.webp", alt: "ALPHA articulating-arm CMM inspecting a vacuum-grade part" },
+      { t: "Vacuum-Tight Welding", x: "TIG and automated across 40+ stations in a controlled clean welding environment.", img: "/photos/cap-chamber.webp", alt: "Finished custom vacuum chamber, 304L stainless steel" },
+      { t: "Surface Finishing & Cleaning", x: "Done in a controlled clean welding environment; inspection records available.", img: "/photos/cap-clean.webp", alt: "Controlled clean environment for surface finishing and inspection" },
+      { t: "Helium Leak Testing & Assembly", x: "UL1000-class, to the 1×10⁻⁹ Pa·m³/s order, verified per chamber; assembly and turnover supported.", img: "/photos/cap-leak.webp", alt: "INFICON UL1000-class helium leak tester verifying a chamber" },
     ],
     qualityEyebrow: "Quality Control",
     qualityTitle: "7 inspection gates before a chamber ships",
@@ -118,10 +118,10 @@ const content = {
     capsTitle: "四个工序，一个厂",
     capsSub: "这页写的每一条能力，都来自车间里实际在用的设备。",
     caps: [
-      { t: "精密 CNC 加工", x: "真空级部件，关键尺寸逐件记录。", img: "/photos/cap-cmm.webp" },
-      { t: "真空密封焊接", x: "TIG 与自动化工艺，40+ 工位，受控洁净焊接环境。", img: "/photos/cap-chamber.webp" },
-      { t: "表面处理与清洗", x: "受控洁净焊接环境下完成，可提供检测记录。", img: "/photos/cap-clean.webp" },
-      { t: "氦质谱检漏与装配", x: "UL1000 级、1×10⁻⁹ Pa·m³/s 量级逐台验证；支持总装与翻转。", img: "/photos/cap-leak.webp" },
+      { t: "精密 CNC 加工", x: "真空级部件，关键尺寸逐件记录。", img: "/photos/cap-cmm.webp", alt: "ALPHA 关节臂三坐标检测仪检测真空级零件" },
+      { t: "真空密封焊接", x: "TIG 与自动化工艺，40+ 工位，受控洁净焊接环境。", img: "/photos/cap-chamber.webp", alt: "定制真空腔体成品，304L 不锈钢" },
+      { t: "表面处理与清洗", x: "受控洁净焊接环境下完成，可提供检测记录。", img: "/photos/cap-clean.webp", alt: "受控洁净环境下的表面处理与检测" },
+      { t: "氦质谱检漏与装配", x: "UL1000 级、1×10⁻⁹ Pa·m³/s 量级逐台验证；支持总装与翻转。", img: "/photos/cap-leak.webp", alt: "UL1000 氦质谱检漏仪验证腔体密封性" },
     ],
     qualityEyebrow: "质量检验",
     qualityTitle: "腔体出厂前，过 7 道检验",
@@ -249,7 +249,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <div className="grid">
             {t.caps.map((c) => (
               <div className="card" key={c.t}>
-                <div className="card-img"><img src={c.img} alt={c.t} loading="lazy" /></div>
+                <div className="card-img"><img src={c.img} alt={c.alt || c.t} loading="lazy" /></div>
                 <div className="card-body"><h3>{c.t}</h3><p>{c.x}</p></div>
               </div>
             ))}
