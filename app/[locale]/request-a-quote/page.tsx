@@ -1,12 +1,13 @@
 const content = {
   en: {
+    eyebrow: "Request a Quote",
     h1: "Request a Quote",
     sub: "Tell us about your vacuum chamber or fabricated component — include drawing files when available. We respond to every serious RFQ.",
     contact: "Name / Company",
     email: "Email",
     desc: "Project description",
     placeholder: "Material, dimensions, quantity, target timeline, operating pressure (if any)…",
-    note: "Drawing upload and secure transmission are wired in the next build stage. This is the Phase 1 skeleton.",
+    note: "Drawing upload and secure transmission are wired in the next build stage. You can also email your drawing directly.",
     submit: "Submit (coming soon)",
     ct: "Direct contact",
     who: "Zhou You (周游)",
@@ -20,13 +21,14 @@ const content = {
     web: "www.panovacuum.com",
   },
   zh: {
+    eyebrow: "提交询价",
     h1: "提交图纸询价",
-    sub: "告诉我们您的真空腔体或加工件需求，如有图纸请一并提供。收到询盘后将尽快实质回复。",
+    sub: "告诉我们您的真空腔体或加工件需求，如有图纸请一并提供。收到询盘后 48 小时内实质回复。",
     contact: "姓名 / 公司",
     email: "邮箱",
     desc: "项目说明",
     placeholder: "材料、尺寸、数量、目标交期、工作压力（如有）…",
-    note: "图纸上传与安全传输将在下一构建阶段接通。当前为 Phase 1 骨架。",
+    note: "图纸在线传输将在下一构建阶段接通；现在也可以直接把图纸发到邮箱。",
     submit: "提交（即将上线）",
     ct: "直接联系",
     who: "周游（Zhou You）",
@@ -45,30 +47,37 @@ export default async function RequestQuote({ params }: { params: Promise<{ local
   const { locale } = await params;
   const t = content[locale === "zh" ? "zh" : "en"];
   return (
-    <section className="hero">
-      <div className="container">
-        <h1>{t.h1}</h1>
-        <p className="sub">{t.sub}</p>
-        <form style={{ maxWidth: 620 }}>
-          <label>{t.contact}</label>
-          <input className="field" name="contact" required />
-          <label>{t.email}</label>
-          <input className="field" type="email" name="email" required />
-          <label>{t.desc}</label>
-          <textarea className="field" name="description" placeholder={t.placeholder} />
-          <p className="form-note">{t.note}</p>
-          <button className="cta" type="submit" disabled>{t.submit}</button>
-        </form>
-        <div style={{ marginTop: 40, padding: "20px 24px", border: "1px solid #d8d8d8", borderRadius: 8, maxWidth: 620, background: "#fafafa" }}>
-          <h2 style={{ marginTop: 0 }}>{t.ct}</h2>
-          <p style={{ margin: "4px 0" }}><strong>{t.who}</strong> — {t.role}</p>
-          <p style={{ margin: "4px 0" }}>{t.brand}</p>
-          <p style={{ margin: "4px 0" }}>{t.cn} · {t.us}</p>
-          <p style={{ margin: "4px 0" }}><a href={`mailto:${t.em}`}>{t.em}</a></p>
-          <p style={{ margin: "4px 0" }}>{t.co}</p>
-          <p style={{ margin: "4px 0" }}>{t.ad} · <a href="https://www.panovacuum.com">{t.web}</a></p>
+    <>
+      <section className="page-head">
+        <div className="container">
+          <p className="eyebrow">{t.eyebrow}</p>
+          <h1>{t.h1}</h1>
+          <p className="sub">{t.sub}</p>
         </div>
-      </div>
-    </section>
+      </section>
+      <section className="section">
+        <div className="container">
+          <form style={{ maxWidth: 640 }}>
+            <label>{t.contact}</label>
+            <input className="field" name="contact" required />
+            <label>{t.email}</label>
+            <input className="field" type="email" name="email" required />
+            <label>{t.desc}</label>
+            <textarea className="field" name="description" placeholder={t.placeholder} />
+            <p className="form-note">{t.note}</p>
+            <button className="cta" type="submit" disabled>{t.submit}</button>
+          </form>
+          <div style={{ marginTop: 44, padding: "22px 26px", border: "1px solid var(--pano-line)", borderRadius: 10, maxWidth: 640, background: "var(--pano-bg-alt)" }}>
+            <h2 style={{ marginTop: 0 }}>{t.ct}</h2>
+            <p style={{ margin: "4px 0" }}><strong>{t.who}</strong> — {t.role}</p>
+            <p style={{ margin: "4px 0" }}>{t.brand}</p>
+            <p style={{ margin: "4px 0" }}>{t.cn} · {t.us}</p>
+            <p style={{ margin: "4px 0" }}><a href={`mailto:${t.em}`}>{t.em}</a></p>
+            <p style={{ margin: "4px 0" }}>{t.co}</p>
+            <p style={{ margin: "4px 0" }}>{t.ad} · <a href="https://www.panovacuum.com">{t.web}</a></p>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

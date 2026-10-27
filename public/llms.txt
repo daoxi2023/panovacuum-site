@@ -7,6 +7,13 @@
 - Home (ZH 中文): /zh/
 - Request a Quote (EN): /en/request-a-quote/
 - 提交询价 (ZH): /zh/request-a-quote/
+- Blog index (EN): /en/blog/
+- 新闻资讯 (ZH): /zh/blog/
+
+## Articles
+- 7 Inspection Gates: From Drawing to Vacuum Chamber Delivery: /en/blog/vacuum-chamber-7-inspection-gates/ (ZH: /zh/blog/vacuum-chamber-7-inspection-gates/)
+- Chamber Material: 304L or SUS316L?: /en/blog/chamber-material-304l-or-316l/ (ZH: /zh/blog/chamber-material-304l-or-316l/)
+- How to Request a Quote for a Vacuum Chamber: One Drawing Is Enough: /en/blog/how-to-request-a-quote-with-a-drawing/ (ZH: /zh/blog/how-to-request-a-quote-with-a-drawing/)
 
 ## Capabilities (details on home page)
 - Precision CNC machining for vacuum-grade components

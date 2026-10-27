@@ -1,12 +1,14 @@
 import type { MetadataRoute } from "next";
+import { articles } from "../lib/articles";
 
 export const dynamic = "force-static";
 
 const base = "https://panovacuum.com";
-const paths = ["", "request-a-quote"] as const;
+const pages = ["", "request-a-quote", "blog"] as const;
+const articlePaths = articles.map((a) => `blog/${a.slug}`);
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return paths.flatMap((p) => [
+  return [...pages, ...articlePaths].flatMap((p) => [
     {
       url: `${base}/en/${p}`,
       lastModified: new Date(),

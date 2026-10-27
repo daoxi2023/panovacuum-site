@@ -1,33 +1,64 @@
 import Link from "next/link";
 
-const nav: Record<"en" | "zh", { home: string; homeUrl: string; rfq: string; rfqUrl: string; alt: string; altUrl: string }> = {
-  en: { home: "Home", homeUrl: "/en", rfq: "Request a Quote", rfqUrl: "/en/request-a-quote", alt: "中文", altUrl: "/zh" },
-  zh: { home: "首页", homeUrl: "/zh", rfq: "提交询价", rfqUrl: "/zh/request-a-quote", alt: "English", altUrl: "/en" },
+const navs: Record<"en" | "zh", { tel: string; nav: { label: string; href: string }[] }> = {
+  en: {
+    tel: "+86 130 6372 2038",
+    nav: [
+      { label: "Home", href: "/en/" },
+      { label: "Capabilities", href: "/en/#capabilities" },
+      { label: "Quality", href: "/en/#quality" },
+      { label: "About", href: "/en/#about" },
+      { label: "Industries", href: "/en/#industries" },
+      { label: "Blog", href: "/en/blog/" },
+      { label: "Request a Quote", href: "/en/request-a-quote/" },
+    ],
+  },
+  zh: {
+    tel: "+86 130 6372 2038",
+    nav: [
+      { label: "首页", href: "/zh/" },
+      { label: "制造能力", href: "/zh/#capabilities" },
+      { label: "质量检验", href: "/zh/#quality" },
+      { label: "关于我们", href: "/zh/#about" },
+      { label: "应用领域", href: "/zh/#industries" },
+      { label: "新闻博客", href: "/zh/blog/" },
+      { label: "提交询价", href: "/zh/request-a-quote/" },
+    ],
+  },
 };
 
 export function Header({ locale }: { locale: "en" | "zh" }) {
-  const t = nav[locale];
+  const t = navs[locale];
   const brand = locale === "en" ? "PANO Vacuum" : "帕诺真空";
   return (
-    <header className="site-header">
-      <div className="container">
-        <Link href={t.homeUrl} className="brand">
-          <img
-            src="/logo.webp"
-            srcSet="/logo-2x.webp 2x"
-            alt="PANO Vacuum 帕诺真空"
-            width={66}
-            height={42}
-            style={{ height: 42, width: "auto", verticalAlign: "middle" }}
-          />
-          <span>{brand}</span>
-        </Link>
-        <nav>
-          <Link href={t.homeUrl}>{t.home}</Link>
-          <Link href={t.rfqUrl}>{t.rfq}</Link>
-        </nav>
-        <Link href={t.altUrl} className="lang-switch">{t.alt}</Link>
+    <>
+      <div className="site-topbar">
+        <div className="container topbar-inner">
+          <span className="topbar-tel">{locale === "en" ? "RFQ Hotline:" : "询价专线："} {t.tel}</span>
+          <a href="mailto:zhouyou@panovacuum.com">zhouyou@panovacuum.com</a>
+        </div>
       </div>
-    </header>
+      <header className="site-header">
+        <div className="container header-inner">
+          <Link href={`/${locale}/`} className="brand">
+            <img
+              src="/logo.webp"
+              srcSet="/logo-2x.webp 2x"
+              alt="PANO Vacuum 帕诺真空"
+              width={66}
+              height={42}
+              style={{ height: 42, width: "auto", verticalAlign: "middle" }}
+            />
+            <span>{brand}</span>
+          </Link>
+          <nav className="main-nav" aria-label="Main">
+            {t.nav.map((n) => (
+              <Link key={n.label} href={n.href}>{n.label}</Link>
+            ))}
+          </nav>
+          <Link href={locale === "en" ? "/zh" : "/en"} className="lang-switch">{locale === "en" ? "中文" : "English"}</Link>
+        </div>
+      </header>
+    </>
   );
 }
