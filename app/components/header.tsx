@@ -7,10 +7,21 @@ const nav: Record<"en" | "zh", { home: string; homeUrl: string; rfq: string; rfq
 
 export function Header({ locale }: { locale: "en" | "zh" }) {
   const t = nav[locale];
+  const brand = locale === "en" ? "PANO Vacuum" : "帕诺真空";
   return (
     <header className="site-header">
       <div className="container">
-        <Link href={t.homeUrl} className="brand">{locale === "en" ? "PANO Vacuum" : "帕诺真空"}</Link>
+        <Link href={t.homeUrl} className="brand">
+          <img
+            src="/logo.webp"
+            srcSet="/logo-2x.webp 2x"
+            alt="PANO Vacuum 帕诺真空"
+            width={66}
+            height={42}
+            style={{ height: 42, width: "auto", verticalAlign: "middle" }}
+          />
+          <span>{brand}</span>
+        </Link>
         <nav>
           <Link href={t.homeUrl}>{t.home}</Link>
           <Link href={t.rfqUrl}>{t.rfq}</Link>
