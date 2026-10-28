@@ -9,6 +9,6 @@
  */
 export const siteConfig = {
   clarityProjectId: "z4lu81ynam",
-  ga4MeasurementId: "",
+  ga4MeasurementId: "G-1WQQZ0MQYG",
   googleSiteVerification: "",
 } as const;
