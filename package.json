@@ -5,10 +5,11 @@
   "scripts": {
     "dev": "next dev -p 3000",
     "build": "next build",
-    "postbuild": "node scripts/normalize-hreflang.mjs",
+    "postbuild": "node scripts/normalize-hreflang.mjs && node scripts/finalize-domain.mjs",
     "start": "next start -p 3000",
     "typecheck": "tsc --noEmit",
-    "cf:deploy": "wrangler pages deploy out/ --project-name pano-vacuum"
+    "cf:deploy": "wrangler pages deploy out/ --project-name pano-vacuum",
+    "build:cn": "export SITE_BASE_URL=https://panovacuum.cn && next build && node scripts/normalize-hreflang.mjs && node scripts/finalize-domain.mjs"
   },
   "dependencies": {
     "next": "15.5.2",
@@ -23,6 +24,10 @@
     "wrangler": "^4.153.0"
   },
   "pnpm": {
-    "onlyBuiltDependencies": ["esbuild", "workerd", "sharp"]
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "workerd",
+      "sharp"
+    ]
   }
 }

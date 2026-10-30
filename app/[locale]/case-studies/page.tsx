@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SITE_BASE } from "@/lib/site-base";
 import { SeoLinks } from "../../components/seo-links";
 
 const content = {
@@ -40,7 +41,7 @@ export default async function CaseStudies({ params }: { params: Promise<{ locale
     itemListElement: t.cases.map((c, i) => ({
       "@type": "ListItem",
       position: i + 1,
-      item: { "@type": "Article", headline: c.t, description: c.x, image: `https://panovacuum.com${c.img}` },
+      item: { "@type": "Article", headline: c.t, description: c.x, image: `${SITE_BASE}${c.img}` },
     })),
   };
   return (

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SITE_ICP } from "@/lib/site-base";
 
 export function Footer({ locale }: { locale: "en" | "zh" }) {
   const zh = locale === "zh";
@@ -105,6 +106,11 @@ export function Footer({ locale }: { locale: "en" | "zh" }) {
         <span>{T.rights}</span>
         <Link href={`/${locale}/blog/`} className="footer-articles">{T.articles}</Link>
       </div>
+      {SITE_ICP ? (
+        <div className="container footer-icp">
+          <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">{SITE_ICP}</a>
+        </div>
+      ) : null}
     </footer>
   );
 }

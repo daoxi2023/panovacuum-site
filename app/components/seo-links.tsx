@@ -1,7 +1,9 @@
 // SeoLinks: Next.js App Router static export drops hreflang/canonical from
 // metadata (known limitation of output:export), so render the <link> tags
 // directly — Next hoists them into <head>. One source per page path.
-const BASE = "https://panovacuum.com";
+import { SITE_BASE } from "@/lib/site-base";
+
+const BASE = SITE_BASE;
 
 export function SeoLinks({ path = "", locale }: { path?: string; locale: string }) {
   const suffix = path === "" ? "/" : `/${path}/`;

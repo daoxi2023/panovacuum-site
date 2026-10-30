@@ -1,10 +1,11 @@
 import type { MetadataRoute } from "next";
 import { articles } from "../lib/articles";
 import { manufacturingServices } from "../lib/manufacturing";
+import { SITE_BASE } from "@/lib/site-base";
 
 export const dynamic = "force-static";
 
-const base = "https://panovacuum.com";
+const base = SITE_BASE;
 const pages = ["", "request-a-quote", "blog", "case-studies", "industrial-partnerships", "company-profile", "privacy"] as const;
 const articlePaths = articles.map((a) => `blog/${a.slug}`);
 

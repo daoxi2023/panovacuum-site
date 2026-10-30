@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { SITE_BASE } from "@/lib/site-base";
 import { notFound } from "next/navigation";
 import { SeoLinks } from "../../../components/seo-links";
 import { articles } from "../../../../lib/articles";
@@ -21,9 +22,9 @@ export default async function ArticlePage({ params }: { params: Promise<{ locale
     "@type": "Article",
     headline: t.title,
     datePublished: article.date,
-    author: { "@type": "Person", name: zh ? article.author.nameZh : article.author.nameEn, url: "https://panovacuum.com", email: article.author.email },
-    publisher: { "@type": "Organization", name: "PANO Vacuum", url: "https://panovacuum.com", logo: "https://panovacuum.com/pano-vacuum-tech-logo.webp" },
-    image: `https://panovacuum.com${article.cover}`,
+    author: { "@type": "Person", name: zh ? article.author.nameZh : article.author.nameEn, url: SITE_BASE, email: article.author.email },
+    publisher: { "@type": "Organization", name: "PANO Vacuum", url: SITE_BASE, logo: `${SITE_BASE}/pano-vacuum-tech-logo.webp` },
+    image: `${SITE_BASE}${article.cover}`,
     authorRole: zh ? article.author.roleZh : article.author.roleEn,
     description: t.intro,
     inLanguage: zh ? "zh-CN" : "en",

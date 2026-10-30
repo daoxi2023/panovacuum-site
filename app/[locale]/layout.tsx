@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "../globals.css";
 import { Header } from "../components/header";
 import { Footer } from "../components/footer";
+import { SITE_BASE } from "@/lib/site-base";
 
 export function generateStaticParams() {
   return [{ locale: "en" }, { locale: "zh" }];
@@ -13,11 +14,11 @@ const icons = {
   shortcut: "/favicon.ico",
 };
 
-const ogImage = [{ url: "https://panovacuum.com/og-image.webp", width: 1200, height: 630 }];
+const ogImage = [{ url: `${SITE_BASE}/og-image.webp`, width: 1200, height: 630 }];
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  const base: Metadata = { metadataBase: new URL("https://panovacuum.com") };
+  const base: Metadata = { metadataBase: new URL(SITE_BASE) };
   return locale === "zh"
     ? {
         ...base,

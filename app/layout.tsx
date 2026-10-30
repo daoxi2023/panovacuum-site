@@ -1,4 +1,5 @@
 import { siteConfig } from "../lib/site-config";
+import { SITE_BASE } from "@/lib/site-base";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const orgJsonLd = {
@@ -6,8 +7,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     "@type": "Organization",
     name: "PANO Vacuum Machinery Technology (Changshu) Co., Ltd.",
     alternateName: "帕诺真空机械科技（常熟）有限公司",
-    url: "https://panovacuum.com",
-    logo: "https://panovacuum.com/pano-vacuum-tech-logo.webp",
+    url: SITE_BASE,
+    logo: `${SITE_BASE}/pano-vacuum-tech-logo.webp`,
     email: "zhouyou@panovacuum.com",
     telephone: "+86-130-6372-2038",
     address: {
