@@ -28,6 +28,7 @@ export function Footer({ locale }: { locale: "en" | "zh" }) {
         web: "www.panovacuum.com",
         rights: "© 2026 帕诺真空 版权所有",
         articles: "技术文章",
+        wechatLabel: "微信咨询",
       }
     : {
         tagline: "A vacuum chamber manufacturer in Changshu — from drawing to delivery, under one roof.",
@@ -54,6 +55,7 @@ export function Footer({ locale }: { locale: "en" | "zh" }) {
         web: "www.panovacuum.com",
         rights: "© 2026 PANO Vacuum. All rights reserved.",
         articles: "Technical Articles",
+        wechatLabel: "WeChat",
       };
   return (
     <footer className="site-footer">
@@ -83,6 +85,15 @@ export function Footer({ locale }: { locale: "en" | "zh" }) {
           <p className="footer-line"><a href="tel:+8613063722038">{T.tel}</a><br /><a href="tel:+13075333212">{T.telUs}</a></p>
           <p className="footer-line"><a href={`mailto:${T.mail}`}>{T.mail}</a></p>
           <p className="footer-line">{T.addr}</p>
+          <p className="footer-line" style={{ marginTop: 14 }}>{T.wechatLabel}</p>
+          <img
+            src="/wechat-qr.webp"
+            alt={zh ? "周游微信二维码" : "Zhou You WeChat QR code"}
+            className="footer-qr"
+            width={96}
+            height={96}
+            loading="lazy"
+          />
         </div>
         <div>
           <p className="footer-title">{T.companyTitle}</p>

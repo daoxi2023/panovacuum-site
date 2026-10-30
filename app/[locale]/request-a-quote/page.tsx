@@ -28,6 +28,15 @@ export default async function RequestQuote({ params }: { params: Promise<{ local
         <p>{zh ? "没有正式图纸，也可以先描述需求。在线表单暂不收取附件；图纸可在后续沟通中通过邮箱交换。" : "You can start without a formal drawing. This form does not accept attachments; drawings can be exchanged by email during follow-up."}</p>
         <h2>{zh ? "直接联系" : "Direct contact"}</h2>
         <p>{zh ? "周游 · 商务与产业合作" : "Zhou You · Business & industrial partnerships"}<br /><a href="mailto:zhouyou@panovacuum.com">zhouyou@panovacuum.com</a><br /><a href="tel:+8613063722038">+86 130 6372 2038</a></p>
+        <img
+          src="/wechat-qr.webp"
+          alt={zh ? "周游微信二维码" : "Zhou You WeChat QR code"}
+          width={132}
+          height={132}
+          loading="lazy"
+          style={{ display: "block", margin: "10px 0 6px", background: "#fff", padding: 6, borderRadius: 8 }}
+        />
+        <p>{zh ? "微信扫码，直接联系周游" : "Scan to reach Zhou You on WeChat"}</p>
         <p>{zh ? "帕诺真空机械科技（常熟）有限公司" : "PANO Vacuum Machinery Technology (Changshu) Co., Ltd."}</p>
         <p>{zh ? "寻找采购、渠道或产业协同？" : "Discussing sourcing, channels or industrial collaboration?"}<br /><Link href={`/${loc}/industrial-partnerships/`}>{zh ? "前往产业合作" : "Explore industrial partnerships"}</Link></p>
       </aside>
