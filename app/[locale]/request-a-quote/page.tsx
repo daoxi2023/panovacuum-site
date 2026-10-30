@@ -1,86 +1,36 @@
+import type { Metadata } from "next";
+import Link from "next/link";
 import { SeoLinks } from "../../components/seo-links";
+import { LeadForm } from "../../components/lead-form";
+import "../../growth.css";
 
-const content = {
-  en: {
-    eyebrow: "Request a Quote",
-    h1: "Request a Quote",
-    sub: "Tell us about your vacuum chamber or fabricated component — include drawing files when available. We respond to every serious RFQ.",
-    contact: "Name / Company",
-    email: "Email",
-    desc: "Project description",
-    placeholder: "Material, dimensions, quantity, target timeline, operating pressure (if any)…",
-    note: "Drawing upload and secure transmission are wired in the next build stage. You can also email your drawing directly.",
-    submit: "Submit (coming soon)",
-    ct: "Direct contact",
-    who: "Zhou You (周游)",
-    role: "Global Financing & Strategic Partnerships · Global Online Sales",
-    brand: "PANO New Energy 帕诺新能源",
-    cn: "China +86 130 6372 2038",
-    us: "US +1 307 533 3212",
-    em: "zhouyou@panovacuum.com",
-    co: "PANO Vacuum Machinery Technology (Changshu) / PANO (Changshu) New Energy Technology",
-    ad: "No. 88 Chaoyang Road, Changfu Sub-district, Changshu, Suzhou 215500, China",
-    web: "www.panovacuum.com",
-  },
-  zh: {
-    eyebrow: "提交询价",
-    h1: "提交图纸询价",
-    sub: "告诉我们您的真空腔体或加工件需求，如有图纸请一并提供。收到询盘后 48 小时内实质回复。",
-    contact: "姓名 / 公司",
-    email: "邮箱",
-    desc: "项目说明",
-    placeholder: "材料、尺寸、数量、目标交期、工作压力（如有）…",
-    note: "图纸在线传输将在下一构建阶段接通；现在也可以直接把图纸发到邮箱。",
-    submit: "提交（即将上线）",
-    ct: "直接联系",
-    who: "周游（Zhou You）",
-    role: "全球融资与战略合作 · 全球网络销售",
-    brand: "帕诺新能源 PANO NEW ENERGY",
-    cn: "中国 +86 130 6372 2038",
-    us: "美国 +1 307 533 3212",
-    em: "zhouyou@panovacuum.com",
-    co: "帕诺真空机械科技（常熟）有限公司 · 帕诺（常熟）新能源科技有限公司",
-    ad: "江苏省苏州市常熟常福街道朝阳路 88 号，邮编 215500",
-    web: "www.panovacuum.com",
-  },
-};
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  return locale === "zh" ? { title: "提交询价需求 | 帕诺真空", description: "向帕诺提交定制真空腔体、精密加工零件或密封焊接组件需求，获得接收编号并由商务团队跟进。" } : { title: "Request a Quote | PANO Vacuum", description: "Send a custom vacuum chamber, precision-machined part or welded assembly requirement to PANO and receive an enquiry reference." };
+}
 
 export default async function RequestQuote({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
-  const t = content[locale === "zh" ? "zh" : "en"];
-  return (
-    <>
-      <SeoLinks path="request-a-quote" locale={locale} />
-      <section className="page-head">
-        <div className="container">
-          <p className="eyebrow">{t.eyebrow}</p>
-          <h1>{t.h1}</h1>
-          <p className="sub">{t.sub}</p>
-        </div>
-      </section>
-      <section className="section">
-        <div className="container">
-          <form style={{ maxWidth: 640 }}>
-            <label>{t.contact}</label>
-            <input className="field" name="contact" required />
-            <label>{t.email}</label>
-            <input className="field" type="email" name="email" required />
-            <label>{t.desc}</label>
-            <textarea className="field" name="description" placeholder={t.placeholder} />
-            <p className="form-note">{t.note}</p>
-            <button className="cta" type="submit" disabled>{t.submit}</button>
-          </form>
-          <div style={{ marginTop: 44, padding: "22px 26px", border: "1px solid var(--pano-line)", borderRadius: 10, maxWidth: 640, background: "var(--pano-bg-alt)" }}>
-            <h2 style={{ marginTop: 0 }}>{t.ct}</h2>
-            <p style={{ margin: "4px 0" }}><strong>{t.who}</strong> — {t.role}</p>
-            <p style={{ margin: "4px 0" }}>{t.brand}</p>
-            <p style={{ margin: "4px 0" }}>{t.cn} · {t.us}</p>
-            <p style={{ margin: "4px 0" }}><a href={`mailto:${t.em}`}>{t.em}</a></p>
-            <p style={{ margin: "4px 0" }}>{t.co}</p>
-            <p style={{ margin: "4px 0" }}>{t.ad} · <a href="https://www.panovacuum.com">{t.web}</a></p>
-          </div>
-        </div>
-      </section>
-    </>
-  );
+  const loc = locale === "zh" ? "zh" : "en";
+  const zh = loc === "zh";
+  return <div className="growth-page">
+    <SeoLinks path="request-a-quote" locale={loc} />
+    <section className="growth-heading"><div className="container">
+      <p className="eyebrow">{zh ? "制造需求" : "Manufacturing enquiries"}</p>
+      <h1>{zh ? "把制造需求交给帕诺" : "Tell us what you need to build"}</h1>
+      <p className="sub">{zh ? "定制真空腔体、精密加工件或真空密封组件。先提交需求概述，收到询盘后 48 小时内实质回复；图纸与保密资料另行对接。" : "Custom vacuum chambers, precision-machined parts and vacuum-tight assemblies. Start with a project outline; drawings and confidential material can be exchanged separately."}</p>
+    </div></section>
+    <section className="growth-section"><div className="container growth-contact-layout">
+      <div><h2>{zh ? "提交询价需求" : "Send your quote request"}</h2><p>{zh ? "标有 * 的项目必填。保存成功后会显示接收编号。" : "Fields marked * are required. A reference appears after your request has been saved."}</p><LeadForm kind="quote" locale={loc} /></div>
+      <aside className="growth-sidebar">
+        <h2>{zh ? "准备这些信息，更便于评审" : "What helps our review"}</h2>
+        <ul><li>{zh ? "产品用途与主要尺寸" : "Application and main dimensions"}</li><li>{zh ? "材料、数量和目标交期" : "Material, quantity and target delivery"}</li><li>{zh ? "关键公差、密封或检测要求" : "Key tolerances, sealing or inspection requirements"}</li></ul>
+        <p>{zh ? "没有正式图纸，也可以先描述需求。在线表单暂不收取附件；图纸可在后续沟通中通过邮箱交换。" : "You can start without a formal drawing. This form does not accept attachments; drawings can be exchanged by email during follow-up."}</p>
+        <h2>{zh ? "直接联系" : "Direct contact"}</h2>
+        <p>{zh ? "周游 · 商务与产业合作" : "Zhou You · Business & industrial partnerships"}<br /><a href="mailto:zhouyou@panovacuum.com">zhouyou@panovacuum.com</a><br /><a href="tel:+8613063722038">+86 130 6372 2038</a></p>
+        <p>{zh ? "帕诺真空机械科技（常熟）有限公司" : "PANO Vacuum Machinery Technology (Changshu) Co., Ltd."}</p>
+        <p>{zh ? "寻找采购、渠道或产业协同？" : "Discussing sourcing, channels or industrial collaboration?"}<br /><Link href={`/${loc}/industrial-partnerships/`}>{zh ? "前往产业合作" : "Explore industrial partnerships"}</Link></p>
+      </aside>
+    </div></section>
+  </div>;
 }

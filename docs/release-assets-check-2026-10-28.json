@@ -1,0 +1,112 @@
+[
+  {
+    "path": "/_next/static/css/97b647c8e3229e0f.css",
+    "status": 200,
+    "bytes": 13549
+  },
+  {
+    "path": "/_next/static/css/047262bbb3c5e692.css",
+    "status": 200,
+    "bytes": 11932
+  },
+  {
+    "path": "/_next/static/chunks/b4f67ec4-c7ee994f7a5c6b51.js",
+    "status": 200,
+    "bytes": 173018
+  },
+  {
+    "path": "/_next/static/chunks/639-dfd0a793799829fe.js",
+    "status": 200,
+    "bytes": 172080
+  },
+  {
+    "path": "/_next/static/chunks/main-app-d52d82c2946d07bb.js",
+    "status": 200,
+    "bytes": 555
+  },
+  {
+    "path": "https://www.googletagmanager.com/gtag/js?id=G-1WQQZ0MQYG",
+    "status": 200,
+    "bytes": 541783
+  },
+  {
+    "path": "/_next/static/chunks/453-ee98b9a8673f3cb9.js",
+    "status": 200,
+    "bytes": 8533
+  },
+  {
+    "path": "/_next/static/chunks/app/%5Blocale%5D/layout-49886b6fa40bfd27.js",
+    "status": 200,
+    "bytes": 2564
+  },
+  {
+    "path": "/_next/static/chunks/app/%5Blocale%5D/page-40e324e78f2427e7.js",
+    "status": 200,
+    "bytes": 242
+  },
+  {
+    "path": "/_next/static/chunks/polyfills-42372ed130431b0a.js",
+    "status": 200,
+    "bytes": 112594
+  },
+  {
+    "path": "/logo.webp",
+    "status": 200,
+    "bytes": 5348
+  },
+  {
+    "path": "/photos/hero-chamber.webp",
+    "status": 200,
+    "bytes": 43180
+  },
+  {
+    "path": "/photos/cap-cmm.webp",
+    "status": 200,
+    "bytes": 55662
+  },
+  {
+    "path": "/photos/cap-chamber.webp",
+    "status": 200,
+    "bytes": 13684
+  },
+  {
+    "path": "/photos/cap-clean.webp",
+    "status": 200,
+    "bytes": 15800
+  },
+  {
+    "path": "/photos/cap-leak.webp",
+    "status": 200,
+    "bytes": 20406
+  },
+  {
+    "path": "/photos/news-1.webp",
+    "status": 200,
+    "bytes": 33002
+  },
+  {
+    "path": "/photos/news-2.webp",
+    "status": 200,
+    "bytes": 28426
+  },
+  {
+    "path": "/photos/news-3.webp",
+    "status": 200,
+    "bytes": 31870
+  },
+  {
+    "path": "/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
+    "status": 200,
+    "bytes": 1239
+  },
+  {
+    "path": "/_next/static/chunks/webpack-1bd66d61f8a61523.js",
+    "status": 200,
+    "bytes": 3414
+  },
+  {
+    "path": "https://static.cloudflareinsights.com/beacon.min.js/vce701823e78c4301a35b7e07294d87301792088814092",
+    "status": 200,
+    "bytes": 31853
+  }
+]

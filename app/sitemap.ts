@@ -1,14 +1,15 @@
 import type { MetadataRoute } from "next";
 import { articles } from "../lib/articles";
+import { manufacturingServices } from "../lib/manufacturing";
 
 export const dynamic = "force-static";
 
 const base = "https://panovacuum.com";
-const pages = ["", "request-a-quote", "blog", "case-studies"] as const;
+const pages = ["", "request-a-quote", "blog", "case-studies", "industrial-partnerships", "company-profile", "privacy"] as const;
 const articlePaths = articles.map((a) => `blog/${a.slug}`);
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [...pages, ...articlePaths].flatMap((p) => [
+  return [...pages, ...articlePaths, ...manufacturingServices.map(({ slug }) => `manufacturing/${slug}`)].flatMap((p) => [
     {
       url: `${base}/en/${p}`,
       lastModified: new Date(),

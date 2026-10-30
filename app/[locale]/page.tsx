@@ -1,6 +1,8 @@
 import Link from "next/link";
+import "../home.css";
 import { articles } from "../../lib/articles";
 import { SeoLinks } from "../components/seo-links";
+import "../growth.css";
 
 const gates: Record<"en" | "zh", string[]> = {
   en: ["Drawing review & DFM", "Incoming material", "Blanking & bevel", "Precision machining", "Welding", "He leak testing", "Final inspection & delivery"],
@@ -203,23 +205,26 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
     })),
   };
   return (
-    <>
+    <div className="home-page">
       <SeoLinks path="" locale={locale} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
 
       <section className="hero">
-        <div className="container">
-          <p className="eyebrow">{t.eyebrow}</p>
-          <h1>{t.h1}</h1>
-          <p className="sub">{t.sub}</p>
-          <p style={{ marginTop: 26 }}>
-            <Link href={t.rfq} className="cta">{t.cta}</Link>
-            <Link href={`/${loc}/#capabilities`} className="cta secondary">{t.cta2}</Link>
-          </p>
-          <p className="trust">{t.trust}</p>
-          <div className="hero-media">
-            <img src="/photos/hero-chamber.webp" alt={loc === "zh" ? "定制真空腔体成品" : "Finished custom vacuum chamber"} loading="lazy" />
+        <div className="container hero-layout">
+          <div className="hero-copy">
+            <p className="eyebrow">{t.eyebrow}</p>
+            <h1>{loc === "zh" ? <><span style={{ display: "block" }}>真空腔体，</span><span style={{ display: "block" }}>从图纸做到交付</span></> : t.h1}</h1>
+            <p className="sub">{t.sub}</p>
+            <div className="hero-actions">
+              <Link href={t.rfq} className="cta">{t.cta}</Link>
+              <Link href={`/${loc}/#capabilities`} className="cta secondary">{t.cta2}</Link>
+            </div>
+            <p className="trust">{t.trust}</p>
           </div>
+          <figure className="hero-media">
+            <img src="/photos/hero-chamber.webp" alt={loc === "zh" ? "帕诺制造的定制不锈钢真空腔体" : "Custom stainless steel vacuum chamber manufactured by PANO"} width={1200} height={893} fetchPriority="high" />
+            <figcaption>{loc === "zh" ? "定制真空腔体 · 常熟制造" : "Custom vacuum chambers · Made in Changshu"}</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -230,7 +235,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <div className="stats-grid">
             {t.stats.map((s) => (
               <div className="stat" key={s.k}>
-                <p className="stat-v">{s.v}</p>
+                <p className="stat-v">{s.v.split(" · ").map((part, index) => (
+                  <span key={part}>{index > 0 ? "· " : ""}{part}</span>
+                ))}</p>
                 <p className="stat-k">{s.k}</p>
                 <p className="stat-d">{s.d}</p>
               </div>
@@ -249,10 +256,36 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <div className="grid">
             {t.caps.map((c) => (
               <div className="card" key={c.t}>
-                <div className="card-img"><img src={c.img} alt={c.alt || c.t} loading="lazy" /></div>
-                <div className="card-body"><h3>{c.t}</h3><p>{c.x}</p></div>
+                <h3 className="cap-title">{c.t}</h3>
+                <div className="card-img"><img src={c.img} alt={c.alt || c.t} width={720} height={480} loading="lazy" /></div>
+                <div className="card-body"><p>{c.x}</p></div>
               </div>
             ))}
+          </div>
+          <div className="growth-service-links" aria-label={loc === "zh" ? "按制造需求了解服务" : "Explore manufacturing services"}>
+            <Link href={`/${loc}/manufacturing/custom-vacuum-chambers/`}>{loc === "zh" ? "定制真空腔体" : "Custom vacuum chambers"}</Link>
+            <Link href={`/${loc}/manufacturing/precision-components/`}>{loc === "zh" ? "精密加工零件" : "Precision components"}</Link>
+            <Link href={`/${loc}/manufacturing/vacuum-tight-welding/`}>{loc === "zh" ? "真空密封焊接" : "Vacuum-tight welding"}</Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="section" id="about">
+        <div className="container about-layout">
+          <div className="section-head about-title">
+            <p className="eyebrow">{t.aboutEyebrow}</p>
+            <h2>{t.aboutTitle}</h2>
+          </div>
+          <figure className="about-media">
+            <img src="/photos/cap-clean.webp" alt={loc === "zh" ? "帕诺工厂的受控洁净生产环境" : "Controlled clean production environment at the PANO factory"} width={720} height={480} loading="lazy" />
+          </figure>
+          <div className="about-copy">
+            <dl className="about-facts">
+              {t.info.map((i) => (
+                <div key={i.k}><dt>{i.k}</dt><dd>{i.v}</dd></div>
+              ))}
+            </dl>
+            <Link href={t.rfq} className="text-link">{t.cta} <span aria-hidden="true">↗</span></Link>
           </div>
         </div>
       </section>
@@ -272,22 +305,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <p style={{ marginTop: 20 }}>
             <Link href={`/${loc}/blog/vacuum-chamber-7-inspection-gates/`} className="text-link">{t.qualityCta} →</Link>
           </p>
-        </div>
-      </section>
-
-      <section className="section" id="about">
-        <div className="container">
-          <div className="section-head">
-            <p className="eyebrow">{t.aboutEyebrow}</p>
-            <h2>{t.aboutTitle}</h2>
-          </div>
-          <div className="grid">
-            {t.info.map((i) => (
-              <div className="card" key={i.k}>
-                <div className="card-body"><h3>{i.k}</h3><p>{i.v}</p></div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -352,7 +369,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <div className="grid">
             {t.cases.map((c) => (
               <div className="card" key={c.t}>
-                <div className="card-img"><img src={c.img} alt={c.t} loading="lazy" /></div>
+                <div className="card-img"><img src={c.img} alt={c.t} width={720} height={480} loading="lazy" /></div>
                 <div className="card-body">
                   <p className="case-tag">{c.tag}</p>
                   <h3>{c.t}</h3>
@@ -376,7 +393,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <div className="news-grid">
             {news.map((a) => (
               <article className="news-card" key={a.slug}>
-                <div className="card-img"><img src={a.cover} alt={loc === "zh" ? a.zh.title : a.en.title} loading="lazy" /></div>
+                <div className="card-img"><img src={a.cover} alt={loc === "zh" ? a.zh.title : a.en.title} width={640} height={360} loading="lazy" /></div>
                 <div className="news-body">
                   <p className="news-date">{a.date}</p>
                   <h3><Link href={`/${loc}/blog/${a.slug}/`}>{loc === "zh" ? a.zh.title : a.en.title}</Link></h3>
@@ -408,16 +425,23 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </div>
       </section>
 
+      <section className="growth-entry" aria-label={loc === "zh" ? "开始合作" : "Start a conversation"}>
+        <div className="container growth-entry-grid">
+          <article><h2>{loc === "zh" ? "有制造需求？" : "Have a manufacturing requirement?"}</h2><p>{loc === "zh" ? "告诉我们产品、材料、数量与关键要求，先从具体需求开始评审。" : "Tell us the product, material, quantity and key requirements so we can review the project."}</p><Link href={t.rfq} className="growth-button">{loc === "zh" ? "提交询价需求" : "Send a quote request"}</Link></article>
+          <article><h2>{loc === "zh" ? "寻找产业协同？" : "Explore industrial collaboration"}</h2><p>{loc === "zh" ? "围绕客户、订单与供应链资源，探讨长期采购、产能配套和产业合作。" : "Discuss long-term sourcing, manufacturing capacity and partnerships around customer, order and supply-chain resources."}</p><Link href={`/${loc}/industrial-partnerships/`} className="growth-button secondary">{loc === "zh" ? "了解产业合作" : "Explore partnerships"}</Link></article>
+        </div>
+      </section>
+
       <section className="cta-band">
         <div className="container">
           <h2>{t.bandH}</h2>
           <p className="sub">{t.bandSub}</p>
           <p>
             <Link href={t.rfq} className="cta">{t.cta}</Link>
-            <a href={`mailto:zhouyou@panovacuum.com`} className="cta secondary">zhouyou@panovacuum.com</a>
+            <a href="mailto:zhouyou@panovacuum.com" className="cta secondary">{loc === "zh" ? "邮件发送图纸" : "Email your drawing"}</a>
           </p>
         </div>
       </section>
-    </>
+    </div>
   );
 }

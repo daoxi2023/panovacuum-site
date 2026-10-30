@@ -1,0 +1,34 @@
+[
+  {
+    "requested": "https://panovacuum.com/",
+    "final": "https://panovacuum.com/en/",
+    "status": 200,
+    "topbar_removed": true,
+    "mint_home": true,
+    "lang": "en"
+  },
+  {
+    "requested": "https://panovacuum.com/zh/",
+    "final": "https://panovacuum.com/zh/",
+    "status": 200,
+    "topbar_removed": true,
+    "mint_home": true,
+    "lang": "zh-CN"
+  },
+  {
+    "requested": "https://panovacuum.com/en/",
+    "final": "https://panovacuum.com/en/",
+    "status": 200,
+    "topbar_removed": true,
+    "mint_home": true,
+    "lang": "en"
+  },
+  {
+    "requested": "https://www.panovacuum.com/zh/",
+    "final": "https://www.panovacuum.com/zh/",
+    "status": 200,
+    "topbar_removed": true,
+    "mint_home": true,
+    "lang": "zh-CN"
+  }
+]

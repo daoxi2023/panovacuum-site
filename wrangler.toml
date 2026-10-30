@@ -1,0 +1,9 @@
+name = "pano-vacuum"
+pages_build_output_dir = "out"
+compatibility_date = "2026-10-28"
+
+[[d1_databases]]
+binding = "PANO_DB"
+database_name = "pano-vacuum-inquiries"
+database_id = "d16d03e5-5ad9-403c-93d2-87c5440b0a05"
+migrations_dir = "migrations"

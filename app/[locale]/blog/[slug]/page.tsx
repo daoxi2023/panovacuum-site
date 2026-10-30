@@ -22,7 +22,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ locale
     headline: t.title,
     datePublished: article.date,
     author: { "@type": "Person", name: zh ? article.author.nameZh : article.author.nameEn, url: "https://panovacuum.com", email: article.author.email },
-    publisher: { "@type": "Organization", name: "PANO Vacuum", url: "https://panovacuum.com", logo: "https://panovacuum.com/logo.webp" },
+    publisher: { "@type": "Organization", name: "PANO Vacuum", url: "https://panovacuum.com", logo: "https://panovacuum.com/pano-vacuum-tech-logo.webp" },
     image: `https://panovacuum.com${article.cover}`,
     authorRole: zh ? article.author.roleZh : article.author.roleEn,
     description: t.intro,
