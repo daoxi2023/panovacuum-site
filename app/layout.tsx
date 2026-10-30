@@ -3,6 +3,9 @@ import { WhatsAppFloat } from "./components/whatsapp-float";
 import { SITE_BASE } from "@/lib/site-base";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  // Google GA4 / Clarity are unreachable (and add latency) for the China entry;
+  // keep them only on the overseas origin.
+  const analyticsEnabled = !SITE_BASE.includes("panovacuum.cn");
   const orgJsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -26,10 +29,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" suppressHydrationWarning>
       <head>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }} />
-        {siteConfig.googleSiteVerification ? (
+        {analyticsEnabled && siteConfig.googleSiteVerification ? (
           <meta name="google-site-verification" content={siteConfig.googleSiteVerification} />
         ) : null}
-        {siteConfig.ga4MeasurementId ? (
+        {analyticsEnabled && siteConfig.ga4MeasurementId ? (
           <>
             <script async src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.ga4MeasurementId}`} />
             <script
@@ -39,11 +42,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             />
           </>
         ) : null}
+        {analyticsEnabled ? (
         <script
           dangerouslySetInnerHTML={{
             __html: `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "${siteConfig.clarityProjectId}");`,
           }}
         />
+        ) : null}
       </head>
       <body>{children}<WhatsAppFloat /></body>
     </html>

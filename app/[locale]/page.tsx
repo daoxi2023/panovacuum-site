@@ -223,7 +223,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           </div>
           <figure className="hero-media">
             <img src="/photos/hero-chamber.webp" alt={loc === "zh" ? "帕诺制造的定制不锈钢真空腔体" : "Custom stainless steel vacuum chamber manufactured by PANO"} width={1200} height={893} fetchPriority="high" />
-            <figcaption>{loc === "zh" ? "定制真空腔体 · 常熟制造" : "Custom vacuum chambers · Made in Changshu"}</figcaption>
           </figure>
         </div>
       </section>
@@ -285,6 +284,14 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 <div key={i.k}><dt>{i.k}</dt><dd>{i.v}</dd></div>
               ))}
             </dl>
+            <div className="about-team" id="team">
+              {t.team.map((m) => (
+                <div className="about-team-item" key={m.t}>
+                  <span>{m.t}</span>
+                  <p>{m.x}</p>
+                </div>
+              ))}
+            </div>
             <Link href={t.rfq} className="text-link">{t.cta} <span aria-hidden="true">↗</span></Link>
           </div>
         </div>
@@ -305,23 +312,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <p style={{ marginTop: 20 }}>
             <Link href={`/${loc}/blog/vacuum-chamber-7-inspection-gates/`} className="text-link">{t.qualityCta} →</Link>
           </p>
-        </div>
-      </section>
-
-      <section className="section alt" id="team">
-        <div className="container">
-          <div className="section-head">
-            <p className="eyebrow">{t.teamEyebrow}</p>
-            <h2>{t.teamTitle}</h2>
-            <p className="sub">{t.teamSub}</p>
-          </div>
-          <div className="grid">
-            {t.team.map((m) => (
-              <div className="card" key={m.t}>
-                <div className="card-body"><h3>{m.t}</h3><p>{m.x}</p></div>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -425,13 +415,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         </div>
       </section>
 
-      <section className="growth-entry" aria-label={loc === "zh" ? "开始合作" : "Start a conversation"}>
-        <div className="container growth-entry-grid">
-          <article><h2>{loc === "zh" ? "有制造需求？" : "Have a manufacturing requirement?"}</h2><p>{loc === "zh" ? "告诉我们产品、材料、数量与关键要求，先从具体需求开始评审。" : "Tell us the product, material, quantity and key requirements so we can review the project."}</p><Link href={t.rfq} className="growth-button">{loc === "zh" ? "提交询价需求" : "Send a quote request"}</Link></article>
-          <article><h2>{loc === "zh" ? "寻找产业协同？" : "Explore industrial collaboration"}</h2><p>{loc === "zh" ? "围绕客户、订单与供应链资源，探讨长期采购、产能配套和产业合作。" : "Discuss long-term sourcing, manufacturing capacity and partnerships around customer, order and supply-chain resources."}</p><Link href={`/${loc}/industrial-partnerships/`} className="growth-button secondary">{loc === "zh" ? "了解产业合作" : "Explore partnerships"}</Link></article>
-        </div>
-      </section>
-
       <section className="cta-band">
         <div className="container">
           <h2>{t.bandH}</h2>
@@ -439,6 +422,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <p>
             <Link href={t.rfq} className="cta">{t.cta}</Link>
             <a href="mailto:zhouyou@panovacuum.com" className="cta secondary">{loc === "zh" ? "邮件发送图纸" : "Email your drawing"}</a>
+          </p>
+          <p className="cta-band-link">
+            <Link href={`/${loc}/industrial-partnerships/`}>
+              {loc === "zh" ? "寻找采购、渠道或产业协同？了解产业合作 →" : "Sourcing, channels or industrial collaboration? Explore partnerships →"}
+            </Link>
           </p>
         </div>
       </section>
