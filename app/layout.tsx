@@ -1,4 +1,5 @@
 import { siteConfig } from "../lib/site-config";
+import { WhatsAppFloat } from "./components/whatsapp-float";
 import { SITE_BASE } from "@/lib/site-base";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -44,7 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         />
       </head>
-      <body>{children}</body>
+      <body>{children}<WhatsAppFloat /></body>
     </html>
   );
 }
