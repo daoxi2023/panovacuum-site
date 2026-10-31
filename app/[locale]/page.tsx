@@ -242,25 +242,28 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <p className="trust">{t.trust}</p>
           </div>
           <figure className="hero-media">
-            {[
-              { src: "/photos/hero-slide-1.webp", alt: loc === "zh" ? "帕诺真空车间实拍（一）" : "Inside the PANO Vacuum workshop, photo 1" },
-              { src: "/photos/hero-slide-2.webp", alt: loc === "zh" ? "帕诺真空车间实拍（二）" : "Inside the PANO Vacuum workshop, photo 2" },
-              { src: "/photos/hero-slide-3.webp", alt: loc === "zh" ? "帕诺真空车间实拍（三）" : "Inside the PANO Vacuum workshop, photo 3" },
-            ].map((slide, i) => (
-              <img
-                key={slide.src}
-                className="hero-slide"
-                src={slide.src}
-                srcSet={`${slide.src.replace(".webp", "-1280.webp")} 1280w, ${slide.src} 2400w`}
-                sizes="100vw"
-                alt={slide.alt}
-                width={2400}
-                height={1600}
-                loading={i === 0 ? "eager" : "lazy"}
-                fetchPriority={i === 0 ? "high" : "auto"}
-              />
-            ))}
-            <div className="hero-dots" aria-hidden="true"><span /><span /><span /></div>
+            <video
+              className="hero-video"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster="/video/hero-poster.jpg"
+              aria-label={loc === "zh" ? "帕诺真空车间实拍影像" : "PANO Vacuum workshop footage"}
+            >
+              <source src="/video/hero-loop-1280.mp4" type="video/mp4" media="(max-width: 900px)" />
+              <source src="/video/hero-loop-1920.mp4" type="video/mp4" />
+            </video>
+            <img
+              className="hero-poster"
+              src="/photos/hero-slide-1.webp"
+              alt={loc === "zh" ? "帕诺真空车间实拍" : "Inside the PANO Vacuum workshop"}
+              width={2400}
+              height={1600}
+              loading="eager"
+              fetchPriority="high"
+            />
           </figure>
         </div>
         <span className="hero-scroll" aria-hidden="true" />
