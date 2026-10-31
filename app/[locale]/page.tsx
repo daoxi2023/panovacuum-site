@@ -216,7 +216,25 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <p className="trust">{t.trust}</p>
           </div>
           <figure className="hero-media">
-            <img src="/photos/hero-chamber.webp" alt={loc === "zh" ? "帕诺制造的定制不锈钢真空腔体" : "Custom stainless steel vacuum chamber manufactured by PANO"} width={1200} height={893} fetchPriority="high" />
+            {[
+              { src: "/photos/hero-slide-1.webp", alt: loc === "zh" ? "车间内的大型不锈钢真空腔体" : "Large stainless steel vacuum chamber in the workshop" },
+              { src: "/photos/hero-slide-2.webp", alt: loc === "zh" ? "真空腔体的焊缝近景" : "Close-up of a vacuum chamber weld seam" },
+              { src: "/photos/hero-slide-3.webp", alt: loc === "zh" ? "非标方箱式真空腔体" : "Custom rectangular vacuum chamber" },
+            ].map((slide, i) => (
+              <img
+                key={slide.src}
+                className="hero-slide"
+                src={slide.src}
+                srcSet={`${slide.src.replace(".webp", "-1280.webp")} 1280w, ${slide.src} 2400w`}
+                sizes="100vw"
+                alt={slide.alt}
+                width={2400}
+                height={1600}
+                loading={i === 0 ? "eager" : "lazy"}
+                fetchPriority={i === 0 ? "high" : "auto"}
+              />
+            ))}
+            <div className="hero-dots" aria-hidden="true"><span /><span /><span /></div>
           </figure>
         </div>
       </section>
