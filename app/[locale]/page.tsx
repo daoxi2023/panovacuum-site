@@ -257,7 +257,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             </video>
             <img
               className="hero-poster"
-              src="/photos/hero-slide-1.webp"
+              src="/photos/hero-main.webp"
               alt={loc === "zh" ? "帕诺真空车间实拍" : "Inside the PANO Vacuum workshop"}
               width={2400}
               height={1600}
