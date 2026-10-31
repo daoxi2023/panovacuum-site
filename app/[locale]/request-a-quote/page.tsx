@@ -16,18 +16,18 @@ export default async function RequestQuote({ params }: { params: Promise<{ local
   return <div className="growth-page">
     <SeoLinks path="request-a-quote" locale={loc} />
     <section className="growth-heading"><div className="container">
-      <p className="eyebrow">{zh ? "制造需求" : "Manufacturing enquiries"}</p>
-      <h1>{zh ? "把制造需求交给帕诺" : "Tell us what you need to build"}</h1>
-      <p className="sub">{zh ? "定制真空腔体、精密加工件或真空密封组件。先提交需求概述，收到询盘后 48 小时内实质回复；图纸与保密资料另行对接。" : "Custom vacuum chambers, precision-machined parts and vacuum-tight assemblies. Start with a project outline; drawings and confidential material can be exchanged separately."}</p>
+      <p className="eyebrow">{zh ? "询价" : "Manufacturing enquiries"}</p>
+      <h1>{zh ? "发张图纸，先问个价" : "Tell us what you need to build"}</h1>
+      <p className="sub">{zh ? "腔体、精密件、真空密封组件都行。先写个大概，48 小时内回你；图纸和保密资料另走。" : "Custom vacuum chambers, precision-machined parts and vacuum-tight assemblies. Start with a project outline; drawings and confidential material can be exchanged separately."}</p>
     </div></section>
     <section className="growth-section"><div className="container growth-contact-layout">
-      <div><h2>{zh ? "提交询价需求" : "Send your quote request"}</h2><p>{zh ? "标有 * 的项目必填。保存成功后会显示接收编号。" : "Fields marked * are required. A reference appears after your request has been saved."}</p><LeadForm kind="quote" locale={loc} /></div>
+      <div><h2>{zh ? "写一下需求" : "Send your quote request"}</h2><p>{zh ? "带 * 的必填。提交成功会给你一个编号，后面跟进用这个号。" : "Fields marked * are required. A reference appears after your request has been saved."}</p><LeadForm kind="quote" locale={loc} /></div>
       <aside className="growth-sidebar">
-        <h2>{zh ? "准备这些信息，更便于评审" : "What helps our review"}</h2>
-        <ul><li>{zh ? "产品用途与主要尺寸" : "Application and main dimensions"}</li><li>{zh ? "材料、数量和目标交期" : "Material, quantity and target delivery"}</li><li>{zh ? "关键公差、密封或检测要求" : "Key tolerances, sealing or inspection requirements"}</li></ul>
-        <p>{zh ? "没有正式图纸，也可以先描述需求。在线表单暂不收取附件；图纸可在后续沟通中通过邮箱交换。" : "You can start without a formal drawing. This form does not accept attachments; drawings can be exchanged by email during follow-up."}</p>
+        <h2>{zh ? "这些信息给到，报价更快" : "What helps our review"}</h2>
+        <ul><li>{zh ? "用在哪、大概多大" : "Application and main dimensions"}</li><li>{zh ? "材料、数量、想什么时候要" : "Material, quantity and target delivery"}</li><li>{zh ? "公差、密封、检测有什么要求" : "Key tolerances, sealing or inspection requirements"}</li></ul>
+        <p>{zh ? "没有正式图纸也能先聊。表单不收附件，图纸回头邮件发就行。" : "You can start without a formal drawing. This form does not accept attachments; drawings can be exchanged by email during follow-up."}</p>
         <h2>{zh ? "直接联系" : "Direct contact"}</h2>
-        <p>{zh ? "周游 · 商务与产业合作" : "Zhou You · Business & industrial partnerships"}<br /><a href="mailto:zhouyou@panovacuum.com">zhouyou@panovacuum.com</a><br /><a href="tel:+8613063722038">+86 130 6372 2038</a></p>
+        <p>{zh ? "周游，管商务和产业合作" : "Zhou You · Business & industrial partnerships"}<br /><a href="mailto:zhouyou@panovacuum.com">zhouyou@panovacuum.com</a><br /><a href="tel:+8613063722038">+86 130 6372 2038</a></p>
         <img
           src="/wechat-qr.webp"
           alt={zh ? "周游微信二维码" : "Zhou You WeChat QR code"}
@@ -36,7 +36,7 @@ export default async function RequestQuote({ params }: { params: Promise<{ local
           loading="lazy"
           style={{ display: "block", margin: "10px 0 6px", background: "#fff", padding: 6, borderRadius: 8 }}
         />
-        <p>{zh ? "微信扫码，直接联系周游" : "Scan to reach Zhou You on WeChat"}</p>
+        <p>{zh ? "微信扫码找周游" : "Scan to reach Zhou You on WeChat"}</p>
         <p>{zh ? "帕诺真空机械科技（常熟）有限公司" : "PANO Vacuum Machinery Technology (Changshu) Co., Ltd."}</p>
         <p>{zh ? "寻找采购、渠道或产业协同？" : "Discussing sourcing, channels or industrial collaboration?"}<br /><Link href={`/${loc}/industrial-partnerships/`}>{zh ? "前往产业合作" : "Explore industrial partnerships"}</Link></p>
       </aside>

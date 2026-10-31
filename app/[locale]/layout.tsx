@@ -22,10 +22,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   return locale === "zh"
     ? {
         ...base,
-        title: "帕诺真空 | 定制真空腔体与精密制造",
-        description: "面向先进装备的定制真空腔体、精密加工件与真空密封组件制造——从图纸评审到检验与交付。",
+        title: "帕诺真空｜常熟定制真空腔体",
+        description: "常熟工厂按图纸定制真空腔体、精密件和真空密封组件。加工、焊接、氦检、检验都在本厂，检验记录随货发。",
         icons,
-        openGraph: { title: "帕诺真空 | 定制真空腔体与精密制造", description: "面向先进装备的定制真空腔体、精密加工件与真空密封组件制造。", locale: "zh_CN", images: ogImage },
+        openGraph: { title: "帕诺真空｜常熟定制真空腔体", description: "面向先进装备的定制真空腔体、精密加工件与真空密封组件制造。", locale: "zh_CN", images: ogImage },
       }
     : {
         title: "PANO Vacuum | Custom Vacuum Chambers & Precision Manufacturing",

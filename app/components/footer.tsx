@@ -5,7 +5,7 @@ export function Footer({ locale }: { locale: "en" | "zh" }) {
   const zh = locale === "zh";
   const T = zh
     ? {
-        tagline: "常熟的真空腔体制造厂。从图纸到交付，一个厂里做完。",
+        tagline: "常熟的真空腔体厂。图纸进来，加工、焊接、检漏、检验都在本厂做完，再发走。",
         navTitle: "站点",
         links: [
           ["制造能力", `/${locale}/#capabilities`],
