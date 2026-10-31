@@ -243,9 +243,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           </div>
           <figure className="hero-media">
             {[
-              { src: "/photos/hero-slide-1.webp", alt: loc === "zh" ? "车间内的大型不锈钢真空腔体" : "Large stainless steel vacuum chamber in the workshop" },
-              { src: "/photos/hero-slide-2.webp", alt: loc === "zh" ? "真空腔体的焊缝近景" : "Close-up of a vacuum chamber weld seam" },
-              { src: "/photos/hero-slide-3.webp", alt: loc === "zh" ? "非标方箱式真空腔体" : "Custom rectangular vacuum chamber" },
+              { src: "/photos/hero-slide-1.webp", alt: loc === "zh" ? "帕诺真空车间实拍（一）" : "Inside the PANO Vacuum workshop, photo 1" },
+              { src: "/photos/hero-slide-2.webp", alt: loc === "zh" ? "帕诺真空车间实拍（二）" : "Inside the PANO Vacuum workshop, photo 2" },
+              { src: "/photos/hero-slide-3.webp", alt: loc === "zh" ? "帕诺真空车间实拍（三）" : "Inside the PANO Vacuum workshop, photo 3" },
             ].map((slide, i) => (
               <img
                 key={slide.src}
