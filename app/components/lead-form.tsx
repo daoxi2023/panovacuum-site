@@ -37,11 +37,11 @@ export function LeadForm({ kind, locale }: { kind: Kind; locale: Locale }) {
     company: "Company / organisation", contact: "Contact name", email: "Business email", country: "Country / region (optional)",
     product: "Requirement type", material: "Material (optional)", quantity: "Quantity (optional)", timeline: "Target delivery (optional)",
     direction: "Partnership focus", resources: "Customer, order or supply-chain resources you can contribute", next: "Preferred next step (optional)",
-    message: partnership ? "Partnership outline" : "Project requirements", select: "Please select", submit: partnership ? "Send partnership enquiry" : "Send quote request",
+    message: partnership ? "Partnership outline" : "Project requirements", select: "Please select", submit: partnership ? "Submit partnership enquiry" : "Submit quotation request",
     sending: "Sending…", privacy: "I have read the privacy notice and agree to be contacted by PANO about this enquiry.", privacyLink: "Privacy notice",
     note: "Do not include confidential drawings, customer lists, financial data or other sensitive information. Confidential materials can be exchanged by separate arrangement.",
     received: partnership ? "Partnership enquiry received" : "Quote request received", ref: "Reference", after: "Please keep this reference. We will contact you using the business email you provided.",
-    another: "Send another enquiry", generic: "We cannot confirm receipt right now. Keep your details and try again, or contact us by email.",
+    another: "Submit another enquiry", generic: "We cannot confirm receipt right now. Keep your details and try again, or contact us by email.",
     limited: "Too many requests. Please try again later or contact us by email.", invalid: "Please check your details and privacy consent, then try again.",
   };
   const productOptions = zh ? [["chamber", "定制真空腔体"], ["precision-parts", "精密加工零件"], ["welded-assembly", "真空密封焊接组件"], ["other", "其他需求"]] : [["chamber", "Custom vacuum chamber"], ["precision-parts", "Precision-machined parts"], ["welded-assembly", "Vacuum-tight welded assembly"], ["other", "Other requirement"]];

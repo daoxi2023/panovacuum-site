@@ -5,7 +5,7 @@ export function Footer({ locale }: { locale: "en" | "zh" }) {
   const zh = locale === "zh";
   const T = zh
     ? {
-        tagline: "常熟的真空腔体厂。图纸进来，加工、焊接、检漏、检验都在本厂做完，再发走。",
+        tagline: "常熟的真空腔体制造工厂。图纸评审后，下料、加工、焊接、检漏与出厂检验均在本厂完成，检测记录随货交付。",
         cta: "提交询价",
         groups: [
           {
@@ -44,7 +44,7 @@ export function Footer({ locale }: { locale: "en" | "zh" }) {
         terms: "使用条款",
       }
     : {
-        tagline: "A vacuum chamber shop in Changshu, China. The drawing comes in, the work happens here, the chamber ships out with its test records.",
+        tagline: "A vacuum chamber manufacturing plant in Changshu, China. Customer drawings are received, manufactured in-house, and dispatched with full test records.",
         cta: "Request a quote",
         groups: [
           {

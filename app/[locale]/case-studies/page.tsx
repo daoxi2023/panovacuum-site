@@ -5,9 +5,9 @@ import { SeoLinks } from "../../components/seo-links";
 const content = {
   en: {
     eyebrow: "WORK WE HAVE DONE",
-    title: "Examples from our equipment records",
-    intro: "Here is how a typical chamber moves through our gates. These examples come from our equipment records; customer names are withheld under NDA.",
-    note: "These show what we can fabricate and how it gets checked, not a specific customer file. Send your drawing and we will point to the closest comparable job.",
+    title: "Capability examples drawn from equipment records",
+    intro: "The examples below illustrate how a typical chamber passes through our inspection gates. They are compiled from equipment records; customer names are withheld under confidentiality agreements.",
+    note: "They illustrate fabrication capability and inspection practice rather than a specific customer file. On receipt of a drawing, we will identify the closest comparable project.",
     cta: "Send a drawing, get a price",
     back: "Back to home",
     cases: [

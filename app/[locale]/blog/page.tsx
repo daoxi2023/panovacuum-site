@@ -7,7 +7,7 @@ export default async function Blog({ params }: { params: Promise<{ locale: strin
   const zh = locale === "zh";
   const t = zh
     ? { title: "新闻资讯", intro: "技术文章与工厂动态，每月更新，聚焦真空腔体制造中客户关注的实际问题。", back: "返回首页", read: "阅读全文", eyebrow: "新闻资讯 · NEWS" }
-    : { title: "News & Articles", intro: "Technical articles and notes from the shop floor. Updated monthly — the questions equipment teams actually ask about vacuum chamber fabrication.", back: "Back to Home", read: "Read article", eyebrow: "NEWS · 新闻资讯" };
+    : { title: "News & Articles", intro: "Technical articles on vacuum chamber fabrication, updated monthly, based on questions raised by equipment manufacturers.", back: "Back to Home", read: "Read article", eyebrow: "NEWS · 新闻资讯" };
   return (
     <>
       <SeoLinks path="blog" locale={locale} />

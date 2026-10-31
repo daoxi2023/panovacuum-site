@@ -30,9 +30,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     : {
         title: "PANO Vacuum | Custom Vacuum Chambers, Changshu China",
         description:
-          "We build custom vacuum chambers to your drawing in Changshu, China. Machining, welding, helium leak testing and inspection all happen in our shop, and the test records ship with the chamber.",
+          "Custom vacuum chambers are manufactured to customer drawings in Changshu, China. Machining, welding, helium leak testing and inspection are all completed in-house, and the test records are dispatched with the chamber.",
         icons,
-        openGraph: { title: "PANO Vacuum | Custom Vacuum Chambers, Changshu China", description: "Custom vacuum chambers built to your drawing in Changshu, China. Test records ship with every unit.", locale: "en_US", images: ogImage },
+        openGraph: { title: "PANO Vacuum | Custom Vacuum Chambers, Changshu China", description: "Custom vacuum chambers manufactured to drawing in Changshu, China. Test records are dispatched with every unit.", locale: "en_US", images: ogImage },
       };
 }
 
