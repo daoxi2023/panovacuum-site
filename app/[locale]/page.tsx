@@ -267,7 +267,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
 
       <div className="ticker" aria-hidden="true">
         <div className="ticker-track">
-          {[0, 1].map((dup) => (
+          {[0, 1, 2, 3, 4, 5, 6, 7].map((dup) => (
             <div className="ticker-group" key={dup}>
               {t.ticker.map((item) => (
                 <span className="ticker-item" key={`${dup}-${item}`}>{item}</span>
