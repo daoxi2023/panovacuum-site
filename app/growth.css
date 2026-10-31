@@ -5,6 +5,11 @@
 .growth-heading .eyebrow { color: var(--pano-ui-green); text-transform: none; letter-spacing: 0; }
 .growth-heading .sub { color: var(--pano-ui-muted); font-size: 18px; line-height: 1.8; max-width: 760px; margin-bottom: 0; }
 .growth-section { padding: 64px 0; }
+/* 区间距只由 padding 决定，首尾子元素外边距归零 */
+.growth-heading > .container > :first-child,
+.growth-section > .container > :first-child { margin-top: 0; }
+.growth-heading > .container > :last-child,
+.growth-section > .container > :last-child { margin-bottom: 0; }
 .growth-page h2, .growth-page h3 { color: var(--pano-ui-ink); }
 .growth-page h2 { font-size: clamp(24px,2.6vw,32px); }
 .growth-page p, .growth-page li { line-height: 1.8; }

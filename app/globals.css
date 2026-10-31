@@ -79,6 +79,9 @@ a:hover { text-decoration: underline; }
 .eyebrow { font-size: 13px; font-weight: 700; letter-spacing: .16em; text-transform: uppercase; color: var(--pano-accent); margin: 0 0 10px; }
 .section { padding: 72px 0; }
 .section.alt { background: var(--pano-bg-alt); }
+/* 同上：区块间距只由 padding 决定 */
+.section > .container > :first-child { margin-top: 0; }
+.section > .container > :last-child { margin-bottom: 0; }
 .section-head { max-width: 760px; margin-bottom: 36px; }
 .section-head .sub { color: var(--pano-neutral-600); font-size: 16.5px; }
 
@@ -321,7 +324,7 @@ a:focus-visible, summary:focus-visible, button:focus-visible, input:focus-visibl
     radial-gradient(1100px 380px at 76% -20%, rgba(78,112,195,.40), transparent 62%),
     linear-gradient(180deg, #0B1222 0%, #101B34 100%);
   border-bottom: 1px solid rgba(255,255,255,.08);
-  padding: 92px 0 80px;
+  padding: 76px 0 56px;
 }
 .page-head::before {
   content: ""; position: absolute; inset: 0; pointer-events: none;
