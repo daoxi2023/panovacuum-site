@@ -49,8 +49,22 @@ export default async function Profile({ params }: { params: Promise<{ locale: st
         ],
       ];
 
+  const contact = zh
+    ? [
+        ["联系人", "周游"],
+        ["邮箱", "zhouyou@panovacuum.com", "mailto:zhouyou@panovacuum.com"],
+        ["电话", "+86 130 6372 2038", "tel:+8613063722038"],
+        ["地址", "江苏省苏州市常熟常福街道朝阳路 88 号"],
+      ]
+    : [
+        ["Contact", "Zhou You"],
+        ["Email", "zhouyou@panovacuum.com", "mailto:zhouyou@panovacuum.com"],
+        ["Phone", "+86 130 6372 2038", "tel:+8613063722038"],
+        ["Address", "No. 88 Chaoyang Road, Changfu Sub-district, Changshu, Suzhou, China"],
+      ];
+
   return (
-    <div className="growth-page">
+    <div className="growth-page profile-page">
       <SeoLinks path="company-profile" locale={loc} />
 
       <section className="growth-heading">
@@ -109,23 +123,15 @@ export default async function Profile({ params }: { params: Promise<{ locale: st
 
       <section className="growth-section">
         <div className="container">
-          <p className="profile-operator">
-            {zh
-              ? "本站（包括页面内容、在线表单与域名）由苏州领拓互联科技有限公司负责建设、技术维护和线上业务运营；制造业务与产品信息的主体为帕诺真空机械科技（常熟）有限公司。"
-              : "This website, including its content, online forms and domain, is built, maintained and operated online by Suzhou Lingtuo Internet Technology Co., Ltd. (苏州领拓互联科技有限公司). The manufacturing business and product information published here belong to PANO Vacuum Machinery Technology (Changshu) Co., Ltd."}{" "}
-            <a href={`/${loc}/privacy/`}>{zh ? "隐私政策" : "Privacy policy"}</a> ·{" "}
-            <a href={`/${loc}/terms/`}>{zh ? "使用条款" : "Terms of use"}</a>
-          </p>
-
-          <p>
-            {zh ? "商务联系：周游" : "Business contact: Zhou You"}
-            <br />
-            <a href="mailto:zhouyou@panovacuum.com">zhouyou@panovacuum.com</a>
-            <br />
-            <a href="tel:+8613063722038">+86 130 6372 2038</a>
-            <br />
-            {zh ? "江苏省苏州市常熟常福街道朝阳路 88 号" : "No. 88 Chaoyang Road, Changfu Sub-district, Changshu, Suzhou, China"}
-          </p>
+          <h2>{zh ? "商务联系" : "Business contact"}</h2>
+          <dl className="profile-contact">
+            {contact.map(([label, value, href]) => (
+              <div key={label}>
+                <dt>{label}</dt>
+                <dd>{href ? <a href={href}>{value}</a> : value}</dd>
+              </div>
+            ))}
+          </dl>
 
           <div className="growth-actions">
             <Link className="growth-button" href={`/${loc}/request-a-quote/`}>
@@ -135,6 +141,14 @@ export default async function Profile({ params }: { params: Promise<{ locale: st
               {zh ? "探讨产业合作" : "Discuss industrial collaboration"}
             </Link>
           </div>
+
+          <p className="profile-operator">
+            {zh
+              ? "本站（包括页面内容、在线表单与域名）由苏州领拓互联科技有限公司负责建设、技术维护和线上业务运营；制造业务与产品信息的主体为帕诺真空机械科技（常熟）有限公司。"
+              : "This website, including its content, online forms and domain, is built, maintained and operated online by Suzhou Lingtuo Internet Technology Co., Ltd. (苏州领拓互联科技有限公司). The manufacturing business and product information published here belong to PANO Vacuum Machinery Technology (Changshu) Co., Ltd."}{" "}
+            <a href={`/${loc}/privacy/`}>{zh ? "隐私政策" : "Privacy policy"}</a> ·{" "}
+            <a href={`/${loc}/terms/`}>{zh ? "使用条款" : "Terms of use"}</a>
+          </p>
         </div>
       </section>
     </div>
