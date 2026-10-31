@@ -96,7 +96,7 @@ export function Footer({ locale }: { locale: "en" | "zh" }) {
           <p className="footer-line" style={{ marginTop: 14 }}>{T.wechatLabel}</p>
           <img
             src="/wechat-qr.webp"
-            alt={zh ? "周游微信二维码" : "Zhou You WeChat QR code"}
+            alt={zh ? "周先生微信二维码" : "Mr. Zhou WeChat QR code"}
             className="footer-qr"
             width={96}
             height={96}

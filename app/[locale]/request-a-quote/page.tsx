@@ -27,16 +27,16 @@ export default async function RequestQuote({ params }: { params: Promise<{ local
         <ul><li>{zh ? "用在哪、大概多大" : "Where it goes, roughly how big"}</li><li>{zh ? "材料、数量、想什么时候要" : "Material, quantity, when you need it"}</li><li>{zh ? "公差、密封、检测有什么要求" : "Tolerance, sealing or inspection requirements"}</li></ul>
         <p>{zh ? "没有正式图纸也能先聊。表单不收附件，图纸回头邮件发就行。" : "No formal drawing needed to start. This form takes no attachments; email the drawing when we follow up."}</p>
         <h2>{zh ? "直接联系" : "Reach us directly"}</h2>
-        <p>{zh ? "周游，管商务和产业合作" : "Zhou You, business and partnerships"}<br /><a href="mailto:zhouyou@panovacuum.com">zhouyou@panovacuum.com</a><br /><a href="tel:+8613063722038">+86 130 6372 2038</a></p>
+        <p>{zh ? "周先生，负责商务与产业合作" : "Mr. Zhou, business and partnerships"}<br /><a href="mailto:zhouyou@panovacuum.com">zhouyou@panovacuum.com</a><br /><a href="tel:+8613063722038">+86 130 6372 2038</a></p>
         <img
           src="/wechat-qr.webp"
-          alt={zh ? "周游微信二维码" : "Zhou You WeChat QR code"}
+          alt={zh ? "周先生微信二维码" : "Mr. Zhou WeChat QR code"}
           width={132}
           height={132}
           loading="lazy"
           style={{ display: "block", margin: "10px 0 6px", background: "#fff", padding: 6, borderRadius: 8 }}
         />
-        <p>{zh ? "微信扫码找周游" : "WeChat: scan for Zhou You"}</p>
+        <p>{zh ? "微信扫码联系周先生" : "WeChat: scan for Mr. Zhou"}</p>
         <p>{zh ? "帕诺真空机械科技（常熟）有限公司" : "PANO Vacuum Machinery Technology (Changshu) Co., Ltd."}</p>
         <p>{zh ? "寻找采购、渠道或产业协同？" : "Sourcing, channels or industrial collaboration?"}<br /><Link href={`/${loc}/industrial-partnerships/`}>{zh ? "前往产业合作" : "Explore industrial partnerships"}</Link></p>
       </aside>

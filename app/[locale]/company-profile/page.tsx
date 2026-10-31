@@ -51,13 +51,13 @@ export default async function Profile({ params }: { params: Promise<{ locale: st
 
   const contact = zh
     ? [
-        ["联系人", "周游"],
+        ["联系人", "周先生"],
         ["邮箱", "zhouyou@panovacuum.com", "mailto:zhouyou@panovacuum.com"],
         ["电话", "+86 130 6372 2038", "tel:+8613063722038"],
         ["地址", "江苏省苏州市常熟常福街道朝阳路 88 号"],
       ]
     : [
-        ["Contact", "Zhou You"],
+        ["Contact", "Mr. Zhou"],
         ["Email", "zhouyou@panovacuum.com", "mailto:zhouyou@panovacuum.com"],
         ["Phone", "+86 130 6372 2038", "tel:+8613063722038"],
         ["Address", "No. 88 Chaoyang Road, Changfu Sub-district, Changshu, Suzhou, China"],
