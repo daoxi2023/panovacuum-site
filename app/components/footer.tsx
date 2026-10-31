@@ -62,15 +62,17 @@ export function Footer({ locale }: { locale: "en" | "zh" }) {
     <footer className="site-footer">
       <div className="container footer-grid">
         <div>
-          <img
-            src="/pano-vacuum-tech-logo.webp"
-            srcSet="/pano-vacuum-tech-logo-2x.webp 2x"
-            alt="PANO Vacuum 帕诺真空"
-            width={63}
-            height={42}
-            style={{ height: 42, width: "auto", display: "block", marginBottom: 10 }}
-          />
-          <p className="footer-brand">{zh ? "帕诺真空" : "PANO Vacuum"}</p>
+          <div className="footer-brand-row">
+            <img
+              src="/pano-vacuum-tech-logo.webp"
+              srcSet="/pano-vacuum-tech-logo-2x.webp 2x"
+              alt="PANO Vacuum 帕诺真空"
+              width={126}
+              height={84}
+              style={{ height: 84, width: "auto", display: "block" }}
+            />
+            <p className="footer-brand">{zh ? "帕诺真空" : "PANO Vacuum"}</p>
+          </div>
           <p className="footer-tagline">{T.tagline}</p>
         </div>
         <div>

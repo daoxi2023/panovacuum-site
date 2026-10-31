@@ -48,9 +48,9 @@ export function Header({ locale }: { locale: "en" | "zh" }) {
               src="/pano-vacuum-tech-logo.webp"
               srcSet="/pano-vacuum-tech-logo-2x.webp 2x"
               alt="PANO Vacuum 帕诺真空"
-              width={63}
-              height={42}
-              style={{ height: 42, width: "auto", verticalAlign: "middle" }}
+              width={126}
+              height={84}
+              style={{ height: 84, width: "auto", verticalAlign: "middle" }}
             />
             <span>{brand}</span>
           </Link>
