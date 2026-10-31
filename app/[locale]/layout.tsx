@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     ? {
         ...base,
         title: "帕诺真空｜常熟定制真空腔体",
-        description: "常熟工厂按图纸定制真空腔体、精密件和真空密封组件。加工、焊接、氦检、检验都在本厂，检验记录随货发。",
+        description: "常熟工厂按图纸定制真空腔体、精密零件与真空密封组件，加工、焊接、氦质谱检漏与检验均在本厂完成，检测记录随货交付。",
         icons,
         openGraph: { title: "帕诺真空｜常熟定制真空腔体", description: "面向先进装备的定制真空腔体、精密加工件与真空密封组件制造。", locale: "zh_CN", images: ogImage },
       }

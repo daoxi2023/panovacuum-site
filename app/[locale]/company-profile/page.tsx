@@ -87,7 +87,7 @@ export default async function Profile({ params }: { params: Promise<{ locale: st
               <h2>{zh ? "从图纸评审，到检验交付" : "From drawing review to inspected delivery"}</h2>
               <p>
                 {zh
-                  ? "帕诺位于江苏常熟，专注真空腔体与相关组件制造。我们以具体图纸、制造工艺和检测要求开展项目交流，不用未确认的规格代替技术评审。"
+                  ? "帕诺位于江苏常熟，专注真空腔体与相关组件制造。项目沟通以具体图纸、加工工艺与检测要求为依据，不以未经确认的规格替代技术评审。"
                   : "Based in Changshu, Jiangsu, China, PANO focuses on vacuum chambers and related components. Project discussions start with the drawing, manufacturing process and inspection requirements."}
               </p>
             </div>

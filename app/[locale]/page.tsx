@@ -112,20 +112,20 @@ const content = {
   },
   zh: {
     eyebrow: "真空腔体定制",
-    h1: "按图纸，做真空腔体。",
-    sub: "厂在常熟。下料、加工、焊接、检漏、检验都在本厂完成，每台腔体出厂前做氦质谱检漏，检验记录跟货一起发。",
-    cta: "发图纸，问个价",
-    cta2: "看看车间能力",
+    h1: "按图纸制造真空腔体。",
+    sub: "工厂位于江苏常熟。下料、机加工、焊接、检漏与出厂检验均在本厂完成；每台腔体出厂前经氦质谱检漏，检测记录随货交付。",
+    cta: "提交图纸询价",
+    cta2: "了解车间加工能力",
     rfq: "/zh/request-a-quote",
-    trust: "图纸评审后 48 小时内回价 · 单件也做 · 可英文对接",
-    statsEyebrow: "车间里的设备",
-    statsTitle: "这些设备划定了我们的加工范围",
+    trust: "图纸评审后 48 小时内报价 · 承接单件 · 提供英文对接",
+    statsEyebrow: "主要加工设备",
+    statsTitle: "设备规格与可加工范围",
     stats: [
-      { v: "3 万瓦", k: "激光切割", d: "厚板下料、切坡口，一次出来" },
-      { v: "400 吨 · 6.2 m", k: "折弯成形", d: "大件钣金一次折到位" },
-      { v: "40+", k: "焊接工位", d: "TIG 和自动焊，带洁净焊接区" },
-      { v: "50 吨", k: "重型行车", d: "几吨重的腔体可整体吊装、翻转" },
-      { v: "≤1×10⁻⁹", k: "氦检漏率", d: "UL1000 级，每台都测，不抽检" },
+      { v: "3 万瓦", k: "激光切割", d: "厚板下料与坡口切割一次成型" },
+      { v: "400 吨 · 6.2 m", k: "折弯成形", d: "大型钣金件一次折弯成形" },
+      { v: "40+", k: "焊接工位", d: "TIG 与自动焊，设独立洁净焊接区" },
+      { v: "50 吨", k: "重型行车", d: "数吨级腔体可整体吊装与翻转" },
+      { v: "≤1×10⁻⁹", k: "氦检漏率", d: "UL1000 级，逐台检测，不抽检" },
     ],
     ticker: [
       "3 万瓦激光切割",
@@ -136,78 +136,79 @@ const content = {
       "三坐标尺寸记录",
       "TIG 与自动焊",
     ],
-    capsEyebrow: "能做的工序",
-    capsTitle: "四道工序都在本厂",
-    capsSub: "下面写的设备，车间里都在用。报价按这些设备的实际加工范围核算。",
+    capsEyebrow: "工艺范围",
+    capsTitle: "四类工序均在本厂完成",
+    capsSub: "下列设备均为本厂在用设备，报价按设备的实际加工能力核算。",
     caps: [
-      { t: "精密 CNC 加工", x: "真空级零件，关键尺寸一件件量、一件件记。", img: "/photos/cap-cmm.webp", alt: "ALPHA 关节臂三坐标检测仪检测真空级零件" },
-      { t: "真空密封焊接", x: "TIG 和自动焊，40 多个工位，焊接区单独隔开。", img: "/photos/cap-chamber.webp", alt: "定制真空腔体成品，304L 不锈钢" },
-      { t: "表面处理与清洗", x: "在洁净焊接区里做，表面处理和清洗的记录可以给。", img: "/photos/cap-clean.webp", alt: "受控洁净环境下的表面处理与检测" },
-      { t: "氦质谱检漏与装配", x: "UL1000 检漏仪，做到 1×10⁻⁹ Pa·m³/s 量级，每台测完再装车。", img: "/photos/cap-leak.webp", alt: "UL1000 氦质谱检漏仪验证腔体密封性" },
+      { t: "精密 CNC 加工", x: "真空级零件，关键尺寸逐件测量并记录。", img: "/photos/cap-cmm.webp", alt: "ALPHA 关节臂三坐标检测仪检测真空级零件" },
+      { t: "真空密封焊接", x: "TIG 与自动焊，40 余个工位，焊接区独立隔断。", img: "/photos/cap-chamber.webp", alt: "定制真空腔体成品，304L 不锈钢" },
+      { t: "表面处理与清洗", x: "于洁净焊接区内完成，处理与清洗记录可随货提供。", img: "/photos/cap-clean.webp", alt: "受控洁净环境下的表面处理与检测" },
+      { t: "氦质谱检漏与装配", x: "采用 UL1000 级检漏仪，可达 1×10⁻⁹ Pa·m³/s 量级，逐台检测后装配发运。", img: "/photos/cap-leak.webp", alt: "UL1000 氦质谱检漏仪验证腔体密封性" },
     ],
-    qualityEyebrow: "怎么检",
-    qualityTitle: "一台腔体出厂前，要过 7 道检查",
-    qualityText: "图纸评审、来料、下料、加工、焊接、氦检、出厂，7 道每道签字留档，报告跟货一起走。",
-    qualityCta: "7 道检查都查什么",
+    qualityEyebrow: "检验流程",
+    qualityTitle: "每台腔体出厂前须通过 7 道检验",
+    qualityText: "图纸评审、来料检验、下料、机加工、焊接、氦质谱检漏、出厂检验，7 道工序逐项签字留档，报告随货交付。",
+    qualityCta: "7 道检验的具体内容",
     info: [
-      { k: "厂在哪", v: "江苏常熟。帕诺真空机械科技（常熟）有限公司，做定制真空腔体。" },
-      { k: "做什么", v: "腔体、精密件、真空密封组件。图纸进来，加工、焊接、检漏、检验都在本厂，做完发走。" },
-      { k: "给谁做", v: "半导体设备、镀膜和工艺装备、新能源装备的厂家。海外客户用英文对接。" },
+      { k: "工厂位置", v: "江苏省常熟市。帕诺真空机械科技（常熟）有限公司，主营定制真空腔体。" },
+      { k: "主营产品", v: "真空腔体、精密零件与真空密封组件。客户提供图纸，加工、焊接、检漏与检验均在本厂完成，完工后发运。" },
+      { k: "服务客户", v: "半导体设备、真空镀膜与工艺装备、新能源装备制造商；海外客户可全程英文对接。" },
     ],
     aboutEyebrow: "关于我们",
-    aboutTitle: "一个车间，从下料到出厂",
+    aboutTitle: "一体化制造：从下料到出厂",
     team: [
-      { t: "工艺工程", x: "下料前先把图纸过一遍：能不能做、公差怎么给、泄漏风险在哪。" },
-      { t: "CNC 与精密加工", x: "真空级零件在本厂机床加工，关键尺寸逐件记录。" },
-      { t: "焊接", x: "TIG 和自动焊，40 多个工位，洁净焊接区。" },
-      { t: "质检与检漏", x: "7 道检查，每台留记录，报告随货。" },
+      { t: "工艺工程", x: "下料前完成图纸评审，确认可制造性、公差分配与泄漏风险点。" },
+      { t: "CNC 与精密加工", x: "真空级零件于本厂机床加工，关键尺寸逐件记录。" },
+      { t: "焊接", x: "TIG 与自动焊，40 余个工位，配洁净焊接区。" },
+      { t: "质检与检漏", x: "7 道检验，逐台留档，报告随货。" },
     ],
-    indEyebrow: "用在哪",
-    indTitle: "这些腔体最后装在什么设备上",
+    indEyebrow: "应用领域",
+    indTitle: "终端设备与配套场景",
     ind: [
-      { t: "半导体设备", x: "工艺腔、传输腔、法兰和精密件。" },
-      { t: "真空镀膜与工艺装备", x: "镀膜、PVD 设备的腔体和配套件。" },
+      { t: "半导体设备", x: "工艺腔、传输腔、法兰及精密件。" },
+      { t: "真空镀膜与工艺装备", x: "真空镀膜与 PVD 设备的腔体及配套件。" },
       { t: "新能源装备", x: "电池、光伏产线上的重型焊接结构件。" },
     ],
-    procEyebrow: "怎么合作",
-    procTitle: "从发图纸到收货，四步",
+    procEyebrow: "合作流程",
+    procTitle: "从提交图纸到收货的四个环节",
     steps: [
-      { t: "发来图纸", x: "PDF、DWG、STEP 都行。没有正式图纸，拍张照片加尺寸也能先聊。" },
-      { t: "评审与 DFM", x: "先看能不能做、公差和泄漏风险在哪，再报价。" },
-      { t: "报价带节点", x: "48 小时内给实质回复，交期写进合同。" },
-      { t: "制造·检验·交付", x: "7 道检查走完，记录和货一起发。" },
+      { t: "提交图纸", x: "支持 PDF、DWG、STEP 格式；尚无正式图纸时，可先提供实物照片与关键尺寸。" },
+      { t: "评审与 DFM 分析", x: "评估可制造性、公差要求与泄漏风险后报价。" },
+      { t: "报价与交期", x: "48 小时内提供实质性报价，交期列入合同。" },
+      { t: "制造、检验与交付", x: "完成 7 道检验后，检测记录随货交付。" },
     ],
-    caseEyebrow: "做过的活",
-    caseTitle: "两个已交付的例子",
-    caseSub: "以下按设备台账整理，客户名按保密约定隐去。",
-    caseCta: "看更多能力示例",
+    caseEyebrow: "交付案例",
+    caseTitle: "两项已交付案例",
+    caseSub: "以下内容依据设备台账整理，客户名称按保密约定隐去。",
+    caseCta: "查看更多能力示例",
     cases: [
-      { t: "数吨级 304L 真空腔体", x: "304L 不锈钢，单件几吨重。3 万瓦激光下料，400 吨折弯机成形，氦检做到 1×10⁻⁹ Pa·m³/s 量级，50 吨行车整体吊装翻身。报告随货。", tag: "重型腔体", img: "/photos/chamber-050.webp" },
-      { t: "真空密封焊接，逐台验证", x: "40 多个 TIG 和自动焊工位，洁净焊接区。每台都做氦检，不抽检。", tag: "焊接与检漏", img: "/photos/cap-leak.webp" },
+      { t: "数吨级 304L 真空腔体", x: "304L 不锈钢，单件重达数吨。3 万瓦激光下料、400 吨折弯机成形，氦质谱检漏达 1×10⁻⁹ Pa·m³/s 量级，以 50 吨行车整体吊装翻转。检测报告随货交付。", tag: "重型腔体", img: "/photos/chamber-050.webp" },
+      { t: "真空密封焊接，逐台验证", x: "40 余个 TIG 与自动焊工位，设洁净焊接区；逐台进行氦质谱检漏，不抽检。", tag: "焊接与检漏", img: "/photos/cap-leak.webp" },
     ],
     partnersEyebrow: "合作伙伴",
-    partnersTitle: "和谁一起做",
-    partnersSub: "部分合作过的客户与供应链伙伴，此处按商业计划书列举。",
-    newsEyebrow: "车间笔记",
-    newsTitle: "最近写的几篇",
-    newsCta: "全部文章",
-    faqEyebrow: "常问的问题",
-    faqTitle: "客户问得最多的 10 个问题",
+    partnersTitle: "合作客户与供应链伙伴",
+    partnersSub: "以下为部分合作客户与供应链伙伴，依据商业计划书列举。",
+    newsEyebrow: "技术文章",
+    newsTitle: "近期文章",
+    newsCta: "查看全部文章",
+    faqEyebrow: "常见问题",
+    faqTitle: "客户常见问题（10 则）",
     faq: [
-      { q: "能做多大的腔体？", a: "单件几吨重没问题。尺寸按图纸，50 吨行车能整体吊装、翻转，大腔体不用分段做。" },
-      { q: "用什么材料？", a: "主要是 304L 和 SUS316L 不锈钢。牌号、表面处理按图纸来。" },
-      { q: "检漏能力怎么样？", a: "氦质谱检漏做到 1×10⁻⁹ Pa·m³/s 量级，UL1000 级，每台出厂前都测。" },
-      { q: "交期多久？", a: "看图纸复杂程度。报价时会给节点计划，写进合同。" },
-      { q: "有什么认证？", a: "SEMI 相关标准、AWS 焊接体系的认证在推进，客户来厂审核也配合。具体进度问销售。" },
-      { q: "怎么开始合作？", a: "把图纸发过来（PDF/DWG/STEP），我们做评审、给 DFM 建议和报价，3D 模型和工程图也能接。" },
-      { q: "最小起订量？", a: "单件也做，没有起订量。" },
-      { q: "质保怎么算？", a: "按合同质保条款，每台带检测记录。" },
-      { q: "海外客户怎么合作？", a: "英文全程对接（zhouyou@panovacuum.com / +1 307 533 3212），出口包装和单证都能出。" },
-      { q: "付款方式？", a: "按合同谈，30/70 或信用证都可以商量。" },
+      { q: "能做多大的腔体？", a: "单件可达数吨。尺寸按图纸定制，50 吨行车可整体吊装与翻转，大型腔体无需分段制造。" },
+      { q: "用什么材料？", a: "主要为 304L 与 SUS316L 不锈钢，牌号与表面处理按图纸要求执行。" },
+      { q: "检漏能力怎么样？", a: "氦质谱检漏可达 1×10⁻⁹ Pa·m³/s 量级（UL1000 级），每台出厂前逐台检测。" },
+      { q: "交期多久？", a: "视图纸复杂程度确定；报价时提供节点计划，并列入合同。" },
+      { q: "有什么认证？", a: "SEMI 相关标准与 AWS 焊接体系认证正在推进，可配合客户来厂审核；具体进度请咨询销售。" },
+      { q: "怎么开始合作？", a: "请提供图纸（PDF、DWG 或 STEP），我方进行评审并出具 DFM 建议与报价；亦可接收 3D 模型与工程图。" },
+      { q: "最小起订量？", a: "承接单件，无最小起订量。" },
+      { q: "质保怎么算？", a: "按合同质保条款执行，每台随货附检测记录。" },
+      { q: "海外客户怎么合作？", a: "可全程英文对接（zhouyou@panovacuum.com / +1 307 533 3212），并提供出口包装与单证。" },
+      { q: "付款方式？", a: "按合同约定，可协商 30/70 付款或信用证结算。" },
     ],
-    bandH: "图纸发来，48 小时内给出实质回复",
-    bandSub: "英文也能对接。电话 +86 130 6372 2038 · zhouyou@panovacuum.com",
+    bandH: "提交图纸，48 小时内获得实质性报价",
+    bandSub: "支持英文对接 · 电话 +86 130 6372 2038 · zhouyou@panovacuum.com",
   },
+
 };
 
 export default async function Home({ params }: { params: Promise<{ locale: string }> }) {
@@ -233,7 +234,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
         <div className="container hero-layout">
           <div className="hero-copy">
             <p className="eyebrow">{t.eyebrow}</p>
-            <h1>{loc === "zh" ? <><span style={{ display: "block" }}>按图纸，做真空腔体。</span><span style={{ display: "block" }}>做一台，检一台。</span></> : t.h1}</h1>
+            <h1>{loc === "zh" ? <><span style={{ display: "block" }}>按图纸制造真空腔体。</span><span style={{ display: "block" }}>逐台检验，随货附报告。</span></> : t.h1}</h1>
             <p className="sub">{t.sub}</p>
             <div className="hero-actions">
               <Link href={t.rfq} className="cta">{t.cta}</Link>
@@ -250,7 +251,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               playsInline
               preload="metadata"
               poster="/video/hero-poster.jpg"
-              aria-label={loc === "zh" ? "帕诺真空车间实拍影像" : "PANO Vacuum workshop footage"}
+              aria-label={loc === "zh" ? "真空腔体制造影像" : "PANO Vacuum workshop footage"}
             >
               <source src="/video/hero-loop-1280.mp4" type="video/mp4" media="(max-width: 900px)" />
               <source src="/video/hero-loop-1920.mp4" type="video/mp4" />
@@ -315,7 +316,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               </div>
             ))}
           </div>
-          <div className="growth-service-links" aria-label={loc === "zh" ? "按制造需求了解服务" : "Explore manufacturing services"}>
+          <div className="growth-service-links" aria-label={loc === "zh" ? "按制造需求了解相关服务" : "Explore manufacturing services"}>
             <Link href={`/${loc}/manufacturing/custom-vacuum-chambers/`}>{loc === "zh" ? "定制真空腔体" : "Custom vacuum chambers"}</Link>
             <Link href={`/${loc}/manufacturing/precision-components/`}>{loc === "zh" ? "精密加工零件" : "Precision components"}</Link>
             <Link href={`/${loc}/manufacturing/vacuum-tight-welding/`}>{loc === "zh" ? "真空密封焊接" : "Vacuum-tight welding"}</Link>
@@ -332,8 +333,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <figure className="about-media">
             <img className="about-media-main" src="/photos/feedthrough-044.webp" alt={loc === "zh" ? "超高真空法兰组件安装" : "Ultra-high-vacuum feedthrough installation"} width={1600} height={900} loading="lazy" />
             <div className="about-media-row">
-              <img src="/photos/workshop-063.webp" alt={loc === "zh" ? "车间里的焊接工位" : "Welding station in the workshop"} width={1600} height={1067} loading="lazy" />
-              <img src="/photos/workshop-058.webp" alt={loc === "zh" ? "车间里的构件与设备" : "Components and equipment in the workshop"} width={1600} height={1067} loading="lazy" />
+              <img src="/photos/workshop-063.webp" alt={loc === "zh" ? "车间焊接工位" : "Welding station in the workshop"} width={1600} height={1067} loading="lazy" />
+              <img src="/photos/workshop-058.webp" alt={loc === "zh" ? "车间内的构件与设备" : "Components and equipment in the workshop"} width={1600} height={1067} loading="lazy" />
             </div>
           </figure>
           <div className="about-copy">
@@ -498,11 +499,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <p className="sub">{t.bandSub}</p>
           <p>
             <Link href={t.rfq} className="cta">{t.cta}</Link>
-            <a href="mailto:zhouyou@panovacuum.com" className="cta secondary">{loc === "zh" ? "邮件发送图纸" : "Email your drawing"}</a>
+            <a href="mailto:zhouyou@panovacuum.com" className="cta secondary">{loc === "zh" ? "通过邮件提交图纸" : "Email your drawing"}</a>
           </p>
           <p className="cta-band-link">
             <Link href={`/${loc}/industrial-partnerships/`}>
-              {loc === "zh" ? "寻找采购、渠道或产业协同？了解产业合作 →" : "Sourcing, channels or industrial collaboration? Explore partnerships →"}
+              {loc === "zh" ? "寻求采购、渠道或产业协同合作 →" : "Sourcing, channels or industrial collaboration? Explore partnerships →"}
             </Link>
           </p>
         </div>

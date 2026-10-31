@@ -6,7 +6,7 @@ export default async function Blog({ params }: { params: Promise<{ locale: strin
   const { locale } = await params;
   const zh = locale === "zh";
   const t = zh
-    ? { title: "新闻资讯", intro: "技术文章与工厂实况。每月更新，讲真空腔体制造里客户真正关心的问题。", back: "返回首页", read: "阅读全文", eyebrow: "新闻资讯 · NEWS" }
+    ? { title: "新闻资讯", intro: "技术文章与工厂动态，每月更新，聚焦真空腔体制造中客户关注的实际问题。", back: "返回首页", read: "阅读全文", eyebrow: "新闻资讯 · NEWS" }
     : { title: "News & Articles", intro: "Technical articles and notes from the shop floor. Updated monthly — the questions equipment teams actually ask about vacuum chamber fabrication.", back: "Back to Home", read: "Read article", eyebrow: "NEWS · 新闻资讯" };
   return (
     <>
