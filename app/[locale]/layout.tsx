@@ -28,11 +28,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         openGraph: { title: "帕诺真空｜常熟定制真空腔体", description: "面向先进装备的定制真空腔体、精密加工件与真空密封组件制造。", locale: "zh_CN", images: ogImage },
       }
     : {
-        title: "PANO Vacuum | Custom Vacuum Chambers & Precision Manufacturing",
+        title: "PANO Vacuum | Custom Vacuum Chambers, Changshu China",
         description:
-          "Engineering-focused manufacturing of custom vacuum chambers, precision-machined components and vacuum-tight assemblies — from drawing review to inspection and delivery.",
+          "We build custom vacuum chambers to your drawing in Changshu, China. Machining, welding, helium leak testing and inspection all happen in our shop, and the test records ship with the chamber.",
         icons,
-        openGraph: { title: "PANO Vacuum | Custom Vacuum Chambers & Precision Manufacturing", description: "Engineering-focused manufacturing of custom vacuum chambers and precision-machined components.", locale: "en_US", images: ogImage },
+        openGraph: { title: "PANO Vacuum | Custom Vacuum Chambers, Changshu China", description: "Custom vacuum chambers built to your drawing in Changshu, China. Test records ship with every unit.", locale: "en_US", images: ogImage },
       };
 }
 

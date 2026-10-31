@@ -4,15 +4,15 @@ import { SeoLinks } from "../../components/seo-links";
 
 const content = {
   en: {
-    eyebrow: "CASE EXAMPLES",
-    title: "Capability examples, built from our ledger",
-    intro: "What a typical chamber job looks like through our gates — every example below is drawn from our equipment ledger and process records, without customer details. Named customer case studies follow NDA-permitted disclosure.",
-    note: "These are capability examples — what we can fabricate and how it is verified — not a specific customer project file. Send your drawing and we will match the closest comparable work we have done.",
-    cta: "Request a Quote",
-    back: "Back to Home",
+    eyebrow: "WORK WE HAVE DONE",
+    title: "Examples from our equipment records",
+    intro: "Here is how a typical chamber moves through our gates. These examples come from our equipment records; customer names are withheld under NDA.",
+    note: "These show what we can fabricate and how it gets checked, not a specific customer file. Send your drawing and we will point to the closest comparable job.",
+    cta: "Send a drawing, get a price",
+    back: "Back to home",
     cases: [
-      { tag: "Heavy chamber", t: "Multi-ton 304L vacuum chamber", x: "304L stainless, single-piece multi-ton class: 30 kW laser blanking, 400 t / 6.2 m press-brake forming, helium leak test to the 1×10⁻⁹ Pa·m³/s order, assembly and turnover under the 50 t crane; inspection records shipped with the unit.", img: "/photos/cap-chamber.webp" },
-      { tag: "Welding & leak test", t: "Vacuum-tight welding, verified per chamber", x: "TIG and automated welding across 40+ stations in a controlled clean welding environment, helium leak-tested per unit — not sampled.", img: "/photos/cap-leak.webp" },
+      { tag: "Heavy chamber", t: "Multi-ton 304L vacuum chamber", x: "304L stainless, a few tons for a single piece. 30 kW laser blanking, 400 t press brake forming, helium test down to the 1×10⁻⁹ Pa·m³/s order, lifted and turned under the 50 t crane. Records ship with it.", img: "/photos/cap-chamber.webp" },
+      { tag: "Welding & leak test", t: "Vacuum-tight welding, verified per chamber", x: "TIG and automated welding across 40-plus stations in a clean bay. Every unit is helium tested; none are sampled.", img: "/photos/cap-leak.webp" },
     ],
   },
   zh: {

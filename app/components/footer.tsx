@@ -32,7 +32,7 @@ export function Footer({ locale }: { locale: "en" | "zh" }) {
         wechatLabel: "微信咨询",
       }
     : {
-        tagline: "A vacuum chamber manufacturer in Changshu — from drawing to delivery, under one roof.",
+        tagline: "A vacuum chamber shop in Changshu, China. The drawing comes in, the work happens here, the chamber ships out with its test records.",
         navTitle: "Site",
         links: [
           ["Capabilities", `/${locale}/#capabilities`],
