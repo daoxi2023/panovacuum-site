@@ -6,67 +6,88 @@ export function Footer({ locale }: { locale: "en" | "zh" }) {
   const T = zh
     ? {
         tagline: "常熟的真空腔体厂。图纸进来，加工、焊接、检漏、检验都在本厂做完，再发走。",
-        navTitle: "站点",
-        links: [
-          ["制造能力", `/${locale}/#capabilities`],
-          ["质量检验", `/${locale}/#quality`],
-          ["关于我们", `/${locale}/#about`],
-          ["应用领域", `/${locale}/#industries`],
-          ["案例示例", `/${locale}/case-studies/`],
-          ["新闻博客", `/${locale}/blog/`],
-          ["产业合作", `/${locale}/industrial-partnerships/`],
-          ["工厂能力介绍", `/${locale}/company-profile/`],
-          ["隐私政策", `/${locale}/privacy/`],
-          ["使用条款", `/${locale}/terms/`],
-          ["提交询价", `/${locale}/request-a-quote/`],
+        cta: "提交询价",
+        groups: [
+          {
+            title: "制造与能力",
+            items: [
+              ["制造能力", `/${locale}/#capabilities`],
+              ["质量检验", `/${locale}/#quality`],
+              ["应用领域", `/${locale}/#industries`],
+              ["案例示例", `/${locale}/case-studies/`],
+              ["工厂能力介绍", `/${locale}/company-profile/`],
+              ["产业合作", `/${locale}/industrial-partnerships/`],
+            ],
+          },
+          {
+            title: "关于与资料",
+            items: [
+              ["关于我们", `/${locale}/#about`],
+              ["新闻博客", `/${locale}/blog/`],
+              ["隐私政策", `/${locale}/privacy/`],
+              ["使用条款", `/${locale}/terms/`],
+            ],
+          },
         ],
-        contactTitle: "联系我们",
+        contactTitle: "联系",
         tel: "+86 130 6372 2038",
+        telLabel: "中国",
         telUs: "+1 307 533 3212",
+        telUsLabel: "美国",
         mail: "zhouyou@panovacuum.com",
         addr: "江苏省苏州市常熟常福街道朝阳路 88 号，215500",
-        companyTitle: "公司",
-        co1: "帕诺真空机械科技（常熟）有限公司",
-        web: "www.panovacuum.com",
+        wechat: "微信咨询",
         rights: "© 2026 帕诺真空 版权所有",
+        co1: "帕诺真空机械科技（常熟）有限公司",
         operator: "本站及线上业务由苏州领拓互联科技有限公司运营维护",
-        articles: "技术文章",
-        wechatLabel: "微信咨询",
+        privacy: "隐私政策",
+        terms: "使用条款",
       }
     : {
         tagline: "A vacuum chamber shop in Changshu, China. The drawing comes in, the work happens here, the chamber ships out with its test records.",
-        navTitle: "Site",
-        links: [
-          ["Capabilities", `/${locale}/#capabilities`],
-          ["Quality", `/${locale}/#quality`],
-          ["About", `/${locale}/#about`],
-          ["Industries", `/${locale}/#industries`],
-          ["Case Examples", `/${locale}/case-studies/`],
-          ["Blog", `/${locale}/blog/`],
-          ["Industrial Partnerships", `/${locale}/industrial-partnerships/`],
-          ["Factory Overview", `/${locale}/company-profile/`],
-          ["Privacy Policy", `/${locale}/privacy/`],
-          ["Terms of Use", `/${locale}/terms/`],
-          ["Request a Quote", `/${locale}/request-a-quote/`],
+        cta: "Request a quote",
+        groups: [
+          {
+            title: "Manufacturing",
+            items: [
+              ["Capabilities", `/${locale}/#capabilities`],
+              ["Quality", `/${locale}/#quality`],
+              ["Industries", `/${locale}/#industries`],
+              ["Case Examples", `/${locale}/case-studies/`],
+              ["Factory Overview", `/${locale}/company-profile/`],
+              ["Industrial Partnerships", `/${locale}/industrial-partnerships/`],
+            ],
+          },
+          {
+            title: "Company & resources",
+            items: [
+              ["About", `/${locale}/#about`],
+              ["Blog", `/${locale}/blog/`],
+              ["Privacy Policy", `/${locale}/privacy/`],
+              ["Terms of Use", `/${locale}/terms/`],
+            ],
+          },
         ],
         contactTitle: "Contact",
         tel: "+86 130 6372 2038",
+        telLabel: "China",
         telUs: "+1 307 533 3212",
+        telUsLabel: "US",
         mail: "zhouyou@panovacuum.com",
         addr: "No. 88 Chaoyang Road, Changfu Sub-district, Changshu, Suzhou 215500, China",
-        companyTitle: "Company",
-        co1: "PANO Vacuum Machinery Technology (Changshu) Co., Ltd.",
-        web: "www.panovacuum.com",
+        wechat: "WeChat",
         rights: "© 2026 PANO Vacuum. All rights reserved.",
+        co1: "PANO Vacuum Machinery Technology (Changshu) Co., Ltd.",
         operator:
           "This website and our online business are operated and maintained by Suzhou Lingtuo Internet Technology Co., Ltd.",
-        articles: "Technical Articles",
-        wechatLabel: "WeChat",
+        privacy: "Privacy policy",
+        terms: "Terms of use",
       };
+
   return (
     <footer className="site-footer">
-      <div className="container footer-grid">
-        <div>
+      <div className="container footer-main">
+        <div className="footer-identity">
           <div className="footer-brand-row">
             <img
               src="/pano-vacuum-tech-logo.webp"
@@ -79,52 +100,76 @@ export function Footer({ locale }: { locale: "en" | "zh" }) {
             <p className="footer-brand">{zh ? "帕诺真空" : "PANO Vacuum"}</p>
           </div>
           <p className="footer-tagline">{T.tagline}</p>
+          <Link className="footer-cta" href={`/${locale}/request-a-quote/`}>
+            {T.cta}
+          </Link>
         </div>
-        <div>
-          <p className="footer-title">{T.navTitle}</p>
-          <ul className="footer-links">
-            {T.links.map(([label, href]) => (
-              <li key={href}><Link href={href}>{label}</Link></li>
-            ))}
-          </ul>
-        </div>
-        <div>
+
+        {T.groups.map((group) => (
+          <div className="footer-col" key={group.title}>
+            <p className="footer-title">{group.title}</p>
+            <ul className="footer-links">
+              {group.items.map(([label, href]) => (
+                <li key={href}>
+                  <Link href={href}>{label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+
+        <div className="footer-col footer-contact">
           <p className="footer-title">{T.contactTitle}</p>
-          <p className="footer-line"><a href="tel:+8613063722038">{T.tel}</a><br /><a href="tel:+13075333212">{T.telUs}</a></p>
-          <p className="footer-line"><a href={`mailto:${T.mail}`}>{T.mail}</a></p>
-          <p className="footer-line">{T.addr}</p>
-          <p className="footer-line" style={{ marginTop: 14 }}>{T.wechatLabel}</p>
-          <img
-            src="/wechat-qr.webp"
-            alt={zh ? "周先生微信二维码" : "Mr. Zhou WeChat QR code"}
-            className="footer-qr"
-            width={96}
-            height={96}
-            loading="lazy"
-          />
-        </div>
-        <div>
-          <p className="footer-title">{T.companyTitle}</p>
-          <p className="footer-line">{T.co1}</p>
-          <p className="footer-line">{T.web}</p>
+          <ul className="footer-contact-list">
+            <li>
+              <a className="num" href="tel:+8613063722038">
+                {T.tel}
+                <span>{T.telLabel}</span>
+              </a>
+            </li>
+            <li>
+              <a className="num" href="tel:+13075333212">
+                {T.telUs}
+                <span>{T.telUsLabel}</span>
+              </a>
+            </li>
+            <li>
+              <a href={`mailto:${T.mail}`}>{T.mail}</a>
+            </li>
+            <li className="footer-addr">{T.addr}</li>
+          </ul>
+          <div className="footer-wechat">
+            <img
+              src="/wechat-qr.webp"
+              alt={zh ? "周先生微信二维码" : "Mr. Zhou WeChat QR code"}
+              className="footer-qr"
+              width={76}
+              height={76}
+              loading="lazy"
+            />
+            <span>{T.wechat}</span>
+          </div>
         </div>
       </div>
-      <div className="container footer-legal">
-        <span className="footer-operator">{T.operator}</span>
-        <span className="footer-legal-links">
-          <Link href={`/${locale}/privacy/`}>{zh ? "隐私政策" : "Privacy policy"}</Link>
-          <Link href={`/${locale}/terms/`}>{zh ? "使用条款" : "Terms of use"}</Link>
-        </span>
-      </div>
+
       <div className="container footer-bottom">
-        <span>{T.rights}</span>
-        <Link href={`/${locale}/blog/`} className="footer-articles">{T.articles}</Link>
-      </div>
-      {SITE_ICP ? (
-        <div className="container footer-icp">
-          <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">{SITE_ICP}</a>
+        <div>
+          <p className="footer-copy">
+            {T.rights} · {T.co1}
+          </p>
+          <p className="footer-operator">{T.operator}</p>
         </div>
-      ) : null}
+        <div className="footer-meta">
+          <Link href={`/${locale}/privacy/`}>{T.privacy}</Link>
+          <Link href={`/${locale}/terms/`}>{T.terms}</Link>
+          <span>www.panovacuum.com</span>
+          {SITE_ICP ? (
+            <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">
+              {SITE_ICP}
+            </a>
+          ) : null}
+        </div>
+      </div>
     </footer>
   );
 }
