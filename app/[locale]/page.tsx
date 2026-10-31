@@ -76,6 +76,26 @@ const content = {
       { t: "Multi-ton 304L chamber", x: "304L stainless, a few tons for a single piece. 30 kW laser blanking, 400 t press brake forming, helium test down to the 1×10⁻⁹ Pa·m³/s order, lifted and turned under the 50 t crane. Records ship with it.", tag: "Heavy chamber", img: "/photos/cap-chamber.webp" },
       { t: "Vacuum-tight welding, verified per chamber", x: "TIG and automated welding across 40-plus stations in a clean bay. Every unit gets a helium test; none are sampled.", tag: "Welding & leak test", img: "/photos/cap-leak.webp" },
     ],
+    partnersEyebrow: "Partners",
+    partnersTitle: "Who we work with",
+    partnersSub: "A few of the customers and supply-chain partners we have worked with.",
+    partners: [
+      { name: "CETC", logo: "/photos/partners/cetc.webp", alt: "CETC 标识" },
+      { name: "Huasheng", logo: "/photos/partners/huasheng.webp", alt: "Huasheng 标识" },
+      { name: "Anhui Yuehao", logo: "/photos/partners/anhui-yuehao.webp", alt: "Anhui Yuehao 标识" },
+      { name: "Exact SC", logo: "/photos/partners/exact-sc.webp", alt: "Exact SC 标识" },
+      { name: "Qianhai Jiuhe", logo: "/photos/partners/qianhai-jiuhe.webp", alt: "Qianhai Jiuhe 标识" },
+      { name: "Power Jacks", logo: "/photos/partners/power-jacks.webp", alt: "Power Jacks 标识" },
+      { name: "Songyu Technology", logo: "/photos/partners/songyu.webp", alt: "Songyu Technology 标识" },
+      { name: "Zhongke Nawei", logo: "/photos/partners/zhongke-nawei.webp", alt: "Zhongke Nawei 标识" },
+      { name: "Yuansu Vacuum", logo: "/photos/partners/yuansu-vacuum.webp", alt: "Yuansu Vacuum 标识" },
+      { name: "Matrix Materials", logo: "/photos/partners/matrix-materials.webp", alt: "Matrix Materials 标识" },
+      { name: "Hengyue Vacuum", logo: "/photos/partners/hengyue-vacuum.webp", alt: "Hengyue Vacuum 标识" },
+      { name: "Zhonghang Maite", logo: "/photos/partners/zhonghang-maite.webp", alt: "Zhonghang Maite 标识" },
+      { name: "Xiandao", logo: "/photos/partners/xiandao.webp", alt: "Xiandao 标识" },
+      { name: "Jiangsu Pilat Photoelectric", logo: "/photos/partners/pilat-photoelectric.webp", alt: "Jiangsu Pilat Photoelectric 标识" },
+      { name: "Shanghai Jianghui Vacuum", logo: "/photos/partners/jianghui-vacuum.webp", alt: "Shanghai Jianghui Vacuum 标识" },
+    ],
     newsEyebrow: "Shop notes",
     newsTitle: "Recent notes from the shop",
     newsCta: "All articles",
@@ -161,6 +181,26 @@ const content = {
     cases: [
       { t: "数吨级 304L 真空腔体", x: "304L 不锈钢，单件几吨重。3 万瓦激光下料，400 吨折弯机成形，氦检做到 1×10⁻⁹ Pa·m³/s 量级，50 吨行车整体吊装翻身。报告随货。", tag: "重型腔体", img: "/photos/cap-chamber.webp" },
       { t: "真空密封焊接，逐台验证", x: "40 多个 TIG 和自动焊工位，洁净焊接区。每台都做氦检，不抽检。", tag: "焊接与检漏", img: "/photos/cap-leak.webp" },
+    ],
+    partnersEyebrow: "合作伙伴",
+    partnersTitle: "和谁一起做",
+    partnersSub: "部分合作过的客户与供应链伙伴，此处按商业计划书列举。",
+    partners: [
+      { name: "CETC", logo: "/photos/partners/cetc.webp", alt: "CETC 标识" },
+      { name: "华升", logo: "/photos/partners/huasheng.webp", alt: "华升 标识" },
+      { name: "安徽越好", logo: "/photos/partners/anhui-yuehao.webp", alt: "安徽越好 标识" },
+      { name: "Exact SC", logo: "/photos/partners/exact-sc.webp", alt: "Exact SC 标识" },
+      { name: "前海久禾", logo: "/photos/partners/qianhai-jiuhe.webp", alt: "前海久禾 标识" },
+      { name: "Power Jacks", logo: "/photos/partners/power-jacks.webp", alt: "Power Jacks 标识" },
+      { name: "松煜科技", logo: "/photos/partners/songyu.webp", alt: "松煜科技 标识" },
+      { name: "中科纳微", logo: "/photos/partners/zhongke-nawei.webp", alt: "中科纳微 标识" },
+      { name: "元素真空", logo: "/photos/partners/yuansu-vacuum.webp", alt: "元素真空 标识" },
+      { name: "矩阵材料", logo: "/photos/partners/matrix-materials.webp", alt: "矩阵材料 标识" },
+      { name: "衡岳真空", logo: "/photos/partners/hengyue-vacuum.webp", alt: "衡岳真空 标识" },
+      { name: "中航迈特", logo: "/photos/partners/zhonghang-maite.webp", alt: "中航迈特 标识" },
+      { name: "先导", logo: "/photos/partners/xiandao.webp", alt: "先导 标识" },
+      { name: "江苏派莱特光电", logo: "/photos/partners/pilat-photoelectric.webp", alt: "江苏派莱特光电 标识" },
+      { name: "上海匠辉真空", logo: "/photos/partners/jianghui-vacuum.webp", alt: "上海匠辉真空 标识" },
     ],
     newsEyebrow: "车间笔记",
     newsTitle: "最近写的几篇",
@@ -383,6 +423,24 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
           <p style={{ marginTop: 20 }}>
             <Link href={`/${loc}/case-studies/`} className="text-link">{t.caseCta} →</Link>
           </p>
+        </div>
+      </section>
+
+      <section className="section partners" id="partners">
+        <div className="container">
+          <div className="section-head">
+            <p className="eyebrow">{t.partnersEyebrow}</p>
+            <h2>{t.partnersTitle}</h2>
+            <p className="sub">{t.partnersSub}</p>
+          </div>
+          <div className="partners-grid">
+            {t.partners.map((pt) => (
+              <div className="partner" key={pt.name}>
+                <img src={pt.logo} alt={pt.alt} width={300} height={80} loading="lazy" />
+                <span>{pt.name}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
