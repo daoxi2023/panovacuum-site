@@ -2,6 +2,7 @@ import Link from "next/link";
 import "../home.css";
 import { articles } from "../../lib/articles";
 import { SeoLinks } from "../components/seo-links";
+import { PartnerGrid } from "../components/partner-grid";
 import "../growth.css";
 
 const gates: Record<"en" | "zh", string[]> = {
@@ -79,23 +80,6 @@ const content = {
     partnersEyebrow: "Partners",
     partnersTitle: "Who we work with",
     partnersSub: "A few of the customers and supply-chain partners we have worked with.",
-    partners: [
-      { name: "CETC", logo: "/photos/partners/cetc.webp", alt: "CETC 标识" },
-      { name: "Huasheng", logo: "/photos/partners/huasheng.webp", alt: "Huasheng 标识" },
-      { name: "Anhui Yuehao", logo: "/photos/partners/anhui-yuehao.webp", alt: "Anhui Yuehao 标识" },
-      { name: "Exact SC", logo: "/photos/partners/exact-sc.webp", alt: "Exact SC 标识" },
-      { name: "Qianhai Jiuhe", logo: "/photos/partners/qianhai-jiuhe.webp", alt: "Qianhai Jiuhe 标识" },
-      { name: "Power Jacks", logo: "/photos/partners/power-jacks.webp", alt: "Power Jacks 标识" },
-      { name: "Songyu Technology", logo: "/photos/partners/songyu.webp", alt: "Songyu Technology 标识" },
-      { name: "Zhongke Nawei", logo: "/photos/partners/zhongke-nawei.webp", alt: "Zhongke Nawei 标识" },
-      { name: "Yuansu Vacuum", logo: "/photos/partners/yuansu-vacuum.webp", alt: "Yuansu Vacuum 标识" },
-      { name: "Matrix Materials", logo: "/photos/partners/matrix-materials.webp", alt: "Matrix Materials 标识" },
-      { name: "Hengyue Vacuum", logo: "/photos/partners/hengyue-vacuum.webp", alt: "Hengyue Vacuum 标识" },
-      { name: "Zhonghang Maite", logo: "/photos/partners/zhonghang-maite.webp", alt: "Zhonghang Maite 标识" },
-      { name: "Xiandao", logo: "/photos/partners/xiandao.webp", alt: "Xiandao 标识" },
-      { name: "Jiangsu Pilat Photoelectric", logo: "/photos/partners/pilat-photoelectric.webp", alt: "Jiangsu Pilat Photoelectric 标识" },
-      { name: "Shanghai Jianghui Vacuum", logo: "/photos/partners/jianghui-vacuum.webp", alt: "Shanghai Jianghui Vacuum 标识" },
-    ],
     newsEyebrow: "Shop notes",
     newsTitle: "Recent notes from the shop",
     newsCta: "All articles",
@@ -185,23 +169,6 @@ const content = {
     partnersEyebrow: "合作伙伴",
     partnersTitle: "和谁一起做",
     partnersSub: "部分合作过的客户与供应链伙伴，此处按商业计划书列举。",
-    partners: [
-      { name: "CETC", logo: "/photos/partners/cetc.webp", alt: "CETC 标识" },
-      { name: "华升", logo: "/photos/partners/huasheng.webp", alt: "华升 标识" },
-      { name: "安徽越好", logo: "/photos/partners/anhui-yuehao.webp", alt: "安徽越好 标识" },
-      { name: "Exact SC", logo: "/photos/partners/exact-sc.webp", alt: "Exact SC 标识" },
-      { name: "前海久禾", logo: "/photos/partners/qianhai-jiuhe.webp", alt: "前海久禾 标识" },
-      { name: "Power Jacks", logo: "/photos/partners/power-jacks.webp", alt: "Power Jacks 标识" },
-      { name: "松煜科技", logo: "/photos/partners/songyu.webp", alt: "松煜科技 标识" },
-      { name: "中科纳微", logo: "/photos/partners/zhongke-nawei.webp", alt: "中科纳微 标识" },
-      { name: "元素真空", logo: "/photos/partners/yuansu-vacuum.webp", alt: "元素真空 标识" },
-      { name: "矩阵材料", logo: "/photos/partners/matrix-materials.webp", alt: "矩阵材料 标识" },
-      { name: "衡岳真空", logo: "/photos/partners/hengyue-vacuum.webp", alt: "衡岳真空 标识" },
-      { name: "中航迈特", logo: "/photos/partners/zhonghang-maite.webp", alt: "中航迈特 标识" },
-      { name: "先导", logo: "/photos/partners/xiandao.webp", alt: "先导 标识" },
-      { name: "江苏派莱特光电", logo: "/photos/partners/pilat-photoelectric.webp", alt: "江苏派莱特光电 标识" },
-      { name: "上海匠辉真空", logo: "/photos/partners/jianghui-vacuum.webp", alt: "上海匠辉真空 标识" },
-    ],
     newsEyebrow: "车间笔记",
     newsTitle: "最近写的几篇",
     newsCta: "全部文章",
@@ -441,14 +408,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <h2>{t.partnersTitle}</h2>
             <p className="sub">{t.partnersSub}</p>
           </div>
-          <div className="partners-grid">
-            {t.partners.map((pt) => (
-              <div className="partner" key={pt.name}>
-                <img src={pt.logo} alt={pt.alt} width={300} height={80} loading="lazy" />
-                <span>{pt.name}</span>
-              </div>
-            ))}
-          </div>
+          <PartnerGrid locale={loc} />
         </div>
       </section>
 

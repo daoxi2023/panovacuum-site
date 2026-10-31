@@ -91,3 +91,25 @@
 .growth-service-links { display: flex; flex-wrap: wrap; gap: 14px 28px; margin-top: 28px; }
 .growth-service-links a { color: var(--pano-ui-green); text-decoration: underline; text-underline-offset: 4px; font-size: 15px; }
 .growth-page section[id] { scroll-margin-top: 105px; }
+
+.growth-section .container > .sub { color: var(--pano-ui-muted, #5b6478); font-size: 16px; line-height: 1.8; max-width: 760px; margin: 8px 0 0; }
+.growth-section .partner-wall { margin-top: 26px; }
+
+/* 合作伙伴 logo 墙：首页与公司介绍页共用（数据 lib/partners.ts，组件 components/partner-grid.tsx） */
+.partner-wall { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 14px; margin: 0; }
+.partner-wall-item {
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
+  min-height: 124px; padding: 20px 14px 14px;
+  background: #fff; border: 1px solid var(--pano-ui-line, #e6e9f1); border-radius: 12px;
+  transition: border-color .22s ease, box-shadow .22s ease, transform .22s ease;
+}
+.partner-wall-item img { display: block; width: 100%; max-width: 190px; height: 40px; object-fit: contain; object-position: center; filter: grayscale(1); opacity: .72; transition: filter .25s ease, opacity .25s ease; }
+.partner-wall-item span { font-size: 12px; line-height: 1.4; color: var(--pano-ui-muted, #5b6478); text-align: center; }
+.partner-wall-item:hover { border-color: #D3DBEC; box-shadow: 0 10px 24px rgba(14, 21, 38, .07); transform: translateY(-2px); }
+.partner-wall-item:hover img { filter: none; opacity: 1; }
+@media (max-width: 1080px) { .partner-wall { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; } }
+@media (max-width: 760px) {
+  .partner-wall { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .partner-wall-item { min-height: 108px; padding: 16px 10px 12px; gap: 8px; }
+  .partner-wall-item img { height: 34px; }
+}
