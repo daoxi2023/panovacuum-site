@@ -95,7 +95,7 @@
 .home-page .text-link:hover { color: var(--hp-accent-strong); text-decoration: none; }
 
 /* ---------- stats ---------- */
-.home-page .stats { position: relative; z-index: 2; margin-top: -84px; padding: 0 0 96px; background: transparent; border: 0; }
+.home-page .stats { position: relative; z-index: 2; margin-top: 0; padding: 72px 0 96px; background: transparent; border: 0; }
 .home-page .stats .container {
   background: var(--hp-bg); border-radius: 20px; border: 1px solid var(--hp-line);
   box-shadow: 0 24px 60px rgba(16,24,40,.10);
@@ -255,7 +255,7 @@
   .home-page .hero-dots span { width: 20px; }
   .home-page .hero h1 { font-size: clamp(30px, 8.4vw, 38px); }
   .home-page .hero .sub { font-size: 16px; }
-  .home-page .stats { margin-top: -56px; padding-bottom: 72px; }
+  .home-page .stats { margin-top: 0; padding-top: 48px; padding-bottom: 72px; }
   .home-page .stats .container { padding: 24px 22px; border-radius: 16px; }
   .home-page .stats-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px 18px; }
   .home-page .stat { padding-left: 16px; }
@@ -276,3 +276,69 @@
   .home-page .cta-band { padding: 72px 0; }
   .home-page .cta-band .cta { display: block; text-align: center; margin: 0 0 12px; }
 }
+
+/* ---------- motion layer: one camera move (hero), one live strip (ticker) ---------- */
+.home-page { --hp-warm: #F1940F; --hp-accent-light: #A9BCE8; }
+
+.home-page .hero-media { animation: heroKen 30s ease-in-out infinite alternate; transform-origin: 64% 46%; will-change: transform; }
+@keyframes heroKen { from { transform: scale(1.01); } to { transform: scale(1.09); } }
+
+.home-page .hero-copy > * { animation: riseIn .9s cubic-bezier(.2,.7,.2,1) both; }
+.home-page .hero-copy .eyebrow { animation-delay: .06s; }
+.home-page .hero-copy h1 { animation-delay: .14s; }
+.home-page .hero-copy .sub { animation-delay: .24s; }
+.home-page .hero-copy .hero-actions { animation-delay: .32s; }
+.home-page .hero-copy .trust { animation-delay: .4s; }
+@keyframes riseIn { from { opacity: 0; translate: 0 16px; } to { opacity: 1; translate: 0 0; } }
+
+/* weld-line scroll cue */
+.home-page .hero-scroll { position: absolute; z-index: 3; left: 50%; bottom: 30px; width: 1px; height: 56px; margin-left: -.5px; background: rgba(255,255,255,.14); overflow: hidden; pointer-events: none; }
+.home-page .hero-scroll::after { content: ""; position: absolute; left: 0; top: 0; width: 1px; height: 20px; background: linear-gradient(180deg, transparent, var(--hp-warm)); animation: weldTrace 2.8s cubic-bezier(.45,0,.25,1) infinite; }
+@keyframes weldTrace { 0% { transform: translateY(-22px); opacity: 0; } 25% { opacity: 1; } 100% { transform: translateY(58px); opacity: 0; } }
+
+/* capability ticker — the real ledger numbers, read like a machine status strip */
+.home-page .ticker { position: relative; z-index: 2; background: #0A1020; border-top: 1px solid rgba(255,255,255,.07); border-bottom: 1px solid rgba(255,255,255,.07); overflow: hidden; }
+.home-page .ticker-track { display: flex; width: max-content; animation: tickerMove 52s linear infinite; }
+.home-page .ticker:hover .ticker-track { animation-play-state: paused; }
+.home-page .ticker-group { display: flex; }
+.home-page .ticker-item { display: inline-flex; align-items: center; gap: 14px; padding: 13px 28px; font-size: 13px; letter-spacing: .05em; color: rgba(255,255,255,.66); white-space: nowrap; }
+.home-page .ticker-item::after { content: ""; width: 4px; height: 4px; border-radius: 50%; background: var(--hp-warm); flex: none; }
+@keyframes tickerMove { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* hover feedback */
+.home-page .card-img img { transition: transform .65s cubic-bezier(.2,.7,.2,1); }
+.home-page .card:hover .card-img img { transform: scale(1.05); }
+.home-page .gate { transition: border-color .2s ease, background .2s ease; }
+.home-page .gate:hover { border-color: rgba(169,188,232,.45); background: rgba(255,255,255,.06); }
+.home-page .section.alt { background: linear-gradient(180deg, #F6F8FC 0%, #EDF1F9 100%); }
+
+/* scroll-driven reveals — Chrome only, no-JS/no-support fallback keeps content visible */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .home-page .section-head,
+    .home-page .grid > .card,
+    .home-page .gate,
+    .home-page .step,
+    .home-page .news-card,
+    .home-page .stat {
+      animation: viewRise linear both;
+      animation-timeline: view();
+      animation-range: entry 2% entry 38%;
+    }
+    @keyframes viewRise { from { opacity: 0; translate: 0 22px; } to { opacity: 1; translate: 0 0; } }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-page .hero-media,
+  .home-page .hero-copy > *,
+  .home-page .hero-scroll::after,
+  .home-page .ticker-track { animation: none !important; }
+}
+
+/* stat card: lift off the white page with a thin accent rule */
+.home-page .stats .container {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F7F9FE 100%);
+  border-top: 3px solid var(--hp-accent);
+}
+.home-page .card:hover { border-color: rgba(78,112,195,.35); }

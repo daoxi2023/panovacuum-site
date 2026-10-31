@@ -28,6 +28,15 @@ const content = {
       { v: "50 t", k: "Overhead Crane", d: "A chamber weighing tons can be lifted and turned as one piece" },
       { v: "≤1×10⁻⁹", k: "He Leak Rate", d: "UL1000-class. Every chamber, not sampled" },
     ],
+    ticker: [
+      "30 kW laser cutting",
+      "400 t · 6.2 m press brake",
+      "40+ welding stations",
+      "50 t overhead crane",
+      "He leak ≤ 1×10⁻⁹ Pa·m³/s",
+      "CMM dimension records",
+      "TIG and automated welding",
+    ],
     capsEyebrow: "What the shop does",
     capsTitle: "All four processes are in-house",
     capsSub: "The equipment below is in service in our shop. Quotes are priced against the working range it actually covers.",
@@ -116,6 +125,15 @@ const content = {
       { v: "40+", k: "焊接工位", d: "TIG 和自动焊，带洁净焊接区" },
       { v: "50 吨", k: "重型行车", d: "几吨重的腔体可整体吊装、翻转" },
       { v: "≤1×10⁻⁹", k: "氦检漏率", d: "UL1000 级，每台都测，不抽检" },
+    ],
+    ticker: [
+      "3 万瓦激光切割",
+      "400 吨 · 6.2 米折弯",
+      "40+ 焊接工位",
+      "50 吨行车吊装",
+      "氦检 ≤ 1×10⁻⁹ Pa·m³/s",
+      "三坐标尺寸记录",
+      "TIG 与自动焊",
     ],
     capsEyebrow: "能做的工序",
     capsTitle: "四道工序都在本厂",
@@ -244,7 +262,20 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <div className="hero-dots" aria-hidden="true"><span /><span /><span /></div>
           </figure>
         </div>
+        <span className="hero-scroll" aria-hidden="true" />
       </section>
+
+      <div className="ticker" aria-hidden="true">
+        <div className="ticker-track">
+          {[0, 1].map((dup) => (
+            <div className="ticker-group" key={dup}>
+              {t.ticker.map((item) => (
+                <span className="ticker-item" key={`${dup}-${item}`}>{item}</span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
 
       <section className="stats">
         <div className="container">
