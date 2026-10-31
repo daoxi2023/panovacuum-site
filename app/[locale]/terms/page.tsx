@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SeoLinks } from "../../components/seo-links";
 import "../../growth.css";
+import { OPERATOR_EN, OPERATOR_ZH } from "@/lib/site-base";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -72,7 +73,7 @@ export default async function Terms({ params }: { params: Promise<{ locale: stri
     : [
         [
           "Who provides this site",
-          "This website (panovacuum.cn and panovacuum.com) is built, maintained and operated online by Suzhou Lingtuo Internet Technology Co., Ltd. (苏州领拓互联科技有限公司). The manufacturing business, products and case information published here belong to PANO Vacuum Machinery Technology (Changshu) Co., Ltd. By continuing to use the site you accept these terms.",
+          `This website (panovacuum.cn and panovacuum.com) is built, maintained and operated online by ${OPERATOR_EN} (${OPERATOR_ZH}). The manufacturing business, products and case information published here belong to PANO Vacuum Machinery Technology (Changshu) Co., Ltd. By continuing to use the site you accept these terms.`,
         ],
         [
           "What the site is for",

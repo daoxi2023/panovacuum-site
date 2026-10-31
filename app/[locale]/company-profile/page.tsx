@@ -3,6 +3,7 @@ import Link from "next/link";
 import { SeoLinks } from "../../components/seo-links";
 import { PartnerGrid } from "../../components/partner-grid";
 import "../../growth.css";
+import { OPERATOR_EN, OPERATOR_ZH } from "@/lib/site-base";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -145,7 +146,7 @@ export default async function Profile({ params }: { params: Promise<{ locale: st
           <p className="profile-operator">
             {zh
               ? "本站（包括页面内容、在线表单与域名）由苏州领拓互联科技有限公司负责建设、技术维护和线上业务运营；制造业务与产品信息的主体为帕诺真空机械科技（常熟）有限公司。"
-              : "This website, including its content, online forms and domain, is built, maintained and operated online by Suzhou Lingtuo Internet Technology Co., Ltd. (苏州领拓互联科技有限公司). The manufacturing business and product information published here belong to PANO Vacuum Machinery Technology (Changshu) Co., Ltd."}{" "}
+              : `This website, including its content, online forms and domain, is built, maintained and operated online by ${OPERATOR_EN} (${OPERATOR_ZH}). The manufacturing business and product information published here belong to PANO Vacuum Machinery Technology (Changshu) Co., Ltd.`}{" "}
             <a href={`/${loc}/privacy/`}>{zh ? "隐私政策" : "Privacy policy"}</a> ·{" "}
             <a href={`/${loc}/terms/`}>{zh ? "使用条款" : "Terms of use"}</a>
           </p>

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { SITE_ICP } from "@/lib/site-base";
+import { OPERATOR_EN, OPERATOR_ZH, SITE_ICP } from "@/lib/site-base";
 
 export function Footer({ locale }: { locale: "en" | "zh" }) {
   const zh = locale === "zh";
@@ -79,7 +79,7 @@ export function Footer({ locale }: { locale: "en" | "zh" }) {
         rights: "© 2026 PANO Vacuum. All rights reserved.",
         co1: "PANO Vacuum Machinery Technology (Changshu) Co., Ltd.",
         operator:
-          "This website and our online business are operated and maintained by Suzhou Lingtuo Internet Technology Co., Ltd.",
+          `This website and our online business are operated and maintained by ${OPERATOR_EN}`,
         privacy: "Privacy policy",
         terms: "Terms of use",
       };
