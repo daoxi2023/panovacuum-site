@@ -1,30 +1,175 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { SeoLinks } from "../../components/seo-links";
+import { SITE_BASE } from "@/lib/site-base";
 import "../../growth.css";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  return { title: locale === "zh" ? "咨询信息与隐私说明 | 帕诺真空" : "Enquiry Privacy Notice | PANO Vacuum" };
+  return {
+    title: locale === "zh" ? "隐私政策 | 帕诺真空" : "Privacy Policy | PANO Vacuum",
+    description:
+      locale === "zh"
+        ? "帕诺真空网站的隐私政策：谁在运营、收集哪些信息、如何使用与保存、你的权利和联系方式。"
+        : "Privacy policy for the PANO Vacuum website: who operates it, what we collect, how it is used and stored, your rights and how to contact us.",
+  };
 }
+
+const EMAIL = "zhouyou@panovacuum.com";
+const UPDATED = "2026-10-31";
 
 export default async function Privacy({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const loc = locale === "zh" ? "zh" : "en";
   const zh = loc === "zh";
-  const sections = zh ? [
-    ["谁处理您的咨询", "帕诺真空机械科技（常熟）有限公司使用您提交的信息，评审制造需求或产业合作意向，并通过您提供的商务联系方式跟进。联系邮箱：zhouyou@panovacuum.com。"],
-    ["收集哪些信息", "表单收集公司或机构、联系人、商务邮箱，以及您填写的地区、产品需求、交期或合作资源概述。接收记录还包括表单类型、语言、提交时间、页面路径、接收编号，以及经过校验的来源标签（如来源渠道和活动名称）。防滥用功能使用经加盐处理的网络地址摘要进行限流，不把原始网络地址写入咨询记录。"],
-    ["信息如何使用与保存", "咨询记录保存在帕诺专用的 Cloudflare 数据库，用于此次需求的评审、沟通和后续业务跟进。表单不会自动公开您的信息，也不会自动将您加入营销邮件名单。承接本次咨询的人员可在受保护的内部工具中读取记录。"],
-    ["表单与网站统计", "网站使用访问统计和页面行为分析工具。咨询表单与成功回执设置了遮罩；姓名、邮箱、正文、资源说明和接收编号不会作为表单统计事件发送。表单统计事件仅包含咨询类别和语言，用于了解入口是否有效。"],
-    ["请勿提交敏感资料", "本公开表单不提供文件上传。请勿填写保密图纸、客户名单、财务数据、身份证件或其他敏感信息。需要交换保密资料时，应另行确定范围、渠道与保密安排。"],
-    ["查询、更正与删除", "如需查询、更正或删除您的咨询信息，请发邮件至 zhouyou@panovacuum.com，并尽可能提供接收编号。为避免向他人泄露信息，我们可能先核对您的身份或商务邮箱。记录按实际跟进需要保留；不再需要时应删除或去除可识别信息。"],
-  ] : [
-    ["Who handles your enquiry", "PANO Vacuum Machinery Technology (Changshu) Co., Ltd. uses the information you submit to review manufacturing requirements or industrial partnership enquiries and to follow up through your business contact details. Contact: zhouyou@panovacuum.com."],
-    ["What we collect", "The form collects your company or organisation, contact name, business email and any region, product, timing or partnership information you choose to provide. The record also includes enquiry type, language, submission time, page path, reference and validated source tags such as channel and campaign names. Abuse protection uses a salted network-address digest for rate limiting; the raw network address is not written into the enquiry record."],
-    ["How information is used and stored", "Enquiry records are stored in PANO's dedicated Cloudflare database for review, communication and related business follow-up. The form does not publish your information or automatically subscribe you to marketing emails. Personnel handling the enquiry can access records through a protected internal tool."],
-    ["Forms and website analytics", "The website uses visitor analytics and page-behaviour tools. Forms and receipt messages are masked. Names, email addresses, message text, resource descriptions and references are not sent as form analytics events. Form events include only enquiry category and language to help us understand whether the enquiry route works."],
-    ["Do not submit sensitive material", "This public form does not accept file uploads. Do not include confidential drawings, customer lists, financial data, identity documents or other sensitive information. The scope, channel and confidentiality arrangements for any sensitive exchange should be agreed separately."],
-    ["Access, correction and deletion", "To request access, correction or deletion, email zhouyou@panovacuum.com and include your enquiry reference where possible. We may verify your identity or business email before disclosing information. Records are retained as needed for actual follow-up and should be deleted or de-identified when no longer needed."],
-  ];
-  return <div className="growth-page"><SeoLinks path="privacy" locale={loc} /><section className="growth-heading"><div className="container"><h1>{zh ? "咨询信息与隐私说明" : "Enquiry privacy notice"}</h1><p className="sub">{zh ? "提交前，请了解信息的用途及保密边界。" : "Understand how enquiry information is used before you submit."}</p></div></section><section className="growth-section"><div className="container privacy-copy">{sections.map(([title, text]) => <section key={title}><h2>{title}</h2><p>{text}</p></section>)}</div></section></div>;
+  // 大陆版（panovacuum.cn）构建时不加载 GA4 / Clarity，文案随之不同。
+  const analyticsOn = !SITE_BASE.includes("panovacuum.cn");
+
+  const sections: (string | string[])[][] = zh
+    ? [
+        [
+          "谁在运营这个网站",
+          "本网站（panovacuum.cn 与 panovacuum.com）由苏州领拓互联科技有限公司负责建设、技术维护和线上业务运营。站内的制造业务、产品与技术信息的主体是帕诺真空机械科技（常熟）有限公司。涉及网站本身（页面、表单、域名、服务器）的问题，可通过文末邮箱联系，我们会转给对应的处理方。",
+        ],
+        [
+          "我们收集哪些信息",
+          "你主动填写的信息：询价或产业合作表单中的咨询类别、公司或机构名称、联系人、商务邮箱，以及你选择填写的电话、地区、产品需求、交期或合作资源说明。",
+          "访问过程产生的信息：访问时间、页面路径、浏览器与设备类型、来源链接，以及经过加盐处理的网络地址摘要（仅用于限流和防滥用，不保存原始网络地址）。",
+        ],
+        [
+          "Cookie 与统计工具",
+          analyticsOn
+            ? "国际版（panovacuum.com）使用 Google Analytics 4 与 Microsoft Clarity 了解访问情况与页面使用体验。两者会写入 Cookie 并记录页面点击、滚动等行为，表单及回执区域已做遮罩处理，姓名、邮箱、正文内容不会被记录为行为事件。"
+            : "中国大陆版本（panovacuum.cn）不加载 Google Analytics、Microsoft Clarity 等第三方统计脚本，也不写入统计类 Cookie。本站在此版本下只保留运行所必需的会话与安全防护信息。",
+          "你可以通过浏览器设置拒绝或清除 Cookie。拒绝后页面浏览不受影响，但部分表单安全校验可能需要重新加载页面。",
+        ],
+        [
+          "信息如何使用",
+          "用于评审你的制造需求或合作意向、回复你的询问、安排后续商务沟通，以及在你同意的前提下发送与本次询价相关的资料。我们不会把你的信息用于与咨询无关的推销，也不会自动将你加入营销邮件名单。",
+        ],
+        [
+          "第三方服务与数据出境",
+          "网站的静态页面托管、表单接收和记录存储使用 Cloudflare 的服务，其节点分布在中国大陆以外，因此你提交的表单内容可能在中国大陆境外被处理和存储。国际版的统计由 Google 和 Microsoft 提供。除此以外，我们不会向其他第三方出售、出租或交换你的个人信息。",
+          "如你不希望信息在境外处理，可以不使用在线表单，直接发邮件到下方邮箱联系。",
+        ],
+        [
+          "信息保存多久",
+          "咨询记录在跟进结束或不再需要后删除或去除可识别信息；因合同、税务或争议处理需要必须留存的，按法定期限保存。访问日志按滚动方式短期保留，超期自动覆盖。",
+        ],
+        [
+          "你的权利",
+          "依据《中华人民共和国个人信息保护法》，你可以要求查阅、复制、更正、补充、删除你的个人信息，撤回此前给出的同意，或要求我们说明处理规则。请发邮件至下方邮箱，尽量附上接收编号或提交时使用的邮箱，方便我们定位记录。为避免向他人泄露信息，我们可能先核对你的身份或商务邮箱。",
+        ],
+        [
+          "未成年人",
+          "本站面向企业客户与采购人员，不面向未成年人提供服务，也不会有意收集未成年人的个人信息。若发现误收集，我们会尽快删除。",
+        ],
+        [
+          "请勿提交敏感资料",
+          "公开表单不提供文件上传。请勿填写保密图纸、客户名单、财务数据、身份证件号码、生物识别信息或其他敏感个人信息。需要交换保密资料时，请先与我们确认渠道与保密安排。",
+        ],
+        [
+          "我们如何保护信息",
+          "全站使用 HTTPS 传输；表单设置了防滥用校验与限流；咨询记录仅对承接该需求的内部人员开放，并通过受保护的后台工具读取；统计工具中的表单区域已做遮罩。",
+        ],
+        [
+          "政策更新",
+          `本政策更新于 ${UPDATED}。内容发生实质变化时，我们会在此页面更新日期并调整相应条款，重大变化会在站内提示。`,
+        ],
+        [
+          "联系我们",
+          `隐私相关的问题、查阅或删除请求，请发邮件至 ${EMAIL}，或致电 +86 130 6372 2038。通信地址：江苏省苏州市常熟常福街道朝阳路 88 号。`,
+        ],
+      ]
+    : [
+        [
+          "Who operates this website",
+          "This website (panovacuum.cn and panovacuum.com) is built, maintained and operated online by Suzhou Lingtuo Internet Technology Co., Ltd. (苏州领拓互联科技有限公司). The manufacturing business, products and technical information published here belong to PANO Vacuum Machinery Technology (Changshu) Co., Ltd. Questions about the website itself — pages, forms, domain, servers — can go to the address at the end of this page and will be routed to the right team.",
+        ],
+        [
+          "What we collect",
+          "Information you choose to give us: the enquiry category, company or organisation, contact name and business email in our quote or partnership forms, plus any phone number, region, product requirement, timing or partnership description you add.",
+          "Information generated by visiting: time of visit, page path, browser and device type, referring link, and a salted digest of the network address used only for rate limiting and abuse protection. The raw network address is not stored.",
+        ],
+        [
+          "Cookies and analytics",
+          analyticsOn
+            ? "The international site (panovacuum.com) uses Google Analytics 4 and Microsoft Clarity to understand traffic and page experience. Both set cookies and record page interactions such as clicks and scrolling. Form and confirmation areas are masked, so names, email addresses and message text are not recorded as behaviour events."
+            : "The mainland China build (panovacuum.cn) does not load Google Analytics, Microsoft Clarity or other third-party analytics scripts, and sets no analytics cookies. Only session and security information needed to run the site is kept.",
+          "You can refuse or clear cookies in your browser settings. Refusing them does not block browsing, though a form security check may require a page reload.",
+        ],
+        [
+          "How we use information",
+          "To review your manufacturing requirement or partnership enquiry, answer your question, arrange follow-up with the right person, and — with your agreement — send material related to that enquiry. We do not use your details for unrelated promotion and do not add you to a marketing list automatically.",
+        ],
+        [
+          "Third-party services and international transfer",
+          "Static hosting, form intake and record storage run on Cloudflare, whose network sits outside mainland China, so submitted form content may be processed and stored outside mainland China. Analytics on the international site is provided by Google and Microsoft. Beyond these, we do not sell, rent or trade your personal information.",
+          "If you would rather keep information inside mainland China, skip the online form and email us directly at the address below.",
+        ],
+        [
+          "How long we keep it",
+          "Enquiry records are deleted or de-identified once follow-up ends or they are no longer needed. Where a contract, tax rule or dispute requires retention, records are kept for the statutory period. Access logs roll over on a short cycle.",
+        ],
+        [
+          "Your rights",
+          "Under China's Personal Information Protection Law you may request access to, a copy of, correction or completion of, or deletion of your personal information; you may withdraw consent you previously gave, or ask how your information is handled. Email the address below and include your enquiry reference or the email you used, so we can find the record. We may verify your identity or business email before disclosing anything.",
+        ],
+        [
+          "Minors",
+          "This site serves business buyers and sourcing staff. It is not directed at minors and we do not knowingly collect their personal information. If we learn we have, we will delete it.",
+        ],
+        [
+          "Please do not send sensitive material",
+          "The public form does not accept file uploads. Do not enter confidential drawings, customer lists, financial data, identity document numbers, biometric data or other sensitive personal information. If confidential material needs to be exchanged, agree the channel and confidentiality arrangements with us first.",
+        ],
+        [
+          "How we protect information",
+          "The site is served over HTTPS. Forms carry abuse checks and rate limits. Enquiry records are visible only to the staff handling that enquiry, through a protected internal tool, and form areas are masked in analytics.",
+        ],
+        [
+          "Changes to this policy",
+          `This policy was updated on ${UPDATED}. If it changes materially we will update the date here and revise the affected clauses, with an on-site notice for significant changes.`,
+        ],
+        [
+          "Contact",
+          `For privacy questions, access or deletion requests, email ${EMAIL} or call +86 130 6372 2038. Postal address: No. 88 Chaoyang Road, Changfu Sub-district, Changshu, Suzhou, Jiangsu, China.`,
+        ],
+      ];
+
+  return (
+    <div className="growth-page">
+      <SeoLinks path="privacy" locale={loc} />
+      <section className="growth-heading">
+        <div className="container">
+          <p className="eyebrow">{zh ? "法律与合规" : "Legal"}</p>
+          <h1>{zh ? "隐私政策" : "Privacy policy"}</h1>
+          <p className="sub">
+            {zh
+              ? "这份说明讲清楚：谁在运营这个网站、我们收集什么、怎么用、保存多久，以及你可以要求我们做什么。"
+              : "This page explains who runs the website, what we collect, how it is used, how long it is kept, and what you can ask us to do."}
+          </p>
+        </div>
+      </section>
+      <section className="growth-section">
+        <div className="container privacy-copy">
+          {sections.map(([title, ...rest]) => (
+            <section key={title as string}>
+              <h2>{title as string}</h2>
+              {rest
+                .flatMap((x) => (Array.isArray(x) ? x : [x]))
+                .map((text) => (
+                  <p key={text.slice(0, 40)}>{text}</p>
+                ))}
+            </section>
+          ))}
+          <p className="privacy-updated">
+            {zh ? `更新日期：${UPDATED}` : `Last updated: ${UPDATED}`}
+            {" · "}
+            <Link href={`/${loc}/terms/`}>{zh ? "使用条款" : "Terms of use"}</Link>
+          </p>
+        </div>
+      </section>
+    </div>
+  );
 }

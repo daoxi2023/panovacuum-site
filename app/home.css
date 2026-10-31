@@ -147,6 +147,8 @@
 .home-page .about-team-item span { display: block; font-size: 14.5px; font-weight: 600; color: var(--hp-ink); margin-bottom: 4px; }
 .home-page .about-team-item span::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--hp-accent); margin-right: 8px; vertical-align: 1px; }
 .home-page .about-team-item p { margin: 0; font-size: 13.5px; line-height: 1.75; color: var(--hp-muted); }
+.home-page .about-operator { margin: 0 0 22px; font-size: 13px; line-height: 1.7; color: var(--hp-muted); padding: 12px 14px; background: var(--hp-alt); border-radius: 10px; border: 1px solid var(--hp-line); }
+.home-page .about-operator a { color: var(--hp-accent); text-decoration: none; }
 
 /* ---------- quality (dark band) ---------- */
 .home-page #quality { background: var(--hp-navy); color: #fff; }

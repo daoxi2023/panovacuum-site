@@ -16,7 +16,8 @@ export function Footer({ locale }: { locale: "en" | "zh" }) {
           ["新闻博客", `/${locale}/blog/`],
           ["产业合作", `/${locale}/industrial-partnerships/`],
           ["工厂能力介绍", `/${locale}/company-profile/`],
-          ["隐私说明", `/${locale}/privacy/`],
+          ["隐私政策", `/${locale}/privacy/`],
+          ["使用条款", `/${locale}/terms/`],
           ["提交询价", `/${locale}/request-a-quote/`],
         ],
         contactTitle: "联系我们",
@@ -28,6 +29,7 @@ export function Footer({ locale }: { locale: "en" | "zh" }) {
         co1: "帕诺真空机械科技（常熟）有限公司",
         web: "www.panovacuum.com",
         rights: "© 2026 帕诺真空 版权所有",
+        operator: "本站及线上业务由苏州领拓互联科技有限公司运营维护",
         articles: "技术文章",
         wechatLabel: "微信咨询",
       }
@@ -43,7 +45,8 @@ export function Footer({ locale }: { locale: "en" | "zh" }) {
           ["Blog", `/${locale}/blog/`],
           ["Industrial Partnerships", `/${locale}/industrial-partnerships/`],
           ["Factory Overview", `/${locale}/company-profile/`],
-          ["Privacy Notice", `/${locale}/privacy/`],
+          ["Privacy Policy", `/${locale}/privacy/`],
+          ["Terms of Use", `/${locale}/terms/`],
           ["Request a Quote", `/${locale}/request-a-quote/`],
         ],
         contactTitle: "Contact",
@@ -55,6 +58,8 @@ export function Footer({ locale }: { locale: "en" | "zh" }) {
         co1: "PANO Vacuum Machinery Technology (Changshu) Co., Ltd.",
         web: "www.panovacuum.com",
         rights: "© 2026 PANO Vacuum. All rights reserved.",
+        operator:
+          "This website and our online business are operated and maintained by Suzhou Lingtuo Internet Technology Co., Ltd.",
         articles: "Technical Articles",
         wechatLabel: "WeChat",
       };
@@ -103,6 +108,13 @@ export function Footer({ locale }: { locale: "en" | "zh" }) {
           <p className="footer-line">{T.co1}</p>
           <p className="footer-line">{T.web}</p>
         </div>
+      </div>
+      <div className="container footer-legal">
+        <span className="footer-operator">{T.operator}</span>
+        <span className="footer-legal-links">
+          <Link href={`/${locale}/privacy/`}>{zh ? "隐私政策" : "Privacy policy"}</Link>
+          <Link href={`/${locale}/terms/`}>{zh ? "使用条款" : "Terms of use"}</Link>
+        </span>
       </div>
       <div className="container footer-bottom">
         <span>{T.rights}</span>

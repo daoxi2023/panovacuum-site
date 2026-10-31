@@ -54,6 +54,10 @@
 .growth-entry p { color: var(--pano-ui-muted); max-width: 560px; }
 .privacy-copy { max-width: 800px; }
 .privacy-copy h2 { margin: 36px 0 14px; font-size: 23px; }
+.privacy-updated { margin: 44px 0 0; font-size: 13.5px; color: var(--pano-ui-muted, #5b6478); border-top: 1px solid var(--pano-ui-line, #e6e9f1); padding-top: 18px; }
+.privacy-updated a { color: #4e70c3; text-decoration: none; }
+.profile-operator { font-size: 13px; line-height: 1.75; color: var(--pano-ui-muted, #5b6478); background: #f6f8fc; border: 1px solid var(--pano-ui-line, #e6e9f1); border-radius: 10px; padding: 12px 14px; margin: 22px 0; }
+.profile-operator a { color: #4e70c3; text-decoration: none; }
 .profile-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
 .profile-intro img { width: 100%; height: auto; display: block; }
 .profile-facts { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; margin-top: 34px; }

@@ -344,6 +344,14 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 </div>
               ))}
             </div>
+            <p className="about-operator">
+              {loc === "zh"
+                ? "本站及线上业务由苏州领拓互联科技有限公司负责建设、维护与运营。"
+                : "This website and our online business are built, maintained and operated by Suzhou Lingtuo Internet Technology Co., Ltd."}{" "}
+              <Link href={`/${loc}/privacy/`}>{loc === "zh" ? "隐私政策" : "Privacy policy"}</Link>
+              {" · "}
+              <Link href={`/${loc}/terms/`}>{loc === "zh" ? "使用条款" : "Terms of use"}</Link>
+            </p>
             <Link href={t.rfq} className="text-link">{t.cta} <span aria-hidden="true">↗</span></Link>
           </div>
         </div>
