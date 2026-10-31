@@ -359,3 +359,17 @@
   .home-page .hero-video { display: none; }
   .home-page .hero-poster { display: block; }
 }
+
+/* ---------- about：三张实拍（一大两小） ---------- */
+.home-page .about-media { display: grid; gap: 12px; background: transparent; border-radius: 0; }
+.home-page .about-media-main { border-radius: 20px; overflow: hidden; width: 100%; height: auto; display: block; object-fit: cover; }
+.home-page .about-media-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.home-page .about-media-row img { width: 100%; height: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 14px; display: block; }
+
+/* 修正：旧的 .about-media img{min-height:520px} 会把小图撑高 */
+.home-page .about-media .about-media-main { min-height: 0; height: auto; }
+.home-page .about-media .about-media-row img { min-height: 0; height: auto; aspect-ratio: 4 / 3; }
+@media (max-width: 760px) {
+  .home-page .about-media .about-media-main,
+  .home-page .about-media .about-media-row img { min-height: 0; }
+}

@@ -84,7 +84,7 @@ const content = {
     caseSub: "Compiled from our equipment records. Customer names are withheld under NDA.",
     caseCta: "See more capability examples",
     cases: [
-      { t: "Multi-ton 304L chamber", x: "304L stainless, a few tons for a single piece. 30 kW laser blanking, 400 t press brake forming, helium test down to the 1×10⁻⁹ Pa·m³/s order, lifted and turned under the 50 t crane. Records ship with it.", tag: "Heavy chamber", img: "/photos/cap-chamber.webp" },
+      { t: "Multi-ton 304L chamber", x: "304L stainless, a few tons for a single piece. 30 kW laser blanking, 400 t press brake forming, helium test down to the 1×10⁻⁹ Pa·m³/s order, lifted and turned under the 50 t crane. Records ship with it.", tag: "Heavy chamber", img: "/photos/chamber-050.webp" },
       { t: "Vacuum-tight welding, verified per chamber", x: "TIG and automated welding across 40-plus stations in a clean bay. Every unit gets a helium test; none are sampled.", tag: "Welding & leak test", img: "/photos/cap-leak.webp" },
     ],
     partnersEyebrow: "Partners",
@@ -182,7 +182,7 @@ const content = {
     caseSub: "以下按设备台账整理，客户名按保密约定隐去。",
     caseCta: "看更多能力示例",
     cases: [
-      { t: "数吨级 304L 真空腔体", x: "304L 不锈钢，单件几吨重。3 万瓦激光下料，400 吨折弯机成形，氦检做到 1×10⁻⁹ Pa·m³/s 量级，50 吨行车整体吊装翻身。报告随货。", tag: "重型腔体", img: "/photos/cap-chamber.webp" },
+      { t: "数吨级 304L 真空腔体", x: "304L 不锈钢，单件几吨重。3 万瓦激光下料，400 吨折弯机成形，氦检做到 1×10⁻⁹ Pa·m³/s 量级，50 吨行车整体吊装翻身。报告随货。", tag: "重型腔体", img: "/photos/chamber-050.webp" },
       { t: "真空密封焊接，逐台验证", x: "40 多个 TIG 和自动焊工位，洁净焊接区。每台都做氦检，不抽检。", tag: "焊接与检漏", img: "/photos/cap-leak.webp" },
     ],
     partnersEyebrow: "合作伙伴",
@@ -330,7 +330,11 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <h2>{t.aboutTitle}</h2>
           </div>
           <figure className="about-media">
-            <img src="/photos/cap-clean.webp" alt={loc === "zh" ? "帕诺工厂的受控洁净生产环境" : "Controlled clean production environment at the PANO factory"} width={720} height={480} loading="lazy" />
+            <img className="about-media-main" src="/photos/feedthrough-044.webp" alt={loc === "zh" ? "超高真空法兰组件安装" : "Ultra-high-vacuum feedthrough installation"} width={1600} height={900} loading="lazy" />
+            <div className="about-media-row">
+              <img src="/photos/workshop-063.webp" alt={loc === "zh" ? "车间里的焊接工位" : "Welding station in the workshop"} width={1600} height={1067} loading="lazy" />
+              <img src="/photos/workshop-058.webp" alt={loc === "zh" ? "车间里的构件与设备" : "Components and equipment in the workshop"} width={1600} height={1067} loading="lazy" />
+            </div>
           </figure>
           <div className="about-copy">
             <dl className="about-facts">
