@@ -177,3 +177,7 @@
 @media (max-width: 900px) {
   .about-services { grid-template-columns: 1fr; gap: 14px; }
 }
+.about-faq { display: grid; gap: 18px; margin: 24px 0 0; max-width: 900px; }
+.about-faq div { border-top: 1px solid var(--pano-ui-line); padding-top: 16px; }
+.about-faq dt { font-weight: 650; color: var(--pano-ui-ink); font-size: 16px; }
+.about-faq dd { margin: 6px 0 0; color: var(--pano-ui-muted); font-size: 15px; }

@@ -29,6 +29,23 @@ const CAPABILITIES = [
   { k: "zh" as const, label: "三坐标尺寸记录", en: "CMM dimensional records" },
 ];
 
+const FAQ = {
+  zh: [
+    ["帕诺真空是哪家公司，工厂在哪？", "帕诺真空机械科技（常熟）有限公司，工厂位于江苏省苏州市常熟常福街道朝阳路 88 号，做定制真空腔体、精密加工件与真空密封组件。"],
+    ["能做多大的真空腔体？", "按图纸定制，单件可达数吨；配 50 吨行车可整体吊装与翻转，大型腔体不需分段制造。"],
+    ["怎么开始合作，多久能给报价？", "提供图纸（PDF、DWG 或 STEP），没有正式图纸时可先给实物照片和关键尺寸。收到资料后 48 小时内初步答复，完成图纸评审后提供报价与交期。"],
+    ["检验怎么记录，报告会不会随货？", "从图纸评审到出厂共 7 道检验，逐台签字留档，检测报告随货交付；验收方式与报告范围在图纸评审阶段确认。"],
+    ["可以到工厂看设备和在做的项目吗？", "可以。批量或重要项目建议提前预约，到常熟的工厂看设备、工位与正在制造的构件。"],
+  ],
+  en: [
+    ["Who is PANO Vacuum, and where is the plant?", "PANO Vacuum Machinery Technology (Changshu) Co., Ltd., No. 88 Chaoyang Road, Changfu Sub-district, Changshu, Suzhou, Jiangsu, China. We make custom vacuum chambers, precision components and vacuum-tight assemblies."],
+    ["How large a chamber can you build?", "Built to drawing, with single pieces up to several tonnes. A 50 t overhead crane handles lifting and turning, so large chambers do not need to be split."],
+    ["How do we start, and how fast is a quote?", "Send a drawing (PDF, DWG or STEP); photos and key dimensions are enough to start without a formal drawing. We reply within 48 hours and quote after drawing review."],
+    ["How is inspection recorded, and do reports ship with the goods?", "Seven inspection gates from drawing review to final inspection, signed off per unit, with reports travelling with the goods. Acceptance scope is agreed during drawing review."],
+    ["Can we visit the factory?", "Yes. For series or critical projects we recommend booking ahead to see the equipment, stations and work in progress in Changshu."],
+  ],
+} as const;
+
 export default async function About({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
   const loc = locale === "zh" ? "zh" : "en";
@@ -93,6 +110,15 @@ export default async function About({ params }: { params: Promise<{ locale: stri
         name: zh ? "关于我们 | 帕诺真空" : "About PANO Vacuum",
         inLanguage: zh ? "zh-CN" : "en",
         about: { "@id": `${SITE_BASE}/#organization` },
+      },
+      {
+        "@type": "FAQPage",
+        "@id": `${SITE_BASE}/${loc}/about/#faq`,
+        mainEntity: (zh ? FAQ.zh : FAQ.en).map(([q, a]) => ({
+          "@type": "Question",
+          name: q,
+          acceptedAnswer: { "@type": "Answer", text: a },
+        })),
       },
       {
         "@type": "BreadcrumbList",
@@ -215,6 +241,20 @@ export default async function About({ params }: { params: Promise<{ locale: stri
             <Link href={`/${loc}/blog/`}>{zh ? "技术文章" : "the technical articles"}</Link>
             {zh ? "。" : "."}
           </p>
+        </div>
+      </section>
+
+      <section className="growth-section">
+        <div className="container">
+          <h2>{zh ? "常见问题" : "Common questions"}</h2>
+          <dl className="about-faq">
+            {(zh ? FAQ.zh : FAQ.en).map(([q, a]) => (
+              <div key={q}>
+                <dt>{q}</dt>
+                <dd>{a}</dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </section>
 
