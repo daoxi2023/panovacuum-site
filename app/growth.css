@@ -154,3 +154,26 @@
   .profile-page .profile-facts, .profile-page .profile-contact { grid-template-columns: 1fr; gap: 18px; }
   .profile-page .profile-facts { margin-top: 26px; }
 }
+
+/* ---- 关于我们 /about/ ---- */
+.about-page .profile-intro { align-items: start; gap: 44px; }
+.about-page .profile-intro img { border-radius: 4px; }
+.about-services { list-style: none; padding: 0; margin: 28px 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.about-services li { padding: 24px; background: #fff; border: 1px solid var(--pano-ui-line); border-top: 3px solid var(--pano-ui-green); }
+.about-services h3 { margin: 0 0 10px; font-size: 19px; }
+.about-services h3 a { color: var(--pano-ui-ink); text-decoration: none; }
+.about-services h3 a:hover { color: var(--pano-ui-green); }
+.about-services p { margin: 0; color: var(--pano-ui-muted); font-size: 15px; line-height: 1.75; }
+.about-caps { list-style: none; padding: 0; margin: 20px 0 0; display: flex; flex-wrap: wrap; gap: 10px; }
+.about-caps li { padding: 8px 14px; background: #f4f6fc; border: 1px solid var(--pano-ui-line); border-radius: 999px; font-size: 14px; color: var(--pano-ui-ink); }
+.about-subhead { margin: 42px 0 0; font-size: 20px; }
+.about-steps { list-style: none; counter-reset: aboutstep; padding: 0; margin: 18px 0 0; display: grid; gap: 16px; }
+.about-steps li { counter-increment: aboutstep; position: relative; padding-left: 46px; }
+.about-steps li::before { content: counter(aboutstep); position: absolute; left: 0; top: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--pano-ui-green); color: #fff; font-size: 14px; display: grid; place-items: center; }
+.about-steps strong { display: block; font-size: 16px; color: var(--pano-ui-ink); }
+.about-steps span { color: var(--pano-ui-muted); font-size: 15px; }
+.about-operator { max-width: 880px; color: var(--pano-ui-muted); font-size: 14px; }
+.about-links { margin-top: 10px; font-size: 14px; }
+@media (max-width: 900px) {
+  .about-services { grid-template-columns: 1fr; gap: 14px; }
+}

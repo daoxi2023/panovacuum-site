@@ -207,10 +207,10 @@ label { display: block; font-size: 14px; font-weight: 600; color: var(--pano-pri
 
 /* 品牌字「帕诺真空」：直接取 LOGO 的原始字形（scripts/gen-brand-wordmark.py 生成，
    public/brand-wordmark.webp = 白描边 + 透明底），用 mask + currentColor 上色 ——
-   字形与 LOGO 完全一致，换主题色时无需重新出图。宽高比 892:201 = 4.4378，按 1em 字高缩放。 */
+   字形与 LOGO 完全一致，换主题色时无需重新出图。宽高比 896:205 = 4.3707，按 1em 字高缩放（BOLD_RADIUS=4 加粗）。 */
 .brand-word {
   display: inline-block;
-  width: 4.4378em;
+  width: 4.3707em;
   height: 1em;
   flex-shrink: 0;
   background-color: currentColor;

@@ -9,7 +9,7 @@ const navs: Record<"en" | "zh", { nav: { label: string; href: string }[] }> = {
     nav: [
       { label: "Home", href: "/en/" },
       { label: "Capabilities", href: "/en/#capabilities" },
-      { label: "About", href: "/en/#about" },
+      { label: "About", href: "/en/about/" },
       { label: "Quality", href: "/en/#quality" },
       { label: "Industries", href: "/en/#industries" },
       { label: "Blog", href: "/en/blog/" },
@@ -21,7 +21,7 @@ const navs: Record<"en" | "zh", { nav: { label: string; href: string }[] }> = {
     nav: [
       { label: "首页", href: "/zh/" },
       { label: "制造能力", href: "/zh/#capabilities" },
-      { label: "关于我们", href: "/zh/#about" },
+      { label: "关于我们", href: "/zh/about/" },
       { label: "质量检验", href: "/zh/#quality" },
       { label: "应用领域", href: "/zh/#industries" },
       { label: "新闻博客", href: "/zh/blog/" },

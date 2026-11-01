@@ -29,7 +29,7 @@ OUT = Path(__file__).resolve().parent.parent / "public" / "brand-wordmark.webp"
 CROP = (300, 570, 1240, 800)
 # 膨胀半径：LOGO 原字形偏中等粗细，网站标题需要更重，
 # 2px（源图 197px 字高 ≈ 每边 1% 字高）后墨迹率从 0.458 提升到接近 0.50。
-BOLD_RADIUS = 2
+BOLD_RADIUS = 4
 
 
 def main() -> None:

@@ -22,7 +22,7 @@ export function Footer({ locale }: { locale: "en" | "zh" }) {
           {
             title: "关于与资料",
             items: [
-              ["关于我们", `/${locale}/#about`],
+              ["关于我们", `/${locale}/about/`],
               ["新闻博客", `/${locale}/blog/`],
               ["隐私政策", `/${locale}/privacy/`],
               ["使用条款", `/${locale}/terms/`],
@@ -61,7 +61,7 @@ export function Footer({ locale }: { locale: "en" | "zh" }) {
           {
             title: "Company & resources",
             items: [
-              ["About", `/${locale}/#about`],
+              ["About", `/${locale}/about/`],
               ["Blog", `/${locale}/blog/`],
               ["Privacy Policy", `/${locale}/privacy/`],
               ["Terms of Use", `/${locale}/terms/`],

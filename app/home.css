@@ -373,3 +373,6 @@
   .home-page .about-media .about-media-main,
   .home-page .about-media .about-media-row img { min-height: 0; }
 }
+
+/* 首页「关于我们」区块底部链接行 */
+.about-links-row { display: flex; flex-wrap: wrap; gap: 12px 28px; align-items: center; margin-top: 8px; }

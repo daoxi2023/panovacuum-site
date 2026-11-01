@@ -7,7 +7,7 @@ import { SITE_BASE } from "@/lib/site-base";
 export const dynamic = "force-static";
 
 const base = SITE_BASE;
-const pages = ["", "request-a-quote", "blog", "case-studies", "industrial-partnerships", "company-profile", "privacy", "terms"] as const;
+const pages = ["", "about", "request-a-quote", "blog", "case-studies", "industrial-partnerships", "company-profile", "privacy", "terms"] as const;
 
 const entries: { path: string; priority: number; lastModified?: string }[] = [
   ...pages.map((p) => ({ path: p, priority: p ? 0.9 : 1.0 })),

@@ -4,7 +4,6 @@ import { articles } from "../../lib/articles";
 import { SeoLinks } from "../components/seo-links";
 import { PartnerGrid } from "../components/partner-grid";
 import "../growth.css";
-import { OPERATOR_EN, OPERATOR_ZH } from "@/lib/site-base";
 
 const gates: Record<"en" | "zh", string[]> = {
   en: ["Drawing review & DFM", "Incoming material", "Blanking & bevel", "Precision machining", "Welding", "He leak testing", "Final inspection & delivery"],
@@ -352,15 +351,12 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
                 </div>
               ))}
             </div>
-            <p className="about-operator">
-              {loc === "zh"
-                ? "本站及线上业务由苏州领拓互联科技有限公司负责建设、维护与运营。"
-                : `This website and our online business are built, maintained and operated by ${OPERATOR_EN}`}{" "}
-              <Link href={`/${loc}/privacy/`}>{loc === "zh" ? "隐私政策" : "Privacy policy"}</Link>
-              {" · "}
-              <Link href={`/${loc}/terms/`}>{loc === "zh" ? "使用条款" : "Terms of use"}</Link>
-            </p>
-            <Link href={t.rfq} className="text-link">{t.cta} <span aria-hidden="true">↗</span></Link>
+            <div className="about-links-row">
+              <Link href={`/${loc}/about/`} className="text-link">
+                {loc === "zh" ? "关于帕诺真空" : "About PANO Vacuum"} <span aria-hidden="true">→</span>
+              </Link>
+              <Link href={t.rfq} className="text-link">{t.cta} <span aria-hidden="true">↗</span></Link>
+            </div>
           </div>
         </div>
       </section>
