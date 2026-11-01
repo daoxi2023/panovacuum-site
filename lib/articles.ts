@@ -90,7 +90,7 @@ export const articles: Article[] = [
     slug: "how-to-request-a-quote-with-a-drawing",
     tags: ["询价", "图纸评审", "流程"],
     date: "2026-10-27",
-    author: { nameZh: "周游", nameEn: "Zhou You", roleZh: "商务与销售", roleEn: "Sales & BD", email: "zhouyou@panovacuum.com" },
+    author: { nameZh: "周先生", nameEn: "Mr. Zhou", roleZh: "商务与销售", roleEn: "Sales & BD", email: "zhouyou@panovacuum.com" },
     cover: "/photos/news-3.webp",
     zh: {
       title: "真空腔体怎么询价：一张图纸就够了",
