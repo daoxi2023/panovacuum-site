@@ -32,6 +32,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         {analyticsEnabled && siteConfig.googleSiteVerification ? (
           <meta name="google-site-verification" content={siteConfig.googleSiteVerification} />
         ) : null}
+        {siteConfig.baiduSiteVerification ? (
+          <meta name="baidu-site-verification" content={siteConfig.baiduSiteVerification} />
+        ) : null}
         {analyticsEnabled && siteConfig.ga4MeasurementId ? (
           <>
             <script async src={`https://www.googletagmanager.com/gtag/js?id=${siteConfig.ga4MeasurementId}`} />
