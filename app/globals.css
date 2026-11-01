@@ -345,7 +345,7 @@ a:focus-visible, summary:focus-visible, button:focus-visible, input:focus-visibl
   padding: 76px 0 56px;
 }
 .page-head::before {
-  content: ""; position: absolute; inset: 0; pointer-events: none;
+  content: ""; position: absolute; top: 0; right: 0; bottom: 0; left: 0; pointer-events: none;
   background-image:
     linear-gradient(rgba(255,255,255,.055) 1px, transparent 1px),
     linear-gradient(90deg, rgba(255,255,255,.055) 1px, transparent 1px);

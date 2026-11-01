@@ -250,7 +250,6 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               loop
               playsInline
               preload="metadata"
-              poster="/video/hero-poster.jpg"
               aria-label={loc === "zh" ? "真空腔体制造影像" : "Vacuum chamber manufacturing visual"}
             >
               <source src="/video/hero-loop-1280.mp4" type="video/mp4" media="(max-width: 900px)" />
@@ -259,6 +258,8 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <img
               className="hero-poster"
               src="/photos/hero-main.webp"
+              srcSet="/photos/hero-main-1280.webp 1280w, /photos/hero-main.webp 1440w"
+              sizes="100vw"
               alt={loc === "zh" ? "真空腔体制造车间" : "Inside the vacuum chamber workshop"}
               width={1440}
               height={960}
