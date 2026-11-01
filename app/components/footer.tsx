@@ -97,7 +97,13 @@ export function Footer({ locale }: { locale: "en" | "zh" }) {
               height={84}
               style={{ height: 84, width: "auto", display: "block" }}
             />
-            <p className="footer-brand">{zh ? "帕诺真空" : "PANO Vacuum"}</p>
+            {zh ? (
+              <p className="footer-brand">
+                <span className="brand-word" role="img" aria-label="帕诺真空" />
+              </p>
+            ) : (
+              <p className="footer-brand">PANO Vacuum</p>
+            )}
           </div>
           <p className="footer-tagline">{T.tagline}</p>
           <Link className="footer-cta" href={`/${locale}/request-a-quote/`}>

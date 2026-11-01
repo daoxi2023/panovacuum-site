@@ -52,7 +52,11 @@ export function Header({ locale }: { locale: "en" | "zh" }) {
               height={84}
               style={{ height: 84, width: "auto", verticalAlign: "middle" }}
             />
-            <span>{brand}</span>
+            {locale === "zh" ? (
+              <span className="brand-word" role="img" aria-label="帕诺真空" />
+            ) : (
+              <span>{brand}</span>
+            )}
           </Link>
           <nav className="main-nav desktop-nav" aria-label={locale === "zh" ? "主导航" : "Main navigation"}>
             {t.nav.map((n) => (

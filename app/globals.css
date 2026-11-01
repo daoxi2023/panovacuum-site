@@ -204,6 +204,21 @@ label { display: block; font-size: 14px; font-weight: 600; color: var(--pano-pri
 .footer-identity { max-width: 360px; }
 .footer-brand-row { display: flex; align-items: center; gap: 14px; margin-bottom: 16px; }
 .footer-brand { color: var(--pano-ui-ink); font-size: 34px; font-weight: 800; margin: 0; letter-spacing: -.01em; line-height: 1.1; }
+
+/* 品牌字「帕诺真空」：直接取 LOGO 的原始字形（scripts/gen-brand-wordmark.py 生成，
+   public/brand-wordmark.webp = 白描边 + 透明底），用 mask + currentColor 上色 ——
+   字形与 LOGO 完全一致，换主题色时无需重新出图。宽高比 892:201 = 4.4378，按 1em 字高缩放。 */
+.brand-word {
+  display: inline-block;
+  width: 4.4378em;
+  height: 1em;
+  flex-shrink: 0;
+  background-color: currentColor;
+  -webkit-mask: url(/brand-wordmark.webp) center / contain no-repeat;
+  mask: url(/brand-wordmark.webp) center / contain no-repeat;
+  vertical-align: -0.045em;
+}
+.footer-brand .brand-word { vertical-align: middle; }
 .footer-tagline { font-size: 14px; line-height: 1.75; color: var(--pano-ui-muted); margin: 0 0 20px; max-width: 34ch; }
 .footer-cta { display: inline-flex; align-items: center; height: 40px; padding: 0 20px; border-radius: 10px; background: var(--pano-ui-ink); color: #fff; font-size: 14px; font-weight: 600; text-decoration: none; }
 .footer-cta:hover { background: #1c2740; text-decoration: none; }
