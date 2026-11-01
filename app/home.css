@@ -39,7 +39,7 @@
   border: 0; padding: 0;
 }
 .home-page .hero-layout { position: relative; z-index: 1; width: 100%; display: flex; align-items: center; }
-.home-page .hero-media { position: absolute; inset: 0; z-index: 0; display: block; margin: 0; width: 100vw; left: calc(50% - 50vw); overflow: hidden; }
+.home-page .hero-media { position: absolute; inset: 0; z-index: 0; display: block; margin: 0; width: 100vw; left: calc(50% - 50vw); overflow: hidden; border: 0; border-radius: 0; box-shadow: none; }
 .home-page .hero-media::after {
   content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background: linear-gradient(90deg, rgba(8,12,24,.95) 0%, rgba(8,12,24,.86) 36%, rgba(8,12,24,.45) 64%, rgba(8,12,24,.12) 100%);
