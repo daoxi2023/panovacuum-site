@@ -14,12 +14,12 @@ const gates: Record<"en" | "zh", string[]> = {
 const content = {
   en: {
     eyebrow: "Vacuum chamber fabrication",
-    h1: "Custom vacuum chambers, manufactured to drawing. Every unit is leak tested and shipped with its inspection report.",
+    h1: "Custom vacuum chambers, built to drawing.",
     sub: "Our plant is located in Changshu, Jiangsu Province. Blanking, machining, welding, leak testing and final inspection are all carried out in-house. Every chamber undergoes helium mass-spectrometer leak testing before dispatch, and the test record is delivered with the unit.",
     cta: "Submit a drawing for quotation",
     cta2: "Review manufacturing capability",
     rfq: "/en/request-a-quote",
-    trust: "Quotation within 48 hours of drawing review · Single units accepted · English-language support provided",
+    trust: "Initial response within 48 hours · Quotation after complete drawing review · Single units accepted",
     statsEyebrow: "Primary production equipment",
     statsTitle: "Equipment specification and working range",
     stats: [
@@ -76,12 +76,12 @@ const content = {
     steps: [
       { t: "Submit drawings", x: "PDF, DWG and STEP formats are accepted. Where a formal drawing is not yet available, photographs and key dimensions may be provided for an initial assessment." },
       { t: "Review & DFM", x: "Manufacturability, tolerance requirements and leak risk are assessed before quotation." },
-      { t: "Quotation and lead time", x: "A substantive quotation is issued within 48 hours; the delivery schedule is included in the contract." },
+      { t: "Quotation and lead time", x: "We provide an initial response within 48 hours. A quotation follows once the required information is complete and drawing review is finished; the delivery schedule is agreed in the contract." },
       { t: "Manufacturing, inspection and delivery", x: "On completion of the seven inspection gates, records are delivered with the equipment." },
     ],
-    caseEyebrow: "Delivered projects",
-    caseTitle: "Two delivered cases",
-    caseSub: "The following is compiled from equipment records; customer names are withheld under confidentiality agreements.",
+    caseEyebrow: "Manufacturing examples",
+    caseTitle: "Two manufacturing capability examples",
+    caseSub: "These examples illustrate manufacturing and inspection capability, based on equipment and process records. They are not specific customer project files.",
     caseCta: "View further capability examples",
     cases: [
       { t: "Multi-tonne 304L vacuum chamber", x: "Fabricated in 304L stainless steel, with unit weights in the multi-tonne range. 30 kW laser cutting, 400 t press-brake forming, helium leak testing to the 1×10⁻⁹ Pa·m³/s range, and lifting and rotation as a single unit by 50 t overhead crane. Inspection report delivered with the chamber.", tag: "Heavy chamber", img: "/photos/chamber-050.webp" },
@@ -107,7 +107,7 @@ const content = {
       { q: "How do overseas customers work with you?", a: "English-language support is provided throughout (zhouyou@panovacuum.com / +1 307 533 3212); export packing and documentation are provided." },
       { q: "What are the payment terms?", a: "As agreed in the contract; 30/70 payment or a letter of credit can be discussed." },
     ],
-    bandH: "Submit a drawing; a substantive quotation within 48 hours.",
+    bandH: "Describe your project; receive an initial response within 48 hours.",
     bandSub: "English-language support provided · +86 130 6372 2038 · zhouyou@panovacuum.com",
   },
 
@@ -118,7 +118,7 @@ const content = {
     cta: "提交图纸询价",
     cta2: "了解车间加工能力",
     rfq: "/zh/request-a-quote",
-    trust: "图纸评审后 48 小时内报价 · 承接单件 · 提供英文对接",
+    trust: "48 小时内初步答复 · 资料完整并评审后报价 · 承接单件",
     statsEyebrow: "主要加工设备",
     statsTitle: "设备规格与可加工范围",
     stats: [
@@ -175,12 +175,12 @@ const content = {
     steps: [
       { t: "提交图纸", x: "支持 PDF、DWG、STEP 格式；尚无正式图纸时，可先提供实物照片与关键尺寸。" },
       { t: "评审与 DFM 分析", x: "评估可制造性、公差要求与泄漏风险后报价。" },
-      { t: "报价与交期", x: "48 小时内提供实质性报价，交期列入合同。" },
+      { t: "报价与交期", x: "48 小时内初步答复；资料完整并完成图纸评审后提供报价，交期在合同中约定。" },
       { t: "制造、检验与交付", x: "完成 7 道检验后，检测记录随货交付。" },
     ],
-    caseEyebrow: "交付案例",
-    caseTitle: "两项已交付案例",
-    caseSub: "以下内容依据设备台账整理，客户名称按保密约定隐去。",
+    caseEyebrow: "制造能力示例",
+    caseTitle: "两项制造能力示例",
+    caseSub: "以下内容依据设备台账与工艺记录整理，用于说明制造与检验能力，并非特定客户的项目档案。",
     caseCta: "查看更多能力示例",
     cases: [
       { t: "数吨级 304L 真空腔体", x: "304L 不锈钢，单件重达数吨。3 万瓦激光下料、400 吨折弯机成形，氦质谱检漏达 1×10⁻⁹ Pa·m³/s 量级，以 50 吨行车整体吊装翻转。检测报告随货交付。", tag: "重型腔体", img: "/photos/chamber-050.webp" },
@@ -206,7 +206,7 @@ const content = {
       { q: "海外客户怎么合作？", a: "可全程英文对接（zhouyou@panovacuum.com / +1 307 533 3212），并提供出口包装与单证。" },
       { q: "付款方式？", a: "按合同约定，可协商 30/70 付款或信用证结算。" },
     ],
-    bandH: "提交图纸，48 小时内获得实质性报价",
+    bandH: "描述项目需求，48 小时内获得初步答复",
     bandSub: "支持英文对接 · 电话 +86 130 6372 2038 · zhouyou@panovacuum.com",
   },
 
@@ -260,9 +260,9 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <img
               className="hero-poster"
               src="/photos/hero-main.webp"
-              alt={loc === "zh" ? "帕诺真空车间实拍" : "Inside the PANO Vacuum workshop"}
-              width={2400}
-              height={1600}
+              alt={loc === "zh" ? "真空腔体制造车间" : "Inside the vacuum chamber workshop"}
+              width={1440}
+              height={960}
               loading="eager"
               fetchPriority="high"
             />
