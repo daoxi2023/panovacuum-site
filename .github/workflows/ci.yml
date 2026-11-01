@@ -1,0 +1,50 @@
+name: Build check
+
+# 只做「构建 + 产物自检」，不发布。
+# 生产发布只有一条通道：本地 `pnpm ship`（构建后直传 Cloudflare Pages）。
+# 若将来切换为「合并 PR = 上线」，在仓库 Secrets 配置 CF_API_TOKEN / CF_ACCOUNT_ID，
+# 并把 deploy 作业的 if 条件打开（Cloudflare API Token 需要 Pages:Edit 权限）。
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm run build
+      - run: node scripts/verify-out.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: static-site
+          path: out
+          retention-days: 7
+
+  deploy:
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && vars.ENABLE_CF_DEPLOY == 'true'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: static-site
+          path: out
+      - name: Deploy to Cloudflare Pages
+        env:
+          CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
+          CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
+        run: npx --yes wrangler@4 pages deploy out --project-name pano-vacuum --branch main
