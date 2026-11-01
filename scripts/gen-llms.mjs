@@ -3,6 +3,7 @@
 // 数据源：lib/articles.ts（Node 24 原生 TS 类型擦除，无需额外依赖）。
 import { writeFileSync } from "node:fs";
 import { articles } from "../lib/articles.ts";
+import { blogTopics } from "../lib/blog-topics.ts";
 
 const BASE = (process.env.SITE_BASE_URL || "https://panovacuum.com").replace(/\/+$/, "");
 const byDate = [...articles].sort((a, b) => (a.date < b.date ? 1 : -1));
@@ -36,7 +37,11 @@ const articleLines = byDate
   .map((a) => `- [${a.date}] ${a.en.title}\n  EN: ${BASE}/en/blog/${a.slug}/\n  ZH: ${BASE}/zh/blog/${a.slug}/\n  中文: ${a.zh.title}`)
   .join("\n");
 
-writeFileSync("out/llms.txt", `${header}\n## Articles (${byDate.length})\n${articleLines}\n`);
+const topicLines = blogTopics
+  .map((t) => `- ${t.en.name} / ${t.zh.name}\n  EN: ${BASE}/en/blog/topic/${t.slug}/\n  ZH: ${BASE}/zh/blog/topic/${t.slug}/\n  ${t.en.short}`)
+  .join("\n");
+
+writeFileSync("out/llms.txt", `${header}\n## Topic series (${blogTopics.length})\n${topicLines}\n\n## Articles (${byDate.length})\n${articleLines}\n`);
 
 const full = [
   header,

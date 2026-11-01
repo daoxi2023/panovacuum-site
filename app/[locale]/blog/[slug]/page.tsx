@@ -4,6 +4,7 @@ import { SITE_BASE } from "@/lib/site-base";
 import { notFound } from "next/navigation";
 import { SeoLinks } from "../../../components/seo-links";
 import { articles } from "../../../../lib/articles";
+import { topicOfArticle } from "../../../../lib/blog-topics";
 
 export function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }));
@@ -99,6 +100,8 @@ export default async function ArticlePage({ params }: { params: Promise<{ locale
     ],
   };
 
+  const topic = topicOfArticle(article.slug, article.tags);
+  const topicCrumb = topic ? `/${locale}/blog/topic/${topic.slug}/` : null;
   const faq = article.faq ?? [];
   const faqLd = faq.length
     ? {
@@ -130,6 +133,11 @@ export default async function ArticlePage({ params }: { params: Promise<{ locale
           <p className="sub">{t.intro}</p>
           <p className="news-date">{article.date} · {zh ? article.author.nameZh : article.author.nameEn}</p>
           <p className="news-date" style={{ marginTop: 6 }}>{zh ? article.author.roleZh : article.author.roleEn} · <a href={`mailto:${article.author.email}`}>{article.author.email}</a></p>
+          {topicCrumb && (
+            <p className="news-date" style={{ marginTop: 6 }}>
+              {zh ? "所属系列" : "Series"}：<Link href={topicCrumb}>{topic ? topic[zh ? "zh" : "en"].name : ""}</Link>
+            </p>
+          )}
         </div>
       </section>
       <section className="section">

@@ -2,6 +2,7 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { SITE_BASE } from "@/lib/site-base";
 import { articles } from "../../../lib/articles";
+import { blogTopics } from "../../../lib/blog-topics";
 import { SeoLinks } from "../../components/seo-links";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -45,6 +46,24 @@ export default async function Blog({ params }: { params: Promise<{ locale: strin
       </section>
       <section className="section">
         <div className="container">
+          <h2 className="hub-h2">{zh ? "按主题浏览" : "Browse by topic"}</h2>
+          <div className="topic-grid">
+            {blogTopics.map((topic) => {
+              const tc = topic[zh ? "zh" : "en"];
+              const count = articles.filter(
+                (a) => topic.articleSlugs.includes(a.slug) || (a.tags ?? []).some((tag) => topic.tags.includes(tag)),
+              ).length;
+              return (
+                <Link key={topic.slug} href={`/${locale}/blog/topic/${topic.slug}/`} className="topic-card">
+                  <p className="news-date">{zh ? `${count} 篇` : `${count} article${count > 1 ? "s" : ""}`}</p>
+                  <h3>{tc.name}</h3>
+                  <p>{tc.short}</p>
+                </Link>
+              );
+            })}
+          </div>
+
+          <h2 className="hub-h2">{zh ? "最新文章" : "Latest articles"}</h2>
           <div className="news-grid">
             {articles.map((a) => (
               <article className="news-card" key={a.slug}>
