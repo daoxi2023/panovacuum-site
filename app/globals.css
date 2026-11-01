@@ -168,6 +168,18 @@ a:hover { text-decoration: underline; }
 .article-body p { color: var(--pano-neutral-900); font-size: 16.5px; }
 .article-closing { border-left: 3px solid var(--pano-accent); padding-left: 16px; color: var(--pano-primary); font-weight: 600; }
 
+/* article: FAQ + related reading */
+.article-faq { margin-top: 46px; padding-top: 10px; border-top: 1px solid var(--pano-line); }
+.article-faq h2 { font-size: 22px; margin-bottom: .9em; }
+.faq-item { border-left: 3px solid var(--pano-line); padding: 2px 0 2px 16px; margin-bottom: 18px; }
+.faq-item h3 { font-size: 17px; margin: 0 0 6px; }
+.faq-item p { margin: 0; color: var(--pano-neutral-900); font-size: 16px; }
+.article-related { margin-top: 38px; padding: 22px 24px; background: var(--pano-bg-alt); border-radius: 10px; }
+.article-related h2 { font-size: 18px; margin: 0 0 12px; }
+.article-related ul { list-style: none; margin: 0; padding: 0; }
+.article-related li { margin-bottom: 9px; font-size: 16px; }
+.article-related li:last-child { margin-bottom: 0; }
+
 /* forms */
 .field { display: block; width: 100%; max-width: 620px; margin: 8px 0 16px; padding: 12px 14px; border: 1px solid var(--pano-line); border-radius: 8px; font-size: 15px; background: #fff; }
 .field:focus { outline: 2px solid var(--pano-accent-soft); border-color: var(--pano-accent); }

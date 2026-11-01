@@ -1,0 +1,48 @@
+{
+ "result": [
+  {
+   "id": "876745c9ec53b0941219f0700eb9bf5a",
+   "name": "panonewenergy.cn",
+   "type": "CNAME",
+   "content": "panonewenergy.pages.dev",
+   "proxiable": true,
+   "proxied": true,
+   "ttl": 1,
+   "settings": {
+    "flatten_cname": false
+   },
+   "meta": {},
+   "comment": null,
+   "tags": [],
+   "created_on": "2026-10-30T11:46:36.966499Z",
+   "modified_on": "2026-10-30T11:46:36.966499Z"
+  },
+  {
+   "id": "869e36906613bde6afbe117a753e8a88",
+   "name": "www.panonewenergy.cn",
+   "type": "CNAME",
+   "content": "panonewenergy.pages.dev",
+   "proxiable": true,
+   "proxied": true,
+   "ttl": 1,
+   "settings": {
+    "flatten_cname": false
+   },
+   "meta": {},
+   "comment": null,
+   "tags": [],
+   "created_on": "2026-10-30T11:46:37.331798Z",
+   "modified_on": "2026-10-30T11:46:37.331798Z"
+  }
+ ],
+ "success": true,
+ "errors": [],
+ "messages": [],
+ "result_info": {
+  "page": 1,
+  "per_page": 200,
+  "count": 2,
+  "total_count": 2,
+  "total_pages": 1
+ }
+}

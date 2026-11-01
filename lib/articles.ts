@@ -14,8 +14,11 @@ export type ArticleAuthor = {
 export type Article = {
   slug: string;
   date: string;
+  updated?: string;
   author: ArticleAuthor;
   cover: string;
+  tags?: string[];
+  faq?: { q: string; a: string }[];
   zh: { title: string; intro: string; sections: ArticleSection[]; closing: string };
   en: { title: string; intro: string; sections: ArticleSection[]; closing: string };
 };
@@ -23,6 +26,7 @@ export type Article = {
 export const articles: Article[] = [
   {
     slug: "vacuum-chamber-7-inspection-gates",
+    tags: ["制造流程", "检验", "质量"],
     date: "2026-10-27",
     author: { nameZh: "帕诺工艺团队", nameEn: "PANO Process Team", roleZh: "工艺与质量", roleEn: "Process & Quality", email: "zhouyou@panovacuum.com" },
     cover: "/photos/news-1.webp",
@@ -57,6 +61,7 @@ export const articles: Article[] = [
   },
   {
     slug: "chamber-material-304l-or-316l",
+    tags: ["材料选型", "不锈钢", "腔体"],
     date: "2026-10-27",
     author: { nameZh: "帕诺工艺团队", nameEn: "PANO Process Team", roleZh: "材料与工艺", roleEn: "Materials & Process", email: "zhouyou@panovacuum.com" },
     cover: "/photos/news-2.webp",
@@ -83,6 +88,7 @@ export const articles: Article[] = [
   },
   {
     slug: "how-to-request-a-quote-with-a-drawing",
+    tags: ["询价", "图纸评审", "流程"],
     date: "2026-10-27",
     author: { nameZh: "周游", nameEn: "Zhou You", roleZh: "商务与销售", roleEn: "Sales & BD", email: "zhouyou@panovacuum.com" },
     cover: "/photos/news-3.webp",
@@ -109,6 +115,12 @@ export const articles: Article[] = [
   },
 {
     slug: "helium-leak-test-vs-pressure-rise",
+    tags: ["检漏", "氦检", "质量判定"],
+    faq: [
+      { q: "压降法能代替氦检吗？", a: "做过程判断可以，做验收判据不行：压降法分不清漏与出气，也没有温度修正项。要签字的那张纸，得用氦检。" },
+      { q: "氦检能做到什么量级？", a: "真空法外部喷氦可到 5×10⁻¹³ Pa·m³/s 量级；我方出厂检漏按项目图纸判据执行，对外披露的能力是 1×10⁻⁹ Pa·m³/s 量级。" },
+      { q: "为什么大腔体检漏要等很久？", a: "分子流区（<10⁻³ hPa）响应时间由试件容积与对氦的有效抽速决定（V/S）；进入层流区（>1 hPa）后由前级泵抽速决定，腔体越大越慢。" },
+    ],
     date: "2026-11-01",
     author: { nameZh: "帕诺工艺团队", nameEn: "PANO Process Team", roleZh: "工艺与质量", roleEn: "Process & Quality", email: "zhouyou@panovacuum.com" },
     cover: "/photos/cap-leak.webp",
@@ -151,6 +163,12 @@ export const articles: Article[] = [
   },
 {
     slug: "vacuum-furnace-structure-design",
+    tags: ["真空炉", "结构设计", "外压校核"],
+    faq: [
+      { q: "真空腔体按多大压力设计？", a: "按 1.3 atm（约 0.13 MPa）的设计压差校核，水冷夹套另加水的静压。" },
+      { q: "壁厚怎么定？", a: "按 ASME 外压式 Pa = 4B/[3(D₀/t)] 计算，判据 Pa > Pd。算例：内径 1000 mm 时，4 mm 壁厚得 0.074 MPa 不合格，5 mm 得 0.15 MPa 通过。" },
+      { q: "冷壁炉和热壁炉怎么选？", a: "密封件温度是硬约束、除气可以靠吹扫和抽气时间补，所以冷壁是工程默认解；小炉子且洁净度要求高时，热壁用「密封耐温」换「腔体除气」才划算。" },
+    ],
     date: "2026-11-01",
     author: { nameZh: "帕诺工艺团队", nameEn: "PANO Process Team", roleZh: "工艺与质量", roleEn: "Process & Quality", email: "zhouyou@panovacuum.com" },
     cover: "/photos/cap-chamber.webp",
@@ -193,6 +211,12 @@ export const articles: Article[] = [
   },
 {
     slug: "coating-chamber-cleaning-particle-control",
+    tags: ["清洁工艺", "颗粒控制", "出气"],
+    faq: [
+      { q: "腔体洗完还是抽不下去，先查什么？", a: "先区分出气与漏。水汽出气率按 3×10⁻⁹/t（小时）衰减，清洗后表面水层若已重新吸饱，之前抽的时间就白费了。" },
+      { q: "烘烤能解决多少问题？", a: "250 ℃ × 24 h 可把水汽压 4 个数量级（2×10⁻¹⁰ → 1×10⁻¹⁴），但氢只压 1 个数量级，氢要靠真空退火或长时间抽气。" },
+      { q: "颗粒要求怎么换算到每片晶圆？", a: "用关键颗粒直径与允许缺陷数折算：ITRS 2003 给出的量级是 25–50 nm 对应 59–97 颗/片，现行门槛更严，以客户规范为准。" },
+    ],
     date: "2026-11-01",
     author: { nameZh: "帕诺工艺团队", nameEn: "PANO Process Team", roleZh: "工艺与质量", roleEn: "Process & Quality", email: "zhouyou@panovacuum.com" },
     cover: "/photos/cap-clean.webp",

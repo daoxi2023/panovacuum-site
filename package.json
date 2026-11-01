@@ -5,11 +5,12 @@
   "scripts": {
     "dev": "next dev -p 3000",
     "build": "next build",
-    "postbuild": "node scripts/normalize-hreflang.mjs && node scripts/finalize-domain.mjs",
+    "postbuild": "node scripts/normalize-hreflang.mjs && node scripts/finalize-domain.mjs && node scripts/gen-llms.mjs && node scripts/gen-rss.mjs",
     "start": "next start -p 3000",
     "typecheck": "tsc --noEmit",
     "cf:deploy": "wrangler pages deploy out/ --project-name pano-vacuum",
-    "build:cn": "export SITE_BASE_URL=https://panovacuum.cn && next build && node scripts/normalize-hreflang.mjs && node scripts/finalize-domain.mjs"
+    "build:cn": "export SITE_BASE_URL=https://panovacuum.cn && next build && node scripts/normalize-hreflang.mjs && node scripts/finalize-domain.mjs && node scripts/gen-llms.mjs && node scripts/gen-rss.mjs",
+    "feed": "node scripts/gen-llms.mjs && node scripts/gen-rss.mjs"
   },
   "dependencies": {
     "next": "15.5.2",

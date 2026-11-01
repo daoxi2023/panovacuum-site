@@ -1,6 +1,31 @@
 import Link from "next/link";
+import type { Metadata } from "next";
+import { SITE_BASE } from "@/lib/site-base";
 import { articles } from "../../../lib/articles";
 import { SeoLinks } from "../../components/seo-links";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const zh = locale === "zh";
+  const title = zh ? "真空腔体制造技术文章与新闻" : "Vacuum chamber fabrication: technical articles and news";
+  const description = zh
+    ? "聚焦真空腔体制造中客户关注的实际问题：检漏方法与判定、外压与壁厚、清洁与颗粒控制、材料选型与交付检验。每月更新。"
+    : "Practical articles on vacuum chamber fabrication: leak testing and acceptance criteria, external-pressure design, cleaning and particle control, material selection and inspection.";
+  const url = `${SITE_BASE}/${locale}/blog/`;
+  return {
+    title: `${title} · ${zh ? "帕诺真空" : "PANO Vacuum"}`,
+    description,
+    alternates: {
+      canonical: url,
+      languages: {
+        "zh-CN": `${SITE_BASE}/zh/blog/`,
+        en: `${SITE_BASE}/en/blog/`,
+        "x-default": `${SITE_BASE}/en/blog/`,
+      },
+    },
+    openGraph: { type: "website", url, title, description, siteName: "PANO Vacuum", locale: zh ? "zh_CN" : "en_US" },
+  };
+}
 
 export default async function Blog({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params;
