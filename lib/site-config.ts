@@ -6,9 +6,11 @@
  *   the GA4 property/stream exists; the gtag snippet is only emitted when set.
  * - googleSiteVerification: token for <meta name="google-site-verification" .../>.
  *   Only emitted when set.
+ * - baiduSiteVerification: token for <meta name="baidu-site-verification" .../>.
  */
 export const siteConfig = {
   clarityProjectId: "z4lu81ynam",
   ga4MeasurementId: "G-1WQQZ0MQYG",
   googleSiteVerification: "",
+  baiduSiteVerification: "codeva-x9HGNWUcnG",
 } as const;
