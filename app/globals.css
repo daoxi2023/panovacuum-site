@@ -278,16 +278,6 @@ label { display: block; font-size: 14px; font-weight: 600; color: var(--pano-pri
 @media (max-width: 1024px) { .hero-media { display: none; } }
 
 /* Shared navigation: restrained green chrome, with a native mobile disclosure. */
-.header-contact { background: #f4f6fc; border-bottom: 1px solid var(--pano-ui-line); color: var(--pano-ui-muted); font-size: 12px; line-height: 1.6; }
-.header-contact > .container { max-width: 1328px; padding: 9px 40px; }
-.header-contact a { color: var(--pano-ui-ink); text-decoration: none; }
-.header-contact a:hover { color: var(--pano-ui-green); text-decoration: underline; }
-.header-contact a span { color: var(--pano-ui-muted); margin-right: 4px; }
-.header-contact-desktop { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 24px; }
-.header-contact-desktop > a { white-space: nowrap; }
-.header-contact address { font-style: normal; margin: 0; overflow-wrap: anywhere; }
-.header-contact-desktop address { flex-basis: 100%; }
-.header-contact-mobile { display: none; }
 a:focus-visible, summary:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible { outline: 3px solid var(--pano-ui-green); outline-offset: 4px; }
 .site-topbar { background: #f4f6fc; color: var(--pano-ui-muted); }
 .topbar-inner a { color: var(--pano-ui-muted); }
@@ -332,16 +322,6 @@ a:focus-visible, summary:focus-visible, button:focus-visible, input:focus-visibl
   .header-inner { padding-inline: 14px; gap: 8px; }
 }
 @media (max-width: 800px) {
-  .header-contact > .container { padding: 7px 18px; }
-  .header-contact-desktop { display: none; }
-  .header-contact-mobile { display: block; }
-  .header-contact-primary { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 3px 14px; font-size: 11px; }
-  .header-contact-primary a { white-space: nowrap; }
-  .header-contact-more summary { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 6px 0 0; list-style: none; cursor: pointer; color: var(--pano-ui-green); font-size: 11px; }
-  .header-contact-more summary::-webkit-details-marker { display: none; }
-  .header-contact-more summary span { font-size: 15px; line-height: 1; }
-  .header-contact-more[open] summary span { transform: rotate(45deg); }
-  .header-contact-panel { display: grid; gap: 7px; padding: 12px 0 5px; font-size: 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
