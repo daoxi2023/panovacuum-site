@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { SeoLinks } from "../../../components/seo-links";
 import { manufacturingServices } from "../../../../lib/manufacturing";
+import { pageOg } from "@/lib/og";
 import "../../../growth.css";
 
 type Params = Promise<{ locale: string; service: string }>;
@@ -12,8 +13,21 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   const { locale, service } = await params;
   const entry = manufacturingServices.find((item) => item.slug === service);
   if (!entry) return {};
-  const t = entry[locale === "zh" ? "zh" : "en"];
-  return { title: `${t.title} | ${locale === "zh" ? "帕诺真空" : "PANO Vacuum"}`, description: t.intro };
+  const zh = locale === "zh";
+  const t = entry[zh ? "zh" : "en"];
+  const title = `${t.title} | ${zh ? "帕诺真空" : "PANO Vacuum"}`;
+  return {
+    title,
+    description: t.intro,
+    ...pageOg({
+      path: `manufacturing/${entry.slug}`,
+      locale,
+      title,
+      description: t.intro,
+      altZh: `${t.title}——帕诺真空常熟工厂实拍`,
+      altEn: `${t.title} at the PANO Vacuum plant in Changshu`,
+    }),
+  };
 }
 export default async function Manufacturing({ params }: { params: Params }) {
   const { locale, service } = await params;

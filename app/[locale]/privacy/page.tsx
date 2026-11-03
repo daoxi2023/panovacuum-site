@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SeoLinks } from "../../components/seo-links";
 import { OPERATOR_EN, OPERATOR_ZH, SITE_BASE } from "@/lib/site-base";
+import { pageOg } from "@/lib/og";
 import "../../growth.css";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -12,6 +13,17 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       locale === "zh"
         ? "帕诺真空网站的隐私政策：谁在运营、收集哪些信息、如何使用与保存、您的权利和联系方式。"
         : "Privacy policy for the PANO Vacuum website: who operates it, what we collect, how it is used and stored, your rights and how to contact us.",
+    ...pageOg({
+      path: "privacy",
+      locale,
+      title: locale === "zh" ? "隐私政策 | 帕诺真空" : "Privacy Policy | PANO Vacuum",
+      description:
+        locale === "zh"
+          ? "帕诺真空网站的隐私政策：谁在运营、收集哪些信息、如何使用与保存、您的权利和联系方式。"
+          : "Privacy policy for the PANO Vacuum website: who operates it, what we collect, how it is used and stored, your rights and how to contact us.",
+      altZh: "帕诺真空品牌标识",
+      altEn: "PANO Vacuum brand mark",
+    }),
   };
 }
 

@@ -2,11 +2,26 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SeoLinks } from "../../components/seo-links";
 import { LeadForm } from "../../components/lead-form";
+import { pageOg } from "@/lib/og";
 import "../../growth.css";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  return locale === "zh" ? { title: "产业合作 | 帕诺真空", description: "与帕诺探讨真空腔体长期采购、产能配套、客户与供应链协同，以及带产业资源的战略合作。" } : { title: "Industrial Partnerships | PANO Vacuum", description: "Discuss long-term sourcing, manufacturing capacity, customer and supply-chain collaboration with PANO Vacuum." };
+  const t =
+    locale === "zh"
+      ? { title: "产业合作 | 帕诺真空", description: "与帕诺探讨真空腔体长期采购、产能配套、客户与供应链协同，以及带产业资源的战略合作。" }
+      : { title: "Industrial Partnerships | PANO Vacuum", description: "Discuss long-term sourcing, manufacturing capacity, customer and supply-chain collaboration with PANO Vacuum." };
+  return {
+    ...t,
+    ...pageOg({
+      path: "industrial-partnerships",
+      locale,
+      title: t.title,
+      description: t.description,
+      altZh: "帕诺真空常熟工厂的腔体制造与交付能力",
+      altEn: "Chamber fabrication and delivery capability at PANO Vacuum, Changshu",
+    }),
+  };
 }
 
 export default async function Partnerships({ params }: { params: Promise<{ locale: string }> }) {

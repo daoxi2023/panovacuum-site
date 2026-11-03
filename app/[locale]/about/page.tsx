@@ -4,20 +4,34 @@ import { SeoLinks } from "../../components/seo-links";
 import "../../growth.css";
 import { SITE_BASE, OPERATOR_EN, OPERATOR_ZH } from "@/lib/site-base";
 import { manufacturingServices } from "@/lib/manufacturing";
+import { OG_BY_PAGE, pageOg } from "@/lib/og";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  return locale === "zh"
-    ? {
-        title: "关于我们 | 帕诺真空",
-        description:
-          "帕诺真空机械科技（常熟）有限公司，位于江苏常熟，做定制真空腔体、精密加工件与真空密封组件。本页说明公司主体、制造范围、检验方式与联系渠道。",
-      }
-    : {
-        title: "About PANO Vacuum | Custom Vacuum Chambers",
-        description:
-          "PANO Vacuum Machinery Technology (Changshu) Co., Ltd. makes custom vacuum chambers, precision components and vacuum-tight assemblies in Changshu, Jiangsu, China. Company, scope, inspection and contact details.",
-      };
+  const t =
+    locale === "zh"
+      ? {
+          title: "关于我们 | 帕诺真空",
+          description:
+            "帕诺真空机械科技（常熟）有限公司，位于江苏常熟，做定制真空腔体、精密加工件与真空密封组件。本页说明公司主体、制造范围、检验方式与联系渠道。",
+        }
+      : {
+          title: "About PANO Vacuum | Custom Vacuum Chambers",
+          description:
+            "PANO Vacuum Machinery Technology (Changshu) Co., Ltd. makes custom vacuum chambers, precision components and vacuum-tight assemblies in Changshu, Jiangsu, China. Company, scope, inspection and contact details.",
+        };
+  return {
+    ...t,
+    ...pageOg({
+      path: "about",
+      locale,
+      title: t.title,
+      description: t.description,
+      image: OG_BY_PAGE.about,
+      altZh: "帕诺真空常熟工厂内的真空腔体制造车间",
+      altEn: "Vacuum chamber fabrication workshop at the PANO Vacuum plant in Changshu",
+    }),
+  };
 }
 
 const CAPABILITIES = [

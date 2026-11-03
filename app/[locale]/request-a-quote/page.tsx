@@ -2,11 +2,27 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { SeoLinks } from "../../components/seo-links";
 import { LeadForm } from "../../components/lead-form";
+import { OG_BY_PAGE, pageOg } from "@/lib/og";
 import "../../growth.css";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  return locale === "zh" ? { title: "提交询价需求 | 帕诺真空", description: "向帕诺提交定制真空腔体、精密加工零件或密封焊接组件需求，获得接收编号并由商务团队跟进。" } : { title: "Request a Quote | PANO Vacuum", description: "Send a custom vacuum chamber, precision-machined part or welded assembly requirement to PANO and receive an enquiry reference." };
+  const t =
+    locale === "zh"
+      ? { title: "提交询价需求 | 帕诺真空", description: "向帕诺提交定制真空腔体、精密加工零件或密封焊接组件需求，获得接收编号并由商务团队跟进。" }
+      : { title: "Request a Quote | PANO Vacuum", description: "Send a custom vacuum chamber, precision-machined part or welded assembly requirement to PANO and receive an enquiry reference." };
+  return {
+    ...t,
+    ...pageOg({
+      path: "request-a-quote",
+      locale,
+      title: t.title,
+      description: t.description,
+      image: OG_BY_PAGE["request-a-quote"],
+      altZh: "帕诺真空车间内的真空腔体构件与加工图档",
+      altEn: "Vacuum chamber components and fabrication drawings at PANO Vacuum",
+    }),
+  };
 }
 
 export default async function RequestQuote({ params }: { params: Promise<{ locale: string }> }) {

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { SeoLinks } from "../../components/seo-links";
 import "../../growth.css";
 import { OPERATOR_EN, OPERATOR_ZH } from "@/lib/site-base";
+import { pageOg } from "@/lib/og";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
@@ -12,6 +13,17 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       locale === "zh"
         ? "帕诺真空网站使用条款：网站性质、内容准确性、知识产权、禁止行为、责任范围与适用法律。"
         : "Terms of use for the PANO Vacuum website: what the site is for, accuracy of content, intellectual property, acceptable use, liability and governing law.",
+    ...pageOg({
+      path: "terms",
+      locale,
+      title: locale === "zh" ? "使用条款 | 帕诺真空" : "Terms of Use | PANO Vacuum",
+      description:
+        locale === "zh"
+          ? "帕诺真空网站使用条款：网站性质、内容准确性、知识产权、禁止行为、责任范围与适用法律。"
+          : "Terms of use for the PANO Vacuum website: what the site is for, accuracy of content, intellectual property, acceptable use, liability and governing law.",
+      altZh: "帕诺真空品牌标识",
+      altEn: "PANO Vacuum brand mark",
+    }),
   };
 }
 

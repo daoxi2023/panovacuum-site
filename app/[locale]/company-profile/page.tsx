@@ -4,19 +4,33 @@ import { SeoLinks } from "../../components/seo-links";
 import { PartnerGrid } from "../../components/partner-grid";
 import "../../growth.css";
 import { OPERATOR_EN, OPERATOR_ZH } from "@/lib/site-base";
+import { OG_BY_PAGE, pageOg } from "@/lib/og";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  return locale === "zh"
-    ? {
-        title: "工厂能力介绍 | 帕诺真空",
-        description: "帕诺真空的制造范围、工序、质量检验、合作单位与商务联系信息，供采购与产业合作初步了解。",
-      }
-    : {
-        title: "Factory Overview | PANO Vacuum",
-        description:
-          "PANO Vacuum's manufacturing scope, processes, inspection approach, partners and business contact details for sourcing and industrial partners.",
-      };
+  const t =
+    locale === "zh"
+      ? {
+          title: "工厂能力介绍 | 帕诺真空",
+          description: "帕诺真空的制造范围、工序、质量检验、合作单位与商务联系信息，供采购与产业合作初步了解。",
+        }
+      : {
+          title: "Factory Overview | PANO Vacuum",
+          description:
+            "PANO Vacuum's manufacturing scope, processes, inspection approach, partners and business contact details for sourcing and industrial partners.",
+        };
+  return {
+    ...t,
+    ...pageOg({
+      path: "company-profile",
+      locale,
+      title: t.title,
+      description: t.description,
+      image: OG_BY_PAGE["company-profile"],
+      altZh: "帕诺真空工厂内的氩弧焊接工位与真空腔体",
+      altEn: "TIG welding station and vacuum chamber on the PANO Vacuum shop floor",
+    }),
+  };
 }
 
 export default async function Profile({ params }: { params: Promise<{ locale: string }> }) {

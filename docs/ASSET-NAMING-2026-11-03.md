@@ -292,7 +292,7 @@ commit：`8b23c66`（改名主体）、`917f486`（已下线素材 301）
 
 ### 尚未执行 ⏳（需要有图才能做）
 
-1. **14 张 OG 图**，其中 6 张 P0：`/zh/blog/`、`/en/blog/` 与 4 个博客专题页目前**完全没有 `og:image`**；22 个页面共用同一张中文压字图，英文站分享显示的也是中文图。
+1. ~~**14 张 OG 图**~~ → **已用现有厂内照片完成 18 张并上线**，见下一节「分享图（OG）执行状态」。
 2. **服务页专属正文图 3 张**（现在 3 个 manufacturing 页分别复用首页的 `hero-chamber`/`cap-cmm`/`cap-chamber`）。
 3. **文章专属封面 3 张**。
 4. **设备实拍 5 张**：3 万瓦激光、400 吨·6.2m 折弯、UL1000 氦检仪、50 吨行车、厂区外观 —— 台账里有这些能力，全站没有一张对应实拍。
@@ -300,3 +300,112 @@ commit：`8b23c66`（改名主体）、`917f486`（已下线素材 301）
 6. `feedthrough-044` 改名后是 `uhv-feedthrough-flange-assembly-1600w.webp`，**版权来源仍待核实**（既有拍摄清单标注「疑似渲染/图库图」，用在「我们工厂」有风险）。
 
 补拍这些图后，按本文档的命名规范命名，再跑 `python3 scripts/gen-asset-naming-list.py` 即可刷新清单。
+
+---
+
+## 分享图（OG）执行状态（2026-11-03 补做 · 已上线）
+
+**结论：全站 47 个 HTML 页面、两域名 46 个线上路由，`og:image` + `twitter:image` + `og:url` + `og:type` 覆盖 100%。** 之前 13 个页面完全没有分享图、22 个页面共用一张中文压字图的问题已解决。
+
+### 做了什么
+
+| 项 | 内容 |
+|---|---|
+| 新增分享图 | **18 张**，全部 `1200×630` webp，全部由 `public/photos/` 里 ≥1200px 的**真实厂内照片**裁切，未用图库/渲染图 |
+| 统一出口 | 新增 `lib/og.ts`：`OG_DEFAULT` / `OG_BLOG` / `OG_BY_TOPIC` / `OG_BY_PAGE` / `OG_BY_ARTICLE` + `ogImage()` / `twitterCard()` / `pageOg()` / `coverSize()` |
+| 页面接线 | 13 个页面文件：首页、about、company-profile、case-studies、request-a-quote、industrial-partnerships、privacy、terms、manufacturing/[service]、blog 索引、blog/topic/[topic]、blog/[slug]、根 layout |
+| 默认图换掉 | 原 `pano-vacuum-og-default`（白底压字卡，9752 B）→ 压暗厂内实拍 + 白色品牌字标（61962 B），**语言中立**，中英文站共用不再出现"英文站显示中文图" |
+| 缓存 | `public/_headers` 增 `/pano-vacuum-og-*.webp` → `public, max-age=604800, stale-while-revalidate=2592000`（7 天 + 30 天 SWR；比 `/photos/*` 短，因为换分享图后旧卡片留在 CDN 上很难看） |
+
+### 裁切配方（只有 6 张合格源图，靠取景区分 18 张卡）
+
+`public/photos/` 里 ≥1200px 且**无版权疑虑**的实拍只有 6 张：`vacuum-chamber-workshop-changshu-1440w`、`vacuum-chamber-workshop-changshu-1280w`、`multi-ton-304l-vacuum-chamber-1600w`、`tig-welding-station-vacuum-chamber-1600w`、`vacuum-chamber-workshop-components-1600w`、`custom-vacuum-chamber-304l-stainless-1200w`。
+
+一对一直裁会产出**完全相同**的文件——首版就是这样：18 个文件、只有 5 种画面，不同页面分享出去卡片长得一样。改为「同一源图 × 不同取景」：`z` 是缩放（1.0 最广 → 1.8 最近），`fx`/`fy` 是裁切框在源图内的横向/纵向落点。
+
+```python
+A  = 1200 / 630
+cw = min(W, H*A) / z
+ch = cw / A
+left = round((W - cw) * fx)
+top  = round((H - ch) * fy)
+im.crop((left, top, left+round(cw), top+round(ch))).resize((1200, 630), Image.LANCZOS)
+```
+
+| 分享图 | 源图 | z | fx | fy |
+|---|---|---|---|---|
+| blog | workshop-1440 | 1.00 | .50 | .50 |
+| blog-topic-leak-testing | multi-ton | 1.00 | .50 | .50 |
+| blog-topic-design-materials | 304l-stainless | 1.00 | .50 | .50 |
+| blog-topic-clean-particle | tig-welding | 1.00 | .50 | .50 |
+| blog-topic-quote-delivery | components | 1.00 | .50 | .50 |
+| article-7-inspection-gates | workshop-1440 | 1.80 | .40 | .62 |
+| article-material-304l-316l | 304l-stainless | 1.35 | .50 | .18 |
+| article-quote-with-drawing | multi-ton | 1.35 | .50 | .18 |
+| article-helium-leak-test | tig-welding | 1.35 | .50 | .18 |
+| article-vacuum-furnace-design | multi-ton | 1.80 | .35 | .80 |
+| article-coating-chamber-cleaning | workshop-1280 | 1.35 | .50 | .18 |
+| about | workshop-1280 | 1.80 | .45 | .75 |
+| company-profile | workshop-1280 | 1.00 | .50 | .50 |
+| quote | workshop-1440 | 1.35 | .50 | .18 |
+| manufacturing-custom-vacuum-chambers | components | 1.35 | .50 | .18 |
+| manufacturing-precision-components | 304l-stainless | 1.80 | .35 | .80 |
+| manufacturing-vacuum-tight-welding | tig-welding | 1.80 | .35 | .80 |
+| default | multi-ton（压暗 0.52 + 降饱和 0.85 + 白色字标 640px 宽居中） | — | — | — |
+
+结果：**18 个文件 sha256 全不重复**，均为 1200×630，亮度落在 77–157（无过暗/过曝）。
+
+### 18 张文件与用途
+
+| 文件 | 用途 |
+|---|---|
+| `pano-vacuum-og-default-1200x630.webp` | 兜底：首页 `/zh/` `/en/`、case-studies、industrial-partnerships、privacy、terms、`/`、`/404`（12 页） |
+| `pano-vacuum-og-blog-1200x630.webp` | `/zh/blog/` `/en/blog/` |
+| `pano-vacuum-og-blog-topic-leak-testing-1200x630.webp` | `/blog/topic/leak-testing/` |
+| `pano-vacuum-og-blog-topic-design-materials-1200x630.webp` | `/blog/topic/design-materials/` |
+| `pano-vacuum-og-blog-topic-clean-particle-1200x630.webp` | `/blog/topic/clean-particle/` |
+| `pano-vacuum-og-blog-topic-quote-delivery-1200x630.webp` | `/blog/topic/quote-delivery/` |
+| `pano-vacuum-og-article-7-inspection-gates-1200x630.webp` | 文章《从图纸到出厂：真空腔体要过 7 道检查》 |
+| `pano-vacuum-og-article-material-304l-316l-1200x630.webp` | 文章《304L 还是 316L》 |
+| `pano-vacuum-og-article-quote-with-drawing-1200x630.webp` | 文章《带图纸询价怎么说清》 |
+| `pano-vacuum-og-article-helium-leak-test-1200x630.webp` | 文章《氦检和压降法，差五个数量级》 |
+| `pano-vacuum-og-article-vacuum-furnace-design-1200x630.webp` | 文章《真空炉结构设计的五个决定》 |
+| `pano-vacuum-og-article-coating-chamber-cleaning-1200x630.webp` | 文章《镀膜腔体洗得再干净为什么还是抽不下去》 |
+| `pano-vacuum-og-about-1200x630.webp` | `/about/` |
+| `pano-vacuum-og-company-profile-1200x630.webp` | `/company-profile/` |
+| `pano-vacuum-og-quote-1200x630.webp` | `/request-a-quote/` |
+| `pano-vacuum-og-manufacturing-custom-vacuum-chambers-1200x630.webp` | 服务页 定制真空腔体 |
+| `pano-vacuum-og-manufacturing-precision-components-1200x630.webp` | 服务页 精密加工件 |
+| `pano-vacuum-og-manufacturing-vacuum-tight-welding-1200x630.webp` | 服务页 真空密封焊接 |
+
+> 命名口径调整：专题图由 `og-topic-*` 改为 `og-blog-topic-*`，与文章页 `og-article-*` 对齐，路径前缀统一为页面类型。
+
+### 顺手修掉的两个隐性缺陷
+
+1. **`og:url` 张冠李戴**：原来自 `case-studies`、`industrial-partnerships`、`privacy`、`terms`、首页、404 这些页面不写 `openGraph`，整段继承 `app/[locale]/layout.tsx`，分享出去 `og:url` 指向首页。现在 `pageOg()` 按 `path + locale` 逐页生成，`og:url` 与 canonical 一致（实测 `.com` 与 `.cn` 各自指向自己域名）。
+2. **文章封面尺寸误报**：`blog/[slug]` 原先把 640×360 / 720×480 的正文封面硬写成 `1200×630`，抓取端会按错误比例裁切。现在分享图改用专属 1200×630 图；万一某篇文章未登记专属图，`coverSize()` 按文件名宽度后缀如实声明。
+
+### 实测（真发请求）
+
+- `.com` 线上 46 路由：**异常 0**；18 种分享图全部 `200`，缓存头 = `public, max-age=604800, stale-while-revalidate=2592000`，且**逐张 sha256 与 `out-com/` 一致（不一致 0 张）**
+- `.cn` 产物（经预览域 `849e1857.panovacuum-cn.pages.dev`）：18 张分享图全部 `200` 且字节与本地一致，`og:url`/canonical 均指向 `https://panovacuum.cn/...`
+- 构建产物本地审计：47 页 × (`og:image` + `og:url` + `og:type` + `twitter:image` + `og:image:width=1200`) 异常 **0**；`og:image` 指向的文件全部存在
+- `pnpm typecheck` / `pnpm build`（含 CSS 兼容闸）/ `pnpm verify`（47 页 · sitemap 44 · RSS 6）全绿
+- deployment：`.com` `85e70ab8-5b54-4dce-808b-7de2415b3199`、`.cn` `849e1857-4e6d-4ab4-87f4-8a343b17c25d`，均 `STATUS: success`（中间一版 `5a8899b5` / `7c6f722e` 是修掉「18 个文件只有 5 种画面」后的重新生成）
+
+### ⚠ 踩坑：换图后 CDN 还在发旧字节
+
+首版上线后用内容哈希核对，`og-article-7-inspection-gates` 线上仍是旧字节：直取 URL 得 98904 B，加 `?v=<时间戳>` 才拿到新的 63624 B —— **CF Pages 部署后自定义域名的边缘缓存不会立刻全量失效**，叠加当时给的 30 天 `max-age`，POP 会继续发旧图。
+
+处置：
+1. 换图后必须**用内容哈希**核对线上字节，只看 HTTP 200 和"大小看起来差不多"会漏。
+2. 主动清缓存：`POST /zones/{zone_id}/purge_cache`，body `{"files":[完整 URL...]}`。该账号下 `panovacuum.com` zone = `b6ee0c0a15594b107d3e7466389ad4b7`（`active`）；**`panovacuum.cn` 没有 zone**（NS 还在新网），只能等 DNS 迁过来。
+3. 因此把 OG 图的 `max-age` 从 30 天降到 **7 天**（SWR 30 天）：换图最坏一周后全网生效。
+
+### 仍未做（必须真拍，做不了）
+
+- **服务页正文图 3 张**：`photos/service-custom-vacuum-chambers-workshop-1200w.webp`、`photos/service-precision-components-cmm-inspection-1200w.webp`、`photos/service-vacuum-tight-welding-tig-1200w.webp`
+- **文章专属封面 3 张**：`photos/blog-helium-leak-test-vs-pressure-rise-1200w.webp`、`photos/blog-vacuum-furnace-structure-design-1200w.webp`、`photos/blog-coating-chamber-cleaning-particle-control-1200w.webp`
+- **设备实拍 5 张**：3 万瓦激光、400 吨 · 6.2m 折弯、UL1000 氦检仪、50 吨行车、厂区外观
+- **伙伴 logo @2x 15 张**（现约 380px，2 倍屏会糊）
+- `uhv-feedthrough-flange-assembly-1600w.webp` **版权来源待核实**，暂未用它做任何分享图

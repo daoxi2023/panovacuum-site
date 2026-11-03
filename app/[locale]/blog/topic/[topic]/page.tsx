@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { SITE_BASE } from "@/lib/site-base";
 import { articles } from "../../../../../lib/articles";
 import { blogTopics, type BlogTopic } from "../../../../../lib/blog-topics";
+import { OG_BY_TOPIC, OG_DEFAULT, ogImage, twitterCard } from "@/lib/og";
 
 export function generateStaticParams() {
   return blogTopics.map((t) => ({ topic: t.slug }));
@@ -27,6 +28,10 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const zh = locale === "zh";
   const c = t[zh ? "zh" : "en"];
   const url = `${SITE_BASE}/${locale}/blog/topic/${t.slug}/`;
+  const ogFile = OG_BY_TOPIC[t.slug] ?? OG_DEFAULT;
+  const ogAlt = zh
+    ? `帕诺真空 ${c.name} 系列：${c.short}`.slice(0, 40)
+    : `${c.name} at PANO Vacuum: ${c.short}`.slice(0, 125);
   return {
     title: `${c.name} · ${zh ? "帕诺真空" : "PANO Vacuum"}`,
     description: c.intro.length > 160 ? `${c.intro.slice(0, 157)}…` : c.intro,
@@ -46,7 +51,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       description: c.intro,
       siteName: "PANO Vacuum",
       locale: zh ? "zh_CN" : "en_US",
+      images: ogImage(ogFile, ogAlt),
     },
+    twitter: twitterCard(ogFile, ogAlt),
   };
 }
 

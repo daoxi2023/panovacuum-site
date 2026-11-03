@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { SeoLinks } from "../../../components/seo-links";
 import { articles } from "../../../../lib/articles";
 import { topicOfArticle } from "../../../../lib/blog-topics";
+import { OG_BY_ARTICLE, OG_H, OG_W, coverSize, ogImage } from "@/lib/og";
 
 export function generateStaticParams() {
   return articles.map((a) => ({ slug: a.slug }));
@@ -22,6 +23,11 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
   const t = article[zh ? "zh" : "en"];
   const url = `${SITE_BASE}/${locale}/blog/${article.slug}/`;
   const description = t.intro.length > 160 ? `${t.intro.slice(0, 157)}…` : t.intro;
+  // 分享图优先用专属 1200×630 裁切图；未登记的才回落正文封面，并按封面真实尺寸声明。
+  const ogFile = OG_BY_ARTICLE[article.slug];
+  const ogPath = ogFile ?? article.cover;
+  const ogDims = ogFile ? { width: OG_W, height: OG_H } : coverSize(article.cover);
+  const ogAlt = t.title.slice(0, zh ? 40 : 125);
   return {
     title: `${t.title} · ${zh ? "帕诺真空" : "PANO Vacuum"}`,
     description,
@@ -41,7 +47,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       description,
       siteName: "PANO Vacuum",
       locale: zh ? "zh_CN" : "en_US",
-      images: [{ url: `${SITE_BASE}${article.cover}`, width: 1200, height: 630, alt: t.title }],
+      images: ogImage(ogPath, ogAlt, ogDims.width, ogDims.height),
       publishedTime: article.date,
       modifiedTime: article.updated ?? article.date,
       authors: [zh ? article.author.nameZh : article.author.nameEn],
@@ -51,7 +57,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
       card: "summary_large_image",
       title: t.title,
       description,
-      images: [`${SITE_BASE}${article.cover}`],
+      images: ogImage(ogPath, ogAlt, ogDims.width, ogDims.height),
     },
   };
 }

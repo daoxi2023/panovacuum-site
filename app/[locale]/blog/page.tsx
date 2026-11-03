@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { SITE_BASE } from "@/lib/site-base";
 import { articles } from "../../../lib/articles";
 import { blogTopics } from "../../../lib/blog-topics";
+import { OG_BLOG, ogImage, twitterCard } from "@/lib/og";
 import { SeoLinks } from "../../components/seo-links";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
@@ -13,6 +14,9 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
     ? "聚焦真空腔体制造中客户关注的实际问题：检漏方法与判定、外压与壁厚、清洁与颗粒控制、材料选型与交付检验。每月更新。"
     : "Practical articles on vacuum chamber fabrication: leak testing and acceptance criteria, external-pressure design, cleaning and particle control, material selection and inspection.";
   const url = `${SITE_BASE}/${locale}/blog/`;
+  const ogAlt = zh
+    ? "帕诺真空车间内的真空腔体构件与制造设备"
+    : "Vacuum chamber components and fabrication equipment inside the PANO Vacuum workshop";
   return {
     title: `${title} · ${zh ? "帕诺真空" : "PANO Vacuum"}`,
     description,
@@ -24,7 +28,16 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
         "x-default": `${SITE_BASE}/en/blog/`,
       },
     },
-    openGraph: { type: "website", url, title, description, siteName: "PANO Vacuum", locale: zh ? "zh_CN" : "en_US" },
+    openGraph: {
+      type: "website",
+      url,
+      title,
+      description,
+      siteName: "PANO Vacuum",
+      locale: zh ? "zh_CN" : "en_US",
+      images: ogImage(OG_BLOG, ogAlt),
+    },
+    twitter: twitterCard(OG_BLOG, ogAlt),
   };
 }
 

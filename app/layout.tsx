@@ -1,6 +1,34 @@
+import type { Metadata } from "next";
 import { siteConfig } from "../lib/site-config";
 import { WhatsAppFloat } from "./components/whatsapp-float";
 import { SITE_BASE } from "@/lib/site-base";
+
+// 根级元数据：只为 / 与 /404 这类不属于任何 locale 的页面提供兜底分享图
+// （locale 页面各自在 app/[locale]/layout.tsx 与页面级 generateMetadata 里覆盖 openGraph）。
+export const metadata: Metadata = {
+  openGraph: {
+    type: "website",
+    // `/` 由 _redirects 301 到 /en/，故根级 og:url 取 /en/；locale 页面会整段覆盖 openGraph。
+    url: `${SITE_BASE}/en/`,
+    title: "PANO Vacuum | Custom Vacuum Chambers, Changshu China",
+    description:
+      "Custom vacuum chambers are manufactured to customer drawings in Changshu, China. Machining, welding, helium leak testing and inspection are all completed in-house.",
+    siteName: "PANO Vacuum",
+    locale: "en_US",
+    images: [
+      {
+        url: `${SITE_BASE}/pano-vacuum-og-default-1200x630.webp`,
+        width: 1200,
+        height: 630,
+        alt: "PANO Vacuum — custom vacuum chamber fabrication in Changshu, China",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: [`${SITE_BASE}/pano-vacuum-og-default-1200x630.webp`],
+  },
+};
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   // Google GA4 / Clarity are unreachable (and add latency) for the China entry;

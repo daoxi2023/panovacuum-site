@@ -1,9 +1,37 @@
 import Link from "next/link";
+import type { Metadata } from "next";
 import "../home.css";
 import { articles } from "../../lib/articles";
 import { SeoLinks } from "../components/seo-links";
 import { PartnerGrid } from "../components/partner-grid";
 import "../growth.css";
+import { pageOg } from "@/lib/og";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const zh = locale === "zh";
+  const t = zh
+    ? {
+        title: "帕诺真空｜常熟定制真空腔体",
+        description: "常熟工厂按图纸定制真空腔体、精密零件与真空密封组件，加工、焊接、氦质谱检漏与检验均在本厂完成，检测记录随货交付。",
+      }
+    : {
+        title: "PANO Vacuum | Custom Vacuum Chambers, Changshu China",
+        description:
+          "Custom vacuum chambers are manufactured to customer drawings in Changshu, China. Machining, welding, helium leak testing and inspection are all completed in-house, and the test records are dispatched with the chamber.",
+      };
+  return {
+    ...t,
+    ...pageOg({
+      path: "",
+      locale,
+      title: t.title,
+      description: t.description,
+      altZh: "帕诺真空常熟工厂：定制真空腔体与精密加工",
+      altEn: "PANO Vacuum in Changshu: custom vacuum chamber fabrication and precision machining",
+    }),
+  };
+}
 
 const gates: Record<"en" | "zh", string[]> = {
   en: ["Drawing review & DFM", "Incoming material", "Blanking & bevel", "Precision machining", "Welding", "He leak testing", "Final inspection & delivery"],

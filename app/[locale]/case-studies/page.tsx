@@ -1,6 +1,34 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { SITE_BASE } from "@/lib/site-base";
+import { pageOg } from "@/lib/og";
 import { SeoLinks } from "../../components/seo-links";
+
+export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
+  const { locale } = await params;
+  const t =
+    locale === "zh"
+      ? {
+          title: "能力示例 | 帕诺真空",
+          description: "以下示例说明一台典型真空腔体在本厂流程中的完整路径，依据设备台账与工艺记录整理，用于说明制造与检验能力，并非特定客户的交付档案。",
+        }
+      : {
+          title: "Capability Examples | PANO Vacuum",
+          description:
+            "These examples follow a typical vacuum chamber through our process, based on equipment and process records. They illustrate fabrication and inspection capability rather than a specific customer file.",
+        };
+  return {
+    ...t,
+    ...pageOg({
+      path: "case-studies",
+      locale,
+      title: t.title,
+      description: t.description,
+      altZh: "帕诺真空制造流程中的真空腔体构件",
+      altEn: "Vacuum chamber components at stages of the PANO Vacuum process",
+    }),
+  };
+}
 
 const content = {
   en: {
