@@ -4,9 +4,9 @@ import { SeoLinks } from "../../components/seo-links";
 
 const content = {
   en: {
-    eyebrow: "WORK WE HAVE DONE",
+    eyebrow: "MANUFACTURING CAPABILITY EXAMPLES",
     title: "Capability examples drawn from equipment records",
-    intro: "The examples below illustrate how a typical chamber passes through our inspection gates. They are compiled from equipment records; customer names are withheld under confidentiality agreements.",
+    intro: "The examples below illustrate how a typical chamber passes through our inspection gates. They describe manufacturing capability based on equipment and process records, rather than a specific customer project.",
     note: "They illustrate fabrication capability and inspection practice rather than a specific customer file. On receipt of a drawing, we will identify the closest comparable project.",
     cta: "Send a drawing, get a price",
     back: "Back to home",
@@ -18,7 +18,7 @@ const content = {
   zh: {
     eyebrow: "案例与能力示例",
     title: "能力示例均出自设备台账",
-    intro: "以下示例说明一台典型腔体在本厂流程中的完整路径，均依据设备台账与工艺记录整理，客户名称按保密约定隐去。",
+    intro: "以下示例说明一台典型腔体在本厂流程中的完整路径，均依据设备台账与工艺记录整理，用于说明制造与检验能力，并非特定客户的交付档案。",
     note: "以上内容为能力示例，用于说明本厂设备与工艺可完成的工作及验收方式，并非特定客户的项目档案。如需同类工作参考，可提供图纸，我方将匹配最接近的案例。",
     cta: "提交图纸询价",
     back: "返回首页",

@@ -7,6 +7,10 @@ import { SITE_BASE } from "@/lib/site-base";
 export const dynamic = "force-static";
 
 const base = SITE_BASE;
+// 国内站（.cn）以中文为主入口，x-default 指向中文；海外站（.com）指向英文。
+const primaryLocale = base.includes("panovacuum.cn") ? "zh" : "en";
+// 静态导出统一使用带尾斜杠的规范地址，避免 sitemap 每条都多跳一次 308。
+const pageUrl = (locale: string, p: string) => `${base}/${locale}${p ? `/${p}` : ""}/`;
 const pages = ["", "about", "request-a-quote", "blog", "case-studies", "industrial-partnerships", "company-profile", "privacy", "terms"] as const;
 
 const entries: { path: string; priority: number; lastModified?: string }[] = [
@@ -26,21 +30,29 @@ const entries: { path: string; priority: number; lastModified?: string }[] = [
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return entries.flatMap(({ path: p, priority, lastModified }) => {
-    const lm = lastModified ? new Date(`${lastModified}T00:00:00Z`) : new Date();
+    // Omit unknown modification dates instead of reporting every build as a content edit.
+    const lm = lastModified ? new Date(`${lastModified}T00:00:00Z`) : undefined;
+    const alternates = {
+      languages: {
+        en: pageUrl("en", p),
+        "zh-CN": pageUrl("zh", p),
+        "x-default": pageUrl(primaryLocale, p),
+      },
+    };
     return [
       {
-        url: `${base}/en/${p}`,
+        url: pageUrl("en", p),
         lastModified: lm,
         changeFrequency: "monthly" as const,
         priority,
-        alternates: { languages: { "zh-CN": `${base}/zh/${p}`, "x-default": `${base}/en/${p}` } },
+        alternates,
       },
       {
-        url: `${base}/zh/${p}`,
+        url: pageUrl("zh", p),
         lastModified: lm,
         changeFrequency: "monthly" as const,
         priority: priority * 0.95,
-        alternates: { languages: { en: `${base}/en/${p}`, "x-default": `${base}/en/${p}` } },
+        alternates,
       },
     ];
   });

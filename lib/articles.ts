@@ -94,23 +94,23 @@ export const articles: Article[] = [
     cover: "/photos/news-3.webp",
     zh: {
       title: "真空腔体怎么询价：一张图纸就够了",
-      intro: "请提交图纸，支持 PDF、DWG、STEP 格式。48 小时内答复：可制造性评估、DFM 建议、报价与交期。",
+      intro: "请先概述需求，再邮件发送 PDF、DWG 或 STEP 图纸。48 小时内初步答复；资料完整并完成图纸评审后提供制造建议、报价与交期。",
       sections: [
         { h: "需要准备什么", body: "图纸或 3D 模型，并注明材料、数量与期望交期；如项目存在工期压力，可一并说明。尚无正式图纸时，可先提供实物照片与大致尺寸，以便先期评估方案。" },
         { h: "收到之后我们做什么", body: "先进行图纸评审：可制造性、公差与潜在泄漏部位，确认后再出具报价。报价中附节点计划，交期写入合同。" },
         { h: "一些常见担心", body: "承接单件，无最小起订量。海外客户可全程英文沟通，电话与邮件均可。付款方式按合同约定，可协商 30/70 付款或信用证结算。出口包装与单证由我方提供。" },
       ],
-      closing: "提交图纸后，当日即可收到初步评审意见。",
+      closing: "收到需求后 48 小时内初步答复；资料完整并完成图纸评审后提供报价与交期。",
     },
     en: {
       title: "How to request a vacuum chamber quotation: a drawing is sufficient",
-      intro: "Drawings are accepted in PDF, DWG or STEP format. Within 48 hours we return a feasibility assessment, DFM recommendations, a price and a delivery date.",
+      intro: "Start with a project outline, then email drawings in PDF, DWG or STEP format. We provide an initial response within 48 hours. Manufacturing recommendations, a quotation and lead time follow once the required information is complete and drawing review is finished.",
       sections: [
         { h: "What to submit", body: "The drawing or 3D model, together with material, quantity and required delivery date. Operating pressure should be stated where applicable. Where no formal drawing is available, photographs and approximate dimensions are sufficient for an initial assessment." },
         { h: "Review and quotation", body: "The drawing is reviewed first for manufacturability, tolerance requirements and likely leak paths. Once these points are agreed, a quotation is issued with a milestone schedule, which forms part of the contract." },
         { h: "Common questions", body: "Single units are accepted; there is no minimum order quantity. Overseas customers are supported in English by telephone or email. Payment terms follow the contract; 30/70 terms or a letter of credit can be discussed. Export packing and documentation are provided by us." },
       ],
-      closing: "Submit the drawing and initial review comments are returned the same day.",
+      closing: "We provide an initial response within 48 hours of receiving your requirements. A quotation and lead time follow once the required information is complete and drawing review is finished.",
     },
   },
 {

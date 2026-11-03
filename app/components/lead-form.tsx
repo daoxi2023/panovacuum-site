@@ -45,7 +45,7 @@ export function LeadForm({ kind, locale }: { kind: Kind; locale: Locale }) {
     limited: "Too many requests. Please try again later or contact us by email.", invalid: "Please check your details and privacy consent, then try again.",
   };
   const productOptions = zh ? [["chamber", "定制真空腔体"], ["precision-parts", "精密加工零件"], ["welded-assembly", "真空密封焊接组件"], ["other", "其他需求"]] : [["chamber", "Custom vacuum chamber"], ["precision-parts", "Precision-machined parts"], ["welded-assembly", "Vacuum-tight welded assembly"], ["other", "Other requirement"]];
-  const partnerOptions = zh ? [["sourcing", "长期采购与产能配套"], ["customer-supply-chain", "客户与供应链协同"], ["strategic", "带产业资源的战略合作"]] : [["sourcing", "Long-term sourcing & capacity collaboration"], ["customer-supply-chain", "Customer & supply-chain collaboration"], ["strategic", "Strategic partnership with industrial resources"]];
+  const partnerOptions = zh ? [["sourcing", "长期采购与产能配套"], ["customer-supply-chain", "客户与供应链协同"], ["strategic", "产业投资与战略合作（带产业资源）"]] : [["sourcing", "Long-term sourcing & capacity collaboration"], ["customer-supply-chain", "Customer & supply-chain collaboration"], ["strategic", "Industrial investment & strategic partnership"]];
   const nextOptions = zh ? [["meeting", "安排一次交流"], ["capability-review", "先了解制造能力"], ["other", "其他（请在下方说明）"]] : [["meeting", "Arrange a discussion"], ["capability-review", "Review manufacturing capabilities first"], ["other", "Other (please describe below)"]];
 
   async function submit(event: FormEvent<HTMLFormElement>) {
@@ -93,6 +93,10 @@ export function LeadForm({ kind, locale }: { kind: Kind; locale: Locale }) {
 
   if (reference) return <div className="lead-success" role="status" data-clarity-mask="true">
     <h2>{t.received}</h2><p>{t.ref}：<strong>{reference}</strong></p><p>{t.after}</p>
+    {!partnership && <>
+      <p>{zh ? "下一步：点击下方按钮，在邮件中附上图纸；主题已带上受理编号。请按双方约定的范围交换保密资料。" : "Next: use the button below to attach your drawings in an email. The subject includes your enquiry reference. Exchange confidential materials only within the agreed scope."}</p>
+      <p><a className="growth-button" href={`mailto:zhouyou@panovacuum.com?subject=${encodeURIComponent(`${reference} — ${zh ? "询价图纸" : "Quotation drawings"}`)}&body=${encodeURIComponent(zh ? `受理编号：${reference}\n\n请在发送前手动附上图纸，并补充说明。` : `Enquiry reference: ${reference}\n\nPlease attach your drawings manually before sending and add any relevant notes.`)}`}>{zh ? "邮件发送图纸（附受理编号）" : "Email drawings with this reference"}</a></p>
+    </>}
     <button type="button" className="growth-button secondary" onClick={() => { setReference(""); requestKey.current = null; started.current = false; }}>{t.another}</button>
   </div>;
 

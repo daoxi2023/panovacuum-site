@@ -34,6 +34,20 @@ function dedupeHead(html) {
 }
 let hreflangChanged = 0;
 let languageChanged = 0;
+// x-default 应指向主语言：国内站（.cn）构建=中文，海外站（.com）=英文。
+// Next 元数据里写死 /en/，这里按构建目标修正属性顺序两种写法都覆盖。
+const primaryLocale = (process.env.SITE_BASE_URL || "").includes("panovacuum.cn") ? "zh" : "en";
+let xDefaultChanged = 0;
+function normalizeXDefault(html) {
+  let changed = false;
+  const fixed = html.replace(/<link\b[^>]*hreflang="x-default"[^>]*>/gi, (tag) => {
+    const next = tag.replace(/(href="[^"]*\/)(en|zh)(\/)/i, (_m, head, _loc, tail) => `${head}${primaryLocale}${tail}`);
+    if (next !== tag) changed = true;
+    return next;
+  });
+  if (changed) xDefaultChanged++;
+  return fixed;
+}
 (function walk(d) {
   for (const e of readdirSync(d, { withFileTypes: true })) {
     const p = join(d, e.name);
@@ -55,6 +69,7 @@ let languageChanged = 0;
         normalized = withLanguage;
       }
       normalized = dedupeHead(normalized);
+      normalized = normalizeXDefault(normalized);
       if (normalized !== original) {
         writeFileSync(p, normalized);
         filesChanged++;
@@ -62,4 +77,4 @@ let languageChanged = 0;
     }
   }
 })(dir);
-console.log(`normalized ${filesChanged} HTML file(s): hreflang in ${hreflangChanged}, document language in ${languageChanged}, duplicate canonical/hreflang removed ${deduped}`);
+console.log(`normalized ${filesChanged} HTML file(s): hreflang in ${hreflangChanged}, document language in ${languageChanged}, duplicate canonical/hreflang removed ${deduped}, x-default -> ${primaryLocale} in ${xDefaultChanged}`);

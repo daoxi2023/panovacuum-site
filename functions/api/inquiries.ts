@@ -1,3 +1,4 @@
+import { notifyReference, type NotificationEnv } from "../../lib/inquiry-notifications.ts";
 interface D1Result<Row = Record<string, unknown>> {
   success: boolean;
   results?: Row[];
@@ -9,11 +10,11 @@ interface D1Database {
   prepare(sql: string): D1Statement;
   batch(statements: D1Statement[]): Promise<D1Result[]>;
 }
-export interface Env {
+export interface Env extends NotificationEnv {
   PANO_DB?: D1Database;
   PANO_RATE_SALT?: string;
 }
-interface Context { request: Request; env: Env }
+interface Context { request: Request; env: Env; waitUntil?: (promise: Promise<unknown>) => void }
 
 const MAX_BODY = 16 * 1024;
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
@@ -111,7 +112,7 @@ async function hash(value: string) {
   return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, "0")).join("");
 }
 
-export async function onRequest({ request, env }: Context): Promise<Response> {
+export async function onRequest({ request, env, waitUntil }: Context): Promise<Response> {
   if (request.method !== "POST") return fail(405, "METHOD_NOT_ALLOWED", { Allow: "POST" });
   const origin = request.headers.get("Origin");
   if (!origin || origin !== new URL(request.url).origin || request.headers.get("Sec-Fetch-Site") === "cross-site") return fail(403, "ORIGIN_NOT_ALLOWED");
@@ -172,6 +173,10 @@ export async function onRequest({ request, env }: Context): Promise<Response> {
     if (!row) return fail(429, "RATE_LIMITED", { "Retry-After": "60" });
     if (row.request_fingerprint !== fingerprint) return fail(409, "IDEMPOTENCY_CONFLICT");
     if (typeof row.reference !== "string") return fail(503, "SERVICE_UNAVAILABLE");
+    if (waitUntil) {
+      // New saves and identical retries may recover an unsent alert; audit claims deduplicate delivery.
+      try { waitUntil(notifyReference(env, row.reference)); } catch { /* Receipt remains valid. */ }
+    }
     return reply(row.reference === reference ? 201 : 200, { ok: true, reference: row.reference });
   } catch {
     return fail(503, "SERVICE_UNAVAILABLE");

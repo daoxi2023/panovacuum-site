@@ -272,3 +272,41 @@ test("local CLI rejects database failures without echoing provider error or cust
     });
   } finally { globalThis.fetch = originalFetch; }
 });
+
+test("handler 201 and identical 200 both schedule notification but persist and send once", async () => {
+  const f = fixture();
+  Object.assign(f.env, { PANO_NOTIFY_BOT_TOKEN: "123456:test_only_fake_token", PANO_NOTIFY_CHAT_ID: "123456" });
+  const originalFetch = globalThis.fetch;
+  const pending = [];
+  let attempts = 0;
+  globalThis.fetch = async (url, init) => {
+    attempts++;
+    assert.equal(new URL(url).hostname, "api.telegram.org");
+    assert.equal(init.method, "POST");
+    assert.equal(init.redirect, "manual");
+    const body = JSON.parse(init.body);
+    assert.equal(body.chat_id, "123456");
+    assert.equal(body.text.includes("Example Equipment"), false);
+    return new Response(JSON.stringify({ ok: true, result: { chat: { id: 123456 } } }), { status: 200 });
+  };
+  try {
+    const body = input();
+    const context = () => ({ request: request(body), env: f.env, waitUntil(promise) { pending.push(promise); } });
+    const first = await onRequest(context());
+    assert.equal(first.status, 201);
+    await Promise.all(pending);
+    const second = await onRequest(context());
+    assert.equal(second.status, 200);
+    await Promise.all(pending);
+    assert.equal(pending.length, 2, "a successful identical retry must also schedule the recoverable notification check");
+    assert.equal(attempts, 1);
+    assert.deepEqual(await first.json(), await second.json());
+    assert.equal(count(f), 1);
+    assert.deepEqual(rateCounts(f), [1, 1]);
+    assert.equal(f.sqlite.prepare("SELECT COUNT(*) AS count FROM inquiry_audit WHERE action='created'").get().count, 1);
+    assert.equal(f.sqlite.prepare("SELECT COUNT(*) AS count FROM inquiry_audit WHERE action='notification_sent'").get().count, 1);
+  } finally {
+    await Promise.allSettled(pending);
+    globalThis.fetch = originalFetch;
+  }
+});

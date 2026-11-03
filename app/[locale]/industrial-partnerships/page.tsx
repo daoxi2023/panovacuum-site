@@ -16,11 +16,11 @@ export default async function Partnerships({ params }: { params: Promise<{ local
   const directions = zh ? [
     ["长期采购与产能配套", "面向装备制造商，围绕真空腔体、精密件与密封组件，交流持续采购、交付计划与制造配套。"],
     ["客户与供应链协同", "与拥有相关客户、渠道或供应链资源的产业伙伴，探讨需求导入、技术配套及项目协作。"],
-    ["带产业资源的战略合作", "围绕具体客户需求和制造协同交流合作。请介绍可带来的产业资源与合作设想，双方先行确认匹配度。"],
+    ["带产业资源的战略合作", "欢迎能带来订单、客户、渠道或供应链资源的产业投资与战略合作。请先介绍可协同资源和合作设想；投资结构与保密资料在双方确认匹配度后另行商议。"],
   ] : [
     ["Long-term sourcing and capacity support", "For equipment manufacturers: ongoing sourcing of vacuum chambers, precision components and sealed assemblies, with delivery plans and manufacturing support agreed per project."],
     ["Customer and supply-chain collaboration", "Demand introduction, technical support and joint project delivery with partners holding relevant customers, channels or supply-chain resources."],
-    ["Strategic partnerships with industrial resources", "Collaboration is discussed on the basis of specific customer requirements and manufacturing coordination. Partners are invited to outline the industrial resources they can contribute so that both sides can assess the fit."],
+    ["Strategic partnerships with industrial resources", "We welcome industrial investment and strategic partnerships that bring orders, customers, channels or supply-chain resources. Please outline the resources and collaboration you propose. Investment structure and confidential materials are discussed separately once both sides confirm the fit."],
   ];
   const steps = zh ? [["介绍需求与资源", "概述机构背景、合作方向和可协同资源。"], ["核对合作匹配度", "双方确认需求、制造配套与后续交流范围。"], ["安排具体交流", "围绕实际项目、采购或产业协同开展沟通。"], ["分级交换资料", "有实质合作意向后，在适当保密约定下交换相关资料。"]] : [["Introduction of needs and resources", "An outline of the organisation, partnership focus and available resources."], ["Assessment of fit", "Both sides confirm the needs, manufacturing support and scope of further discussion."], ["Project-level discussion", "Discussion of a specific project, sourcing requirement or industrial collaboration."], ["Staged exchange of materials", "Once substantive interest is established, relevant materials are exchanged under appropriate confidentiality arrangements."]];
   return <div className="growth-page">

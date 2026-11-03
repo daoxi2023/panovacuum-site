@@ -17,15 +17,15 @@ export default async function RequestQuote({ params }: { params: Promise<{ local
     <SeoLinks path="request-a-quote" locale={loc} />
     <section className="growth-heading"><div className="container">
       <p className="eyebrow">{zh ? "询价" : "Quote request"}</p>
-      <h1>{zh ? "提交图纸，获取报价" : "Submit drawings for quotation"}</h1>
-      <p className="sub">{zh ? "可提交真空腔体、精密零件或真空密封组件需求。请先概述项目，我方在 48 小时内答复；图纸及保密资料可另行提交。" : "Vacuum chambers, precision components or vacuum-tight assemblies may be submitted. Please provide a brief project outline; we will respond within 48 hours. Drawings and confidential material may be submitted separately by email."}</p>
+      <h1>{zh ? "先描述需求，再邮件发图" : "Describe your project, then email your drawings"}</h1>
+      <p className="sub">{zh ? "第一步：填写下方需求信息，提交成功后取得受理编号。第二步：通过回执中的邮件按钮，附上该编号另发图纸。我方在 48 小时内初步答复；资料完整并完成图纸评审后提供报价。保密资料的交换范围另行约定。" : "Step 1: describe your requirements below and receive an enquiry reference. Step 2: use the email button on your receipt to send drawings with that reference. We provide an initial response within 48 hours; a quotation follows once the required information is complete and drawing review is finished. Confidential materials are exchanged by separate arrangement."}</p>
     </div></section>
     <section className="growth-section"><div className="container growth-contact-layout">
       <div><h2>{zh ? "填写需求信息" : "Project information"}</h2><p>{zh ? "带 * 为必填项。提交成功后将生成受理编号，后续沟通请引用该编号。" : "Fields marked * are required. A reference number is issued on submission; please quote it in subsequent correspondence."}</p><LeadForm kind="quote" locale={loc} /></div>
       <aside className="growth-sidebar">
         <h2>{zh ? "提供以下信息可加快报价" : "Information that expedites quotation"}</h2>
         <ul><li>{zh ? "使用场景与大致尺寸" : "Intended application and approximate dimensions"}</li><li>{zh ? "材料、数量与期望交期" : "Material, quantity and required delivery date"}</li><li>{zh ? "公差、密封及检测要求" : "Tolerance, sealing and inspection requirements"}</li></ul>
-        <p>{zh ? "尚无正式图纸亦可先行沟通。表单不接收附件，图纸可通过邮件另行发送。" : "A formal drawing is not required at this stage. The form does not accept attachments; drawings may be sent separately by email."}</p>
+        <p>{zh ? "尚无正式图纸亦可先行沟通。表单不接收附件；提交后可通过回执中的邮件按钮另发图纸，邮件主题会带上受理编号。请按双方约定的范围交换保密资料。" : "A formal drawing is not required at this stage. This form does not accept attachments. After submission, use the receipt email button to send drawings; the subject includes your enquiry reference. Exchange confidential materials only within the agreed scope."}</p>
         <h2>{zh ? "联系方式" : "Direct contact"}</h2>
         <p>{zh ? "周先生，负责商务与产业合作" : "Mr. Zhou — sales and industrial partnerships"}<br /><a href="mailto:zhouyou@panovacuum.com">zhouyou@panovacuum.com</a><br /><a href="tel:+8613063722038">+86 130 6372 2038</a></p>
         <img

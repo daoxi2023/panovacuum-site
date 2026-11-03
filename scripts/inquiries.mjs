@@ -16,7 +16,7 @@ const HELP = `PANO inquiry follow-up (local operator use)
 Configuration: CLOUDFLARE_ACCOUNT_ID + PANO_D1_DATABASE_ID, or --config PATH
 (default .pano-platform.local.json at the project root, with account_id/database_id).
 Credentials are read locally from ~/.secrets/cf.env and are never printed.
-No automatic notification is configured. Run list to collect and follow up leads.
+Automatic reminders require separate PANO notifier deployment and private-chat secrets. Run list to collect and follow up leads.
 Exports contain customer information; store them privately. Existing files are never overwritten.
 `;
 
