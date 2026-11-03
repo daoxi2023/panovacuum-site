@@ -29,7 +29,7 @@ export default async function RequestQuote({ params }: { params: Promise<{ local
         <h2>{zh ? "联系方式" : "Direct contact"}</h2>
         <p>{zh ? "周先生，负责商务与产业合作" : "Mr. Zhou — sales and industrial partnerships"}<br /><a href="mailto:zhouyou@panovacuum.com">zhouyou@panovacuum.com</a><br /><a href="tel:+8613063722038">+86 130 6372 2038</a></p>
         <img
-          src="/wechat-qr.webp"
+          src="/pano-vacuum-wechat-qr-zhouyou-480w.webp"
           alt={zh ? "周先生微信二维码" : "Mr. Zhou WeChat QR code"}
           width={132}
           height={132}

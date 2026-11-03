@@ -159,7 +159,7 @@ export default async function About({ params }: { params: Promise<{ locale: stri
               </p>
             </div>
             <img
-              src="/photos/workshop-063.webp"
+              src="/photos/tig-welding-station-vacuum-chamber-1600w.webp"
               width={1600}
               height={1067}
               alt={zh ? "帕诺真空常熟车间的焊接工位" : "Welding station at the PANO Vacuum workshop in Changshu"}

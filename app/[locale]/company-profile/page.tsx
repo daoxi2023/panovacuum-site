@@ -92,7 +92,7 @@ export default async function Profile({ params }: { params: Promise<{ locale: st
               </p>
             </div>
             <img
-              src="/photos/hero-chamber.webp"
+              src="/photos/custom-vacuum-chamber-304l-stainless-1200w.webp"
               width={1200}
               height={893}
               alt={zh ? "帕诺定制不锈钢真空腔体" : "PANO custom stainless steel vacuum chamber"}

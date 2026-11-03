@@ -1,5 +1,5 @@
 // 合作伙伴名义与标识的唯一来源。首页「合作伙伴」区块与公司介绍页共用，
-// 新增/下架一家只需改这里（logo 放 public/photos/partners/<slug>.webp）。
+// 新增/下架一家只需改这里（logo 放 public/photos/partners/partner-logo-<slug>.webp）。
 export type Partner = { slug: string; zh: string; en: string };
 
 export const partners: Partner[] = [

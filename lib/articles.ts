@@ -29,7 +29,7 @@ export const articles: Article[] = [
     tags: ["制造流程", "检验", "质量"],
     date: "2026-10-27",
     author: { nameZh: "帕诺工艺团队", nameEn: "PANO Process Team", roleZh: "工艺与质量", roleEn: "Process & Quality", email: "zhouyou@panovacuum.com" },
-    cover: "/photos/news-1.webp",
+    cover: "/photos/vacuum-chamber-7-inspection-gates-640w.webp",
     zh: {
       title: "从图纸到出厂：真空腔体要过 7 道检查",
       intro: "腔体焊完，不等于能发货。厂里定了 7 道检查，每道签字留档，报告跟货一起走。客户来查，记录都在。",
@@ -64,7 +64,7 @@ export const articles: Article[] = [
     tags: ["材料选型", "不锈钢", "腔体"],
     date: "2026-10-27",
     author: { nameZh: "帕诺工艺团队", nameEn: "PANO Process Team", roleZh: "材料与工艺", roleEn: "Materials & Process", email: "zhouyou@panovacuum.com" },
-    cover: "/photos/news-2.webp",
+    cover: "/photos/vacuum-chamber-material-304l-or-316l-640w.webp",
     zh: {
       title: "真空腔体选 304L 还是 SUS316L",
       intro: "大多数腔体用 304L 就够了。工艺气氛有腐蚀性，或者图纸明确写了 SUS316L，才上 316L。拿不准就把工况写进询价，我们按工况给建议。",
@@ -91,7 +91,7 @@ export const articles: Article[] = [
     tags: ["询价", "图纸评审", "流程"],
     date: "2026-10-27",
     author: { nameZh: "周先生", nameEn: "Mr. Zhou", roleZh: "商务与销售", roleEn: "Sales & BD", email: "zhouyou@panovacuum.com" },
-    cover: "/photos/news-3.webp",
+    cover: "/photos/vacuum-chamber-quotation-drawing-640w.webp",
     zh: {
       title: "真空腔体怎么询价：一张图纸就够了",
       intro: "请先概述需求，再邮件发送 PDF、DWG 或 STEP 图纸。48 小时内初步答复；资料完整并完成图纸评审后提供制造建议、报价与交期。",
@@ -123,7 +123,7 @@ export const articles: Article[] = [
     ],
     date: "2026-11-01",
     author: { nameZh: "帕诺工艺团队", nameEn: "PANO Process Team", roleZh: "工艺与质量", roleEn: "Process & Quality", email: "zhouyou@panovacuum.com" },
-    cover: "/photos/cap-leak.webp",
+    cover: "/photos/helium-leak-test-ul1000-vacuum-chamber-720w.webp",
     zh: {
       title: "氦检和压降法，差的不是精度，是五个数量级",
       intro:
@@ -171,7 +171,7 @@ export const articles: Article[] = [
     ],
     date: "2026-11-01",
     author: { nameZh: "帕诺工艺团队", nameEn: "PANO Process Team", roleZh: "工艺与质量", roleEn: "Process & Quality", email: "zhouyou@panovacuum.com" },
-    cover: "/photos/cap-chamber.webp",
+    cover: "/photos/custom-vacuum-chamber-finished-304l-720w.webp",
     zh: {
       title: "真空炉不是「抽真空的加热罐」：结构设计的五个决定",
       intro:
@@ -219,7 +219,7 @@ export const articles: Article[] = [
     ],
     date: "2026-11-01",
     author: { nameZh: "帕诺工艺团队", nameEn: "PANO Process Team", roleZh: "工艺与质量", roleEn: "Process & Quality", email: "zhouyou@panovacuum.com" },
-    cover: "/photos/cap-clean.webp",
+    cover: "/photos/surface-finishing-clean-welding-bay-720w.webp",
     zh: {
       title: "镀膜腔体洗得再干净，为什么还是抽不下去",
       intro:

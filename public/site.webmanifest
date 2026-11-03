@@ -1,0 +1,28 @@
+{
+  "name": "帕诺真空机械科技（常熟）有限公司 PANO Vacuum",
+  "short_name": "帕诺真空",
+  "description": "常熟工厂按图纸定制真空腔体、真空级精密零件与真空密封焊接组件。",
+  "lang": "zh-CN",
+  "start_url": "/zh/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#4E70C3",
+  "icons": [
+    {
+      "src": "/icon-192.webp",
+      "sizes": "192x192",
+      "type": "image/webp"
+    },
+    {
+      "src": "/icon-512.webp",
+      "sizes": "512x512",
+      "type": "image/webp"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

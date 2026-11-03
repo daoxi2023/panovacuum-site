@@ -41,10 +41,10 @@ const content = {
     capsTitle: "All four process stages are carried out in-house",
     capsSub: "The equipment listed below is in service at our plant; quotations are based on its actual working range.",
     caps: [
-      { t: "Precision CNC Machining", x: "Vacuum-grade components. Key dimensions are inspected and recorded for each part.", img: "/photos/cap-cmm.webp", alt: "ALPHA articulating-arm CMM inspecting a vacuum-grade part" },
-      { t: "Vacuum-Tight Welding", x: "TIG and automated welding across more than 40 stations; the welding bay is separately enclosed.", img: "/photos/cap-chamber.webp", alt: "Finished custom vacuum chamber, 304L stainless steel" },
-      { t: "Surface Finishing & Cleaning", x: "Performed within the clean welding bay. Process and cleaning records are available with delivery.", img: "/photos/cap-clean.webp", alt: "Controlled clean environment for surface finishing and inspection" },
-      { t: "Helium Leak Testing & Assembly", x: "UL1000-class instrument, tested to the 1×10⁻⁹ Pa·m³/s range; each unit is tested prior to assembly and dispatch.", img: "/photos/cap-leak.webp", alt: "INFICON UL1000-class helium leak tester verifying a chamber" },
+      { t: "Precision CNC Machining", x: "Vacuum-grade components. Key dimensions are inspected and recorded for each part.", img: "/photos/cmm-inspection-vacuum-component-720w.webp", alt: "ALPHA articulating-arm CMM inspecting a vacuum-grade part" },
+      { t: "Vacuum-Tight Welding", x: "TIG and automated welding across more than 40 stations; the welding bay is separately enclosed.", img: "/photos/custom-vacuum-chamber-finished-304l-720w.webp", alt: "Finished custom vacuum chamber, 304L stainless steel" },
+      { t: "Surface Finishing & Cleaning", x: "Performed within the clean welding bay. Process and cleaning records are available with delivery.", img: "/photos/surface-finishing-clean-welding-bay-720w.webp", alt: "Controlled clean environment for surface finishing and inspection" },
+      { t: "Helium Leak Testing & Assembly", x: "UL1000-class instrument, tested to the 1×10⁻⁹ Pa·m³/s range; each unit is tested prior to assembly and dispatch.", img: "/photos/helium-leak-test-ul1000-vacuum-chamber-720w.webp", alt: "INFICON UL1000-class helium leak tester verifying a chamber" },
     ],
     qualityEyebrow: "Inspection process",
     qualityTitle: "Seven inspection gates before dispatch",
@@ -83,8 +83,8 @@ const content = {
     caseSub: "These examples illustrate manufacturing and inspection capability, based on equipment and process records. They are not specific customer project files.",
     caseCta: "View further capability examples",
     cases: [
-      { t: "Multi-tonne 304L vacuum chamber", x: "Fabricated in 304L stainless steel, with unit weights in the multi-tonne range. 30 kW laser cutting, 400 t press-brake forming, helium leak testing to the 1×10⁻⁹ Pa·m³/s range, and lifting and rotation as a single unit by 50 t overhead crane. Inspection report delivered with the chamber.", tag: "Heavy chamber", img: "/photos/chamber-050.webp" },
-      { t: "Vacuum-tight welding, verified unit by unit", x: "More than 40 TIG and automated welding stations with a dedicated clean welding bay; every unit is helium leak tested, with no sampling.", tag: "Welding & leak test", img: "/photos/cap-leak.webp" },
+      { t: "Multi-tonne 304L vacuum chamber", x: "Fabricated in 304L stainless steel, with unit weights in the multi-tonne range. 30 kW laser cutting, 400 t press-brake forming, helium leak testing to the 1×10⁻⁹ Pa·m³/s range, and lifting and rotation as a single unit by 50 t overhead crane. Inspection report delivered with the chamber.", tag: "Heavy chamber", img: "/photos/multi-ton-304l-vacuum-chamber-1600w.webp" },
+      { t: "Vacuum-tight welding, verified unit by unit", x: "More than 40 TIG and automated welding stations with a dedicated clean welding bay; every unit is helium leak tested, with no sampling.", tag: "Welding & leak test", img: "/photos/helium-leak-test-ul1000-vacuum-chamber-720w.webp" },
     ],
     partnersEyebrow: "Partners",
     partnersTitle: "Customers and supply-chain partners",
@@ -140,10 +140,10 @@ const content = {
     capsTitle: "四类工序均在本厂完成",
     capsSub: "下列设备均为本厂在用设备，报价按设备的实际加工能力核算。",
     caps: [
-      { t: "精密 CNC 加工", x: "真空级零件，关键尺寸逐件测量并记录。", img: "/photos/cap-cmm.webp", alt: "ALPHA 关节臂三坐标检测仪检测真空级零件" },
-      { t: "真空密封焊接", x: "TIG 与自动焊，40 余个工位，焊接区独立隔断。", img: "/photos/cap-chamber.webp", alt: "定制真空腔体成品，304L 不锈钢" },
-      { t: "表面处理与清洗", x: "于洁净焊接区内完成，处理与清洗记录可随货提供。", img: "/photos/cap-clean.webp", alt: "受控洁净环境下的表面处理与检测" },
-      { t: "氦质谱检漏与装配", x: "采用 UL1000 级检漏仪，可达 1×10⁻⁹ Pa·m³/s 量级，逐台检测后装配发运。", img: "/photos/cap-leak.webp", alt: "UL1000 氦质谱检漏仪验证腔体密封性" },
+      { t: "精密 CNC 加工", x: "真空级零件，关键尺寸逐件测量并记录。", img: "/photos/cmm-inspection-vacuum-component-720w.webp", alt: "ALPHA 关节臂三坐标检测仪检测真空级零件" },
+      { t: "真空密封焊接", x: "TIG 与自动焊，40 余个工位，焊接区独立隔断。", img: "/photos/custom-vacuum-chamber-finished-304l-720w.webp", alt: "定制真空腔体成品，304L 不锈钢" },
+      { t: "表面处理与清洗", x: "于洁净焊接区内完成，处理与清洗记录可随货提供。", img: "/photos/surface-finishing-clean-welding-bay-720w.webp", alt: "受控洁净环境下的表面处理与检测" },
+      { t: "氦质谱检漏与装配", x: "采用 UL1000 级检漏仪，可达 1×10⁻⁹ Pa·m³/s 量级，逐台检测后装配发运。", img: "/photos/helium-leak-test-ul1000-vacuum-chamber-720w.webp", alt: "UL1000 氦质谱检漏仪验证腔体密封性" },
     ],
     qualityEyebrow: "检验流程",
     qualityTitle: "每台腔体出厂前须通过 7 道检验",
@@ -182,8 +182,8 @@ const content = {
     caseSub: "以下内容依据设备台账与工艺记录整理，用于说明制造与检验能力，并非特定客户的项目档案。",
     caseCta: "查看更多能力示例",
     cases: [
-      { t: "数吨级 304L 真空腔体", x: "304L 不锈钢，单件重达数吨。3 万瓦激光下料、400 吨折弯机成形，氦质谱检漏达 1×10⁻⁹ Pa·m³/s 量级，以 50 吨行车整体吊装翻转。检测报告随货交付。", tag: "重型腔体", img: "/photos/chamber-050.webp" },
-      { t: "真空密封焊接，逐台验证", x: "40 余个 TIG 与自动焊工位，设洁净焊接区；逐台进行氦质谱检漏，不抽检。", tag: "焊接与检漏", img: "/photos/cap-leak.webp" },
+      { t: "数吨级 304L 真空腔体", x: "304L 不锈钢，单件重达数吨。3 万瓦激光下料、400 吨折弯机成形，氦质谱检漏达 1×10⁻⁹ Pa·m³/s 量级，以 50 吨行车整体吊装翻转。检测报告随货交付。", tag: "重型腔体", img: "/photos/multi-ton-304l-vacuum-chamber-1600w.webp" },
+      { t: "真空密封焊接，逐台验证", x: "40 余个 TIG 与自动焊工位，设洁净焊接区；逐台进行氦质谱检漏，不抽检。", tag: "焊接与检漏", img: "/photos/helium-leak-test-ul1000-vacuum-chamber-720w.webp" },
     ],
     partnersEyebrow: "合作伙伴",
     partnersTitle: "合作客户与供应链伙伴",
@@ -252,13 +252,13 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
               preload="metadata"
               aria-label={loc === "zh" ? "真空腔体制造影像" : "Vacuum chamber manufacturing visual"}
             >
-              <source src="/video/hero-loop-1280.mp4" type="video/mp4" media="(max-width: 900px)" />
-              <source src="/video/hero-loop-1920.mp4" type="video/mp4" />
+              <source src="/video/vacuum-chamber-manufacturing-loop-1280x720.mp4" type="video/mp4" media="(max-width: 900px)" />
+              <source src="/video/vacuum-chamber-manufacturing-loop-1920x1080.mp4" type="video/mp4" />
             </video>
             <img
               className="hero-poster"
-              src="/photos/hero-main.webp"
-              srcSet="/photos/hero-main-1280.webp 1280w, /photos/hero-main.webp 1440w"
+              src="/photos/vacuum-chamber-workshop-changshu-1440w.webp"
+              srcSet="/photos/vacuum-chamber-workshop-changshu-1280w.webp 1280w, /photos/vacuum-chamber-workshop-changshu-1440w.webp 1440w"
               sizes="100vw"
               alt={loc === "zh" ? "真空腔体制造车间" : "Inside the vacuum chamber workshop"}
               width={1440}
@@ -332,10 +332,10 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <h2>{t.aboutTitle}</h2>
           </div>
           <figure className="about-media">
-            <img className="about-media-main" src="/photos/feedthrough-044.webp" alt={loc === "zh" ? "超高真空法兰组件安装" : "Ultra-high-vacuum feedthrough installation"} width={1600} height={900} loading="lazy" />
+            <img className="about-media-main" src="/photos/uhv-feedthrough-flange-assembly-1600w.webp" alt={loc === "zh" ? "超高真空法兰组件安装" : "Ultra-high-vacuum feedthrough installation"} width={1600} height={900} loading="lazy" />
             <div className="about-media-row">
-              <img src="/photos/workshop-063.webp" alt={loc === "zh" ? "车间焊接工位" : "Welding station in the workshop"} width={1600} height={1067} loading="lazy" />
-              <img src="/photos/workshop-058.webp" alt={loc === "zh" ? "车间内的构件与设备" : "Components and equipment in the workshop"} width={1600} height={1067} loading="lazy" />
+              <img src="/photos/tig-welding-station-vacuum-chamber-1600w.webp" alt={loc === "zh" ? "车间焊接工位" : "Welding station in the workshop"} width={1600} height={1067} loading="lazy" />
+              <img src="/photos/vacuum-chamber-workshop-components-1600w.webp" alt={loc === "zh" ? "车间内的构件与设备" : "Components and equipment in the workshop"} width={1600} height={1067} loading="lazy" />
             </div>
           </figure>
           <div className="about-copy">

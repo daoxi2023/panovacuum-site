@@ -90,8 +90,8 @@ export function Footer({ locale }: { locale: "en" | "zh" }) {
         <div className="footer-identity">
           <div className="footer-brand-row">
             <img
-              src="/pano-vacuum-tech-logo.webp"
-              srcSet="/pano-vacuum-tech-logo-2x.webp 2x"
+              src="/pano-vacuum-logo-324w.webp"
+              srcSet="/pano-vacuum-logo-648w.webp 2x"
               alt="PANO Vacuum 帕诺真空"
               width={126}
               height={84}
@@ -146,7 +146,7 @@ export function Footer({ locale }: { locale: "en" | "zh" }) {
           </ul>
           <div className="footer-wechat">
             <img
-              src="/wechat-qr.webp"
+              src="/pano-vacuum-wechat-qr-zhouyou-480w.webp"
               alt={zh ? "周先生微信二维码" : "Mr. Zhou WeChat QR code"}
               className="footer-qr"
               width={76}

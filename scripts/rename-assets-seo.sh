@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+# 由 scripts/gen-asset-naming-list.py --emit-rename-sh 生成
+# 用法： bash scripts/rename-assets-seo.sh [--dry-run]
+set -euo pipefail
+DRY=${1:-}
+cd "$(dirname "$0")/.."
+run() {
+  if [ "$DRY" = "--dry-run" ]; then echo "git mv $1 -> $2"; else git mv "$1" "$2"; fi
+}
+run "public/pano-vacuum-tech-logo.webp" "public/pano-vacuum-logo-324w.webp"
+run "public/pano-vacuum-tech-logo-2x.webp" "public/pano-vacuum-logo-648w.webp"
+run "public/brand-wordmark.webp" "public/pano-vacuum-wordmark-896w.webp"
+run "public/og-image.webp" "public/pano-vacuum-og-default-1200x630.webp"
+run "public/wechat-qr.webp" "public/pano-vacuum-wechat-qr-zhouyou-480w.webp"
+run "public/photos/hero-main.webp" "public/photos/vacuum-chamber-workshop-changshu-1440w.webp"
+run "public/photos/hero-main-1280.webp" "public/photos/vacuum-chamber-workshop-changshu-1280w.webp"
+run "public/photos/hero-chamber.webp" "public/photos/custom-vacuum-chamber-304l-stainless-1200w.webp"
+run "public/photos/chamber-050.webp" "public/photos/multi-ton-304l-vacuum-chamber-1600w.webp"
+run "public/photos/workshop-063.webp" "public/photos/tig-welding-station-vacuum-chamber-1600w.webp"
+run "public/photos/workshop-058.webp" "public/photos/vacuum-chamber-workshop-components-1600w.webp"
+run "public/photos/feedthrough-044.webp" "public/photos/uhv-feedthrough-flange-assembly-1600w.webp"
+run "public/photos/cap-cmm.webp" "public/photos/cmm-inspection-vacuum-component-720w.webp"
+run "public/photos/cap-chamber.webp" "public/photos/custom-vacuum-chamber-finished-304l-720w.webp"
+run "public/photos/cap-clean.webp" "public/photos/surface-finishing-clean-welding-bay-720w.webp"
+run "public/photos/cap-leak.webp" "public/photos/helium-leak-test-ul1000-vacuum-chamber-720w.webp"
+run "public/photos/news-1.webp" "public/photos/vacuum-chamber-7-inspection-gates-640w.webp"
+run "public/photos/news-2.webp" "public/photos/vacuum-chamber-material-304l-or-316l-640w.webp"
+run "public/photos/news-3.webp" "public/photos/vacuum-chamber-quotation-drawing-640w.webp"
+run "public/video/hero-loop-1920.mp4" "public/video/vacuum-chamber-manufacturing-loop-1920x1080.mp4"
+run "public/video/hero-loop-1280.mp4" "public/video/vacuum-chamber-manufacturing-loop-1280x720.mp4"
+run "public/photos/partners/cetc.webp" "public/photos/partners/partner-logo-cetc.webp"
+run "public/photos/partners/huasheng.webp" "public/photos/partners/partner-logo-huasheng.webp"
+run "public/photos/partners/anhui-yuehao.webp" "public/photos/partners/partner-logo-anhui-yuehao.webp"
+run "public/photos/partners/exact-sc.webp" "public/photos/partners/partner-logo-exact-sc.webp"
+run "public/photos/partners/qianhai-jiuhe.webp" "public/photos/partners/partner-logo-qianhai-jiuhe.webp"
+run "public/photos/partners/power-jacks.webp" "public/photos/partners/partner-logo-power-jacks.webp"
+run "public/photos/partners/songyu.webp" "public/photos/partners/partner-logo-songyu.webp"
+run "public/photos/partners/zhongke-nawei.webp" "public/photos/partners/partner-logo-zhongke-nawei.webp"
+run "public/photos/partners/yuansu-vacuum.webp" "public/photos/partners/partner-logo-yuansu-vacuum.webp"
+run "public/photos/partners/matrix-materials.webp" "public/photos/partners/partner-logo-matrix-materials.webp"
+run "public/photos/partners/hengyue-vacuum.webp" "public/photos/partners/partner-logo-hengyue-vacuum.webp"
+run "public/photos/partners/zhonghang-maite.webp" "public/photos/partners/partner-logo-zhonghang-maite.webp"
+run "public/photos/partners/xiandao.webp" "public/photos/partners/partner-logo-xiandao.webp"
+run "public/photos/partners/pilat-photoelectric.webp" "public/photos/partners/partner-logo-pilat-photoelectric.webp"
+run "public/photos/partners/jianghui-vacuum.webp" "public/photos/partners/partner-logo-jianghui-vacuum.webp"
+echo "改名完成。别忘了：1) 代码引用 2) public/_redirects 301 3) _headers 缓存头（改名之后再做）。"

@@ -14,11 +14,11 @@ const icons = {
   shortcut: "/favicon.ico",
 };
 
-const ogImage = [{ url: `${SITE_BASE}/og-image.webp`, width: 1200, height: 630 }];
+const ogImage = [{ url: `${SITE_BASE}/pano-vacuum-og-default-1200x630.webp`, width: 1200, height: 630 }];
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {
   const { locale } = await params;
-  const base: Metadata = { metadataBase: new URL(SITE_BASE) };
+  const base: Metadata = { metadataBase: new URL(SITE_BASE), manifest: "/site.webmanifest" };
   return locale === "zh"
     ? {
         ...base,

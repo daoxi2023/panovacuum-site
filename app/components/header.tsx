@@ -45,8 +45,8 @@ export function Header({ locale }: { locale: "en" | "zh" }) {
         <div className="container header-inner">
           <Link href={`/${locale}/`} className="brand">
             <img
-              src="/pano-vacuum-tech-logo.webp"
-              srcSet="/pano-vacuum-tech-logo-2x.webp 2x"
+              src="/pano-vacuum-logo-324w.webp"
+              srcSet="/pano-vacuum-logo-648w.webp 2x"
               alt="PANO Vacuum 帕诺真空"
               width={126}
               height={84}

@@ -2,3 +2,29 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+# 素材缓存（2026-11-03 改名后新增；顺序上必须在改名之后，否则用户会继续拿到旧图）
+# 视频：体积大且几乎不替换 → 1 年 immutable
+/video/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# 图片：会随补拍迭代，同一文件名内容可能更新 → 30 天 + 7 天 stale-while-revalidate。
+# 既省流量，老访客又不会长期看到旧图。替换图片时优先改用新文件名。
+/photos/*
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=604800
+
+# 品牌资产与图标：内容稳定 → 1 年 immutable
+/pano-vacuum-logo-324w.webp
+  Cache-Control: public, max-age=31536000, immutable
+/pano-vacuum-logo-648w.webp
+  Cache-Control: public, max-age=31536000, immutable
+/pano-vacuum-wordmark-896w.webp
+  Cache-Control: public, max-age=31536000, immutable
+/icon-192.webp
+  Cache-Control: public, max-age=31536000, immutable
+/icon-512.webp
+  Cache-Control: public, max-age=31536000, immutable
+/apple-touch-icon.png
+  Cache-Control: public, max-age=31536000, immutable
+/favicon.ico
+  Cache-Control: public, max-age=31536000, immutable

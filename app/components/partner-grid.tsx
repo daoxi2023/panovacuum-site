@@ -10,7 +10,7 @@ export function PartnerGrid({ locale }: { locale: "en" | "zh" }) {
         return (
           <div className="partner-wall-item" key={p.slug}>
             <img
-              src={`/photos/partners/${p.slug}.webp`}
+              src={`/photos/partners/partner-logo-${p.slug}.webp`}
               alt={`${name} ${zh ? "标识" : "logo"}`}
               width={380}
               height={80}

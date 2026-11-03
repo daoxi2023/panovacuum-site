@@ -11,8 +11,8 @@ const content = {
     cta: "Send a drawing, get a price",
     back: "Back to home",
     cases: [
-      { tag: "Heavy chamber", t: "Multi-ton 304L vacuum chamber", x: "304L stainless, a few tons for a single piece. 30 kW laser blanking, 400 t press brake forming, helium test down to the 1×10⁻⁹ Pa·m³/s order, lifted and turned under the 50 t crane. Records ship with it.", img: "/photos/cap-chamber.webp" },
-      { tag: "Welding & leak test", t: "Vacuum-tight welding, verified per chamber", x: "TIG and automated welding across 40-plus stations in a clean bay. Every unit is helium tested; none are sampled.", img: "/photos/cap-leak.webp" },
+      { tag: "Heavy chamber", t: "Multi-ton 304L vacuum chamber", x: "304L stainless, a few tons for a single piece. 30 kW laser blanking, 400 t press brake forming, helium test down to the 1×10⁻⁹ Pa·m³/s order, lifted and turned under the 50 t crane. Records ship with it.", img: "/photos/custom-vacuum-chamber-finished-304l-720w.webp" },
+      { tag: "Welding & leak test", t: "Vacuum-tight welding, verified per chamber", x: "TIG and automated welding across 40-plus stations in a clean bay. Every unit is helium tested; none are sampled.", img: "/photos/helium-leak-test-ul1000-vacuum-chamber-720w.webp" },
     ],
   },
   zh: {
@@ -23,8 +23,8 @@ const content = {
     cta: "提交图纸询价",
     back: "返回首页",
     cases: [
-      { tag: "重型腔体", t: "数吨级 304L 真空腔体", x: "304L 不锈钢、单件数吨级：3 万瓦激光下料、400 吨·6.2 米折弯成形、氦质谱检漏至 1×10⁻⁹ Pa·m³/s 量级、50 吨行车整体总装与翻转；检验报告随货交付。", img: "/photos/cap-chamber.webp" },
-      { tag: "焊接与检漏", t: "真空密封焊接，逐台验证", x: "40+ 工位 TIG 与自动化焊接，受控洁净焊接环境；氦质谱检漏逐台验证而非抽检。", img: "/photos/cap-leak.webp" },
+      { tag: "重型腔体", t: "数吨级 304L 真空腔体", x: "304L 不锈钢、单件数吨级：3 万瓦激光下料、400 吨·6.2 米折弯成形、氦质谱检漏至 1×10⁻⁹ Pa·m³/s 量级、50 吨行车整体总装与翻转；检验报告随货交付。", img: "/photos/custom-vacuum-chamber-finished-304l-720w.webp" },
+      { tag: "焊接与检漏", t: "真空密封焊接，逐台验证", x: "40+ 工位 TIG 与自动化焊接，受控洁净焊接环境；氦质谱检漏逐台验证而非抽检。", img: "/photos/helium-leak-test-ul1000-vacuum-chamber-720w.webp" },
     ],
   },
 };

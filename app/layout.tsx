@@ -12,7 +12,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     name: "PANO Vacuum Machinery Technology (Changshu) Co., Ltd.",
     alternateName: "帕诺真空机械科技（常熟）有限公司",
     url: SITE_BASE,
-    logo: `${SITE_BASE}/pano-vacuum-tech-logo.webp`,
+    logo: `${SITE_BASE}/pano-vacuum-logo-324w.webp`,
+    image: `${SITE_BASE}/pano-vacuum-og-default-1200x630.webp`,
     email: "zhouyou@panovacuum.com",
     telephone: "+86-130-6372-2038",
     address: {

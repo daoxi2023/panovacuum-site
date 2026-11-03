@@ -82,7 +82,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ locale
       "@type": "Organization",
       name: "PANO Vacuum Machinery Technology (Changshu) Co., Ltd.",
       url: SITE_BASE,
-      logo: { "@type": "ImageObject", url: `${SITE_BASE}/pano-vacuum-tech-logo.webp` },
+      logo: { "@type": "ImageObject", url: `${SITE_BASE}/pano-vacuum-logo-324w.webp` },
     },
     image: [`${SITE_BASE}${article.cover}`],
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
