@@ -36,3 +36,20 @@
 /photos/partners/xiandao.webp /photos/partners/partner-logo-xiandao.webp 301
 /photos/partners/pilat-photoelectric.webp /photos/partners/partner-logo-pilat-photoelectric.webp 301
 /photos/partners/jianghui-vacuum.webp /photos/partners/partner-logo-jianghui-vacuum.webp 301
+
+# 已下线素材的 301（2026-11-03）——这些文件曾经上线过（hero-slide-* 是首屏轮播时代的图，
+# logo.webp / hero-poster.jpg 是早期版本），图片搜索可能已收录，404 会白白丢掉这点权重。
+/photos/hero-slide-1.webp /photos/vacuum-chamber-workshop-changshu-1440w.webp 301
+/photos/hero-slide-1-1280.webp /photos/vacuum-chamber-workshop-changshu-1280w.webp 301
+/photos/hero-slide-2.webp /photos/vacuum-chamber-workshop-changshu-1440w.webp 301
+/photos/hero-slide-2-1280.webp /photos/vacuum-chamber-workshop-changshu-1280w.webp 301
+/photos/hero-slide-3.webp /photos/vacuum-chamber-workshop-changshu-1440w.webp 301
+/photos/hero-slide-3-1280.webp /photos/vacuum-chamber-workshop-changshu-1280w.webp 301
+/photos/workshop-054.webp /photos/vacuum-chamber-workshop-components-1600w.webp 301
+/video/hero-poster.jpg /photos/vacuum-chamber-workshop-changshu-1440w.webp 301
+/logo.webp /pano-vacuum-logo-324w.webp 301
+/logo-2x.webp /pano-vacuum-logo-648w.webp 301
+/favicon-16x16.png /favicon.ico 301
+/favicon-32x32.png /favicon.ico 301
+/android-chrome-192x192.png /icon-192.webp 301
+/android-chrome-512x512.png /icon-512.webp 301
