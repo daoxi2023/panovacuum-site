@@ -262,3 +262,41 @@ cp -R out /tmp/out-verify
 | `/video/hero-loop-1280.mp4` | 2 |  | /en/ / /zh/ |
 | `/video/hero-loop-1920.mp4` | 2 |  | /en/ / /zh/ |
 | `/wechat-qr.webp` | 44 | 周先生微信二维码 | /en/ / /en/about/ / /en/blog/ / /en/blog/chamber-material-304l-or-316l/ / /en/blog/coating-chamber-cleaning-particle-control/ / /en/blog/helium-leak-test-vs-pressure-rise/ / /en/blog/how-to-request-a-quote-with-a-drawing/ / /en/blog/topic/clean-particle/ / /en/blog/topic/design-materials/ / /en/blog/topic/leak-testing/ / /en/blog/topic/quote-delivery/ / /en/blog/vacuum-chamber-7-inspection-gates/ / /en/blog/vacuum-furnace-structure-design/ / /en/case-studies/ / /en/company-profile/ / /en/industrial-partnerships/ / /en/manufacturing/custom-vacuum-chambers/ / /en/manufacturing/precision-components/ / /en/manufacturing/vacuum-tight-welding/ / /en/privacy/ / /en/request-a-quote/ / /en/terms/ / /zh/ / /zh/about/ / /zh/blog/ / /zh/blog/chamber-material-304l-or-316l/ / /zh/blog/coating-chamber-cleaning-particle-control/ / /zh/blog/helium-leak-test-vs-pressure-rise/ / /zh/blog/how-to-request-a-quote-with-a-drawing/ / /zh/blog/topic/clean-particle/ / /zh/blog/topic/design-materials/ / /zh/blog/topic/leak-testing/ / /zh/blog/topic/quote-delivery/ / /zh/blog/vacuum-chamber-7-inspection-gates/ / /zh/blog/vacuum-furnace-structure-design/ / /zh/case-studies/ / /zh/company-profile/ / /zh/industrial-partnerships/ / /zh/manufacturing/custom-vacuum-chambers/ / /zh/manufacturing/precision-components/ / /zh/manufacturing/vacuum-tight-welding/ / /zh/privacy/ / /zh/request-a-quote/ / /zh/terms/ |
+
+---
+
+## 执行状态（2026-11-03 当日回填 · 已上线）
+
+### 已执行 ✅
+
+| 项 | 结果 |
+|---|---|
+| 36 条改名 | 已 `git mv` 完成，`public/` 从 59 文件降到 45 文件 |
+| 14 个孤儿删除 | 已删，释放 1.61 MB |
+| 15 个源文件引用 | 已同步（48 处替换），`grep` 旧文件名残留 = 0 |
+| 301 重定向 | `public/_redirects` 共 **50 条**：36 条改名 + 14 条已下线素材 |
+| 缓存策略 | `public/_headers` 已加：`/video/*` 1 年 immutable、`/photos/*` 30 天 + SWR、品牌资产与图标 1 年 immutable |
+| `site.webmanifest` | 已新增并挂到 `[locale]` 的 metadata |
+| `Organization.image` | 已补（此前只有 `logo`） |
+| 双域名部署 | `.com` = `21ba2adb` · `.cn` = `f613b8c6`，均 STATUS success |
+
+commit：`8b23c66`（改名主体）、`917f486`（已下线素材 301）
+
+### 线上实测（不是 grep，是真发请求）
+
+- 新素材 URL：两域名全部 `200`，字节与旧文件一致（`hero-main` 167516、`cap-leak` 20406、视频 1523432、logo 9564、og 9752、二维码 49896、wordmark 1482、伙伴 logo 6832）
+- 旧素材 URL：两域名全部 `301`，单跳、终点 `200`
+- 缓存头：`/photos/*` → `public, max-age=2592000, stale-while-revalidate=604800`；`/video/*` → `public, max-age=31536000, immutable`
+- `/zh/` 线上 HTML：素材引用 30 条全部是新名，旧名残留 0，canonical 与 `og:image` 正确
+- `pnpm typecheck` / `pnpm build`（含 CSS 兼容闸）/ `pnpm verify`（47 页 · sitemap 44 · RSS 6）全绿
+
+### 尚未执行 ⏳（需要有图才能做）
+
+1. **14 张 OG 图**，其中 6 张 P0：`/zh/blog/`、`/en/blog/` 与 4 个博客专题页目前**完全没有 `og:image`**；22 个页面共用同一张中文压字图，英文站分享显示的也是中文图。
+2. **服务页专属正文图 3 张**（现在 3 个 manufacturing 页分别复用首页的 `hero-chamber`/`cap-cmm`/`cap-chamber`）。
+3. **文章专属封面 3 张**。
+4. **设备实拍 5 张**：3 万瓦激光、400 吨·6.2m 折弯、UL1000 氦检仪、50 吨行车、厂区外观 —— 台账里有这些能力，全站没有一张对应实拍。
+5. **伙伴 logo @2x 15 张**（现在 ~380px，2 倍屏会糊）。
+6. `feedthrough-044` 改名后是 `uhv-feedthrough-flange-assembly-1600w.webp`，**版权来源仍待核实**（既有拍摄清单标注「疑似渲染/图库图」，用在「我们工厂」有风险）。
+
+补拍这些图后，按本文档的命名规范命名，再跑 `python3 scripts/gen-asset-naming-list.py` 即可刷新清单。
