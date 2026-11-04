@@ -6,6 +6,10 @@ import { SITE_BASE } from "@/lib/site-base";
 // 根级元数据：只为 / 与 /404 这类不属于任何 locale 的页面提供兜底分享图
 // （locale 页面各自在 app/[locale]/layout.tsx 与页面级 generateMetadata 里覆盖 openGraph）。
 export const metadata: Metadata = {
+  // 百度搜索资源平台站点验证（仅 .cn 主站；.com 走 Cloudflare，不重复声明）
+  ...(SITE_BASE.includes("panovacuum.cn")
+    ? { verification: { other: { "baidu-site-verification": "codeva-4c5iWyEZtD" } } }
+    : {}),
   openGraph: {
     type: "website",
     // `/` 由 _redirects 301 到 /en/，故根级 og:url 取 /en/；locale 页面会整段覆盖 openGraph。

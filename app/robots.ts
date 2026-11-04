@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: [{ userAgent: "*", allow: "/" }],
     sitemap: `${SITE_BASE}/sitemap.xml`,
-    host: SITE_BASE,
+    host: SITE_BASE.replace(/^https?:\/\//, ""),
   };
 }
