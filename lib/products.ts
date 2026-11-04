@@ -154,7 +154,8 @@ export const productFamilies: ProductFamily[] = [
       name: "法兰、馈通与密封组件",
       tagline: "法兰、馈通座与密封面按图加工，关键配合尺寸逐件记录。",
       points: [
-        "加工：按图车铣法兰、馈通座与密封配合面，配合尺寸按图控制",
+        "系列：CF 刀口法兰、KF 快卸法兰、ISO-K 双爪法兰，以及盲板、中心环、转接件与馈通座，型号按图或按配对标准件确认",
+        "加工：按图车铣法兰、馈通座与密封配合面，配合尺寸按图控制；O 圈槽槽型与槽底按图，未注明处按配对件实测复核",
         "材料：不锈钢为主，牌号与热处理状态按图纸",
         "检验：关键尺寸逐件记录；与腔体同步检漏，检漏条件在评审阶段确认",
       ],
@@ -164,7 +165,8 @@ export const productFamilies: ProductFamily[] = [
       name: "Flanges, feedthroughs and sealing components",
       tagline: "Flanges, feedthrough bodies and sealing faces machined to drawing, with critical fits recorded piece by piece.",
       points: [
-        "Machining: flanges, feedthrough bodies and sealing faces turned and milled to drawing, with fits controlled to the drawing",
+        "Series: CF knife-edge, KF quick-release and ISO-K double-claw flanges, plus blanks, centring rings, adaptors and feedthrough bodies, sized to drawing or confirmed against the mating standard part",
+        "Machining: flanges, feedthrough bodies and sealing faces turned and milled to drawing, with fits controlled to the drawing; O-ring groove form and base to drawing, otherwise cross-checked against the mating part",
         "Material: mainly stainless, grade and heat-treatment condition per drawing",
         "Testing: critical dimensions recorded per piece; leak tested together with the chamber, with test conditions agreed at review",
       ],
