@@ -21,7 +21,7 @@ run "public/photos/workshop-058.webp" "public/photos/vacuum-chamber-workshop-com
 run "public/photos/feedthrough-044.webp" "public/photos/uhv-feedthrough-flange-assembly-1600w.webp"
 run "public/photos/cap-cmm.webp" "public/photos/cmm-inspection-vacuum-component-720w.webp"
 run "public/photos/cap-chamber.webp" "public/photos/custom-vacuum-chamber-finished-304l-720w.webp"
-run "public/photos/cap-clean.webp" "public/photos/surface-finishing-clean-welding-bay-720w.webp"
+run "public/photos/cap-clean.webp" "public/photos/vacuum-leak-test-room-door-720w.webp"
 run "public/photos/cap-leak.webp" "public/photos/helium-leak-test-ul1000-vacuum-chamber-720w.webp"
 run "public/photos/news-1.webp" "public/photos/vacuum-chamber-7-inspection-gates-640w.webp"
 run "public/photos/news-2.webp" "public/photos/vacuum-chamber-material-304l-or-316l-640w.webp"

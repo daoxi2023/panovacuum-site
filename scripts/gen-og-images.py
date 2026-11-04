@@ -11,7 +11,7 @@
    再按 z 放大（z>1 更近），最后按 fx/fy 在剩余空间里定位（0=左上/上，1=右下/下）。
 4. 720 宽的源图（氦检实拍）会放大到 1200 宽，放大后补一道轻量 USM，
    避免分享卡片上发散。
-   经视觉复核，`surface-finishing-clean-welding-bay-720w.webp`（实拍是「真空检漏室」
+   经视觉复核，`vacuum-leak-test-room-door-720w.webp`（原名 surface-finishing-*，实拍是「真空检漏室」
    门 + 中英文标牌）和 `vacuum-chamber-quotation-drawing-640w.webp`（实拍里并没有图纸）
    两文件名与内容不符，不参与分享图；S_CLEANBAY / S_DRAWING 只留作记录。
 5. `default` 是品牌卡：压暗 + 降饱和 + 居中白色字标，故意不带任何中文正文
@@ -47,7 +47,7 @@ S_PARTS = "vacuum-chamber-workshop-components-1600w.webp"
 S_CUSTOM = "custom-vacuum-chamber-304l-stainless-1200w.webp"
 S_HELIUM = "helium-leak-test-ul1000-vacuum-chamber-720w.webp"
 # 下面两张经视觉复核内容与文件名不符，故不进 RECIPES（保留常量仅为记录）
-S_CLEANBAY = "surface-finishing-clean-welding-bay-720w.webp"  # 实拍：真空检漏室门 + 标牌
+S_CLEANBAY = "vacuum-leak-test-room-door-720w.webp"           # 实拍：真空检漏室门 + 标牌
 S_DRAWING = "vacuum-chamber-quotation-drawing-640w.webp"      # 实拍：腔体设备，无图纸
 
 # key: (源图, z, fx, fy, 亮度增益)
@@ -65,7 +65,7 @@ RECIPES: dict[str, tuple[str, float, float, float, float]] = {
     "blog-topic-leak-testing": (S_HELIUM, 1.00, 0.50, 0.50, 1.00),
     "article-helium-leak-test": (S_HELIUM, 1.12, 0.45, 0.55, 1.00),
     # 洁净与颗粒：用受控焊接工位（合规文案里就是「受控洁净焊接环境」）
-    # 注意：surface-finishing-clean-welding-bay 那张实拍是「真空检漏室」门+标牌，内容与文件名不符，不用于 OG
+    # 注意：vacuum-leak-test-room-door 那张实拍是「真空检漏室」门+标牌（原名 surface-finishing-*），不用于 OG
     "blog-topic-clean-particle": (S_WELD, 1.18, 0.42, 0.50, 1.00),
     # 询价/交期：车间里谈图纸与排产，用车间实拍（quotation-drawing 那张实拍里其实没有图纸）
     "blog-topic-quote-delivery": (S_SHOP1280, 1.08, 0.55, 0.45, 1.00),

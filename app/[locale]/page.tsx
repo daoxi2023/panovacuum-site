@@ -71,7 +71,7 @@ const content = {
     caps: [
       { t: "Precision CNC Machining", x: "Vacuum-grade components. Key dimensions are inspected and recorded for each part.", img: "/photos/cmm-inspection-vacuum-component-720w.webp", alt: "ALPHA articulating-arm CMM inspecting a vacuum-grade part" },
       { t: "Vacuum-Tight Welding", x: "TIG and automated welding across more than 40 stations; the welding bay is separately enclosed.", img: "/photos/custom-vacuum-chamber-finished-304l-720w.webp", alt: "Finished custom vacuum chamber, 304L stainless steel" },
-      { t: "Surface Finishing & Cleaning", x: "Performed within the clean welding bay. Process and cleaning records are available with delivery.", img: "/photos/surface-finishing-clean-welding-bay-720w.webp", alt: "Controlled clean environment for surface finishing and inspection" },
+      { t: "Surface Finishing & Cleaning", x: "Performed within the clean welding bay. Process and cleaning records are available with delivery.", img: "/photos/tig-welding-station-vacuum-chamber-1600w.webp", alt: "TIG welding station inside the separately enclosed clean welding bay" },
       { t: "Helium Leak Testing & Assembly", x: "UL1000-class instrument, tested to the 1×10⁻⁹ Pa·m³/s range; each unit is tested prior to assembly and dispatch.", img: "/photos/helium-leak-test-ul1000-vacuum-chamber-720w.webp", alt: "INFICON UL1000-class helium leak tester verifying a chamber" },
     ],
     qualityEyebrow: "Inspection process",
@@ -170,7 +170,7 @@ const content = {
     caps: [
       { t: "精密 CNC 加工", x: "真空级零件，关键尺寸逐件测量并记录。", img: "/photos/cmm-inspection-vacuum-component-720w.webp", alt: "ALPHA 关节臂三坐标检测仪检测真空级零件" },
       { t: "真空密封焊接", x: "TIG 与自动焊，40 余个工位，焊接区独立隔断。", img: "/photos/custom-vacuum-chamber-finished-304l-720w.webp", alt: "定制真空腔体成品，304L 不锈钢" },
-      { t: "表面处理与清洗", x: "于洁净焊接区内完成，处理与清洗记录可随货提供。", img: "/photos/surface-finishing-clean-welding-bay-720w.webp", alt: "受控洁净环境下的表面处理与检测" },
+      { t: "表面处理与清洗", x: "于洁净焊接区内完成，处理与清洗记录可随货提供。", img: "/photos/tig-welding-station-vacuum-chamber-1600w.webp", alt: "洁净焊接区内的 TIG 焊接工位" },
       { t: "氦质谱检漏与装配", x: "采用 UL1000 级检漏仪，可达 1×10⁻⁹ Pa·m³/s 量级，逐台检测后装配发运。", img: "/photos/helium-leak-test-ul1000-vacuum-chamber-720w.webp", alt: "UL1000 氦质谱检漏仪验证腔体密封性" },
     ],
     qualityEyebrow: "检验流程",

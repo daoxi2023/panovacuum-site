@@ -219,7 +219,7 @@ export const articles: Article[] = [
     ],
     date: "2026-11-01",
     author: { nameZh: "帕诺工艺团队", nameEn: "PANO Process Team", roleZh: "工艺与质量", roleEn: "Process & Quality", email: "zhouyou@panovacuum.com" },
-    cover: "/photos/surface-finishing-clean-welding-bay-720w.webp",
+    cover: "/photos/custom-vacuum-chamber-304l-stainless-1200w.webp",
     zh: {
       title: "镀膜腔体洗得再干净，为什么还是抽不下去",
       intro:

@@ -92,9 +92,9 @@ RENAMES = [
      "app/[locale]/page.tsx · app/[locale]/case-studies/page.tsx · "
      "lib/articles.ts · lib/manufacturing.ts",
      "复用最广的一张（12 个页面），改名收益最大。"),
-    ("photos/cap-clean.webp", "photos/surface-finishing-clean-welding-bay-720w.webp", "P0",
-     "app/[locale]/page.tsx · lib/articles.ts",
-     "洁净焊接环境。注意合规红线：文案不得写「ISO Class 洁净室」。"),
+    ("photos/cap-clean.webp", "photos/vacuum-leak-test-room-door-720w.webp", "P0",
+     "app/[locale]/page.tsx（已撤下，改用 tig-welding 实拍）",
+     "⚠ 视觉复核后改名：实际画面是「真空检漏室」的门 + 中英文标牌，不是洁净焊接区；首页该卡片与文章封面已换图。"),
     ("photos/cap-leak.webp", "photos/helium-leak-test-ul1000-vacuum-chamber-720w.webp", "P0",
      "app/[locale]/page.tsx · app/[locale]/case-studies/page.tsx · lib/articles.ts",
      "氦质谱检漏。UL1000 是真实设备型号，可以写进文件名（有实物证据）。"),

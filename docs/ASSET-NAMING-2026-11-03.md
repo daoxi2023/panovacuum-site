@@ -45,11 +45,11 @@
 | P0 | `/photos/feedthrough-044.webp` | `/photos/uhv-feedthrough-flange-assembly-1600w.webp` | app/[locale]/page.tsx | 超高真空法兰组件。⚠ 另需核实版权来源（疑似渲染图/图库图），用在「我们工厂」版块有风险。 |
 | P0 | `/photos/cap-cmm.webp` | `/photos/cmm-inspection-vacuum-component-720w.webp` | app/[locale]/page.tsx · lib/manufacturing.ts | cap = capability 的缩写，对外无意义，且与 news 系列一样是内部代号。 |
 | P0 | `/photos/cap-chamber.webp` | `/photos/custom-vacuum-chamber-finished-304l-720w.webp` | app/[locale]/page.tsx · app/[locale]/case-studies/page.tsx · lib/articles.ts · lib/manufacturing.ts | 复用最广的一张（12 个页面），改名收益最大。 |
-| P0 | `/photos/cap-clean.webp` | `/photos/surface-finishing-clean-welding-bay-720w.webp` | app/[locale]/page.tsx · lib/articles.ts | 洁净焊接环境。注意合规红线：文案不得写「ISO Class 洁净室」。**⚠ 视觉复核发现实际画面是「真空检漏室」的门 + 中文标牌（见「视觉复核」节），文件名与内容不符，待换图后重命名。** |
+| P0 | `/photos/cap-clean.webp` | `/photos/vacuum-leak-test-room-door-720w.webp` | 已无页面引用（2026-11-03 撤下） | **二次修正**：视觉复核发现实际画面是「真空检漏室」的门 + 中英文标牌，不是洁净焊接区，故先改名（原定名 `surface-finishing-clean-welding-bay-720w` 与内容不符），首页卡片与文章封面改用 `tig-welding-station-vacuum-chamber-1600w` / `custom-vacuum-chamber-304l-stainless-1200w`；`_redirects` 保留 `cap-clean` 与 `surface-finishing-*` 两级 301。 |
 | P0 | `/photos/cap-leak.webp` | `/photos/helium-leak-test-ul1000-vacuum-chamber-720w.webp` | app/[locale]/page.tsx · app/[locale]/case-studies/page.tsx · lib/articles.ts | 氦质谱检漏。UL1000 是真实设备型号，可以写进文件名（有实物证据）。 |
 | P0 | `/photos/news-1.webp` | `/photos/vacuum-chamber-7-inspection-gates-640w.webp` | lib/articles.ts | news-1 与文章 slug 无关。改成与文章 slug 同义，图文实体一致。 |
 | P0 | `/photos/news-2.webp` | `/photos/vacuum-chamber-material-304l-or-316l-640w.webp` | lib/articles.ts | 同上。 |
-| P0 | `/photos/news-3.webp` | `/photos/vacuum-chamber-quotation-drawing-640w.webp` | lib/articles.ts | 同上。**⚠ 视觉复核发现实际画面是车间腔体设备、画面里没有图纸，文件名与内容不符，待换图后重命名。** |
+| P0 | `/photos/news-3.webp` | `/photos/vacuum-chamber-quotation-drawing-640w.webp` | lib/articles.ts | 同上。**⚠ 视觉复核发现实际画面是车间腔体设备、画面里没有图纸**——文件名未改（等真拍到图纸照再替换），分享图已改用车间实拍，正文封面暂留并列入待重拍。 |
 | P0 | `/video/hero-loop-1920.mp4` | `/video/vacuum-chamber-manufacturing-loop-1920x1080.mp4` | app/[locale]/page.tsx (hero <source> ×2) | 视频文件名要能被 AI/搜索当成「内容」读到，而不是 hero-loop-1920 这种占位名。 |
 | P0 | `/video/hero-loop-1280.mp4` | `/video/vacuum-chamber-manufacturing-loop-1280x720.mp4` | app/[locale]/page.tsx (hero <source> media=max-width:900px) | 与上图共用主干，只改分辨率段。 |
 | P1 | `/photos/partners/cetc.webp` | `/photos/partners/partner-logo-cetc.webp` | app/components/partner-grid.tsx (模板字符串，改 1 处即可) | 15 家 logo 统一加 partner-logo- 前缀。作用：告诉爬虫这是「合作方品牌标识」而不是产品图，避免它们被当正文图片收录；批量处理也更容易。 |
@@ -110,7 +110,7 @@
 | `photos/service-vacuum-tight-welding-tig-1200w.webp` | P1 | 服务页正文 /manufacturing/vacuum-tight-welding/ | 同上，现在是首页 cap-chamber 复用图。 |
 | `photos/blog-helium-leak-test-vs-pressure-rise-1200w.webp` | P1 | 文章《氦检和压降法差五个数量级》封面 | 现在这张封面直接复用能力图 cap-leak，导致「能力图」和「文章封面」撞名撞图。文章封面应独立。 |
 | `photos/blog-vacuum-furnace-structure-design-1200w.webp` | P1 | 文章《真空炉结构设计五个决定》封面 | 现在复用 cap-chamber。 |
-| `photos/blog-coating-chamber-cleaning-particle-control-1200w.webp` | P1 | 文章《镀膜腔体洗得再干净为什么还是抽不下去》封面 | 现在复用 cap-clean。 |
+| `photos/blog-coating-chamber-cleaning-particle-control-1200w.webp` | P1 | 文章《镀膜腔体洗得再干净为什么还是抽不下去》封面 | 现在复用 `custom-vacuum-chamber-304l-stainless-1200w`（原复用 cap-clean，那张实拍是检漏室门）。 |
 | `photos/equipment-laser-cutting-30000w-1200w.webp` | P1 | 设备能力（首页/服务页/公司介绍） | 3 万瓦激光是设备台账里已有的真实能力，但现在全站没有一张对应的实拍图。有设备没图 = 能力无法验证。 |
 | `photos/equipment-press-brake-400t-6200mm-1200w.webp` | P1 | 同上 | 400 吨 · 6.2m 折弯，台账已有，缺图。 |
 | `photos/equipment-helium-leak-detector-ul1000-1200w.webp` | P1 | 同上 | 氦检仪特写，佐证 ≤1×10⁻⁹ Pa·m³/s 的检出能力。 |
@@ -232,7 +232,7 @@ cp -R out /tmp/out-verify
 |---|---|---|---|
 | `/pano-vacuum-tech-logo.webp` | 44 | PANO Vacuum 帕诺真空 | /en/ / /en/about/ / /en/blog/ / /en/blog/chamber-material-304l-or-316l/ / /en/blog/coating-chamber-cleaning-particle-control/ / /en/blog/helium-leak-test-vs-pressure-rise/ / /en/blog/how-to-request-a-quote-with-a-drawing/ / /en/blog/topic/clean-particle/ / /en/blog/topic/design-materials/ / /en/blog/topic/leak-testing/ / /en/blog/topic/quote-delivery/ / /en/blog/vacuum-chamber-7-inspection-gates/ / /en/blog/vacuum-furnace-structure-design/ / /en/case-studies/ / /en/company-profile/ / /en/industrial-partnerships/ / /en/manufacturing/custom-vacuum-chambers/ / /en/manufacturing/precision-components/ / /en/manufacturing/vacuum-tight-welding/ / /en/privacy/ / /en/request-a-quote/ / /en/terms/ / /zh/ / /zh/about/ / /zh/blog/ / /zh/blog/chamber-material-304l-or-316l/ / /zh/blog/coating-chamber-cleaning-particle-control/ / /zh/blog/helium-leak-test-vs-pressure-rise/ / /zh/blog/how-to-request-a-quote-with-a-drawing/ / /zh/blog/topic/clean-particle/ / /zh/blog/topic/design-materials/ / /zh/blog/topic/leak-testing/ / /zh/blog/topic/quote-delivery/ / /zh/blog/vacuum-chamber-7-inspection-gates/ / /zh/blog/vacuum-furnace-structure-design/ / /zh/case-studies/ / /zh/company-profile/ / /zh/industrial-partnerships/ / /zh/manufacturing/custom-vacuum-chambers/ / /zh/manufacturing/precision-components/ / /zh/manufacturing/vacuum-tight-welding/ / /zh/privacy/ / /zh/request-a-quote/ / /zh/terms/ |
 | `/photos/cap-chamber.webp` | 12 | 定制真空腔体成品，304L 不锈钢 | /en/ / /en/blog/ / /en/blog/topic/design-materials/ / /en/blog/vacuum-furnace-structure-design/ / /en/case-studies/ / /en/manufacturing/vacuum-tight-welding/ / /zh/ / /zh/blog/ / /zh/blog/topic/design-materials/ / /zh/blog/vacuum-furnace-structure-design/ / /zh/case-studies/ / /zh/manufacturing/vacuum-tight-welding/ |
-| `/photos/cap-clean.webp` | 8 | 受控洁净环境下的表面处理与检测 | /en/ / /en/blog/ / /en/blog/coating-chamber-cleaning-particle-control/ / /en/blog/topic/clean-particle/ / /zh/ / /zh/blog/ / /zh/blog/coating-chamber-cleaning-particle-control/ / /zh/blog/topic/clean-particle/ |
+| `/photos/tig-welding-station-vacuum-chamber-1600w.webp` | 8 | 洁净焊接区内的 TIG 焊接工位 | /en/ / /en/blog/ / /en/blog/coating-chamber-cleaning-particle-control/ / /en/blog/topic/clean-particle/ / /zh/ / /zh/blog/ / /zh/blog/coating-chamber-cleaning-particle-control/ / /zh/blog/topic/clean-particle/ |
 | `/photos/cap-cmm.webp` | 4 | ALPHA 关节臂三坐标检测仪检测真空级零件 | /en/ / /en/manufacturing/precision-components/ / /zh/ / /zh/manufacturing/precision-components/ |
 | `/photos/cap-leak.webp` | 10 | UL1000 氦质谱检漏仪验证腔体密封性 | /en/ / /en/blog/ / /en/blog/helium-leak-test-vs-pressure-rise/ / /en/blog/topic/leak-testing/ / /en/case-studies/ / /zh/ / /zh/blog/ / /zh/blog/helium-leak-test-vs-pressure-rise/ / /zh/blog/topic/leak-testing/ / /zh/case-studies/ |
 | `/photos/chamber-050.webp` | 2 | 数吨级 304L 真空腔体 | /en/ / /zh/ |
@@ -321,7 +321,7 @@ commit：`8b23c66`（改名主体）、`917f486`（已下线素材 301）
 
 `public/photos/` 里 ≥1200px 且**无版权疑虑**的实拍只有 6 张：`vacuum-chamber-workshop-changshu-1440w`、`vacuum-chamber-workshop-changshu-1280w`、`multi-ton-304l-vacuum-chamber-1600w`、`tig-welding-station-vacuum-chamber-1600w`、`vacuum-chamber-workshop-components-1600w`、`custom-vacuum-chamber-304l-stainless-1200w`。
 
-另有 1 张 720 宽的氦检仪实拍（`helium-leak-test-ul1000-vacuum-chamber-720w`）会被放大使用。**经视觉复核（见下节），`surface-finishing-clean-welding-bay-720w`（实拍是「真空检漏室」门 + 标牌）和 `vacuum-chamber-quotation-drawing-640w`（实拍里没有图纸）两张文件名与内容不符，不参与分享图。**
+另有 1 张 720 宽的氦检仪实拍（`helium-leak-test-ul1000-vacuum-chamber-720w`）会被放大使用。**经视觉复核（见下节），`vacuum-leak-test-room-door-720w`（原名 `surface-finishing-clean-welding-bay`，实拍是「真空检漏室」门 + 标牌）和 `vacuum-chamber-quotation-drawing-640w`（实拍里没有图纸）两张文件名与内容不符，不参与分享图。**
 
 一对一直裁会产出**完全相同**的文件——首版就是这样：18 个文件、只有 5 种画面，不同页面分享出去卡片长得一样。改为「同一源图 × 不同取景」：`z` 是缩放（1.0 最广 → 1.8 最近），`fx`/`fy` 是裁切框在源图内的横向/纵向落点。
 
@@ -416,7 +416,7 @@ POST http://100.106.75.99:8082/v1/chat/completions
 | 文件 | 名字暗示 | 实际画面 | 波及 |
 |---|---|---|---|
 | `photos/vacuum-chamber-quotation-drawing-640w.webp`（原 `news-3.webp`） | 一张图纸 | 车间里一台不锈钢腔体（带蓝色保护胶带），**没有任何图纸** | 文章《带图纸询价怎么说清》的正文封面；分享图已改用车间实拍 |
-| `photos/surface-finishing-clean-welding-bay-720w.webp`（原 `cap-clean.webp`） | 表面处理 / 洁净焊区 | 一扇白门 + 标牌「真空检漏室 / VACUUM LEAK DETECTION ROOM」，画面里**没人做表面处理** | 首页「表面处理与清洗」卡片 + 洁净颗粒文章封面；分享图已改用焊接工位实拍 |
+| `photos/vacuum-leak-test-room-door-720w.webp`（原 `cap-clean.webp`，曾误名 `surface-finishing-clean-welding-bay`） | 表面处理 / 洁净焊区 | 一扇白门 + 标牌「真空检漏室 / VACUUM LEAK DETECTION ROOM」，画面里**没人做表面处理** | 首页「表面处理与清洗」卡片 + 洁净颗粒文章封面（**已换图**）；分享图已改用焊接工位实拍；文件已按实际内容改名并做两级 301 |
 
 两张都是当初改名时**按用途猜内容**（没有图像输入）导致的。另外：检漏室那张门上标牌下方还有几行小字，两次转写结果互相矛盾（一次读成"徐锋/朱秋明/质控部·八院"、一次读成"徐敏/朱延安/黄义虎·占斌"），分辨率不足以确认——**但"门牌上可能印着姓名"这件事本身值得人工核一眼**，涉及隐私与客户信息（"八院"若属实即外部单位名）。
 
@@ -469,7 +469,7 @@ POST http://100.106.75.99:8082/v1/chat/completions
 - **文章专属封面 3 张**：`photos/blog-helium-leak-test-vs-pressure-rise-1200w.webp`、`photos/blog-vacuum-furnace-structure-design-1200w.webp`、`photos/blog-coating-chamber-cleaning-particle-control-1200w.webp`
 - **设备实拍 5 张**：3 万瓦激光、400 吨 · 6.2m 折弯、UL1000 氦检仪、50 吨行车、厂区外观
 - **两张「名字与内容不符」的实拍要换**（视觉复核查出来的）：
-  - `photos/surface-finishing-clean-welding-bay-720w.webp` 实际是「真空检漏室」门 + 中英文标牌（画面里没人做表面处理）；它现在挂在首页「表面处理与清洗」卡片和洁净颗粒文章封面上，且标牌是中文，会出现在英文页面
+  - `photos/vacuum-leak-test-room-door-720w.webp` 实际是「真空检漏室」门 + 中英文标牌（画面里没人做表面处理）；**已从首页「表面处理与清洗」卡片与洁净颗粒文章封面撤下**（2026-11-03），但「表面处理与清洗」这个能力仍然缺一张真实的抛光/酸洗钝化/清洗实拍
   - `photos/vacuum-chamber-quotation-drawing-640w.webp` 实际是车间腔体设备（画面里没有图纸），现在是《带图纸询价》的正文封面
   - 换图后按实际内容重命名（新文件名 + `_redirects` 补 301），别沿用现在的名字
 - **伙伴 logo @2x 15 张**（现约 380px，2 倍屏会糊）
