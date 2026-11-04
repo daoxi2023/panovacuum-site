@@ -193,6 +193,28 @@ export default async function About({ params }: { params: Promise<{ locale: stri
 
       <section className="growth-section">
         <div className="container">
+          <div className="profile-intro">
+            <div>
+              <h2>{zh ? "在常熟，从下料到发运都在同一个厂区" : "In Changshu: blanking to dispatch on one site"}</h2>
+              <p>
+                {zh
+                  ? "下料、成形、精密加工、焊接、表面处理、检漏与总装在同一厂区完成，工序之间不需要跨厂转运，检验节点也便于现场确认。"
+                  : "Blanking, forming, precision machining, welding, surface finishing, leak testing and assembly all take place on one site, so work does not move between plants and inspection points can be checked on the floor."}
+              </p>
+            </div>
+            <img
+              src="/photos/factory-exterior-changshu-1440w.webp"
+              width={1440}
+              height={990}
+              alt={zh ? "帕诺真空常熟厂区外景" : "PANO Vacuum plant exterior in Changshu"}
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="growth-section">
+        <div className="container">
           <h2>{zh ? "我们做什么" : "What we make"}</h2>
           <p className="sub">
             {zh

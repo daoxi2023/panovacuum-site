@@ -78,6 +78,76 @@ export default async function Profile({ params }: { params: Promise<{ locale: st
         ["Address", "No. 88 Chaoyang Road, Changfu Sub-district, Changshu, Suzhou, China"],
       ];
 
+  // 设备与检验现场：本组图片为 AI 生成的占位图，待实拍替换；见 docs/AI-PLACEHOLDER-2026-11-04.md
+  const equipment = [
+    {
+      img: "/photos/equipment-laser-cutting-30000w-1200w.webp",
+      t: zh ? "3 万瓦光纤激光切割" : "30 kW fibre laser cutting",
+      x: zh ? "不锈钢板材下料环节，按图纸展开尺寸切割。" : "Stainless steel blanking, cut to the developed size on the drawing.",
+      alt: zh ? "3 万瓦光纤激光切割机正在切割不锈钢板" : "30 kW fibre laser cutter cutting a stainless steel plate",
+    },
+    {
+      img: "/photos/equipment-press-brake-400t-6200mm-1200w.webp",
+      t: zh ? "400 吨 · 6.2 米折弯" : "400 t · 6.2 m press brake",
+      x: zh ? "长尺寸板材成形，减少分段拼焊。" : "Forming of long plates, reducing segmented weld joints.",
+      alt: zh ? "400 吨 6.2 米液压折弯机正在折弯不锈钢厚板" : "400 t, 6.2 m hydraulic press brake forming a thick stainless plate",
+    },
+    {
+      img: "/photos/equipment-overhead-crane-50t-1200w.webp",
+      t: zh ? "50 吨行车总装与翻转" : "50 t overhead crane",
+      x: zh ? "重型腔体吊装、翻转与整体总装。" : "Lifting, turning and assembling heavy chambers.",
+      alt: zh ? "50 吨桥式行车吊装不锈钢真空腔体" : "50 t overhead crane lifting a stainless steel vacuum chamber",
+    },
+    {
+      img: "/photos/helium-leak-test-inficon-ul1000-console-1200w.webp",
+      t: zh ? "氦质谱检漏" : "Helium leak testing",
+      x: zh ? "UL1000 级别检漏仪，逐台检测至 1×10⁻⁹ Pa·m³/s 量级。" : "UL1000-class instrument; each unit tested to the 1×10⁻⁹ Pa·m³/s range.",
+      alt: zh ? "氦质谱检漏仪与待检真空腔体" : "Helium leak detector connected to a vacuum chamber",
+    },
+    {
+      img: "/photos/surface-finishing-polishing-stainless-chamber-1200w.webp",
+      t: zh ? "表面处理与抛光" : "Surface finishing and polishing",
+      x: zh ? "在受控洁净焊接环境内完成，过程与清洁记录可随货提供。" : "Completed inside the controlled clean welding area; process and cleaning records ship with the work.",
+      alt: zh ? "工人打磨抛光不锈钢真空腔体外表面" : "Polishing the outer surface of a stainless steel vacuum chamber",
+    },
+    {
+      img: "/photos/inspection-incoming-material-spectrometer-1200w.webp",
+      t: zh ? "来料材质复检" : "Incoming material verification",
+      x: zh ? "板材与锻件按批次核对材质，检验节点纳入图纸评审。" : "Plate and forgings are checked per batch; inspection points are agreed at drawing review.",
+      alt: zh ? "手持光谱仪对不锈钢板进行材质复检" : "Handheld spectrometer verifying a stainless steel plate",
+    },
+    {
+      img: "/photos/inspection-weld-visual-gauge-1200w.webp",
+      t: zh ? "焊缝外观检查" : "Weld visual inspection",
+      x: zh ? "焊缝成形、咬边与气孔按检验要求逐段检查。" : "Bead profile, undercut and porosity are checked section by section.",
+      alt: zh ? "检验员用焊缝检验尺检查不锈钢焊缝" : "Inspector checking a stainless weld seam with a weld gauge",
+    },
+    {
+      img: "/photos/inspection-cleanliness-white-cloth-wipe-1200w.webp",
+      t: zh ? "内表面清洁度检查" : "Internal cleanliness check",
+      x: zh ? "白布擦拭检查内表面残留，结果随检验记录归档。" : "White-cloth wipe checks for residue; results are filed with the inspection record.",
+      alt: zh ? "用白布擦拭检查真空腔体内表面清洁度" : "White-cloth wipe check on the inside of a vacuum chamber",
+    },
+    {
+      img: "/photos/inspection-final-report-chamber-1200w.webp",
+      t: zh ? "出厂检验记录" : "Final inspection records",
+      x: zh ? "关键尺寸、检漏与外观结果逐台签署归档，随货交付。" : "Key dimensions, leak-test and appearance results are signed off per unit and ship with it.",
+      alt: zh ? "在完工真空腔体旁整理出厂检验记录" : "Final inspection records being prepared beside a finished chamber",
+    },
+    {
+      img: "/photos/case-heavy-chamber-304l-8000mm-1200w.webp",
+      t: zh ? "8 米级卧式腔体" : "8-metre horizontal chamber",
+      x: zh ? "单件长尺寸腔体，在行车覆盖范围内整体总装。" : "Long single-piece chambers, assembled in one piece under the crane.",
+      alt: zh ? "车间内 8 米长卧式不锈钢真空腔体" : "Eight-metre horizontal stainless steel vacuum chamber in the workshop",
+    },
+    {
+      img: "/photos/service-custom-vacuum-chambers-workshop-1200w.webp",
+      t: zh ? "多台腔体并行制作" : "Several chambers in parallel",
+      x: zh ? "同一车间内按项目分批下料、焊接、检漏，交期按工序排。" : "Cutting, welding and leak testing are batched per project in one workshop, so lead time follows the process route.",
+      alt: zh ? "车间内多台定制真空腔体同时制作" : "Several custom vacuum chambers being built at the same time in the workshop",
+    },
+  ];
+
   return (
     <div className="growth-page profile-page">
       <SeoLinks path="company-profile" locale={loc} />
@@ -121,6 +191,30 @@ export default async function Profile({ params }: { params: Promise<{ locale: st
               </div>
             ))}
           </dl>
+        </div>
+      </section>
+
+      <section className="growth-section" id="equipment">
+        <div className="container">
+          <h2>{zh ? "设备与检验现场" : "Equipment and inspection on site"}</h2>
+          <p className="sub">
+            {zh
+              ? "以下为在役设备与检验工序的现场记录，设备范围以工厂台账为准。"
+              : "In-service equipment and inspection steps at the plant; the equipment scope follows the plant ledger."}
+          </p>
+          <div className="grid">
+            {equipment.map((item) => (
+              <article className="card" key={item.img}>
+                <div className="card-img">
+                  <img src={item.img} alt={item.alt} width={1200} height={825} loading="lazy" />
+                </div>
+                <div className="card-body">
+                  <h3>{item.t}</h3>
+                  <p>{item.x}</p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 

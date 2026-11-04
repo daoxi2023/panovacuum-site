@@ -41,6 +41,9 @@ const content = {
     cases: [
       { tag: "Heavy chamber", t: "Multi-ton 304L vacuum chamber", x: "304L stainless, a few tons for a single piece. 30 kW laser blanking, 400 t press brake forming, helium test down to the 1×10⁻⁹ Pa·m³/s order, lifted and turned under the 50 t crane. Records ship with it.", img: "/photos/custom-vacuum-chamber-finished-304l-720w.webp" },
       { tag: "Welding & leak test", t: "Vacuum-tight welding, verified per chamber", x: "TIG and automated welding across 40-plus stations in a clean bay. Every unit is helium tested; none are sampled.", img: "/photos/helium-leak-test-ul1000-vacuum-chamber-720w.webp" },
+      { tag: "Packing & dispatch", t: "Export packing and dispatch", x: "Chambers are crated to the export packing requirement with flange faces protected and the crate strapped; the packing list and inspection records travel with the crate.", img: "/photos/packing-export-wooden-crate-1200w.webp" },
+      { tag: "Loading", t: "Container loading at the plant", x: "Crated chambers are loaded at the factory dock using our own crane and forklift; loading photographs are kept with the shipment file.", img: "/photos/loading-truck-chamber-shipment-1200w.webp" },
+      { tag: "Custom geometry", t: "Square and rectangular chambers", x: "Door frames, hinged doors and port layouts are built from 304L sheet and tested per unit; geometry follows the drawing rather than a standard catalogue.", img: "/photos/case-custom-square-chamber-1200w.webp" },
     ],
   },
   zh: {
@@ -53,6 +56,9 @@ const content = {
     cases: [
       { tag: "重型腔体", t: "数吨级 304L 真空腔体", x: "304L 不锈钢、单件数吨级：3 万瓦激光下料、400 吨·6.2 米折弯成形、氦质谱检漏至 1×10⁻⁹ Pa·m³/s 量级、50 吨行车整体总装与翻转；检验报告随货交付。", img: "/photos/custom-vacuum-chamber-finished-304l-720w.webp" },
       { tag: "焊接与检漏", t: "真空密封焊接，逐台验证", x: "40+ 工位 TIG 与自动化焊接，受控洁净焊接环境；氦质谱检漏逐台验证而非抽检。", img: "/photos/helium-leak-test-ul1000-vacuum-chamber-720w.webp" },
+      { tag: "包装与发运", t: "出口包装与发运", x: "按出口包装要求装箱，法兰密封面加保护、木箱整体打包；包装清单与检验记录随箱发运。", img: "/photos/packing-export-wooden-crate-1200w.webp" },
+      { tag: "装柜", t: "厂内装柜", x: "在厂内装车区用自有行车与叉车装柜，装柜照片随发货档案留存。", img: "/photos/loading-truck-chamber-shipment-1200w.webp" },
+      { tag: "异形腔体", t: "方形与矩形腔体", x: "门框、铰链门与接口布置按图纸用 304L 板材制作，逐台检测；结构按图，不套用标准目录。", img: "/photos/case-custom-square-chamber-1200w.webp" },
     ],
   },
 };

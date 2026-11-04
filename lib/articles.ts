@@ -91,7 +91,7 @@ export const articles: Article[] = [
     tags: ["询价", "图纸评审", "流程"],
     date: "2026-10-27",
     author: { nameZh: "周先生", nameEn: "Mr. Zhou", roleZh: "商务与销售", roleEn: "Sales & BD", email: "zhouyou@panovacuum.com" },
-    cover: "/photos/vacuum-chamber-quotation-drawing-640w.webp",
+    cover: "/photos/vacuum-chamber-drawing-review-desk-720w.webp",
     zh: {
       title: "真空腔体怎么询价：一张图纸就够了",
       intro: "请先概述需求，再邮件发送 PDF、DWG 或 STEP 图纸。48 小时内初步答复；资料完整并完成图纸评审后提供制造建议、报价与交期。",
@@ -123,7 +123,7 @@ export const articles: Article[] = [
     ],
     date: "2026-11-01",
     author: { nameZh: "帕诺工艺团队", nameEn: "PANO Process Team", roleZh: "工艺与质量", roleEn: "Process & Quality", email: "zhouyou@panovacuum.com" },
-    cover: "/photos/helium-leak-test-ul1000-vacuum-chamber-720w.webp",
+    cover: "/photos/blog-helium-leak-test-vs-pressure-rise-720w.webp",
     zh: {
       title: "氦检和压降法，差的不是精度，是五个数量级",
       intro:
@@ -171,7 +171,7 @@ export const articles: Article[] = [
     ],
     date: "2026-11-01",
     author: { nameZh: "帕诺工艺团队", nameEn: "PANO Process Team", roleZh: "工艺与质量", roleEn: "Process & Quality", email: "zhouyou@panovacuum.com" },
-    cover: "/photos/custom-vacuum-chamber-finished-304l-720w.webp",
+    cover: "/photos/blog-vacuum-furnace-structure-design-720w.webp",
     zh: {
       title: "真空炉不是「抽真空的加热罐」：结构设计的五个决定",
       intro:
@@ -219,7 +219,7 @@ export const articles: Article[] = [
     ],
     date: "2026-11-01",
     author: { nameZh: "帕诺工艺团队", nameEn: "PANO Process Team", roleZh: "工艺与质量", roleEn: "Process & Quality", email: "zhouyou@panovacuum.com" },
-    cover: "/photos/custom-vacuum-chamber-304l-stainless-1200w.webp",
+    cover: "/photos/blog-coating-chamber-cleaning-particle-control-720w.webp",
     zh: {
       title: "镀膜腔体洗得再干净，为什么还是抽不下去",
       intro:
