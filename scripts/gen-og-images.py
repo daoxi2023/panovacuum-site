@@ -84,6 +84,13 @@ RECIPES: dict[str, tuple[str, float, float, float, float]] = {
     "manufacturing-vacuum-tight-welding": (S_WELD, 1.10, 0.50, 0.45, 1.00),
     # 产品总览：数吨级卧式腔体（真图），取整机轮廓
     "products": (S_MULTI, 1.00, 0.50, 0.48, 1.00),
+    # 六族详情页 OG：全部用真图（AI 占位图不进 OG）
+    "product-cylindrical-vacuum-chambers": (S_CUSTOM, 1.00, 0.50, 0.50, 1.05),
+    "product-rectangular-vacuum-chambers": (S_SHOP1440, 1.10, 0.42, 0.55, 1.08),
+    "product-large-horizontal-chambers": (S_MULTI, 1.05, 0.50, 0.45, 1.00),
+    "product-vacuum-furnace-chambers": (S_WELD, 1.00, 0.50, 0.50, 1.00),
+    "product-coating-process-chambers": (S_SHOP1280, 1.12, 0.55, 0.48, 1.08),
+    "product-flange-feedthrough-components": (S_PARTS, 1.00, 0.50, 0.45, 1.00),
 }
 
 

@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { articles } from "../lib/articles";
 import { manufacturingServices } from "../lib/manufacturing";
 import { blogTopics } from "../lib/blog-topics";
+import { productFamilies } from "../lib/products";
 import { SITE_BASE } from "@/lib/site-base";
 
 export const dynamic = "force-static";
@@ -26,6 +27,7 @@ const entries: { path: string; priority: number; lastModified?: string }[] = [
       .at(-1),
   })),
   ...manufacturingServices.map(({ slug }) => ({ path: `manufacturing/${slug}`, priority: 0.8 })),
+  ...productFamilies.map(({ slug }) => ({ path: `products/${slug}`, priority: 0.78 })),
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

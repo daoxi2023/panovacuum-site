@@ -21,6 +21,7 @@ const header = `# PANO Vacuum — Custom Vacuum Chambers & Precision Manufacturi
 - 新闻资讯 (ZH): /zh/blog/
 - Products (EN): /en/products/
 - 产品 (ZH): /zh/products/
+- Product families (EN): /en/products/ · cylindrical, rectangular, large-horizontal, vacuum-furnace, coating-process, flange-feedthrough
 - Case Examples (EN): /en/case-studies/
 - 案例与能力示例 (ZH): /zh/case-studies/
 

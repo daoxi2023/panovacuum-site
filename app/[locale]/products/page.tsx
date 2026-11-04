@@ -39,7 +39,7 @@ const content = {
     title: "Six families of vacuum chambers and components, built to drawing",
     intro:
       "These are the six families we build most often and get asked about first during drawing review. Each entry states only what we can confirm: material, forming, interfaces and how it is tested. Geometry, dimensions and tolerances are settled from your drawing.",
-    more: "Enquire about this family",
+    detail: "See this family in detail",
     note: "This page describes the range we can build, not a catalogue of models. PANO builds to drawing and does not sell standard chambers or complete systems, and we do not quote a base pressure for a chamber on its own — that depends on the pump set, seals and process, and is agreed per project.",
     howTitle: "From drawing to dispatch",
     howSub: "Most enquiries move through four steps. The first one costs nothing and usually decides whether the rest is worth doing.",
@@ -69,7 +69,7 @@ const content = {
     title: "六类真空腔体与组件，按图定制",
     intro:
       "以下六类是我们做得多、图纸评审时最常被先问到的。每条只写能确认的范围：材料、成形方式、接口与检验口径。具体结构、尺寸和公差，按你提供的图纸评审确认。",
-    more: "按这类询价",
+    detail: "看这一族的细节",
     note: "本页写的是我们能做的范围，不是标准型号或目录产品。帕诺按图纸定制，不做目录化整机，也不单独承诺一台腔体能抽到多少真空度——那取决于泵组、密封与工艺，需要在项目里约定。",
     howTitle: "从图纸到发运，四步",
     howSub: "多数询价走这四步。第一步不收费，通常也决定后面值不值得做。",
@@ -137,19 +137,21 @@ export default async function Products({ params }: { params: Promise<{ locale: s
               const c = f[zh ? "zh" : "en"];
               return (
                 <article className="card product-card" key={f.slug}>
-                  <div className="card-img">
+                  <Link className="card-img" href={`/${locale}/products/${f.slug}/`} aria-label={c.name}>
                     <img src={f.image} alt={c.alt} width={f.iw} height={f.ih} loading="lazy" />
-                  </div>
+                  </Link>
                   <div className="card-body">
-                    <h3>{c.name}</h3>
+                    <h3>
+                      <Link href={`/${locale}/products/${f.slug}/`}>{c.name}</Link>
+                    </h3>
                     <p className="product-tagline">{c.tagline}</p>
                     <ul className="product-points">
                       {c.points.map((p) => (
                         <li key={p}>{p}</li>
                       ))}
                     </ul>
-                    <Link href={zh ? "/zh/request-a-quote/" : "/en/request-a-quote/"} className="product-more">
-                      {t.more} →
+                    <Link href={`/${locale}/products/${f.slug}/`} className="product-more">
+                      {t.detail} →
                     </Link>
                   </div>
                 </article>

@@ -104,6 +104,10 @@ export default async function CaseStudies({ params }: { params: Promise<{ locale
             ))}
           </div>
           <p className="case-note">{t.note}</p>
+          <p className="case-note">
+            <Link href={zh ? "/zh/products/" : "/en/products/"}>{zh ? "按产品族看六类腔体与组件" : "Browse the six product families"}</Link>
+            {zh ? "——总览页写的是可做范围，案例页写的是实际怎么走完流程。" : " — the overview states the range we build, the examples show how a chamber runs through the process."}
+          </p>
           <p style={{ marginTop: 28 }}>
             <Link href={zh ? "/zh/request-a-quote/" : "/en/request-a-quote/"} className="cta">{t.cta}</Link>
             <Link href={`/${locale}/`} className="cta secondary">{t.back}</Link>

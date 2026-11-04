@@ -349,6 +349,7 @@ export default async function Home({ params }: { params: Promise<{ locale: strin
             <Link href={`/${loc}/manufacturing/custom-vacuum-chambers/`}>{loc === "zh" ? "定制真空腔体" : "Custom vacuum chambers"}</Link>
             <Link href={`/${loc}/manufacturing/precision-components/`}>{loc === "zh" ? "精密加工零件" : "Precision components"}</Link>
             <Link href={`/${loc}/manufacturing/vacuum-tight-welding/`}>{loc === "zh" ? "真空密封焊接" : "Vacuum-tight welding"}</Link>
+            <Link href={`/${loc}/products/`}>{loc === "zh" ? "按产品族看六类腔体" : "Six product families"}</Link>
           </div>
         </div>
       </section>
