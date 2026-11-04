@@ -46,6 +46,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   // Google GA4 / Clarity are unreachable (and add latency) for the China entry;
   // keep them only on the overseas origin.
   const analyticsEnabled = !SITE_BASE.includes("panovacuum.cn");
+  // 百度统计只挂 .cn（大陆访问）；.com 走 GA4 + Clarity。
+  const baiduTongjiEnabled = SITE_BASE.includes("panovacuum.cn");
   const orgJsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
@@ -92,6 +94,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             __html: `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window, document, "clarity", "script", "${siteConfig.clarityProjectId}");`,
           }}
         />
+        ) : null}
+        {baiduTongjiEnabled ? (
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "https://hm.baidu.com/hm.js?582a1da4bcbe6eb3c0e6d352ba5172ff";var s = document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm, s);})();`,
+            }}
+          />
         ) : null}
       </head>
       <body>{children}<WhatsAppFloat /></body>

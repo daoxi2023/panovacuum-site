@@ -52,7 +52,7 @@ export default async function Privacy({ params }: { params: Promise<{ locale: st
           "Cookie 与统计工具",
           analyticsOn
             ? "国际版（panovacuum.com）使用 Google Analytics 4 与 Microsoft Clarity 了解访问情况与页面使用体验。两者会写入 Cookie 并记录页面点击、滚动等行为，表单及回执区域已做遮罩处理，姓名、邮箱、正文内容不会被记录为行为事件。"
-            : "中国大陆版本（panovacuum.cn）不加载 Google Analytics、Microsoft Clarity 等第三方统计脚本，也不写入统计类 Cookie。本站在此版本下只保留运行所必需的会话与安全防护信息。",
+            : "中国大陆版本（panovacuum.cn）不加载 Google Analytics 与 Microsoft Clarity，仅使用百度统计记录页面路径、来源链接、设备类型与地区汇总，用于了解访问量与内容阅读情况；不写入广告标识，表单及回执区域不做记录。",
           "您可以通过浏览器设置拒绝或清除 Cookie。拒绝后页面浏览不受影响，但部分表单安全校验可能需要重新加载页面。",
         ],
         [
@@ -107,7 +107,7 @@ export default async function Privacy({ params }: { params: Promise<{ locale: st
           "Cookies and analytics",
           analyticsOn
             ? "The international site (panovacuum.com) uses Google Analytics 4 and Microsoft Clarity to understand traffic and page experience. Both set cookies and record page interactions such as clicks and scrolling. Form and confirmation areas are masked, so names, email addresses and message text are not recorded as behaviour events."
-            : "The mainland China build (panovacuum.cn) does not load Google Analytics, Microsoft Clarity or other third-party analytics scripts, and sets no analytics cookies. Only session and security information needed to run the site is kept.",
+            : "The mainland China build (panovacuum.cn) does not load Google Analytics or Microsoft Clarity. It loads Baidu Tongji (百度统计), a mainland-based visit counter that records page path, referrer, device type and an aggregated region. It is used only to count visits and see which pages are read; it sets no advertising identifiers, and form and confirmation areas are never captured.",
           "You can refuse or clear cookies in your browser settings. Refusing them does not block browsing, though a form security check may require a page reload.",
         ],
         [
