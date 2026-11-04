@@ -9,7 +9,7 @@
     "start": "next start -p 3000",
     "typecheck": "tsc --noEmit",
     "cf:deploy": "wrangler pages deploy out/ --project-name pano-vacuum",
-    "build:cn": "node scripts/check-css-compat.mjs && export SITE_BASE_URL=https://panovacuum.cn && next build && node scripts/normalize-hreflang.mjs && node scripts/finalize-domain.mjs && node scripts/gen-llms.mjs && node scripts/gen-rss.mjs",
+    "build:cn": "node scripts/check-css-compat.mjs && export SITE_BASE_URL=https://panovacuum.cn SITE_ICP=苏ICP备2026085633号 && next build && node scripts/normalize-hreflang.mjs && node scripts/finalize-domain.mjs && node scripts/gen-llms.mjs && node scripts/gen-rss.mjs",
     "feed": "node scripts/gen-llms.mjs && node scripts/gen-rss.mjs",
     "ship": "bash scripts/ship.sh",
     "verify": "node scripts/verify-out.mjs"
