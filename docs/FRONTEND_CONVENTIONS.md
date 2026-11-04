@@ -48,6 +48,10 @@
 
 1. `pnpm build`（.com）或 `pnpm build:cn`（.cn，会注入 `SITE_BASE_URL=https://panovacuum.cn`）。
 2. **先快照产物再部署**：`cp -R out /tmp/out-com`（并发会话可能重跑构建覆盖 `out/`，用快照部署可避免把 .cn 的 canonical 发到 .com）。
-3. `set -a; source ~/.secrets/cf.env; set +a` 后
-   `DIR=/tmp/out-com node scripts/deploy.pages.mjs`（.cn 加 `PROJECT=panovacuum-cn`）。
-4. 部署后必须核对：线上 HTML 的 canonical 域名、`/_next/static/css/*` 里新规则是否生效、`curl` 各主要路径 200。
+3. `.com`：`set -a; source ~/.secrets/cf.env; set +a` 后 `DIR=/tmp/out-com node scripts/deploy.pages.mjs`（Cloudflare Pages，项目 `pano-vacuum`）。
+4. `.cn`：**主域名不在 Cloudflare**，DNS 在新网、A 记录指向腾讯云 VPS（`123.207.178.99`，nginx 静态目录 `/var/www/panovacuum.cn/html`）。
+   `DIR=/tmp/out-cn bash scripts/deploy.cn-server.sh`（脚本内含服务器端 `html.bak-<时间戳>` 备份、rsync `--delete`、线上字节哈希抽验）。
+   `PROJECT=panovacuum-cn node scripts/deploy.pages.mjs` 只更新 pages.dev 预览，不会到 `panovacuum.cn`，别把它当发布。
+   服务器上 `/blog/` 是独立 WordPress（`/var/www/panovacuum-blog`），本仓库不管它。
+5. 部署后必须核对：线上 HTML 的 canonical 域名、`/_next/static/css/*` 里新规则是否生效、`curl` 各主要路径 200、
+   新图片字节哈希与 `public/photos/` 一致（CF Pages 与 nginx 都可能有缓存）。
