@@ -12,3 +12,7 @@ next-env.d.ts
 .pano-platform.local.json
 docs/growth/
 private/
+
+# Python 脚本缓存
+__pycache__/
+*.pyc

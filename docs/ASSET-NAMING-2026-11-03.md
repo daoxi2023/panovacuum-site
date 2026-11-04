@@ -45,11 +45,11 @@
 | P0 | `/photos/feedthrough-044.webp` | `/photos/uhv-feedthrough-flange-assembly-1600w.webp` | app/[locale]/page.tsx | 超高真空法兰组件。⚠ 另需核实版权来源（疑似渲染图/图库图），用在「我们工厂」版块有风险。 |
 | P0 | `/photos/cap-cmm.webp` | `/photos/cmm-inspection-vacuum-component-720w.webp` | app/[locale]/page.tsx · lib/manufacturing.ts | cap = capability 的缩写，对外无意义，且与 news 系列一样是内部代号。 |
 | P0 | `/photos/cap-chamber.webp` | `/photos/custom-vacuum-chamber-finished-304l-720w.webp` | app/[locale]/page.tsx · app/[locale]/case-studies/page.tsx · lib/articles.ts · lib/manufacturing.ts | 复用最广的一张（12 个页面），改名收益最大。 |
-| P0 | `/photos/cap-clean.webp` | `/photos/surface-finishing-clean-welding-bay-720w.webp` | app/[locale]/page.tsx · lib/articles.ts | 洁净焊接环境。注意合规红线：文案不得写「ISO Class 洁净室」。 |
+| P0 | `/photos/cap-clean.webp` | `/photos/surface-finishing-clean-welding-bay-720w.webp` | app/[locale]/page.tsx · lib/articles.ts | 洁净焊接环境。注意合规红线：文案不得写「ISO Class 洁净室」。**⚠ 视觉复核发现实际画面是「真空检漏室」的门 + 中文标牌（见「视觉复核」节），文件名与内容不符，待换图后重命名。** |
 | P0 | `/photos/cap-leak.webp` | `/photos/helium-leak-test-ul1000-vacuum-chamber-720w.webp` | app/[locale]/page.tsx · app/[locale]/case-studies/page.tsx · lib/articles.ts | 氦质谱检漏。UL1000 是真实设备型号，可以写进文件名（有实物证据）。 |
 | P0 | `/photos/news-1.webp` | `/photos/vacuum-chamber-7-inspection-gates-640w.webp` | lib/articles.ts | news-1 与文章 slug 无关。改成与文章 slug 同义，图文实体一致。 |
 | P0 | `/photos/news-2.webp` | `/photos/vacuum-chamber-material-304l-or-316l-640w.webp` | lib/articles.ts | 同上。 |
-| P0 | `/photos/news-3.webp` | `/photos/vacuum-chamber-quotation-drawing-640w.webp` | lib/articles.ts | 同上。 |
+| P0 | `/photos/news-3.webp` | `/photos/vacuum-chamber-quotation-drawing-640w.webp` | lib/articles.ts | 同上。**⚠ 视觉复核发现实际画面是车间腔体设备、画面里没有图纸，文件名与内容不符，待换图后重命名。** |
 | P0 | `/video/hero-loop-1920.mp4` | `/video/vacuum-chamber-manufacturing-loop-1920x1080.mp4` | app/[locale]/page.tsx (hero <source> ×2) | 视频文件名要能被 AI/搜索当成「内容」读到，而不是 hero-loop-1920 这种占位名。 |
 | P0 | `/video/hero-loop-1280.mp4` | `/video/vacuum-chamber-manufacturing-loop-1280x720.mp4` | app/[locale]/page.tsx (hero <source> media=max-width:900px) | 与上图共用主干，只改分辨率段。 |
 | P1 | `/photos/partners/cetc.webp` | `/photos/partners/partner-logo-cetc.webp` | app/components/partner-grid.tsx (模板字符串，改 1 处即可) | 15 家 logo 统一加 partner-logo- 前缀。作用：告诉爬虫这是「合作方品牌标识」而不是产品图，避免它们被当正文图片收录；批量处理也更容易。 |
@@ -317,9 +317,11 @@ commit：`8b23c66`（改名主体）、`917f486`（已下线素材 301）
 | 默认图换掉 | 原 `pano-vacuum-og-default`（白底压字卡，9752 B）→ 压暗厂内实拍 + 白色品牌字标（61962 B），**语言中立**，中英文站共用不再出现"英文站显示中文图" |
 | 缓存 | `public/_headers` 增 `/pano-vacuum-og-*.webp` → `public, max-age=604800, stale-while-revalidate=2592000`（7 天 + 30 天 SWR；比 `/photos/*` 短，因为换分享图后旧卡片留在 CDN 上很难看） |
 
-### 裁切配方（只有 6 张合格源图，靠取景区分 18 张卡）
+### 裁切配方（6 张合格源图 × 不同取景 = 18 张卡；生成脚本 `scripts/gen-og-images.py`）
 
 `public/photos/` 里 ≥1200px 且**无版权疑虑**的实拍只有 6 张：`vacuum-chamber-workshop-changshu-1440w`、`vacuum-chamber-workshop-changshu-1280w`、`multi-ton-304l-vacuum-chamber-1600w`、`tig-welding-station-vacuum-chamber-1600w`、`vacuum-chamber-workshop-components-1600w`、`custom-vacuum-chamber-304l-stainless-1200w`。
+
+另有 1 张 720 宽的氦检仪实拍（`helium-leak-test-ul1000-vacuum-chamber-720w`）会被放大使用。**经视觉复核（见下节），`surface-finishing-clean-welding-bay-720w`（实拍是「真空检漏室」门 + 标牌）和 `vacuum-chamber-quotation-drawing-640w`（实拍里没有图纸）两张文件名与内容不符，不参与分享图。**
 
 一对一直裁会产出**完全相同**的文件——首版就是这样：18 个文件、只有 5 种画面，不同页面分享出去卡片长得一样。改为「同一源图 × 不同取景」：`z` 是缩放（1.0 最广 → 1.8 最近），`fx`/`fy` 是裁切框在源图内的横向/纵向落点。
 
@@ -332,28 +334,30 @@ top  = round((H - ch) * fy)
 im.crop((left, top, left+round(cw), top+round(ch))).resize((1200, 630), Image.LANCZOS)
 ```
 
-| 分享图 | 源图 | z | fx | fy |
-|---|---|---|---|---|
-| blog | workshop-1440 | 1.00 | .50 | .50 |
-| blog-topic-leak-testing | multi-ton | 1.00 | .50 | .50 |
-| blog-topic-design-materials | 304l-stainless | 1.00 | .50 | .50 |
-| blog-topic-clean-particle | tig-welding | 1.00 | .50 | .50 |
-| blog-topic-quote-delivery | components | 1.00 | .50 | .50 |
-| article-7-inspection-gates | workshop-1440 | 1.80 | .40 | .62 |
-| article-material-304l-316l | 304l-stainless | 1.35 | .50 | .18 |
-| article-quote-with-drawing | multi-ton | 1.35 | .50 | .18 |
-| article-helium-leak-test | tig-welding | 1.35 | .50 | .18 |
-| article-vacuum-furnace-design | multi-ton | 1.80 | .35 | .80 |
-| article-coating-chamber-cleaning | workshop-1280 | 1.35 | .50 | .18 |
-| about | workshop-1280 | 1.80 | .45 | .75 |
-| company-profile | workshop-1280 | 1.00 | .50 | .50 |
-| quote | workshop-1440 | 1.35 | .50 | .18 |
-| manufacturing-custom-vacuum-chambers | components | 1.35 | .50 | .18 |
-| manufacturing-precision-components | 304l-stainless | 1.80 | .35 | .80 |
-| manufacturing-vacuum-tight-welding | tig-welding | 1.80 | .35 | .80 |
-| default | multi-ton（压暗 0.52 + 降饱和 0.85 + 白色字标 640px 宽居中） | — | — | — |
+| 分享图 | 源图 | z | fx | fy | 增益 |
+|---|---|---|---|---|---|
+| default | multi-ton（压暗 0.52 + 降饱和 0.85 + 白色字标 640px 宽居中） | — | — | — | — |
+| about | workshop-1440 | 1.00 | 0.50 | 0.50 | 1.10 |
+| company-profile | workshop-1280 | 1.00 | 0.50 | 0.50 | 1.00 |
+| quote | workshop-1280 | 1.08 | 0.42 | 0.55 | 1.00 |
+| blog | tig-welding | 1.00 | 0.50 | 0.50 | 1.00 |
+| blog-topic-leak-testing | helium（INFICON 检漏仪） | 1.00 | 0.50 | 0.50 | 1.00 |
+| article-helium-leak-test | helium（同上，更近的取景） | 1.12 | 0.45 | 0.55 | 1.00 |
+| blog-topic-clean-particle | tig-welding（受控焊接工位） | 1.18 | 0.42 | 0.50 | 1.00 |
+| blog-topic-quote-delivery | workshop-1280 | 1.08 | 0.55 | 0.45 | 1.00 |
+| article-quote-with-drawing | workshop-1440 | 1.18 | 0.60 | 0.45 | 1.10 |
+| blog-topic-design-materials | multi-ton | 1.00 | 0.50 | 0.45 | 1.00 |
+| article-material-304l-316l | multi-ton | 1.10 | 0.50 | 0.40 | 1.00 |
+| article-7-inspection-gates | 304l-stainless | 1.00 | 0.50 | 0.50 | 1.10 |
+| article-coating-chamber-cleaning | 304l-stainless | 1.08 | 0.55 | 0.50 | 1.10 |
+| article-vacuum-furnace-design | components | 1.00 | 0.50 | 0.42 | 1.00 |
+| manufacturing-precision-components | components | 1.10 | 0.50 | 0.45 | 1.00 |
+| manufacturing-custom-vacuum-chambers | workshop-1440 | 1.08 | 0.45 | 0.50 | 1.10 |
+| manufacturing-vacuum-tight-welding | tig-welding | 1.10 | 0.50 | 0.45 | 1.00 |
 
-结果：**18 个文件 sha256 全不重复**，均为 1200×630，亮度落在 77–157（无过暗/过曝）。
+`gain` 是 resize 之后的亮度增益（`ImageEnhance.Brightness`），个别偏暗的源图提亮 1.10；放大超过 1.05 倍时补一道 `UnsharpMask(radius=0.8, percent=70, threshold=3)`。改配方直接跑 `python3 scripts/gen-og-images.py`（全部）或 `python3 scripts/gen-og-images.py og-about og-quote`（按 key 选择性重出）。
+
+结果：**18 个文件 sha256 全不重复**，均为 1200×630，亮度落在 77–147（无过暗/过曝）。
 
 ### 18 张文件与用途
 
@@ -380,6 +384,59 @@ im.crop((left, top, left+round(cw), top+round(ch))).resize((1200, 630), Image.LA
 
 > 命名口径调整：专题图由 `og-topic-*` 改为 `og-blog-topic-*`，与文章页 `og-article-*` 对齐，路径前缀统一为页面类型。
 
+### 视觉复核（借 X99 的显卡，让视觉模型真的「看」了 18 张）
+
+做这套图的模型本身没有图像输入，第一版完全是按尺寸/亮度/哈希这类程序化指标验的，等于**盲裁**。后来接上 X99 主机（双卡 RX 7900 XTX）上一个 Qwen 视觉推理端点，才第一次真正看到画面内容，结论如下。
+
+**通道与调用**
+
+```bash
+# X99 上跑着的 OpenAI 兼容端点（本机 100.106.75.99：Tailscale）
+POST http://100.106.75.99:8082/v1/chat/completions
+     Authorization: Bearer $X99_STRATA_API_KEY     # 在 ~/.hermes/.env
+     model: qwen3.8-flash-next-iq3_xxs
+     chat_template_kwargs: {"enable_thinking": false}   # 必须，否则 content 为空、只有半截 reasoning_content
+```
+
+- 送图前先缩到 **768 宽**：服务端会把图归一成固定 token 数（`prompt_tokens` 恒为 308），送 1200 宽只是白等 3 倍时间。
+- 单张 7–160 秒（与服务端其它负载抢 GPU 时最慢），一轮 18 张 10–15 分钟，得后台跑。
+
+**它能干什么、不能干什么**（重要，别被它的措辞带跑）
+
+| 能力 | 实测 |
+|---|---|
+| 认主体 ✅ | 准确认出 INFICON UL1000 检漏仪、球形真空腔体、白色「帕诺真空」字标、门上的中英文标牌 |
+| 判「完整度/方向」 ❌ | 对一张只裁了高度的满宽图说「右侧被切掉」；对同一张横构图源图先说「旋转了 90 度」，裁成 1200×630 后又改口「正立」，依据是"厂房立柱呈水平方向延伸" |
+| 转写小字 ⚠️ | 标题级大字（真空检漏室 / VACUUM LEAK DETECTION ROOM）两次一致；标牌下的小字人名两次完全不同，**不可信** |
+
+所以只采信它「画面里是什么、主体是否切题、有没有尴尬内容」的判断，**不采信它的裁切建议**。
+
+**复核发现：两张图和文件名对不上**
+
+| 文件 | 名字暗示 | 实际画面 | 波及 |
+|---|---|---|---|
+| `photos/vacuum-chamber-quotation-drawing-640w.webp`（原 `news-3.webp`） | 一张图纸 | 车间里一台不锈钢腔体（带蓝色保护胶带），**没有任何图纸** | 文章《带图纸询价怎么说清》的正文封面；分享图已改用车间实拍 |
+| `photos/surface-finishing-clean-welding-bay-720w.webp`（原 `cap-clean.webp`） | 表面处理 / 洁净焊区 | 一扇白门 + 标牌「真空检漏室 / VACUUM LEAK DETECTION ROOM」，画面里**没人做表面处理** | 首页「表面处理与清洗」卡片 + 洁净颗粒文章封面；分享图已改用焊接工位实拍 |
+
+两张都是当初改名时**按用途猜内容**（没有图像输入）导致的。另外：检漏室那张门上标牌下方还有几行小字，两次转写结果互相矛盾（一次读成"徐锋/朱秋明/质控部·八院"、一次读成"徐敏/朱延安/黄义虎·占斌"），分辨率不足以确认——**但"门牌上可能印着姓名"这件事本身值得人工核一眼**，涉及隐私与客户信息（"八院"若属实即外部单位名）。
+
+**打分（同一提示词，重出前后）**
+
+| 分享图 | 旧取景 | 新取景 | 说明 |
+|---|---|---|---|
+| about | 2 | **5** | 旧图太微观认不出工厂；新图「大型不锈钢工业容器端面，切题」 |
+| blog | 2 | **5** | 旧图只有一块金属，太单一 |
+| article-7-inspection-gates | 4 | **5** | |
+| manufacturing-vacuum-tight-welding | 3 | 完整体 | 焊道主体完整、有工位层次 |
+| blog-topic-leak-testing | 5 | 5 | 换成 INFICON 真机后主体更明确 |
+| article-helium-leak-test | 2 | 认出真机 | 旧图「无测试场景」，新图能看出是检漏仪 |
+| blog-topic-clean-particle | 1 | 4 | 旧图是取景过紧的部件 |
+| article-quote-with-drawing | 1 | 2 | 新图设备实拍，模型嫌"没图纸"——字面主义，不改 |
+| article-material-304l-316l / article-coating-chamber-cleaning | 3 | 1–2 | 同上，判词是"没体现清洁/颗粒"，属过度苛求 |
+| default | 4 | 3 | 模型嫌"明显偏暗"——那是品牌卡刻意压暗以便读白字标，不改 |
+
+底线：分享卡片用真实设备照是行业常规，剩下 3 张 1–2 分都是"不符合文章字面"式的苛求，不再为迎合它反复调参。
+
 ### 顺手修掉的两个隐性缺陷
 
 1. **`og:url` 张冠李戴**：原来自 `case-studies`、`industrial-partnerships`、`privacy`、`terms`、首页、404 这些页面不写 `openGraph`，整段继承 `app/[locale]/layout.tsx`，分享出去 `og:url` 指向首页。现在 `pageOg()` 按 `path + locale` 逐页生成，`og:url` 与 canonical 一致（实测 `.com` 与 `.cn` 各自指向自己域名）。
@@ -387,11 +444,15 @@ im.crop((left, top, left+round(cw), top+round(ch))).resize((1200, 630), Image.LA
 
 ### 实测（真发请求）
 
-- `.com` 线上 46 路由：**异常 0**；18 种分享图全部 `200`，缓存头 = `public, max-age=604800, stale-while-revalidate=2592000`，且**逐张 sha256 与 `out-com/` 一致（不一致 0 张）**
-- `.cn` 产物（经预览域 `849e1857.panovacuum-cn.pages.dev`）：18 张分享图全部 `200` 且字节与本地一致，`og:url`/canonical 均指向 `https://panovacuum.cn/...`
-- 构建产物本地审计：47 页 × (`og:image` + `og:url` + `og:type` + `twitter:image` + `og:image:width=1200`) 异常 **0**；`og:image` 指向的文件全部存在
-- `pnpm typecheck` / `pnpm build`（含 CSS 兼容闸）/ `pnpm verify`（47 页 · sitemap 44 · RSS 6）全绿
-- deployment：`.com` `85e70ab8-5b54-4dce-808b-7de2415b3199`、`.cn` `849e1857-4e6d-4ab4-87f4-8a343b17c25d`，均 `STATUS: success`（中间一版 `5a8899b5` / `7c6f722e` 是修掉「18 个文件只有 5 种画面」后的重新生成）
+以下数字是**视觉复核后重出 18 张**这一版的实测（2026-11-03 晚）：
+
+- `.com` 线上 47 个产物页 → 46 个可直取路由：`og:image` / `og:url` / `twitter:image` **异常 0**，域名全部 `https://panovacuum.com/`；唯一"失败"是 `/404.html` 返回 **308**（CF Pages 把 `/404.html` 308 到 `/404`，非故障）
+- `.cn`（经预览域 `https://68a5f646.panovacuum-cn.pages.dev` 验，页面内是绝对 `panovacuum.cn` URL）：同样 **46/47**，`og:url` / canonical 均指向 `https://panovacuum.cn/...`
+- 18 张分享图：线上全部 `200`，缓存头 = `public, max-age=604800, stale-while-revalidate=2592000`，**逐张 sha256 与 `out-com/` 一致 18/18**（先 `purge_cache` 再验）
+- 构建产物本地审计：`.com` 47 页 × 5 个标签异常 **0**；`og:image` 指向的文件全部存在（`.cn` 产物 18 个引用全部命中）
+- `pnpm typecheck` / `pnpm build`（含 CSS 兼容闸）/ `pnpm build:cn` / `pnpm verify`（HTML 47 · sitemap 44 · RSS 6）全绿
+- deployment：`.com` `54eaf2c2-16c8-49b3-aaca-840d21ae641c`、`.cn` `68a5f646-ab86-484b-8910-17d2294aefac`，均 `STATUS: success`
+- 用 `og-default` 的 13 个页面：`404.html`、`404/index.html`、`index.html`、`en|zh` 的 `case-studies` / `index`（首页）/ `industrial-partnerships` / `privacy` / `terms` —— 它们没有专属图，只修了 `og:url`
 
 ### ⚠ 踩坑：换图后 CDN 还在发旧字节
 
@@ -407,5 +468,9 @@ im.crop((left, top, left+round(cw), top+round(ch))).resize((1200, 630), Image.LA
 - **服务页正文图 3 张**：`photos/service-custom-vacuum-chambers-workshop-1200w.webp`、`photos/service-precision-components-cmm-inspection-1200w.webp`、`photos/service-vacuum-tight-welding-tig-1200w.webp`
 - **文章专属封面 3 张**：`photos/blog-helium-leak-test-vs-pressure-rise-1200w.webp`、`photos/blog-vacuum-furnace-structure-design-1200w.webp`、`photos/blog-coating-chamber-cleaning-particle-control-1200w.webp`
 - **设备实拍 5 张**：3 万瓦激光、400 吨 · 6.2m 折弯、UL1000 氦检仪、50 吨行车、厂区外观
+- **两张「名字与内容不符」的实拍要换**（视觉复核查出来的）：
+  - `photos/surface-finishing-clean-welding-bay-720w.webp` 实际是「真空检漏室」门 + 中英文标牌（画面里没人做表面处理）；它现在挂在首页「表面处理与清洗」卡片和洁净颗粒文章封面上，且标牌是中文，会出现在英文页面
+  - `photos/vacuum-chamber-quotation-drawing-640w.webp` 实际是车间腔体设备（画面里没有图纸），现在是《带图纸询价》的正文封面
+  - 换图后按实际内容重命名（新文件名 + `_redirects` 补 301），别沿用现在的名字
 - **伙伴 logo @2x 15 张**（现约 380px，2 倍屏会糊）
 - `uhv-feedthrough-flange-assembly-1600w.webp` **版权来源待核实**，暂未用它做任何分享图
