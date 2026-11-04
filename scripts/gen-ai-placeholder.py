@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""批量生成占位图：22 项，1280x880，8 步 fp8 + CPU 文本编码。可断点续跑。"""
+"""批量生成占位图：24 项，1280x880，8 步 fp8 + CPU 文本编码。可断点续跑。"""
 import os, sys, time, json, urllib.request
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -59,6 +59,11 @@ ITEMS = [
   "an open rectangular vacuum coating chamber being wiped clean inside with a white lint free cloth by gloved hands, bright interior lighting, vacuum pumps at the rear, medium wide shot"),
  ("inspection-cleanliness-white-cloth-wipe",
   "a gloved hand wiping the inside surface of a stainless steel vacuum chamber with a white cleanroom cloth, residue visible on the cloth, bright inspection lamp, close shot"),
+ # 2026-11-04 追加：产品总览页两族（真空炉 / 镀膜工艺腔）
+ ("product-vacuum-furnace-chamber",
+  "a large cylindrical vacuum heat-treatment furnace chamber standing in an industrial workshop, its front door swung open to reveal graphite heating elements and layered insulation inside, stainless steel outer shell with cooling water pipes, a heavy hinged flange ring, workshop floor visible, wide documentary shot"),
+ ("product-coating-process-chamber",
+  "a rectangular stainless steel vacuum coating chamber standing on a factory floor, its front door closed with a round observation window and two blank CF feedthrough flanges, side ports fitted with blank blind flange covers and bolt circles, no cables and no pipes attached to the chamber, clean machined stainless steel surfaces with visible weld seams and stiffening ribs, workshop background slightly out of focus, wide three-quarter shot"),
 ]
 
 def free_and_wait(vram_wait=20):

@@ -28,6 +28,7 @@ export const OG_BY_TOPIC: Record<string, string> = {
  */
 export const OG_BY_PAGE: Record<string, string> = {
   about: "pano-vacuum-og-about-1200x630.webp",
+  products: "pano-vacuum-og-products-1200x630.webp",
   "company-profile": "pano-vacuum-og-company-profile-1200x630.webp",
   "request-a-quote": "pano-vacuum-og-quote-1200x630.webp",
   "manufacturing/custom-vacuum-chambers": "pano-vacuum-og-manufacturing-custom-vacuum-chambers-1200x630.webp",

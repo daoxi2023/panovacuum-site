@@ -19,6 +19,8 @@ const header = `# PANO Vacuum — Custom Vacuum Chambers & Precision Manufacturi
 - 提交询价 (ZH): /zh/request-a-quote/
 - Blog index (EN): /en/blog/
 - 新闻资讯 (ZH): /zh/blog/
+- Products (EN): /en/products/
+- 产品 (ZH): /zh/products/
 - Case Examples (EN): /en/case-studies/
 - 案例与能力示例 (ZH): /zh/case-studies/
 

@@ -4,6 +4,9 @@ import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 
 const out = "out";
+// 站点根目录的第三方「所有权验证」文件（百度 / Google / Yandex 等）不是页面，
+// 不参与 canonical / title / sitemap 覆盖检查；它们只要求原样可访问。
+const VERIFY_FILE = /(^|\/)(baidu_verify_[^/]+\.html|google[0-9a-f]{16,}\.html|yandex_[^/]+\.html)$/;
 const problems = [];
 const notes = [];
 
@@ -36,6 +39,7 @@ let dupHreflang = 0;
 let missingTitle = 0;
 for (const f of htmlFiles) {
   if (/404(\.html|\/index\.html)$/.test(f)) continue; // 错误页不参与 canonical/title 检查
+  if (VERIFY_FILE.test(f)) continue; // 第三方所有权验证文件
   const html = readFileSync(f, "utf8");
   const canon = html.match(/<link[^>]+rel="canonical"/g) ?? [];
   if (canon.length === 0) missingCanonical++;
@@ -52,7 +56,7 @@ if (missingTitle) problems.push(`${missingTitle} 个页面缺 title`);
 const sitemap = readFileSync("out/sitemap.xml", "utf8");
 const urlCount = (sitemap.match(/<url>/g) ?? []).length;
 notes.push(`sitemap ${urlCount} 条`);
-const indexable = htmlFiles.filter((f) => !/404(\.html|\/index\.html)$/.test(f) && f !== "out/index.html").length;
+const indexable = htmlFiles.filter((f) => !/404(\.html|\/index\.html)$/.test(f) && f !== "out/index.html" && !VERIFY_FILE.test(f)).length;
 if (urlCount < indexable) problems.push(`sitemap 条目(${urlCount})少于可索引页面数(${indexable})，可能有页面未被收录`);
 if (!sitemap.includes('hreflang="x-default"')) problems.push("sitemap 缺 x-default alternates");
 

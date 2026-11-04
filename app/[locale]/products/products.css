@@ -1,0 +1,119 @@
+/* 产品总览页专用：卡片图比案例页更高（220px），并给三点技术说明和流程段排版。 */
+
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 26px;
+}
+
+.product-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card .card-img {
+  height: 220px;
+}
+
+.product-card .card-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.product-card h3 {
+  font-size: 20px;
+  margin: 0 0 8px;
+}
+
+.product-tagline {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--pano-neutral-600);
+}
+
+.product-points {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.product-points li {
+  position: relative;
+  padding-left: 16px;
+  line-height: 1.6;
+  color: var(--pano-neutral-600);
+}
+
+.product-points li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--pano-accent);
+}
+
+.product-more {
+  margin-top: auto;
+  padding-top: 16px;
+  font-size: 14.5px;
+  font-weight: 600;
+}
+
+.product-steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+  margin-top: 28px;
+}
+
+.product-step {
+  border-top: 2px solid var(--pano-line);
+  padding-top: 16px;
+}
+
+.product-step .step-no {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--pano-accent);
+  margin-bottom: 6px;
+}
+
+.product-step b {
+  display: block;
+  color: var(--pano-primary);
+  font-size: 16.5px;
+  margin-bottom: 6px;
+}
+
+.product-step p {
+  margin: 0;
+  font-size: 14.5px;
+  line-height: 1.65;
+  color: var(--pano-neutral-600);
+}
+
+.products-how .sub {
+  color: var(--pano-neutral-600);
+  max-width: 760px;
+}
+
+.products-note {
+  margin-top: 28px;
+  padding: 18px 20px;
+  background: var(--pano-bg-alt);
+  border-left: 3px solid var(--pano-accent);
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: var(--pano-neutral-600);
+  max-width: 860px;
+}

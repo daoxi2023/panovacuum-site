@@ -82,6 +82,8 @@ RECIPES: dict[str, tuple[str, float, float, float, float]] = {
     # 车间 + 焊接（S2/S3 的第二档取景）
     "manufacturing-custom-vacuum-chambers": (S_SHOP1440, 1.08, 0.45, 0.50, 1.10),
     "manufacturing-vacuum-tight-welding": (S_WELD, 1.10, 0.50, 0.45, 1.00),
+    # 产品总览：数吨级卧式腔体（真图），取整机轮廓
+    "products": (S_MULTI, 1.00, 0.50, 0.48, 1.00),
 }
 
 

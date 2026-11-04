@@ -11,7 +11,7 @@ const base = SITE_BASE;
 const primaryLocale = base.includes("panovacuum.cn") ? "zh" : "en";
 // 静态导出统一使用带尾斜杠的规范地址，避免 sitemap 每条都多跳一次 308。
 const pageUrl = (locale: string, p: string) => `${base}/${locale}${p ? `/${p}` : ""}/`;
-const pages = ["", "about", "request-a-quote", "blog", "case-studies", "industrial-partnerships", "company-profile", "privacy", "terms"] as const;
+const pages = ["", "products", "about", "request-a-quote", "blog", "case-studies", "industrial-partnerships", "company-profile", "privacy", "terms"] as const;
 
 const entries: { path: string; priority: number; lastModified?: string }[] = [
   ...pages.map((p) => ({ path: p, priority: p ? 0.9 : 1.0 })),
